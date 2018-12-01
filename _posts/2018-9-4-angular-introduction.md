@@ -3,7 +3,7 @@ layout: post
 title:  "[Angular Development with TypeScript] Angular 시작하기"
 date:   2018-09-04
 description: Angular Development with TypeScript 책 정리
-tags: [angular]
+tags: [angular, book]
 ---
 ### 프레임워크과 라이브러리
 **프레임워크**를 사용하면 프레임워크에서 제공하는 설계 구조를 사용하며 그 구조에 어울리는 방식으로 코드를 작성해야 한다.
