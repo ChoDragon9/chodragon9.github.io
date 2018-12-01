@@ -3,7 +3,7 @@ layout: post
 title:  "The Model-View-Controller (MVC ). Its Past and Present."
 date:   2018-11-30
 description: 2003.08.20에 작성된 MVC 논문
-tags: [thesis]
+tags: [thesis, pattern]
 ---
 #### 원본
 http://heim.ifi.uio.no/~trygver/2003/javazone-jaoo/MVC_pattern.pdf
