@@ -181,7 +181,8 @@ class LogDirective {
   }
 }
 ```
-```
+
+```html
 <input type="text" log-directive>
 ```
 
