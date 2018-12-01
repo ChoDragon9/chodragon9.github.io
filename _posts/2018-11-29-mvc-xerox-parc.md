@@ -46,35 +46,31 @@ MVC 문제는 내가 1979년에 깨달은 것보다 더 많은 측면을 가지�
 ## 과거 및 현재
 
 #### The Model-View-Controller (MVC ). Its Past and Present
-> JavaZONE, Oslo, 2003.
-
-> Handout with draft pattern language [PDF](http://heim.ifi.uio.no/~trygver/2003/javazone-jaoo/MVC_pattern.pdf)
+- JavaZONE, Oslo, 2003.
+- Handout with draft pattern language [PDF](http://heim.ifi.uio.no/~trygver/2003/javazone-jaoo/MVC_pattern.pdf)
 
 MVC는 1978년에 특정 문제에 대한 설계 솔루션으로 구상되었다. 최상위 목표는 관련 정보 공간에 대한 사용자의 멘탈모델을 지원하고 사용자가 이 정보를 검사하고 편집할 수 있도록 하는 것이었다. 첫 번째 부분에서는 원래 문제를 설명하고 선택한 솔루션에 대해 설명합니다. 두 번째 부분에서는 원래의 아이디어를 설명하고 현재의 당면 과제를 원래 목표까지 포함하도록 범위를 확장합니다. 그것은 모두 요약된 MVC 패턴 언어로 요약되어 있다.
 
 #### THING-MODEL-VIEW-EDITOR an Example from a planning system.
-> Xerox PARC technical note May 1979 [PDF](http://heim.ifi.uio.no/~trygver/1979/mvc-1/1979-05-MVC.pdf)
+- Xerox PARC technical note May 1979 [PDF](http://heim.ifi.uio.no/~trygver/1979/mvc-1/1979-05-MVC.pdf)
 
 원래 MVC 리포트입니다. 노르웨이에 있는 Aker Group의 야드는 수년간 네트워크 기술과 임시 방법을 사용하여 계획 및 제어해 왔습니다. 사용된 시스템은 만족스럽지 못하며, 새로운 모델링 도구가 개발되었습니다. 이 도구의 기본 구성 요소는 기존 네트워크의 활동보다 훨씬 더 강력합니다. 그것은 `컴포넌트`라고 불리며, 그것들을 조작하는데 필요한 `자체 데이터와 알고리즘`을 모두 가지고 있다. 각 구성요소는 야드의 실제 환경에서 식별 가능한 부분을 나타냅니다. 계획 프로세스는 수신된 정보에 따라 정보를 서로 주고받는 구성 요소로 이루어집니다.
 
 #### MODELS - VIEWS - CONTROLLERS
-> Xerox PARC technical note December 1979 [PDF](http://heim.ifi.uio.no/~trygver/1979/mvc-2/1979-12-MVC.pdf)
+- Xerox PARC technical note December 1979 [PDF](http://heim.ifi.uio.no/~trygver/1979/mvc-2/1979-12-MVC.pdf)
 
 #### PROKON/PLAN-A MODELLING TOOL FOR PROJECT PLANNING AND CONTROL. 
-> Paper, IFIP Congress, Toronto, Canada, 1977
-
-> First published in the 1977 IFIP Proceedings. 
-
-> Scanned by the author July 2003. [PDF](http://heim.ifi.uio.no/~trygver/1977/Prokon/IFIP-Prokon.pdf)
+- Paper, IFIP Congress, Toronto, Canada, 1977
+- First published in the 1977 IFIP Proceedings. 
+- Scanned by the author July 2003. [PDF](http://heim.ifi.uio.no/~trygver/1977/Prokon/IFIP-Prokon.pdf)
 
 노르웨이에 있는 Aker Group의 야드는 수년간 네트워크 기술과 임시 방법을 사용하여 계획 및 제어해 왔습니다. 사용한 시스템은 만족스럽지 못하며, 마당을 위해 새로운 표식 도구를 고안했다. 이 도구의 기본 구성 요소는 기존 네트워크의 활동보다 훨씬 더 강력합니다.
 
 그것은 `컴포넌트`라고 불리며, 그것들을 조작하는데 `필요한 자체 데이터와 알고리즘`을 모두 가지고 있다. 각 구성요소는 야드의 실제 환경에서 식별 가능한 부분을 나타냅니다. 계획 프로세스는 수신된 정보에 따라 정보를 서로 주고받는 구성 요소로 이루어집니다. A/S 버겐스 메카니스케 베르케더 설계부문 기획 및 관리를 위한 실험적 시스템이 개발되었다.
 
 #### ADMINISTRATIVE CONTROL IN THE SHIPYARD.
-> Paper, ICCAS conference, Tokyo, 1973.
-
-> Scanned by the author July 2003 [PDF](http://heim.ifi.uio.no/~trygver/1973/iccas/1973-08-ICCAS.pdf)
+- Paper, ICCAS conference, Tokyo, 1973.
+- Scanned by the author July 2003 [PDF](http://heim.ifi.uio.no/~trygver/1973/iccas/1973-08-ICCAS.pdf)
 
 야드의 조직은 사용하는 정보 시스템의 영향을 크게 받을 수 있습니다. 역은 또한 진실이어야 한다: 시스템 개발은 조직의 원하는 진화에 종속되어야 한다. 데이터 프로세스 통신의 원칙은 기존 조직을 적합시키고 지속적인 개발에 적응하기 위해 쉽게 몰딩되는 정보 시스템을 구축하기 위한 도구로 도입됩니다. 원리에 대한 설명과 이를 실제 선박 회사에서 시험하기 위해 설계된 새로운 시스템의 개요가 제공된다.
 
