@@ -28,8 +28,8 @@ tags: [angular, book]
 </html>
 ```
 
-#### @NgModule : 모듈 선언
-#### @Component
+#### NgModule : 모듈 선언
+#### Component
 ```ts
 @Component({
   selector: 'search-product',
