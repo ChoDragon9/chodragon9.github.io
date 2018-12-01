@@ -17,7 +17,7 @@ navigation:
  - title: About
    url: /about
  - title: Tags
-    url: /tags
+   url: /tags
 
 social:
    github: ChoDragon9
