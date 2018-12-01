@@ -16,8 +16,10 @@ navigation:
    url: /index.html
  - title: Posts
    url: /posts
- - title: Books
+- title: Books
    url: /books
+- title: About
+   url: /about
 
 social:
    github: ChoDragon9
