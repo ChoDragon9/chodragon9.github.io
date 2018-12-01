@@ -181,12 +181,12 @@ class LogDirective {
   }
 }
 ```
-```html
+```
 <input type="text" log-directive>
 ```
 
 #### 데이터 바인딩 기초
-```html
+```
 // Property Value
 <h1>Hello {{ name }}!!</h1>
 
