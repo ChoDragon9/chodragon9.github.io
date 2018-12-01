@@ -272,6 +272,8 @@ P-7: 입력/출력 세션(10페이지)
 
 ![](https://github.com/ChoDragon9/design-patterns/blob/master/_wiki_images/model_editor_separation.png)
 
+![]({{ '/assets/img/model_editor_separation.png' | prepend: site.baseurl }})
+
 ##### 솔루션
 각 비즈니스 개체를 사용자와 도메인 서비스에 가까운 두 부분으로 나눕니다. 
 우리는 이러한 객체들을 각각 Editor와 Model이라고 부릅니다.
