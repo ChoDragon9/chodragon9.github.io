@@ -5,20 +5,20 @@ title: About
 
 <div class="post">
 	<h1 class="pageTitle">About</h1>
-	<img src="{{ '/assets/img/touring.jpg' | prepend: site.baseurl }}" alt="">
-	<p class="intro">Long Haul is a minimal, long form <a href="http://jekyllrb.com">Jekyll</a> Theme. It can be used as is or customized to your hearts desire.</p>
-	<p>Long Haul was created in honor of all the hard working touring bicycles that have traversed the globe time and time again. Take it for a spin.</p>
-	<h2>Features</h2>
+	<img src="{{ '/assets/img/profile.png' | prepend: site.baseurl }}" alt="">
+	<p class="intro">
+	안녕하세요. 저는 조용구입니다.<br>
+	디자인 패턴과 함수형 프로그래밍에 관심이 많은 프런트 엔지니어입니다.
+	</p>
+	<h3>Work</h3>
 	<ul>
-		<li>Built with SASS + GULP + BROWSERSYNC + AUTOPREFIXER</li>
-  		<li>SVG Social Icons from <a href="http://customizr.net/icons/">Customizr</a></li>
-  		<li><a href="http://responsive-nav.com/">Responsive Nav Menu</a></li>
-  		<li><a href="https://github.com/snaptortoise/jekyll-rss-feeds">XML Feed for RSS Readers</a></li>
-  		<li>Contact Form via <a href="http://formspree.io/">Formspree</a></li>
-      <li>5 Post Loop with excerpt on Home Page</li>
-  		<li>Previous / Next Post Navigation</li>
-      <li>Estimated Reading Time for posts</li>
-  		<li><a href="https://github.com/adobe-webplatform/dropcap.js">Drop Cap</a> on posts</li>
-  		<li><a href="http://typecast.com/blog/a-more-modern-scale-for-web-typography">A Better Type Scale</a></li>
+		<li>Kakao | FE플램폼팀 | 2018.02.19</li>
+		<li>Hanwha Techwin | Web SW팀 | 2016.01.01~2018.01.29</li>
+		<li>Samsung Techwin | 선행개발연구소 | 2013.01.29~2015.12.31</li>
+  	</ul>
+	<h3>Competition</h3>
+	<ul>
+		<li>Gold Medal | Web Design | Worldskills | 2013</li>
+		<li>Best of nation | Web Design | Worldskills | 2013</li>
   	</ul>
 </div>
