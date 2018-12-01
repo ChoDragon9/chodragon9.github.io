@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "The Model-View-Controller (MVC ). Its Past and Present."
+title:  "[공식문서번역] MVC | Trygve Reenskaug | 2003.08.20"
 date:   2018-11-30
-description: 2003.08.20에 작성된 MVC 논문
+description: The Model-View-Controller (MVC). Its Past and Present. 논문 번역문서
 tags: [thesis, pattern]
 ---
 #### 원본

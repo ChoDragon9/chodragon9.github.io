@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "MVP: Model-View-Presenter The Taligent Programming Model for C++ and Java"
+title:  "[공식문서번역] MVP | Mike Potel | 2003"
 date:   2018-11-30
-description: 1996에 작성된 MVP 최초 논문
+description: MVP: Model-View-Presenter The Taligent Programming Model for C++ and Java 논문 번역
 tags: [thesis, pattern]
 ---
 #### 요약

@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "Introduction to MVVM pattern for building WPF apps"
+title:  "[공식문서번역] MVVM | 2005.10.08"
 date:   2018-12-01
-description: MVVM은 MVC의 변형으로, 현대 UI 개발 플랫폼에 맞게 제작되었으며, 고전적인 개발자가 아닌 디자이너가 담당합니다. 
+description: Introduction to MVVM pattern for building WPF apps 문서 번역 
 tags: [pattern]
 ---
 MVVM은 MVC의 변형으로, 현대 UI 개발 플랫폼에 맞게 제작되었으며, 고전적인 개발자가 아닌 디자이너가 담당합니다.
