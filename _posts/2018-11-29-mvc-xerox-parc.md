@@ -1,7 +1,8 @@
 ---
 layout: post
 title:  "MVC XEROX PARC"
-date:   2014-12-11
+date:   2018-11-29
+description: MVC XEROX PARC 1978-79 번역
 ---
 #### 원본
 http://heim.ifi.uio.no/~trygver/themes/mvc/mvc-index.html
