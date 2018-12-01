@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "[공식문서번역] MVVM | 2005.10.08"
+title:  "[공식문서번역] MVVM \| 2005.10.08"
 date:   2018-12-01
 description: Introduction to MVVM pattern for building WPF apps 문서 번역 
 tags: [pattern]
