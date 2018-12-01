@@ -206,7 +206,7 @@ class LogDirective {
 #### 파이프
 파이프는 어떤 값의 형태를 바꿀 때 사용하는 템플릿 엘리먼트이다.
 ```ts
-template: `<p>Your birthday is {{ birthday | date }}</p>`
+template: `<p>Your birthday is \{\{ birthday | date \}\}</p>`
 ```
 
 #### 커스텀 파이프
