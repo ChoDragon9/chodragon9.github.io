@@ -270,8 +270,6 @@ P-7: 입력/출력 세션(10페이지)
 - 너무 복잡해서 직접 볼 수 없음
 - 각 버전은 동일한 정보에 대해 서로 다른 프레젠테이션 및 작업을 수행해야 할 수 있습니다.
 
-![](https://github.com/ChoDragon9/design-patterns/blob/master/_wiki_images/model_editor_separation.png)
-
 ![]({{ '/assets/img/model_editor_separation.png' | prepend: site.baseurl }})
 
 ##### 솔루션
@@ -310,7 +308,7 @@ Editor 객체에 두 개의 객체가 포함되도록 합니다. 즉, 프레젠�
 
 이 그림은 SmallTalk 클래스 라이브러리에서 가져온 클래스 계층의 예를 보여 줍니다.
 
-![](https://github.com/ChoDragon9/design-patterns/blob/master/_wiki_images/input_output_separation.png)
+![]({{ '/assets/img/input_output_separation.png' | prepend: site.baseurl }})
 
 ##### 영향력
 - 간단한 경우 Model, View 및 Controller 역할을 동일한 개체로 수행할 수 있습니다. 예: 스크롤 막대.
@@ -338,7 +336,7 @@ Editor 객체에 두 개의 객체가 포함되도록 합니다. 즉, 프레젠�
 필요한 편집자가 포함된 도구 개체로 사용자 인터페이스를 생성합니다.
 일부 또는 모든 편집자는 그림과 같이 View-Controller 조합으로 분할할 수 있습니다(10페이지의 P-7 참조).
 
-![](https://github.com/ChoDragon9/design-patterns/blob/master/_wiki_images/tools_for_tasks.png)
+![]({{ '/assets/img/tools_for_tasks.png' | prepend: site.baseurl }})
 
 ##### 영향력
 - 간단한 경우, 툴은 단일 Editor로 구성될 수 있다. 그런 다음 이 편집기는 도구 역할도 수행합니다.
@@ -369,7 +367,7 @@ Editor 객체에 두 개의 객체가 포함되도록 합니다. 즉, 프레젠�
 3) 적절한 방식으로 관련 정보를 표시하고 해당 시 이 정보의 편집을 지원하는 하나 이상의 편집자
 4) 편집자를 설정하고 조작을 조정하는 도구 (예: 여러 편집기에서 볼 수 있는 모델 객체 선택). 복잡한 편집기는 다시 보기와 컨트롤러로 세분될 수 있습니다.
 
-![](https://github.com/ChoDragon9/design-patterns/blob/master/_wiki_images/tool_as_a_composite.png)
+![]({{ '/assets/img/tool_as_a_composite.png' | prepend: site.baseurl }})
 
 ##### 알려진 용법.
 이 패턴은 OOram 역할 모델링 도구 및 기타 프로그램에서 광범위하게 사용되었습니다. 그것은 또한 Exie 제품에서도 사용된다.
@@ -394,7 +392,7 @@ Editor 객체에 두 개의 객체가 포함되도록 합니다. 즉, 프레젠�
 ##### 솔루션
 모든 관련 View를 알고 있는 객체가 선택하도록 합니다. 도구는 이러한 개체의 예입니다. 간단한 예는 ST-80 MVC에서 책임의 분할입니다. 선택 MSC는 슬라이드에 왼쪽의 슬라이드에 표시됩니다. 다음은 OOram이 이러한 패턴을 구현하는 방법을 보여주는 또 다른 MSC입니다.
 
-![](https://github.com/ChoDragon9/design-patterns/blob/master/_wiki_images/simple_selection.png)
+![]({{ '/assets/img/simple_selection.png' | prepend: site.baseurl }})
 
 ##### 영향력
 - 많은 객체의 선택과 퇴출이 매우 복잡할 수 있습니다.
@@ -402,7 +400,7 @@ Editor 객체에 두 개의 객체가 포함되도록 합니다. 즉, 프레젠�
 ##### 알려진 사용
 이 패턴은 OOram 모델링 도구에서 광범위하게 사용되었으며 Exie 제품에서도 사용됩니다.
 
-![](https://github.com/ChoDragon9/design-patterns/blob/master/_wiki_images/1985_ooram_mvc.png)
+![]({{ '/assets/img/1985_ooram_mvc.png' | prepend: site.baseurl }})
 
 ##### 참조
 해당되지 않음.
@@ -419,7 +417,7 @@ Editor 객체에 두 개의 객체가 포함되도록 합니다. 즉, 프레젠�
 
 ##### 솔루션
 뷰가 모델에 종속된 것으로 모델에 등록할 수 있도록 하고 모델이 변경될 때마다 모델에게 승인 메시지를 보내도록 합니다. 오른쪽에는 두 가지 예가 있습니다. 첫 번째는 ST-80 클래스 라이브러리에서 발견된 간단한 업데이트 솔루션입니다. 두 번째는 Views(보기)에 릴리스하기 전에 트랜잭션을 사용하여 변경 사항을 누적하는 OOram 솔루션의 요약입니다.
-![](https://github.com/ChoDragon9/design-patterns/blob/master/_wiki_images/synchronize_model_and_view.png)
+![]({{ '/assets/img/synchronize_model_and_view.png' | prepend: site.baseurl }})
 
 ##### 영향력
 스몰토크 변경/업데이트는 스크린에서 많은 성가신 섬광을 일으킬 수 있다. 트랜잭션을 사용하면 각 (복합) 사용자 작업에 대해 업데이트 수를 1개로 줄일 수 있습니다. ChangeParameter를 사용하면 변경된 개체 속성을 식별하여 깜박임을 더욱 줄일 수 있습니다. (보기 및 모형에는 모델의 정보 검색 인터페이스에 공통 단어가 있습니다.) 모형에 모형 지오메트리가 있는 경우 보다 정교한 ChangeParameter는 변경의 영향을 받는 영역도 식별할 수 있습니다(예: 도면의 경우).
