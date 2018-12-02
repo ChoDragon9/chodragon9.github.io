@@ -2,7 +2,7 @@
 layout: post
 title:  "[공식문서번역] MVVM | 2005.10.08"
 date:   2018-12-01
-description: Introduction to MVVM pattern for building WPF apps 문서 번역 
+description: 이 문서는 MVVM의 최초로 언급된 문서를 번역한 문서입니다. 
 tags: [pattern]
 ---
 이 문서는 MVVM의 최초로 언급된 [Introduction to Model/View/ViewModel pattern for building WPF apps](https://blogs.msdn.microsoft.com/johngossman/2005/10/08/introduction-to-modelviewviewmodel-pattern-for-building-wpf-apps/)를 번역한 문서입니다. 

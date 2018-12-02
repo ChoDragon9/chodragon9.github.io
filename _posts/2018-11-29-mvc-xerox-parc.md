@@ -2,11 +2,13 @@
 layout: post
 title:  "MVC XEROX PARC"
 date:   2018-11-29
-description: MVC XEROX PARC 1978-79 번역
+description: 이 문서는 MVC의 히스토리가 답긴 MVC XEROX PARC 1978-79 번역문서입니다.
 tags: [pattern]
 ---
-#### 원본
-http://heim.ifi.uio.no/~trygver/themes/mvc/mvc-index.html
+
+이 문서는 MVC의 히스토리가 답긴 [MVC XEROX PARC 1978-79](http://heim.ifi.uio.no/~trygver/themes/mvc/mvc-index.html)을 번역한 문서입니다.
+
+---
 
 > XEROX PARC(제록스 파크)는 미국 캘리포니아주의 서부에 있는 도시인 팰로앨토 [Palo Alto]에 있는 회사이다.
 PARC는 컴퓨터 연구/개발을 하는 정보 기술 및 하드웨어 시스템에 기여한 것으로 유명한 회사이다.
