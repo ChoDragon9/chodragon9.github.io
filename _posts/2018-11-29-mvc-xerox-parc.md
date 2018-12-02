@@ -2,11 +2,11 @@
 layout: post
 title:  "MVC XEROX PARC"
 date:   2018-11-29
-description: 이 문서는 MVC의 히스토리가 답긴 MVC XEROX PARC 1978-79 번역문서입니다.
+description: 이 문서는 MVC의 히스토리가 담긴 MVC XEROX PARC 1978-79 번역문서입니다.
 tags: [pattern]
 ---
 
-이 문서는 MVC의 히스토리가 답긴 [MVC XEROX PARC 1978-79](http://heim.ifi.uio.no/~trygver/themes/mvc/mvc-index.html)을 번역한 문서입니다.
+이 문서는 MVC의 히스토리가 담긴 [MVC XEROX PARC 1978-79](http://heim.ifi.uio.no/~trygver/themes/mvc/mvc-index.html)을 번역한 문서입니다.
 
 ---
 
