@@ -436,4 +436,4 @@ Editor 객체에 두 개의 객체가 포함되도록 합니다. 즉, 프레젠�
 많은 주류 개발자들은 우리가 사용자들을 지원하기 위해 필요한 것은 그들의 요구사항과 선호도에 대해 그들에게 친절하게 물어보는 것이라고 믿는다. 나는 우리가 훨씬 더 필요하다는 것을 보여줬다. 우리는 사용자들이 시간이 지나면서 이해하고, 함께 일하고, 발전할 수 있는 시스템 모델이 필요하다. 간단히 말해서, 모든 사용자들은 자신의 거주 가능한 정보 환경을 필요로 한다. InfoBoard 프로젝트의 다음 단계는 인간적인 모델링과 프로그래밍 언어와 환경을 만들기 위해 노력할 것입니다.
 
 #### 원본
-- [The Model-View-Controller (MVC) Its Past and Present | Trygve Reenskaug, University of Oslo](http://heim.ifi.uio.no/~trygver/2003/javazone-jaoo/MVC_pattern.pdf)
+- [The Model-View-Controller (MVC) Its Past and Present (Trygve Reenskaug, University of Oslo)](http://heim.ifi.uio.no/~trygver/2003/javazone-jaoo/MVC_pattern.pdf)
