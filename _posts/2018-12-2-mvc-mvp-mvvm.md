@@ -28,7 +28,7 @@ tags: [pattern]
 ![]({{ '/assets/img/diagram/mvp.svg' | prepend: site.baseurl }})
 
 ### MVVM
-- Model과 View는 MVC에서 정의된 x역할과 동일합니다.
+- Model과 View는 MVC에서 정의된 역할과 동일합니다.
   - Model은 상태저장, 비즈니스 로직, 순수한 데이터입니다.
   - View는 시각적인 요소를 담당합니다.
 - View에 직접 매핑되지 않는 Model를 표현하기 위해 ViewModel이 이러한 담당을 합니다.
