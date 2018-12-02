@@ -10,8 +10,8 @@ tags: [pattern]
 ---
 
 #### 본문요약
-Model과 View는 MVC에서 정의된 역할과 동일한다. Model은 상태저장, 비즈니스 로직, 순수한 데이터이다. View는 시각적인 요소를 담당한다.
-View에 직접 매핑되지 않는 Model를 표현하기 위해 ViewModel이 이러한 담당을 한다. ViewModel은 Model Type을 View Type으로 변환하는 데이터 변환기 역할과 View가 Model과 상호작용 할 수 있게 하는 역할을 가지고 있다.
+Model과 View는 MVC에서 정의된 역할과 동일합니다. Model은 상태저장, 비즈니스 로직, 순수한 데이터입니다. View는 시각적인 요소를 담당합니다.
+View에 직접 매핑되지 않는 Model를 표현하기 위해 ViewModel이 이러한 담당을 합니다. ViewModel은 Model Type을 View Type으로 변환하는 데이터 변환기 역할과 View가 Model과 상호작용 할 수 있게 하는 역할을 가지고 있다.
 
 #### 번역
 
