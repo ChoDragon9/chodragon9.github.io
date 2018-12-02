@@ -5,12 +5,9 @@ date:   2018-11-30
 description: The Model-View-Controller (MVC). Its Past and Present. 논문 번역문서
 tags: [thesis, pattern]
 ---
-#### 원본
-http://heim.ifi.uio.no/~trygver/2003/javazone-jaoo/MVC_pattern.pdf
+이 문서는 MVC 마지막 개정 논문인 [The Model-View-Controller (MVC) Its Past and Present | Trygve Reenskaug, University of Oslo](http://heim.ifi.uio.no/~trygver/2003/javazone-jaoo/MVC_pattern.pdf)를 번역한 문서입니다. 
 
-### 해석
-- The Model-View-Controller (MVC) Its Past and Present
-- Trygve Reenskaug, University of Oslo (trygver@ifi.uio.no)
+---
 
 #### 요약
 MVC는 1978년에 특정 문제에 대한 설계 솔루션으로 구상되었다. 최상위 목표는 관련 정보 공간에 대한 사용자의 멘탈모델을 지원하고 사용자가 이 정보를 검사하고 편집할 수 있도록 하는 것이었다.
@@ -437,3 +434,6 @@ Editor 객체에 두 개의 객체가 포함되도록 합니다. 즉, 프레젠�
 2) 공구 프로그래밍을 자동화해야 합니다. Naked Objects 프로젝트는 유망한 시작이다.
 3) 건축과 사용자와 프로그래머들이 공통적으로 사용하는 언어로 더 많은 작업을 해야 합니다.
 많은 주류 개발자들은 우리가 사용자들을 지원하기 위해 필요한 것은 그들의 요구사항과 선호도에 대해 그들에게 친절하게 물어보는 것이라고 믿는다. 나는 우리가 훨씬 더 필요하다는 것을 보여줬다. 우리는 사용자들이 시간이 지나면서 이해하고, 함께 일하고, 발전할 수 있는 시스템 모델이 필요하다. 간단히 말해서, 모든 사용자들은 자신의 거주 가능한 정보 환경을 필요로 한다. InfoBoard 프로젝트의 다음 단계는 인간적인 모델링과 프로그래밍 언어와 환경을 만들기 위해 노력할 것입니다.
+
+#### 원본
+- [The Model-View-Controller (MVC) Its Past and Present | Trygve Reenskaug, University of Oslo](http://heim.ifi.uio.no/~trygver/2003/javazone-jaoo/MVC_pattern.pdf)

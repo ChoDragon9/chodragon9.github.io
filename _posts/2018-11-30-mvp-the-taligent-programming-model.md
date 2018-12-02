@@ -5,6 +5,10 @@ date:   2018-11-30
 description: MVP Model-View-Presenter The Taligent Programming Model for C++ and Java 논문 번역
 tags: [thesis, pattern]
 ---
+이 문서는 MVP를 최초로 언급된 논문인 [MVP: Model-View-Presenter The Taligent Programming Model for C++ and Java](https://www.researchgate.net/publication/255616200_MVP_Model-View-Presenter_The_Taligent_Programming_Model_for_C_and_Java_Taligent_Inc)를 번역한 문서입니다. 
+
+---
+
 #### 요약
 IBM의 100% 소유 자회사인 Taligent는 고전적 MVC 프로그래밍 모델의 일반화를 기반으로 `C++ 및 Java 프로그래밍 언어 모델`인 `Model-View-Presenter` 또는 `MVP`를 위한 `차세대 프로그래밍 모델`을 개발하고 있습니다. MVP는 광범위한 애플리케이션 및 구성요소 개발 작업을 위한 강력하고 이해하기 쉬운 설계 방법을 제공한다. Taligent의 프레임워크 기반 개념 구현은 MVP를 고용하는 개발자 프로그램에 큰 가치를 더한다. 또한 MVP는 여러 클라이언트/서버 및 다중 계층 애플리케이션 아키텍처에 걸쳐 적응할 수 있습니다. MVP는 IBM이 모든 주요 객체 지향 언어 환경에 걸쳐 통합된 개념 프로그래밍 모델을 제공할 수 있도록 지원합니다.
 
