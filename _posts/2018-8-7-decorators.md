@@ -14,6 +14,7 @@ tags: [es6]
   - `@defineElement` 커스텀 엘레멘트를 생성하는 기능
   - `@bound` 디바운드 처리 기능
   - `@observed` 필드를 감시하며 변경시 자동으로 `render()`를 호출하는 기능
+  
 ```js
 @defineElement('num-counter')
 class Counter extends HTMLElement {
