@@ -5,6 +5,10 @@ date:   2018-12-01
 description: Introduction to MVVM pattern for building WPF apps 문서 번역 
 tags: [pattern]
 ---
+이 문서는 MVVM의 최초로 언급된 [Introduction to Model/View/ViewModel pattern for building WPF apps](https://blogs.msdn.microsoft.com/johngossman/2005/10/08/introduction-to-modelviewviewmodel-pattern-for-building-wpf-apps/)를 번역한 문서입니다. 
+
+---
+
 MVVM은 MVC의 변형으로, 현대 UI 개발 플랫폼에 맞게 제작되었으며, 고전적인 개발자가 아닌 디자이너가 담당합니다.
 이 설계는 HTML 또는 XAML과 같은 선언적 형태로 거의 항상 수행되며, Dreamweaver, Flash 또는 Sparkle과 같은 WYSIWYG 도구를 사용하는 경우가 매우 많습니다. 전체 애플리케이션이 하나의 환경과 언어를 사용하여 구축되는 Smalltalk 기원에서 웹의 매우 친숙한 현대적 환경 및 현재 Avalon 개발로 발전하는 MVC 또한 MVVM은 데이터 바인딩을 위한 일반적인 메커니즘에 의존합니다. 나중에 그 메커니즘에 의존합니다.
 
