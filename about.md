@@ -4,11 +4,11 @@ title: About
 ---
 
 <div class="post">
-	<h1 class="pageTitle">About</h1>
+	<h1 class="pageTitle">안녕하세요 :)</h1>
 	<img src="{{ '/assets/img/profile.png' | prepend: site.baseurl }}" alt="">
 	<p class="intro">
-	안녕하세요. 저는 조용구입니다.<br>
-	디자인 패턴과 함수형 프로그래밍에 관심이 많은 프런트 엔지니어입니다.
+	조용구 | 1994.07.10 | 집돌이<br>
+	프런트 엔지니어 | 디자인패턴&FP | 평화주의
 	</p>
 	<h3>Work</h3>
 	<ul>
