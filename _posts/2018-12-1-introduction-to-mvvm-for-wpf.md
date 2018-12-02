@@ -9,6 +9,12 @@ tags: [pattern]
 
 ---
 
+#### 요약
+Model과 View는 MVC에서 정의된 역할과 동일한다. Model은 상태저장, 비즈니스 로직, 순수한 데이터이다. View는 시각적인 요소를 담당한다.
+View에 직접 매핑되지 않는 Model를 표현하기 위해 ViewModel이 이러한 담당을 한다. ViewModel은 Model Type을 View Type으로 변환하는 데이터 변환기 역할과 View가 Model과 상호작용 할 수 있게 하는 역할을 가지고 있다.
+
+#### 번역
+
 MVVM은 MVC의 변형으로, 현대 UI 개발 플랫폼에 맞게 제작되었으며, 개발자가 아닌 디자이너가 담당합니다.
 이 설계는 HTML 또는 XAML과 같은 선언적 형태로 거의 항상 수행되며, Dreamweaver, Flash 또는 Sparkle과 같은 WYSIWYG 도구를 사용하는 경우가 매우 많습니다. 전체 애플리케이션이 하나의 환경과 언어를 사용하여 구축되는 Smalltalk 기원에서 웹의 매우 친숙한 현대적 환경 및 현재 Avalon 개발로 발전하는 MVC 또한 MVVM은 데이터 바인딩을 위한 일반적인 메커니즘에 의존합니다. 나중에 그 메커니즘에 의존합니다.
 
