@@ -42,6 +42,7 @@ tags: [books, regexp]
 ```
 
 #### 치환
+치환을 할 때도 역참조를 사용할 수 있습니다.
 ```js
 `Hello, ben@forta.com is my email address.`
   .replace(/(\w+\@\w+\.\w+)/, '<a href="mailto:$1">$1</a>')
