@@ -8,6 +8,7 @@ tags: [books, regexp]
 
 역참조는 정규 표현식 패턴으로, 앞서 일치한 부분을 다시 가리킵니다.
 
+#### 검색
 시작태그와 종료태그를 찾을 때 역참조를 사용하면 유용합니다. 
 ```js
 `<body>
@@ -38,4 +39,13 @@ tags: [books, regexp]
 ```
 ```
 ["<h1>Welcome to my Website</h1>"]
+```
+
+#### 치환
+```js
+`Hello, ben@forta.com is my email address.`
+  .replace(/(\w+\@\w+\.\w+)/, '<a href="mailto:$1">$1</a>')
+```
+```
+"Hello, <a href="mailto:ben@forta.com">ben@forta.com</a> is my email address."
 ```
