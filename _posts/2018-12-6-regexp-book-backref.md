@@ -1,11 +1,12 @@
 ---
 layout: post
-title:  "[손에 잡히는 정규표현식] 8장 역참조 사용하기"
+title:  "[손에 잡히는 정규표현식] 역참조/전방탐색/후방탐색"
 date:   2018-12-06
-description: 역참조 사용방법을 정리합니다.
+description: 역참조/전방탐색/후방탐색 사용방법을 정리합니다.
 tags: [books, regexp]
 ---
 
+### 8장 역참조 사용하기
 역참조는 정규 표현식 패턴으로, 앞서 일치한 부분을 다시 가리킵니다.
 
 #### 검색
@@ -50,3 +51,5 @@ tags: [books, regexp]
 ```
 "Hello, <a href="mailto:ben@forta.com">ben@forta.com</a> is my email address."
 ```
+
+### 9장 전방탐색과 후방탐색
