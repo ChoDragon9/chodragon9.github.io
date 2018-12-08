@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "리펙토링 | 마틴 파울로"
-date:   2018-03-22
+date:   2018-12-08
 description: 리펙토링 정의와 기법을 기술합티다.
 tags: [book]
 ---
