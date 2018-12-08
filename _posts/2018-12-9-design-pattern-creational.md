@@ -40,7 +40,7 @@ console.log(instance1 === instance2)
 
 (MVC에서 View가 Controller의 인스턴스 생성할 때와 동일함)
 
-![javascript-factory-method](https://user-images.githubusercontent.com/17817719/38173590-b5d92d46-35fb-11e8-9d9f-304821417cd5.jpg)
+![]({{ '/assets/img/design-pattern/38173590-b5d92d46-35fb-11e8-9d9f-304821417cd5.jpg' | prepend: site.baseurl }})
 
 - 어떤 클래스가 자신이 생성해야 하는 객체의 클래스를 예측할 수 없을 때
 - 생성할 객체를 기술하는 책임을 자신의 서브클래스가 지정했으면 할 때
@@ -99,7 +99,7 @@ employees.forEach(employee => console.log(employee.hourly))
 ### [추상 팩토리](https://github.com/ChoDragon9/design-patterns/blob/master/creational/abstract-factory.js)
 구체적인 클래스를 지정하지 않고 관련성을 갖는 객체들의 집합을 생성하거나 서로 독립적인 객체들의 집합을 생성할 수 있는 인터페이스를 제공하는 패턴
 
-![javascript-abstract-factory](https://user-images.githubusercontent.com/17817719/38173856-7c2b4c92-35ff-11e8-813b-fc18ba9f0755.jpg)
+![]({{ '/assets/img/design-pattern/38173856-7c2b4c92-35ff-11e8-813b-fc18ba9f0755.jpg' | prepend: site.baseurl }})
 
 - 객체가 생성되거나 구성 또는 표현되는 방식과 무관하게 시스템을 독립적으로 만들고자 할 때
 - 여러 제품군 중 하나를 선택해서 시스템을 설정해야 하고 한번 구성한 제품을 다른 것으로 대체할 수 있을 때
@@ -136,7 +136,7 @@ persons.forEach(person=>person.say())
 
 원형이 되는 인스턴스를 사용하여 생성할 객체의 종류를 명시하고, 이렇게 만든 견본을 복사해서 새로운 객체를 생성합니다.
 
-![javascript-prototype](https://user-images.githubusercontent.com/17817719/38410249-0e4a4f66-39bf-11e8-8cfd-092ce4782562.jpg)
+![]({{ '/assets/img/design-pattern/38410249-0e4a4f66-39bf-11e8-8cfd-092ce4782562.jpg' | prepend: site.baseurl }})
 
 원형 패턴은 제품의 생성, 복합, 표현 방법에 독립적인 제품을 만들고자 할 때 씁니다.
 - 인스턴스화할 클래스를 런타임에 지정할 때
@@ -181,7 +181,7 @@ proto.say()
 ### [빌더(builder)](https://github.com/ChoDragon9/design-patterns/blob/master/creational/builder.js)
 복잡한 객체를 생성하는 방법과 표현하는 방법을 정의하는 클래스를 별도로 분리하여, 서로 다른 표현이라도 이를 생성할 수 있는 동일한 절차를 제공할 수 있도록 합니다.
 
-![javascript-builder](https://user-images.githubusercontent.com/17817719/38411406-ff14c730-39c1-11e8-9af9-c7d101717d88.jpg)
+![]({{ '/assets/img/design-pattern/38411406-ff14c730-39c1-11e8-9af9-c7d101717d88.jpg' | prepend: site.baseurl }})
 
 - 복합 객체의 생성 알고리즘이 이를 합성하는 요소 객체들이 무엇인지 이들의 조립 방법에 독립적일 때
 - 합성할 객체들의 표현이 서로 다르더라도 생성 절차에서 이를 지원해야 할 때

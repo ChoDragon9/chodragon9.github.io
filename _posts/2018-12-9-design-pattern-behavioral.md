@@ -73,7 +73,7 @@ iter.forEachRight(item => console.log(item))
 ### [감시자(Observer)](https://github.com/ChoDragon9/design-patterns/blob/master/behavioral/observer.js)
 객체 사이에 일 대 다의 의존 관계를 정의해 두어, 어떤 객체의 상태가 변할 때 그 객체의 의존성을 가진 다른 객체들이 그 변화를 통지받고 자동으로 갱신될 수 있게 만드는 패턴이다. (Publish-Subscribe 관계)
 
-![javascript-observer](https://user-images.githubusercontent.com/17817719/38173909-3a7ffcba-3600-11e8-9db0-cc2f935acd9f.jpg)
+![]({{ '/assets/img/design-pattern/38173909-3a7ffcba-3600-11e8-9db0-cc2f935acd9f.jpg' | prepend: site.baseurl }})
 
 - 어떤 추상 개념이 두 가지 양상을 갖고 하나가 다른 하나에 종속적일 때. 각 양상을 별도의 객체로 캡슐화하여 이들 각각을 재사용할 수 있습니다.
 - 한 객체에 가해진 변경으로 다른 객체를 변경해야 하고, 프로그래머들은 얼마나 많은 객체들이 변경되어야 하는지 몰라도 될 때
@@ -118,7 +118,7 @@ click.fire('event #2');
 하나의 객체가 여러가지의 상태가 존재할 때 보통 if/switch 문으로 분기 후 결과를 처리한다.
 신규 상태가 존재할 때 마다 if/switch 코드를 수정해야 함으로 객체의 상태를 클래스화해서 그것을 참조하게 한다.
 
-![javascript-state](https://user-images.githubusercontent.com/17817719/38182770-a7596b98-3676-11e8-9bc4-7e88810fed5b.jpg)
+![]({{ '/assets/img/design-pattern/38182770-a7596b98-3676-11e8-9bc4-7e88810fed5b.jpg' | prepend: site.baseurl }})
 
 ```js
 class Red {
@@ -167,7 +167,7 @@ trafficLight.go() // Yellow
 동일 계열의 알고리즘군을 정의하고, 각각의 알고리즘을 캡슐화하여, 이들을 상호교환이 가능하도록 만드는 패턴이다.
 알고리즘을 사용하는 사용자와 상관없이 독립적으로 알고리즘을 다양하게 변경할 수 있게 한다.
 
-![javascript-strategy](https://user-images.githubusercontent.com/17817719/38483238-351d1ed4-3c0d-11e8-82fe-55b2cc954970.jpg)
+![]({{ '/assets/img/design-pattern/38483238-351d1ed4-3c0d-11e8-82fe-55b2cc954970.jpg' | prepend: site.baseurl }})
 
 ```js
 class Shipping {
@@ -229,7 +229,7 @@ console.log(`Fedex Strategy: ${shipping.calculate(baggage)}`)
 메시지를 보내는 객체와 이를 받아 처리하는 객체들 간의 결합도를 없애기 위한 패턴입니다. 하나의 요청에 대한 처리가 반드시 
 한 객체에서만 되지 않고, 여러 객체에서 그 처리 기회를 주려는 것입니다.
 
-![javascript-chain-of-responsibility](https://user-images.githubusercontent.com/17817719/38408714-b478ce04-39b9-11e8-9f68-7daf0275ca54.jpg)
+![]({{ '/assets/img/design-pattern/38408714-b478ce04-39b9-11e8-9f68-7daf0275ca54.jpg' | prepend: site.baseurl }})
 
 - 하나 이상의 객체가 요청을 처리해야 하고, 그 요청 처리자 중 어떤 것이 선행자 인지 모를 때. 처리자가 자동으로 확정되어야 합니다.
 - 메시지를 받을 객체를 명시하지 않은 채 여러 객체 중 하나에게 처리를 요청하고 싶을 때
@@ -273,7 +273,7 @@ calculator.add(100).sub(50).sub(20).print() //30
 ### [명령(Command)](https://github.com/ChoDragon9/design-patterns/blob/master/behavioral/command.js)
 요청 자체를 캡슐화하는 것입니다. 이를 통해 요청이 서로 다른 사용자를 매개변수로 만들고, 요청을 대기시키거나 로깅하며, 되돌릴 수 있는 연산을 지원합니다.(Action, Transaction)
 
-![javascript-command](https://user-images.githubusercontent.com/17817719/38409379-2dedec9a-39bc-11e8-9d7d-51be93c63472.jpg)
+![]({{ '/assets/img/design-pattern/38409379-2dedec9a-39bc-11e8-9d7d-51be93c63472' | prepend: site.baseurl }})
 
 - 수행할 동작을 객체로 매개변수화하고자 할 때
   - 절차지향 프로그램에서는 이를 콜백 함수, 즉 어딘가 등록되었다가 나중에 호출되는 함수를 사용해서 이러한 매개변수화를 표현할 수 있습니다. 명령 패턴은 콜백을 객체지향 방식으로 나타낸 것입니다.
@@ -365,7 +365,7 @@ console.log(`Value: ${calculator.getCurrentValue()}`)
 ### [탬플릿 메소드(Template Method)](https://github.com/ChoDragon9/design-patterns/blob/master/behavioral/template-method.js)
 객체의 연산에는 알고리즘의 뼈대만을 정의하고 각 단계에서 수행할 구체적 처리는 서브클래스쪽으로 미루는 패턴이다. 알고리즘의 구조 자체는 그대로 놔둔 채 알고리즘 각 단계의 처리를 서브클래스에서 재정의할 수 있게 한다.
 
-![javascript-template-method](https://user-images.githubusercontent.com/17817719/38483724-edbd58e0-3c0e-11e8-8afa-f334b67e771d.jpg)
+![]({{ '/assets/img/design-pattern/38483724-edbd58e0-3c0e-11e8-8afa-f334b67e771d.jpg' | prepend: site.baseurl }})
 
 ```js
 class AbstractDataStore {
@@ -400,7 +400,7 @@ mySql.process()
 ### [방문자(Visitor)](https://github.com/ChoDragon9/design-patterns/blob/master/behavioral/visitor.js)
 객체 구조를 이루는 원소에 대해 수행할 연산을 표현하는 패턴으로, 연산을 적용할 원소의 클래스를 변경하지 않고도 새로운 연산을 정의할 수 있게 한다.
 
-![javascript-visitor](https://user-images.githubusercontent.com/17817719/38484923-10490fe0-3c13-11e8-86f3-6fdf248f92e6.jpg)
+![]({{ '/assets/img/design-pattern/38484923-10490fe0-3c13-11e8-86f3-6fdf248f92e6.jpg' | prepend: site.baseurl }})
 
 ```js
 class Employee {
@@ -461,7 +461,7 @@ employees.forEach((emp) => {
 한 집합에 속해있는 객체들의 상호작용을 캡슐화하는 객체를 정의하는 패턴이다. 객체들이 직접 서로를 참조하지 않도록 함으로써
 객체들 사이의 소결합(loose coupling)을 촉진시키며, 개발자가 객체들의 상호작용을 독립적으로 다양화시킬 수 있게 만든다.
 
-![javascript-mediator](https://user-images.githubusercontent.com/17817719/38359251-c5784ba6-3902-11e8-9381-b5d4448ea87d.jpg)
+![]({{ '/assets/img/design-pattern/38359251-c5784ba6-3902-11e8-9381-b5d4448ea87d.jpg' | prepend: site.baseurl }})
 
 ```js
 class Participant {
@@ -520,7 +520,7 @@ ringo.send("Paul, what do you think?", paul)
 ### [메멘토(Memento)](https://github.com/ChoDragon9/design-patterns/blob/master/behavioral/memento.js)
 캡슐화를 위배하지 않는 채 어떤 객체의 내부 상태를 잡아내고 신체화시켜, 이후에 해당 객체가 그 상태로 다시 되돌아올 수 있도록 하는 패턴이다.
 
-![javascript-memento](https://user-images.githubusercontent.com/17817719/38485513-f8d0b3ac-3c14-11e8-9434-f2fe80a6cb43.jpg)
+![]({{ '/assets/img/design-pattern/38485513-f8d0b3ac-3c14-11e8-9434-f2fe80a6cb43.jpg' | prepend: site.baseurl }})
 
 ```js
 class Person {
@@ -581,7 +581,7 @@ console.log(john.name)
 ### [해석자(Interpreter)](https://github.com/ChoDragon9/design-patterns/blob/master/behavioral/interpreter.js)
 주어진 언어에 대해, 그 언어의 문법을 위한 표현 수단을 정의하고, 이와 어울러 그 표현 수단을 사용하여 해당 언어로 작성된 문장을 해석하는 해석기를 정의하는 패턴이다.
 
-![javascript-interpreter](https://user-images.githubusercontent.com/17817719/38486084-f12efd6e-3c16-11e8-84d1-1b3165d76704.jpg)
+![]({{ '/assets/img/design-pattern/38486084-f12efd6e-3c16-11e8-84d1-1b3165d76704.jpg' | prepend: site.baseurl }})
 
 ```js
 class Context {
