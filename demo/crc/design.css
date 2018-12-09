@@ -1,0 +1,42 @@
+* {
+  box-sizing: border-box;
+}
+.crcc {
+  width: 500px;
+  border: solid 1px #222;
+  margin-bottom: 20px;
+  overflow: hidden
+}
+.crcc-class, .crcc-respon, .crcc-collabo {
+  padding: 10px
+}
+.crcc h1 {
+  font-size: 13px
+}
+.crcc-self {
+  width: 50%;
+  height: 100%;
+  border-right: solid 1px #222;
+  float: left
+}
+.crcc-class {
+  width: 100%;
+  border-bottom: solid 1px #222;
+  float: left
+}
+.crcc-class p {
+  padding: 0 5px;
+}
+.crcc-respon {
+  width: 100%;
+  float: left
+}
+.crcc-collabo {
+  width: 50%;
+  height: 100%;
+  float: right
+}
+.crcc-respon ol,
+.crcc-collabo ol {
+  padding: 0 0 0 20px;
+}
