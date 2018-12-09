@@ -66,7 +66,7 @@
     <div class="crcc-collabo">
       <h1>Collaborators</h1>
       <button type="button" @click="addCollabo(item)">추가</button>
-      <ol>
+      <ul>
         <li v-for="collaboItem in item.collabo"
             @click="toggleMode(collaboItem)">
           <input type="text"
@@ -80,7 +80,7 @@
             삭제
           </button>
         </li>
-      </ol>
+      </ul>
     </div>
   </div>
 </div>
