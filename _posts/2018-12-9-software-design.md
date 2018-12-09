@@ -8,6 +8,8 @@ tags: [design]
 ### 설계 방법론
 
 #### CRC Card(Class-Responsibility-Collaboration Card)
+> [CRC Card Demo Generator]({{'/demo/crc/index.html' | prepend: site.baseurl }})
+
 객체 지향 소프트웨어 설계에서 사용되는 브레인 스토밍툴이다. `객체`-`책임`-`공동 작업자`의 약자로
 일반적으로 디자인을 시작할 때 어떤 객체가 필요하고 그들이 어떻게 상호 연계할지 여부를 결정하는 데 사용한다.
 
