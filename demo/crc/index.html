@@ -28,11 +28,14 @@
 <div id="design">
   <div>
     <button type="button" @click="addItem()">추가</button>
+    <button type="button" @click="toggleMode()">{{modify ? '수정모드' : '캡쳐모드'}}</button>
   </div>
   <div class="crcc" v-for="item in items">
     <div class="crcc-self">
       <div class="crcc-class">
-        <button type="button" @click="removeItem(item)">삭제</button>
+        <button type="button"
+                v-if="showButton"
+                @click="removeItem(item)">삭제</button>
         <h1>Class</h1>
         <p @click="toggleMode(item.className)">
           <input type="text"
@@ -45,7 +48,9 @@
       </div>
       <div class="crcc-respon">
         <h1>Responsibility</h1>
-        <button type="button" @click="addRespon(item)">추가</button>
+        <button type="button"
+                v-if="showButton"
+                @click="addRespon(item)">추가</button>
         <ol>
           <li v-for="responItem in item.respon"
               @click="toggleMode(responItem)">
@@ -56,6 +61,7 @@
                    v-model="responItem.text">
             <template v-else>{{responItem.text}}</template>
             <button type="button"
+                    v-if="showButton"
                     @click.stop="removeRespon(item, responItem)">
               삭제
             </button>
@@ -65,7 +71,9 @@
     </div>
     <div class="crcc-collabo">
       <h1>Collaborators</h1>
-      <button type="button" @click="addCollabo(item)">추가</button>
+      <button type="button"
+              v-if="showButton"
+              @click="addCollabo(item)">추가</button>
       <ul>
         <li v-for="collaboItem in item.collabo"
             @click="toggleMode(collaboItem)">
@@ -76,6 +84,7 @@
                  v-model="collaboItem.text">
           <template v-else>{{collaboItem.text}}</template>
           <button type="button"
+                  v-if="showButton"
                   @click.stop="removeCollabo(item, collaboItem)">
             삭제
           </button>

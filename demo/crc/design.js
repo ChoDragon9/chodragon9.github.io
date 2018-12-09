@@ -2,11 +2,17 @@ var app = new Vue({
   el: '#design',
   data() {
     return {
-      items: []
+      items: [],
+      modify: false
     }
   },
   beforeMount() {
     this.items = JSON.parse(localStorage.getItem('CRC')) || [];
+  },
+  computed: {
+    showButton() {
+      return !this.modify;
+    }
   },
   methods: {
     setData(collection, prop, value) {
@@ -38,7 +44,7 @@ var app = new Vue({
     text(txt) {
       return {text: txt, modify: false}
     },
-    toggleMode(prop) {
+    toggleMode(prop = this) {
       this.setData(prop, 'modify', !prop.modify);
     },
     removeItem(item){
