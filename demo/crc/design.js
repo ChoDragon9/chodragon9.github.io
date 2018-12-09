@@ -1,5 +1,13 @@
 var app = new Vue({
   el: '#design',
+  data() {
+    return {
+      items: []
+    }
+  },
+  beforeMount() {
+    this.items = JSON.parse(localStorage.getItem('CRC'));
+  },
   methods: {
     setData(collection, prop, value) {
       collection[prop] = value;
@@ -45,13 +53,5 @@ var app = new Vue({
     reject(collection, value) {
       return collection.filter(v => v != value);
     }
-  },
-  data() {
-    return {
-      items: []
-    }
-  },
-  beforeMount() {
-    this.items = JSON.parse(localStorage.getItem('CRC'));
   }
 });
