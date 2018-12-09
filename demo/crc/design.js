@@ -39,7 +39,7 @@ var app = new Vue({
       return this.text('책임');
     },
     collabo() {
-      return this.text('연관 클래스');
+      return this.text('협력자');
     },
     text(txt) {
       return {text: txt, modify: false}
