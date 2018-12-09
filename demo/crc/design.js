@@ -6,7 +6,7 @@ var app = new Vue({
     }
   },
   beforeMount() {
-    this.items = JSON.parse(localStorage.getItem('CRC'));
+    this.items = JSON.parse(localStorage.getItem('CRC')) || [];
   },
   methods: {
     setData(collection, prop, value) {
