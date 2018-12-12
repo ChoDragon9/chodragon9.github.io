@@ -19,4 +19,4 @@ tags: [book, words]
 멘탈모델은 특정한 상황에서 누군가의 머릿속에 떠올랐다가 사라지는 모델이 아니라, 사람들이 일반적으로 가지고 있는 상당히 안정적인 모델이다. 
 
 #### 참고문헌
-- [멘탈모델 | 인디 영](https://github.com/ChoDragon9/design-patterns/blob/master/_wiki_doc/mental_model.pdf)
+- [멘탈모델 인디 영](https://github.com/ChoDragon9/design-patterns/blob/master/_wiki_doc/mental_model.pdf)
