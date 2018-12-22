@@ -27,6 +27,7 @@ export class MyTagComponent {}
 ```
 
 - 동적으로 프로퍼티 수정
+
 ```ts
 @HostBinding('attr.something') 
 get something() { 
@@ -43,7 +44,9 @@ get something() {
   this.c_colorrr = "yellow" ;
 } 
 ```
+
 - 클래스 동적 수정 예
+
 ```ts
 @HostBinding('class')
 get class() {
