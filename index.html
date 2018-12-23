@@ -17,7 +17,7 @@ title: Home
   <!-- Pagination links -->
   <div class="pagination">
     {% if paginator.previous_page %}
-    <a href="{{ paginator.previous_page_path | prepend: site.baseurl }}" class="previous button__outline">Prev</a>
+    <a href="{{ paginator.previous_page_path | prepend: site.baseurl }}">Prev</a>&nbsp;
     {% endif %}
     {% for page in (1..paginator.total_pages) %}
       {% if page == paginator.page %}
@@ -29,7 +29,7 @@ title: Home
       {% endif %}
     {% endfor %}
     {% if paginator.next_page %}
-    <a href="{{ paginator.next_page_path | prepend: site.baseurl }}" class="next button__outline">Next</a>
+    &nbsp;<a href="{{ paginator.next_page_path | prepend: site.baseurl }}">Next</a>
     {% endif %}
   </div>
 </div>
