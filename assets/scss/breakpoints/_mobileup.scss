@@ -215,38 +215,19 @@ POST STYLING
 
 	.postTitle {
 		text-align: center;
-		margin-top: 2rem;
-		margin-bottom: 1rem;
+		margin: 0;
+		width: 100%;
 	}
 
 	blockquote {
 		clear: both;
-		margin: 2.5em 0;
+		width: 75%;
+		margin: 0 auto;
+		border-left: solid 5px #ccc;
+		color: #aaa;
 		padding: 0;
 		line-height: 1.8;
 		position: relative;
-
-		&:before {
-			content: "";
-			position: absolute;
-			top: -1.25em;
-			background: $background-color;
-			display: block;
-			height: 2px;
-			width: 150px;
-			left: calc(50% - 75px);
-		}
-
-		&:after {
-			content: "";
-			position: absolute;
-			bottom: -1.25em;
-			background: $background-color;
-			display: block;
-			height: 2px;
-			width: 150px;
-			left: calc(50% - 75px);
-		}
 	}
 
 	.meta {
@@ -276,9 +257,17 @@ POST STYLING
 		margin-bottom: 2rem;
 	}
 
-	.highlight {
+	div.highlight {
 		clear: both;
 		margin-bottom: 2rem;
+		font-size:.9em;
+	}
+
+	.highlighter-rouge {
+		font-size: .9em;
+		background: #f8f8f8;
+		padding: 4px;
+		border: solid 1px #ddd
 	}
 
 	.dropcap {
