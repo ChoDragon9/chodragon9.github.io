@@ -11,7 +11,7 @@ title: Tags
   <h3 style="
       color: #888;
       text-align: center;
-  " class="posts">#{{ tag[0] }}<a id="#{{ tag[0] }}"></a></h3>
+  " class="posts" id="{{ tag[0] }}">#{{ tag[0] }}</h3>
   <ul class="posts noList">
     {% for post in tag[1] %}
     <li>
