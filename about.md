@@ -4,7 +4,6 @@ title: About
 ---
 
 <div class="post">
-	<h1 class="pageTitle">안녕하세요 :)</h1>
 	<img src="{{ '/assets/img/profile.png' | prepend: site.baseurl }}" alt="">
 	<p class="intro">
 	조용구 | 1994.07.10<br>
