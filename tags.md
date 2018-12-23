@@ -4,7 +4,7 @@ title: Tags
 ---
 <div class="home" id="home">
   {% for tag in site.tags %}
-    <a href="#{{ tag[0] }}">#{{ tag[0] }}</a>
+    <a href="#{{ tag[0] }}">#{{ tag[0] }}</a>&nbsp;
   {% endfor %}
   
   {% for tag in site.tags %}
