@@ -7,8 +7,8 @@ title: About
 	<h1 class="pageTitle">안녕하세요 :)</h1>
 	<img src="{{ '/assets/img/profile.png' | prepend: site.baseurl }}" alt="">
 	<p class="intro">
-	조용구 | 1994.07.10 | 집돌이<br>
-	프런트 엔지니어 | 디자인패턴&FP | 평화주의
+	조용구 | 1994.07.10<br>
+	프런트 엔지니어 | 함수형 프로그래밍
 	</p>
 	<h3>Work</h3>
 	<ul>
