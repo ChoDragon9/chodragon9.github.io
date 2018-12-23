@@ -458,10 +458,10 @@ POST LIST STYLING
 
 .posts {
 	li {
-		margin-bottom: 4rem;
+		margin-bottom: 2rem;
 		position: relative;
 
-		&:before {
+		/*&:before {
 			content: "";
 			position: absolute;
 			bottom: -2rem;
@@ -469,7 +469,7 @@ POST LIST STYLING
 			background: darken(white, 10%);
 			height: 2px;
 			width: 60px;
-		}
+		}*/
 
 		a {
 			text-decoration: none;
