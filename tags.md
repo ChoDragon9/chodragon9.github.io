@@ -4,10 +4,14 @@ title: Tags
 ---
 <div class="home" id="home">
   {% for tag in site.tags %}
+    <a href="#{{ tag[0] }}">#{{ tag[0] }}</a>
+  {% endfor %}
+  
+  {% for tag in site.tags %}
   <h3 style="
       color: #888;
       text-align: center;
-  " class="posts">#{{ tag[0] }}</h3>
+  " class="posts" id="#{{ tag[0] }}">#{{ tag[0] }}</h3>
   <ul class="posts noList">
     {% for post in tag[1] %}
     <li>
