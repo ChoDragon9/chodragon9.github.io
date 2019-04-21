@@ -11,6 +11,8 @@ highlighter: rouge
 gems: [jekyll-paginate]
 paginate: 10
 
+disqus: chodragon9
+
 navigation:
  - title: Home
    url: /index.html
