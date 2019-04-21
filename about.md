@@ -21,6 +21,4 @@ comments: true
 		<li>Gold Medal | Web Design | Worldskills | 2013</li>
 		<li>Best of nation | Web Design | Worldskills | 2013</li>
   	</ul>
-  	
-  	{% include comment.html %}
 </div>
