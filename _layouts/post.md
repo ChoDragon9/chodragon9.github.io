@@ -1,5 +1,6 @@
 ---
 layout: default
+comments: true
 ---
 <div class="post">
   {% if page.image %}
@@ -29,4 +30,6 @@ layout: default
       </a>
     {% endif %} 
   </div>
+  
+  {% include comment.html %}
 </div>
