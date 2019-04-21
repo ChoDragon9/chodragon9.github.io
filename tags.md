@@ -15,8 +15,11 @@ title: Tags
   <ul class="posts noList">
     {% for post in tag[1] %}
     <li>
-        <span class="date">{{ post.date | date: '%B %d, %Y' }}</span>
-        <h3><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h3>
+        <span class="date">
+          {{ post.date | date: '%Y.%m.%d' }} /
+          <strong class="disqus-comment-count" data-disqus-identifier="{{post.id}}">0 Comments</strong>
+        </span>
+        <h4><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h3>
     </li>
     {% endfor %}
   </ul>
