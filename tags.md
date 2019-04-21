@@ -19,7 +19,7 @@ title: Tags
           {{ post.date | date: '%Y.%m.%d' }} /
           <strong class="disqus-comment-count" data-disqus-identifier="{{post.id}}">0 Comments</strong>
         </span>
-        <h4><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h3>
+        <h4><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h4>
     </li>
     {% endfor %}
   </ul>
