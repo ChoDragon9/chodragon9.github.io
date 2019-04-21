@@ -10,7 +10,10 @@ description: 웹 프런트 엔지니어에 관한 내용을 다룹니다.
     {% for post in paginator.posts %}
       <li>
         <span class="date">{{ post.date | date: '%B %d, %Y' }}</span>
-        <h3><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h3>
+        <h4>
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+          <span class="disqus-comment-count" data-disqus-identifier="{{post.id}}">(0)</span>
+        </h4>
         <!--<p>{% if post.description %}{{ post.description }}{% else %}{{ post.excerpt | strip_html }}{% endif %}</p>-->
       </li>
     {% endfor %}
