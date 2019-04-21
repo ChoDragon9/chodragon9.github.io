@@ -4,6 +4,7 @@ title:  "[Vue] 컴포넌트 상세 정리"
 date:   2018-09-07
 description: Vue 컴포넌트 상세 정리 
 tags: [vue, component]
+comments: true
 ---
 #### 컴포넌트를 통해 해결하고 싶은 문제
 - 뷰와 데이터 로직의 재사용

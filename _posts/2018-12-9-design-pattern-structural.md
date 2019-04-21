@@ -4,6 +4,7 @@ title:  "GoF 디자인 패턴 | 구조패턴"
 date:   2018-12-09
 description: GoF 디자인 패턴 중 구조패턴을 정리합니다.
 tags: [pattern]
+comments: true
 ---
 
 ### [프록시(Proxy)](https://github.com/ChoDragon9/design-patterns/blob/master/structural/proxy.js)

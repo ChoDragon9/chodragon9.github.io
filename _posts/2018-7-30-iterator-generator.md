@@ -4,6 +4,7 @@ title:  "[ECMAScript] Iterator&Generator"
 date:   2018-07-30
 description: Iterator 패턴과 Generator 그리고 코루틴을 다룬다.
 tags: [es6]
+comments: true
 ---
 ## Iterator
 내부 표현부를 노출하지 않고 어떤 객체 집합에 속한 원소들을 순차적으로 접근할 수 있는 방법을 제공하는 패턴이다.

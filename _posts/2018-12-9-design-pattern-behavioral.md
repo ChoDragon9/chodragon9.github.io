@@ -4,6 +4,7 @@ title:  "GoF 디자인 패턴 | 행동패턴"
 date:   2018-12-09
 description: GoF 디자인 패턴 중 행동패턴을 정리합니다.
 tags: [pattern]
+comments: true
 ---
 ### [반복자(Iterator)](https://github.com/ChoDragon9/design-patterns/blob/master/behavioral/iterator.js)
 내부 표현부를 노출하지 않고 어떤 객체 집합에 속한 원소들을 순차적으로 접근할 수 있는 방법을 제공하는 패턴이다.

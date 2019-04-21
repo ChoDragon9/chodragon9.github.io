@@ -4,6 +4,7 @@ title:  "[Vue] 컴포넌트 사용 정리"
 date:   2018-08-03
 description: Vue+Vuex 프로젝트하면서 생긴 문제점들로 정리한 자료이다. 
 tags: [es6, vue, component]
+comments: true
 ---
 Vue+Vuex 프로젝트하면서 생긴 문제점들로 정리한 자료이다. 컴포넌트에 직접적으로 상태를 사용할 때 재사용 및 부수 효과 발생 우려로 아래와 같이 정의한다.
 

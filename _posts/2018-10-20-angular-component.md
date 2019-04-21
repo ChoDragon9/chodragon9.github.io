@@ -4,6 +4,7 @@ title:  "Angular Host"
 date:   2018-10-20
 description: Angular Host에 대한 정리이다.
 tags: [angular, component]
+comments: true
 ---
 ### 컴포넌트 태그 접근 : Host
 - Angular에서는 컴포넌트 정의시 커스텀 태그에 접근하는 것을 Host라고 한다.

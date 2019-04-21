@@ -4,6 +4,7 @@ title:  "Webpack Concept"
 date:   2018-08-08
 description: Webpack Concept과 용어 정
 tags: [webpack]
+comments: true
 ---
 ### 웹팩 컨셉
 #### 요약

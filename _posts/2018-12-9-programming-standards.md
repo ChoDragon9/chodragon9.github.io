@@ -3,6 +3,7 @@ layout: post
 title:  "프로그래밍 정석"
 date:   2018-12-09
 tags: [book]
+comments: true
 ---
 ## 1. 전체: 프로그래밍 불변의 사실
 #### 1.1 프로그래밍에 은제 탄환은 없다 (No Silver Bullet in programming)

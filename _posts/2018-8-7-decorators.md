@@ -4,6 +4,7 @@ title:  "[ECMAScript] Decorators"
 date:   2018-08-07
 description: tc39/proposal-decorators에 대한 내용을 다룬다.
 tags: [es6]
+comments: true
 ---
 ### 데코레이터 개요
 - [tc39/proposal-decorators](https://github.com/tc39/proposal-decorators)에 정의

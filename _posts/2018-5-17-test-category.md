@@ -4,6 +4,7 @@ title:  "테스트 종류"
 date:   2018-05-17
 description: 테스트 종류에 대한 전반적인 내용을 다룬다.
 tags: [words, test]
+comments: true
 ---
 ### [유닛 테스트](https://ko.wikipedia.org/wiki/%EC%9C%A0%EB%8B%9B_%ED%85%8C%EC%8A%A4%ED%8A%B8)
 유닛 테스트는 소스 코드의 특정 모듈이 의도된 대로 정확히 작동하는지 검증하는 절차다. 즉, 모든 함수와 메소드에 대한 테스트 케이스

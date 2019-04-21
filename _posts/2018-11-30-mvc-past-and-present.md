@@ -4,6 +4,7 @@ title:  "[공식문서번역] MVC | Trygve Reenskaug | 2003.08.20"
 date:   2018-11-30
 description: 이 문서는 MVC 마지막 개정 논문인 The Model-View-Controller (MVC). Its Past and Present. 논문 번역문서입니다.
 tags: [thesis, pattern]
+comments: true
 ---
 이 문서는 MVC 마지막 개정 논문인 [The Model-View-Controller (MVC) Its Past and Present](http://heim.ifi.uio.no/~trygver/2003/javazone-jaoo/MVC_pattern.pdf)를 번역한 문서입니다. 
 

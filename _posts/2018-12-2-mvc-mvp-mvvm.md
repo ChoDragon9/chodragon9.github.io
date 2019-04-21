@@ -4,6 +4,7 @@ title:  "MVC, MVP, MVVM 정리"
 date:   2018-12-02
 description: MVC, MVP, MVVM 정리 문서입니다. 
 tags: [pattern, summary]
+comments: true
 ---
 
 ### MVC

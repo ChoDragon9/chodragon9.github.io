@@ -4,6 +4,7 @@ title:  "[Angular Development with TypeScript] 의존성 주입"
 date:   2018-09-30
 description: Angular Development with TypeScript 책 정리
 tags: [angular, pattern]
+comments: true
 ---
 #### 의존성 주입의 장점
 의존성 주입 패턴을 사용하지 않으면 ProductService 클래스를 어떻게 생성하는지

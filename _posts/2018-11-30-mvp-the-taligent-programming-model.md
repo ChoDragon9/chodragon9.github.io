@@ -4,6 +4,7 @@ title:  "[공식문서번역] MVP | Mike Potel | 2003"
 date:   2018-11-30
 description: 이 문서는 MVP를 최초로 언급된 논문을 번역한 문서입니다.
 tags: [thesis, pattern]
+comments: true
 ---
 이 문서는 MVP를 최초로 언급된 논문인 [MVP: Model-View-Presenter The Taligent Programming Model for C++ and Java](https://www.researchgate.net/publication/255616200_MVP_Model-View-Presenter_The_Taligent_Programming_Model_for_C_and_Java_Taligent_Inc)를 번역한 문서입니다. 
 
