@@ -13,7 +13,7 @@ comments: true
 ### 그리드 시스템 구현
 6 Grid를 1:3:2로 나누고 각각 같은 여백을 가질 때 코드를 비교해보겠습니다.
 
-![스크린샷 2019-04-19 오후 6 45 16](https://user-images.githubusercontent.com/17817719/56418908-714cf080-62d3-11e9-9e57-fdc5bd1e1a4f.png)
+![]({{ '/assets/img/float-vs-flex-vs-grid1.png' | prepend: site.baseurl }})
 
 #### Float
 Float로 개발할 때는 가로 사이즈를 우리가 계산해서 작성을 해야 됬습니다. 그리고 `overflow: hidden`과 같인 특별한 방법을 사용해서 코딩을 해야 합니다. 전처리기를 사용하지 않으면 여백값 수정 시 많은 코드를 수정해야 됩니다.
@@ -50,7 +50,8 @@ Grid는 Flex처럼 추상적으로 비율이 기입 가능하고, 그것은 부�
 
 ### 슬라이드
 기능경기대회 과제 중 라디오 박스를 클릭하면 배경이 바뀌는 요구사항이 있습니다. CSS만으로 구현해야되어 억지스러운(?) 기능이라고 생각되지만 Grid를 사용하면 전혀 부자연스럽지 않습니다.
-![](https://user-images.githubusercontent.com/17817719/56421526-dd345680-62dd-11e9-8eb9-6983017959d3.png)
+
+![]({{ '/assets/img/float-vs-flex-vs-grid2.png' | prepend: site.baseurl }})
 
 #### Float
 Float를 사용 할 때는 `position`의 `absolute`, `reletive`와 `top/bottom/left/right`와 같은 속성을 굉장히 세밀하게 다룰 수 있어야 했습니다. 이 방식은 굉장히 시간과 코딩양이 많아 집니다.
