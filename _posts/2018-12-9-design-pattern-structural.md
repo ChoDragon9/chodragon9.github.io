@@ -60,7 +60,8 @@ class GeoCoder {
     return count;
   }
  }
-  
+```
+```js
 const geo = new GeoProxy();
 
 // geolocation requests
@@ -138,8 +139,8 @@ class Background {
     return true
   }
 }
-
-
+```
+```js
 const mortgage = new Mortgage("Joan Templeton")
 const result = mortgage.applyFor("$100,000")
 
@@ -177,7 +178,8 @@ class DecoratedUser {
     console.log(`Decorated User: ${this.name}, ${this.street}, ${this.city}`)
   }
 }
-
+```
+```js
 const user = new User("Kelly")
 user.say()
 
@@ -231,7 +233,8 @@ function traverse(indent, node) {
     traverse(indent, node.getChild(i))
   }
 }
-
+```
+```js
 const tree = new Node('root')
 
 const left = new Node('left')
@@ -302,8 +305,8 @@ class Audio {
   drag () { console.log("Sound screetch") }
   zoom () { console.log("Sound volume up") }
 }
-
-
+```
+```js
 const screen = new Screen()
 const audio = new Audio()
 
@@ -361,7 +364,8 @@ class ShippingAdapter {
     return this.shipping.calculate(weight)
   }
 }
-
+```
+```js
 const shipping = new Shipping()
 const credentials = {token: '30a8-6ee1'}
 const adapter = new ShippingAdapter(credentials)
@@ -439,7 +443,8 @@ class Computer {
   }
   // ...
 }
-
+```
+```js
 const computers = new ComputerCollection()
 
 computers.add("Dell", "Studio XPS", "Intel", "5G", "Y755P")

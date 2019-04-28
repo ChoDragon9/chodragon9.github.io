@@ -29,11 +29,12 @@ const Singleton = (() => {
     }
   }
 })()
-
+```
+```js
 const instance1 = Singleton.getInstance()
 const instance2 = Singleton.getInstance()
 
-console.log(instance1 === instance2)
+console.log(instance1 === instance2) // true
 ```
 
 ### [팩토리 메서드](https://github.com/ChoDragon9/design-patterns/blob/master/creational/factory-method.js)
@@ -87,7 +88,8 @@ class Employee {
     return 'TEMPORARY'
   }
 }
-
+```
+```js
 const employees = []
 
 employees.push(Employee.create(Employee.FULL_TIME))
@@ -123,7 +125,8 @@ class EmployeeFactory {
     return new Employee(name);
   }
 }
-
+```
+```js
 const persons = [];
 const employeeFactory = new EmployeeFactory();
 
@@ -166,7 +169,8 @@ class Customer {
     console.log(`name: ${this.first} ${this.last}, status: ${this.status}`)
   }
 }
-
+```
+```js
 const proto = new Customer("n/a", "n/a", "pending")
 const prototype = new CustomerPrototype(proto)
 
@@ -250,7 +254,8 @@ class TruckBuilder {
     return this.truck
   }
 }
-
+```
+```js
 const shop = new Shop()
 const carBuilder = new CarBuilder()
 const truckBuilder = new TruckBuilder()

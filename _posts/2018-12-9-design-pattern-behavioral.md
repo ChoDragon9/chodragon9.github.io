@@ -62,8 +62,8 @@ class Iterator {
     }
   }
 }
-
-// Example
+```
+```js
 const items = ["one", 2, "circle", true, "Applepie"];
 const iter = new Iterator(items);
 
@@ -99,7 +99,8 @@ class Click {
     this.handlers.forEach(fn => fn(str))
   }
 }
-
+```
+```js
 const clickHandler = (item) => console.log("1 fired: " + item)
 const clickHandler2 = (item) => console.log("2 fired: " + item)
 
@@ -157,7 +158,8 @@ class TrafficLight {
     this.currentState.go(this)
   }
 }
-
+```
+```js
 var trafficLight = new TrafficLight()
 trafficLight.go() // Red
 trafficLight.go() // Green
@@ -206,7 +208,8 @@ class Fedex {
     return '$43.20'
   }
 }
-
+```
+```js
 const baggage = { from: '76712', to: '10012', weigth: 'lkg' }
 
 // the 3 strategies
@@ -245,7 +248,8 @@ switch (true) {
   case localCache(): break
   default: break
 }
-
+```
+```js
 // Class
 class Calculator {
   constructor () {
@@ -264,11 +268,11 @@ class Calculator {
     return this
   }
 }
-
+```
+```js
 const calculator = new Calculator()
 
 calculator.add(100).sub(50).sub(20).print() //30
-
 ```
 
 ### [명령(Command)](https://github.com/ChoDragon9/design-patterns/blob/master/behavioral/command.js)
@@ -349,7 +353,8 @@ class Calculator {
     return this.current
   }
 }
-
+```
+```js
 const calculator = new Calculator()
 
 calculator.execute(new AddCommand(100))
@@ -392,7 +397,8 @@ class MySQL extends AbstractDataStore {
     super.process()
   }
 }
-
+```
+```js
 const mySql = new MySQL()
 
 mySql.process()
@@ -441,7 +447,8 @@ class ExtraVacation {
     emp.setVacation(emp.getVacation() + 2)
   }
 }
-
+```
+```js
 const employees = [
   new Employee("John", 10000, 10),
   new Employee("Mary", 20000, 21),
@@ -498,7 +505,8 @@ class Chatroom {
     }
   }
 }
-
+```
+```js
 const yoko = new Participant("Yoko")
 const john = new Participant("John")
 const paul = new Participant("Paul")
@@ -555,7 +563,8 @@ class CareTaker {
     return this.mementos[key]
   }
 }
-
+```
+```js
 const mike = new Person('Mike Foley', '1112 Main', 'Dallas', 'TX')
 const john = new Person('John Wang', '48th Street', 'San Jose', 'CA')
 const caretaker = new CareTaker()
@@ -627,7 +636,8 @@ class Expression {
     }
   }
 }
-
+```
+```js
 const roman = 'MCMXXVIII'
 const context = new Context(roman)
 const tree = []
