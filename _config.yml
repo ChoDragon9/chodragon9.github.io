@@ -22,3 +22,6 @@ navigation:
 social:
    github: ChoDragon9
    email: 04whdydrn30@naver.com
+
+gems:
+   - jekyll-sitemap
