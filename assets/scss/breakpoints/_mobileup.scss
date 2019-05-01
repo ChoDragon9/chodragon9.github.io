@@ -454,6 +454,7 @@ POST LIST STYLING
 .posts {
 	li {
 		position: relative;
+		overflow: hidden;
 
 		/*&:before {
 			content: "";
@@ -482,6 +483,23 @@ POST LIST STYLING
 
 		h3 {
 			margin: 0 0 .5em;
+		}
+
+		h4 {
+			width: calc(100% - 80px);
+			float: left;
+		}
+
+		figure {
+			width: 70px;
+			height: 70px;
+			background: #f0f0f0;
+			float: right;
+			overflow: hidden;
+
+			img {
+				width: 100%;
+			}
 		}
 	}
 }
