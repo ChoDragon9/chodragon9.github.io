@@ -487,23 +487,251 @@ const maxResults = Number(getCookie('max_results'))
 #### 명세 기반 테스트 기법 종류
 테스트 기법을 정확히 알고 있어야 원하는 테스트와 테스트 코드의 목적을 명확히 할 수 있다. 테스트 코드에는 테스트 기법 하나씩 사용하여 읽기 쉬운 코드를 만들도록 해야 한다.
 
-1. 동등분할
-   - 테스트 대상 데이터의 구간을 일정 간격으로 분할하여 케이스를 구성한다.
-   - 보통 데이터의 구간에 중간값을 대표값으로 사용한다.
-2. 경계값 분석
-   - 분기 또는 반복 구문의 경계 값을 기준으로 케이스를 구성한다.(min, min+, normal, max-, max)
-3. 결정 테이블
-   - 조건(입력 값)과 행위(결과 값)를 테이블로 구성하여 케이스 및 절차를 구성한다.
-   - 프로세스 수행 중 요구되는 결정 또는 조건과 프로세스와 관련된 모든 동작을 기술한다.
-4. 조합
-   - 테스트하는 데 필요한 값이 다른 파라미터의 값과 최소한 한 번씩은 조합을하여 케이스를 구성한다.
-   - 대부분의 결함이 두 개 요소의 상호작용에 기인한다는 것에 착안하여, 두 개 요소의 모든 조합을 다룬다.
-5. 상태전이
-   - 시스템의 각 상태를 중심으로 케이스를 도출하고 전이 상태를 절차로 구성한다.
-   - 객체의 상태를 구분하고 이벤트에 의해 어느 한 상태에서 다른 상태로 전이되는 경우의 수를 테스트 케이스로 구성
-   - 상태 머신을 사용하는 UI 컴포넌트 테스트 시 유용
-6. 유스 케이스
-   - 사용자의 관점에서 시스템을 모델링하는 유스 케이스를 기반으로 테스트 케이스를 구성한다.
+**동등분할**
+- 테스트 대상 데이터의 구간을 일정 간격으로 분할하여 케이스를 구성한다.
+- 보통 데이터의 구간에 중간값을 대표값으로 사용한다.
+```js
+const convertToGrade = score => {
+  switch (true) {
+    case score <= 100 && score > 80 :
+      return 'A'
+    case score <= 80 && score > 60 :
+      return 'B'
+    case score <= 60 && score > 40 :
+      return 'C'
+    case score <= 40 && score > 20 :
+      return 'D'
+    case score <= 20 && score > 0 :
+      return 'E'
+    default :
+      return null
+  } 
+}
+```
+```js
+describe('convertToGrade', () => {
+  it('A 학점', () => {
+    // Given
+    const score = 90
+    // When
+    const grade = convertToGrade(score)
+    // Then
+    expect(grade).toEqual('A')
+  })
+  it('B 학점', () => {
+    // Given
+    const score = 70
+    // When
+    const grade = convertToGrade(score)
+    // Then
+    expect(grade).toEqual('B')
+  })
+})
+```
+
+**경계값 분석**
+- 분기 또는 반복 구문의 경계 값을 기준으로 케이스를 구성한다.(min, min+, normal, max-, max)
+```js
+const convertToGrade = score => {
+  switch (true) {
+    case score <= 100 && score > 80 :
+      return 'A'
+    case score <= 80 && score > 60 :
+      return 'B'
+    case score <= 60 && score > 40 :
+      return 'C'
+    case score <= 40 && score > 20 :
+      return 'D'
+    case score <= 20 && score > 0 :
+      return 'E'
+    default :
+      return null
+  } 
+}
+```
+```js
+describe('convertToGrade', () => {
+  it('A 학점 - min', () => {
+    // Given
+    const score = 81
+    // When
+    const grade = convertToGrade(score)
+    // Then
+    expect(grade).toEqual('A')
+  })
+  it('A 학점 - min+', () => {
+    // Given
+    const score = 82
+    // When
+    const grade = convertToGrade(score)
+    // Then
+    expect(grade).toEqual('A')
+  })
+  it('A 학점 - normal', () => {
+    // Given
+    const score = 90
+    // When
+    const grade = convertToGrade(score)
+    // Then
+    expect(grade).toEqual('A')
+  })
+  it('A 학점 - max-', () => {
+    // Given
+    const score = 99
+    // When
+    const grade = convertToGrade(score)
+    // Then
+    expect(grade).toEqual('A')
+  })
+  it('A 학점 - max', () => {
+    // Given
+    const score = 100
+    // When
+    const grade = convertToGrade(score)
+    // Then
+    expect(grade).toEqual('A')
+  })
+})
+```
+
+**결정 테이블**
+- 조건(입력 값)과 행위(결과 값)를 테이블로 구성하여 케이스 및 절차를 구성한다.
+- 프로세스 수행 중 요구되는 결정 또는 조건과 프로세스와 관련된 모든 동작을 기술한다.
+```js
+const login = (email, password) => {
+  if (!email) {
+    return INVALID_EMAIL
+  }
+  if (!password) {
+    return INVALID_PASSWORD
+  }
+  return LOGIN
+}
+```
+```js
+describe('login', () => {
+  const EMAIL = 'EMAIL'
+  const PASSWORD = 'PASSWORD'
+  it('이메일/비밀번호 유효하지 않을 때', () => {
+    // Given
+    const email = ''
+    const password = ''
+    // When
+    const status = login(email, password)
+    // Then
+    expect(status).toEqual(INVALID_EMAIL)
+  })
+  it('이메일 유효하고, 비밀번호 유효하지 않을 때', () => {
+    // Given
+    const email = EMAIL
+    const password = ''
+    // When
+    const status = login(email, password)
+    // Then
+    expect(status).toEqual(INVALID_PASSWORD)
+  })
+  it('이메일 유효하지 않고, 비밀번호 유효할 때', () => {
+    // Given
+    const email = ''
+    const password = PASSWORD
+    // When
+    const status = login(email, password)
+    // Then
+    expect(status).toEqual(INVALID_EMAIL)
+  })
+  it('이메일/비밀번호 유효할 때', () => {
+    // Given
+    const email = EMAIL
+    const password = PASSWORD
+    // When
+    const status = login(email, password)
+    // Then
+    expect(status).toEqual(LOGIN)
+  })
+})
+```
+
+**조합**
+- 테스트하는 데 필요한 값이 다른 파라미터의 값과 최소한 한 번씩은 조합을하여 케이스를 구성한다.
+- 대부분의 결함이 두 개 요소의 상호작용에 기인한다는 것에 착안하여, 두 개 요소의 모든 조합을 다룬다.
+```js
+const convertToTitle = ({repeat: boolean, base: boolean, eq: boolean}) => {
+  return {
+    repeat: repeat ? '전체반복' : '한곡반복',
+    base: base ? '설정' : '해제',
+    eq: eq ? '설정' : '해제',
+  }
+}
+```
+```js
+describe('convertToTitle', () => {
+  it('repeat: 전체반복, base: 설정, EQ: 설정', () => {
+    // Given
+    const repeat = true
+    const base = true
+    const eq = true
+    // When
+    const result = convertToTitle({repeat, base, eq})
+    // Then
+    expect(result.repeat).toEqual('전체반복')
+    expect(result.base).toEqual('설정')
+    expect(result.eq).toEqual('설정')
+  })
+  it('repeat: 전체반복, base: 해제, EQ: 해제', () => {
+    // Given
+    const repeat = true
+    const base = false
+    const eq = false
+    // When
+    const result = convertToTitle({repeat, base, eq})
+    // Then
+    expect(result.repeat).toEqual('전체반복')
+    expect(result.base).toEqual('해제')
+    expect(result.eq).toEqual('해제')
+  })
+  it('repeat: 한곡반복, base: 설정, EQ: 해제', () => {
+    // Given
+    const repeat = false
+    const base = true
+    const eq = false
+    // When
+    const result = convertToTitle({repeat, base, eq})
+    // Then
+    expect(result.repeat).toEqual('한곡반복')
+    expect(result.base).toEqual('설정')
+    expect(result.eq).toEqual('해제')
+  })
+  it('repeat: 한곡반복, base: 해제, EQ: 설정', () => {
+    // Given
+    const repeat = false
+    const base = false
+    const eq = true
+    // When
+    const result = convertToTitle({repeat, base, eq})
+    // Then
+    expect(result.repeat).toEqual('한곡반복')
+    expect(result.base).toEqual('해제')
+    expect(result.eq).toEqual('설정')
+  })
+})
+```
+
+**상태전이**
+- 시스템의 각 상태를 중심으로 케이스를 도출하고 전이 상태를 절차로 구성한다.
+- 객체의 상태를 구분하고 이벤트에 의해 어느 한 상태에서 다른 상태로 전이되는 경우의 수를 테스트 케이스로 구성
+- 상태 머신을 사용하는 UI 컴포넌트 테스트 시 유용
+```js
+describe('MovieComponent', () => {
+  it('영화관을 선택할 때', () => {
+    // Given
+    const component = mount(MovieComponent)
+    // When
+    component.trigger('click')
+    // Then
+    expect(component.hasClass('active')).toBe(true)
+  })
+})
+```
 
 ### 함수형 프로그래밍
 코드를 완전히 이해했다는 것의 조건 중 **코드를 사이드 이펙트 없이 자유롭게 수정할 수 있다**가 있다는 것을 위에서 설명했다.
