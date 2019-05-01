@@ -23,7 +23,11 @@ title: Tags
               <strong class="disqus-comment-count" data-disqus-identifier="{{post.id}}">0 Comments</strong>
             </span>
         </h4>
-        <figure></figure>
+        <figure>
+            <img 
+              src="{{ site.url }}/assets/img/{{post.tags[0]}}.png" 
+              alt="{{post.tags[0]}}">
+        </figure>
     </li>
     {% endfor %}
   </ul>
