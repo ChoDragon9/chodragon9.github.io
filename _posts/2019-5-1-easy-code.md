@@ -92,8 +92,8 @@ console.log(`Load time was: ${endMs / 1000} seconds`)
 
 #### 이름 포맷팅으로 의미 전달
 문법적 차이가 드러나게 서로 다른 개체의 이름에 각자 **다른 포맷팅 방식**을 적용하는 방식은 코드를 더 읽게 쉽게 해준다. 아래는 자바스크립트에서 보편적으로 사용하는 포맷팅 방식이다.
-- 클래스 : CamelCase
-- 변수, 함수, 메소드 : pascalCase
+- 클래스 : PascalCase
+- 변수, 함수, 메소드 : camelCase
 - 상수 : CONSTANT_NAME
 
 ### 코드의 미학
