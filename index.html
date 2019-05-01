@@ -17,7 +17,11 @@ description: 웹 프런트 엔지니어에 관한 내용을 다룹니다.
             <strong class="disqus-comment-count" data-disqus-identifier="{{post.id}}">0 Comments</strong>
           </span>
         </h4>
-        <figure></figure>
+        <figure>
+          <img
+              src="{{ site.url }}assets/img/tags/{{post.tags[0]}}.png"
+              alt="{{post.tags[0]}}">
+        </figure>
       </li>
     {% endfor %}
   </ul>
