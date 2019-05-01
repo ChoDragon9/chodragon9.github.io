@@ -56,11 +56,12 @@ const sum = (a, b) => a + b
 ```
 
 #### 이름에 정보를 담아내는 방법
-##### 1. 보편적인 단어를 피하고 구체적인 단어를 선택한다.
+**1. 보편적인 단어를 피하고 구체적인 단어를 선택한다.**
 
 **어디에서 가져오는 지**, **무엇을 수행하는 지**, **무엇을 반환하는 지**에 따라 구체적인 단어를 선택할 수 있다. 예를 들어 페이지를 요청할 때는 `getPage()`보다는 `fetchPage()`, 사이즈를 가져올 때는 `size`보다는 `height`, `nodesLength`, `memoryBytes`와 같이 구체적인게 정확한 의도를 전달할 수 있다.
 
-##### 2. 시간의 양이나 바이트의 수 같이 측정치를 포함한다면, **단위**를 포함시킨다.
+**2. 시간의 양이나 바이트의 수 같이 측정치를 포함한다면, **단위**를 포함시킨다.**
+
 ```js
 // Not Cool
 const start = new Date().getTime()
@@ -75,7 +76,8 @@ const endMs = new Date().getTime() - startMs
 console.log(`Load time was: ${endMs / 1000} seconds`)
 ```
 
-##### 3. 위험한 요소 표현
+**3. 위험한 요소 표현**
+
 나중에 잘못 이해했을 때 심각한 버그를 만들 가능성 있는 것들을 표현하는 게 좋다.
 - 패스워드가 암호화 안되있다면 : `password` => `plainTextPassword`
 - URL Encoded 데이터라면 : `data` => `dataURLEnc`
@@ -842,7 +844,8 @@ repeatedly 함수는 함수형 스타일로 생각하면 어떤 효과를 거둘
 
 반면, 선언적 프로그래밍, 특히 함수형 프로그래밍은 독립적인 블랙박스 연산들이 단순하게, 즉 최소한의 제어 구조를 통해 연결되어 추상화 수준이 높다. 실제로 함수형 프로그램은 데이터와 제어 흐름 자체를 고수준 컴포넌트 사이의 단순한 연결로 취급한다.
 
-##### 1. 30세 이상인 users를 거른다.
+**1. 30세 이상인 users를 거른다.**
+
 ```js
 // 명령형
 const temp_users = [];
@@ -854,7 +857,8 @@ for (let i = 0; i < users.length; i++) {
 // 함수형
 const over_30 = users.filter(({age}) => age >= 30);
 ```
-##### 2. 30세 이상인 users의 names를 수집한다.
+**2. 30세 이상인 users의 names를 수집한다.**
+
 ```js
 // 명령형
 const names = [];
@@ -864,7 +868,8 @@ for (let i = 0; i < temp_users.length; i++) {
 // 함수형
 const names = over_30.map(({name}) => name);
 ```
-##### 3. 30세 미만인 users를 거른다.
+**3. 30세 미만인 users를 거른다.**
+
 ```js
 // 명령형
 const temp_users2 = [];
@@ -876,7 +881,8 @@ for (let i = 0; i < users.length; i++) {
 // 함수형
 const under_30 = users.filter(({age}) => age < 30);
 ```
-##### 4. 30세 미만인 users의 ages를 수집한다.
+**4. 30세 미만인 users의 ages를 수집한다.**
+
 ```js
 // 명령형
 const ages = [];
