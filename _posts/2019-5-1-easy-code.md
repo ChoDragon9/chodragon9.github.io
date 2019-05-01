@@ -734,9 +734,9 @@ fingerSnap(avengers) // ['아이언맨', '캡틴 아메리카', '로켓']
 ## 끝
 
 ### 참고 서적
-- [읽기 좋은 코드가 좋은 코드다 | 더스틴 보즈웰, 트레버 파우커](https://search.daum.net/search?w=bookpage&bookId=1103346&tab=introduction&DA=LB2&q=%EC%9D%BD%EA%B8%B0%20%EC%A2%8B%EC%9D%80%20%EC%BD%94%EB%93%9C%EA%B0%80%20%EC%A2%8B%EC%9D%80%20%EC%BD%94%EB%93%9C%EB%8B%A4)
-- [실용주의 소프트웨어 개발 | 오병곤](https://search.daum.net/search?w=bookpage&bookId=1498033&tab=introduction&DA=LB2&q=%EC%8B%A4%EC%9A%A9%EC%A3%BC%EC%9D%98%20%EC%86%8C%ED%94%84%ED%8A%B8%EC%9B%A8%EC%96%B4%20%EA%B0%9C%EB%B0%9C)
-- [프로그래밍의 정석 | 우에다 이사오](https://search.daum.net/search?w=bookpage&bookId=915008&tab=introduction&DA=LB2&q=%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%EC%9D%98%20%EC%A0%95%EC%84%9D)
-- [함수형 자바스크립트 프로그래밍 | 유인동](https://search.daum.net/search?w=bookpage&bookId=927083&tab=introduction&DA=LB2&q=%ED%95%A8%EC%88%98%ED%98%95%20%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D)
-- [함수형 자바스크립트 | 루이스 아텐시오](https://search.daum.net/search?w=bookpage&bookId=1607655&tab=introduction&DA=LB2&q=%ED%95%A8%EC%88%98%ED%98%95%20%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D)
-- [함수형 자바스크립트 | 마이클 포거스](https://search.daum.net/search?w=bookpage&bookId=945124&tab=introduction&DA=LB2&q=%ED%95%A8%EC%88%98%ED%98%95%20%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D)
+- [읽기 좋은 코드가 좋은 코드다 - 더스틴 보즈웰, 트레버 파우커](https://search.daum.net/search?w=bookpage&bookId=1103346&tab=introduction&DA=LB2&q=%EC%9D%BD%EA%B8%B0%20%EC%A2%8B%EC%9D%80%20%EC%BD%94%EB%93%9C%EA%B0%80%20%EC%A2%8B%EC%9D%80%20%EC%BD%94%EB%93%9C%EB%8B%A4)
+- [실용주의 소프트웨어 개발 - 오병곤](https://search.daum.net/search?w=bookpage&bookId=1498033&tab=introduction&DA=LB2&q=%EC%8B%A4%EC%9A%A9%EC%A3%BC%EC%9D%98%20%EC%86%8C%ED%94%84%ED%8A%B8%EC%9B%A8%EC%96%B4%20%EA%B0%9C%EB%B0%9C)
+- [프로그래밍의 정석 - 우에다 이사오](https://search.daum.net/search?w=bookpage&bookId=915008&tab=introduction&DA=LB2&q=%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%EC%9D%98%20%EC%A0%95%EC%84%9D)
+- [함수형 자바스크립트 프로그래밍 - 유인동](https://search.daum.net/search?w=bookpage&bookId=927083&tab=introduction&DA=LB2&q=%ED%95%A8%EC%88%98%ED%98%95%20%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D)
+- [함수형 자바스크립트 - 루이스 아텐시오](https://search.daum.net/search?w=bookpage&bookId=1607655&tab=introduction&DA=LB2&q=%ED%95%A8%EC%88%98%ED%98%95%20%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D)
+- [함수형 자바스크립트 - 마이클 포거스](https://search.daum.net/search?w=bookpage&bookId=945124&tab=introduction&DA=LB2&q=%ED%95%A8%EC%88%98%ED%98%95%20%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D)
