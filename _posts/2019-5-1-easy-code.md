@@ -490,6 +490,7 @@ const maxResults = Number(getCookie('max_results'))
 **동등분할**
 - 테스트 대상 데이터의 구간을 일정 간격으로 분할하여 케이스를 구성한다.
 - 보통 데이터의 구간에 중간값을 대표값으로 사용한다.
+
 ```js
 const convertToGrade = score => {
   switch (true) {
@@ -531,6 +532,7 @@ describe('convertToGrade', () => {
 
 **경계값 분석**
 - 분기 또는 반복 구문의 경계 값을 기준으로 케이스를 구성한다.(min, min+, normal, max-, max)
+
 ```js
 const convertToGrade = score => {
   switch (true) {
@@ -597,6 +599,7 @@ describe('convertToGrade', () => {
 **결정 테이블**
 - 조건(입력 값)과 행위(결과 값)를 테이블로 구성하여 케이스 및 절차를 구성한다.
 - 프로세스 수행 중 요구되는 결정 또는 조건과 프로세스와 관련된 모든 동작을 기술한다.
+
 ```js
 const login = (email, password) => {
   if (!email) {
@@ -654,6 +657,7 @@ describe('login', () => {
 **조합**
 - 테스트하는 데 필요한 값이 다른 파라미터의 값과 최소한 한 번씩은 조합을하여 케이스를 구성한다.
 - 대부분의 결함이 두 개 요소의 상호작용에 기인한다는 것에 착안하여, 두 개 요소의 모든 조합을 다룬다.
+
 ```js
 const convertToTitle = ({repeat: boolean, base: boolean, eq: boolean}) => {
   return {
@@ -720,6 +724,7 @@ describe('convertToTitle', () => {
 - 시스템의 각 상태를 중심으로 케이스를 도출하고 전이 상태를 절차로 구성한다.
 - 객체의 상태를 구분하고 이벤트에 의해 어느 한 상태에서 다른 상태로 전이되는 경우의 수를 테스트 케이스로 구성
 - 상태 머신을 사용하는 UI 컴포넌트 테스트 시 유용
+
 ```js
 describe('MovieComponent', () => {
   it('영화관을 선택할 때', () => {
