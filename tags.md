@@ -25,7 +25,7 @@ title: Tags
         </h4>
         <figure>
             <img 
-              src="{{ site.url }}assets/img/tags/{{post.tags[0]}}.png" 
+              src="/assets/img/tags/{{post.tags[0]}}.png" 
               alt="{{post.tags[0]}}">
         </figure>
     </li>
