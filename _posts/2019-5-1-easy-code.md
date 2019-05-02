@@ -49,10 +49,10 @@ comments: true
 **루프백 확인**은 내용의 설명문으로 부터 이름을 떠올렸다면 반대로 이름을 추측할 수 있는 설명문을 생각해보는 것이다. **설명 -> 이름 -> 설명**의 순으로 한 바퀴 돌아서 원래로 돌아왔을 때 설명이 일치하면 좋은 이름이고, 일치하지 않으면 주의가 필요하다.
 
 ```js
-const sum = (a, b) => a + b
+const add = (a, b) => a + b
 ```
 ```
-(a, b) => a + b -> sum -> (a, b) => a + b
+(a, b) => a + b -> add -> (a, b) => a + b
 ```
 
 #### 이름에 정보를 담아내는 방법
@@ -762,7 +762,7 @@ describe('MovieComponent', () => {
 실용적인 함수형 프로그래밍은 어떤 시스템에서 상태 변화를 완전히 제거하는 것이 아니라 변이가 발생하는 지역을 가능한 최소화하는 것을 목표로 한다.
 
 ```js
-const sum = (a, b) => a + b // 수학적 함수 O
+const add = (a, b) => a + b // 수학적 함수 O
 const rand = a => Math.random(a) // 수학적 함수 X
 ```
 
@@ -938,10 +938,10 @@ parseInt('11', 2) // => 3
 ```js
 const partial = (fn, ...arg1) => (...arg2) => fn(...arg1, ...arg2)
 
-const sum = (a, b) => a + b
-const sum10 = partial(sum, 10)
+const add = (a, b) => a + b
+const add10 = partial(add, 10)
 
-sum10(5) // 15
+add10(5) // 15
 ```
 
 #### 함수조립으로 데이터 절반 날리기
