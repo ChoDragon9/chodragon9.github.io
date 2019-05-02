@@ -62,14 +62,15 @@ const add = (a, b) => a + b
 
 **2. 시간의 양이나 바이트의 수 같이 측정치를 포함한다면, 단위를 포함시킨다.**
 
+##### Not Cool
 ```js
-// Not Cool
 const start = new Date().getTime()
 ...
 const end = new Date().getTime() - start
 console.log(`Load time was: ${end} seconds`) // Wrong!!
-
-// Cool
+```
+##### Cool
+```js
 const startMs = new Date().getTime()
 ...
 const endMs = new Date().getTime() - startMs
@@ -233,23 +234,24 @@ const uploadImageFile = file => {}
 #### 조건문에서 인수의 순서
 인수의 **왼쪽**은 **질문을 받는 표현**을 정의하고, **오른쪽**에는 **비교대상**을 두는 것이 통계적으로 가독성이 더 좋다. 이러한 가이드 라인은 영어 어순과 일치한다.
 ```js
-// Not Cool
+##### Not Cool
 if (10 <= length) {}
 
-// Cool
+##### Cool
 if (length >= 10) {}
 ```
 
 #### if/else 블록의 순서
 `if/else`를 사용하는 경우 부정이 아닌 긍정을 먼저 다루는 게 좋다.
 첫번째 블록을 생각할 때 한번 부정한 값을 생각해야 함으로 긍정부터 다루는 게 이해하기 쉽다.
+##### Not Cool
 ```js
-// Not Cool
 if (a !== b) {
 } else {
 }
-
-// Cool
+```
+##### Cool
+```js
 if (a === b) {
 } else {
 }
@@ -258,8 +260,8 @@ if (a === b) {
 #### 중첩을 최소화하기
 코드의 중첩이 심할 수록 코드를 읽는 사람의 마음속에 존재하는 정신적 스택에 추가적인 조건이 입력된다. 중첩을 제거하려면 함수 중간에 반환하기를 하여 제거할 수 있다.
 
+##### Not Cool
 ```js
-// Not Cool
 if (userResult === SUCCESS) {
   if (permissionResult !== SUCCESS) {
     reply.writeError('error reading permissions')
@@ -271,8 +273,9 @@ if (userResult === SUCCESS) {
 }
 
 reply.done()
-
-// Cool
+```
+##### Cool
+```js
 if (userResult !== SUCCESS) {
   reply.writeError(userResult)
   reply.done()
@@ -291,8 +294,8 @@ reply.done()
 
 #### 거대한 구문 나누기
 개별적인 표현은 그렇게 크지 않지만, 모두 한 곳에 있어서 코드를 읽는 사람의 머리를 강타하는 거대한 구문을 형성한다. 다행히도 표현하는 많은 부분이 동일하다. 따라서 동일한 부분을 **요약 변수**로 추출해서 함수의 앞부분에 놓아둘 수 있다.
+##### Not Cool
 ```js
-// Not Cool
 const updateHighlight = messageNum => {
   if ($(`#vote_value${messageNum}`).html() === "Up") {
     $(`#thumbs_up${messageNum}`).addClass("highlighted");
@@ -305,8 +308,9 @@ const updateHighlight = messageNum => {
     $(`#thumbs_down${messageNum}`).removeClass("highlighted");
   }
 }
-
-// Cool
+```
+##### Cool
+```js
 const updateHighlight = messageNum => {
   const thumbsUp = $(`#thumbs_up${messageNum}`)
   const thumbsDown = $(`#thumbs_down${messageNum}`)
@@ -333,13 +337,14 @@ const updateHighlight = messageNum => {
 !(a && b && c) === !a || !b || !c
 ```
 
+##### Not Cool
 ```js
-// Not Cool
 if (!(fileExists && !isProtected)) {
   return '아이고 파일을 읽을 수 없습니다.'
 }
-
-// Cool
+```
+##### Cool
+```js
 if (!fileExists || isProtected) {
   return '아이고 파일을 읽을 수 없습니다.'
 }
@@ -360,11 +365,12 @@ if (!fileExists || isProtected) {
 #### 설명 변수
 커다란 표현을 쪼개는 가장 쉬운 방법은 작은 하위 표현을 담을 추가 변수를 만드는 것이다. 하위표현의 의미를 설명하므로 **설명 변수**라고도 한다.
 
+##### Not Cool
 ```js
-// Not Cool
 if (line.split(':')[0] === "root") {}
-
-// Cool
+```
+##### Cool
+```js
 const username = line.split(':')[0]
 if (username === "root") {}
 ```
@@ -771,12 +777,13 @@ const rand = a => Math.random(a) // 수학적 함수 X
 
 외부변수를 사용하거나 외부변수를 변경하면 순수함수가 아니다. 비순수함수는 평가시점에 따라 다른 결과값을 가지기 때문에 평가시점을 미세하게 다뤄야 한다.
 
+##### 순수함수
 ```js
-// 순수함수
 const add = (a, b) => a + b;
 const add1 = (obj, b) => ({val : obj.val + b})
-
-// 비순수함수
+```
+##### 비순수함수
+```js
 const add2 = (a, b) => a + b + c;
 const add3 = (a, b) => {
   c = b;
@@ -791,14 +798,15 @@ const add4 = (obj, b) => {
 **함수형 프로그래밍**은 애플리케이션, 함수의 구성요소, 더 나아가서 언어 자체를 함수처럼 여기도록 만들고,
 이러한 함수 개념을 가장 우선순위에 놓는다. 함수형 사고방식은 문제의 해결 방법을 동사(함수)들로 구성(조합)하는 것.
 
+##### 함수를 가장 우선순위에 놓는 것
 ```js
-// 함수를 가장 우선순위에 놓는 것
 moveLeft(dog);
 moveRight(duck);
 moveLeft({ x: 5, y: 2});
 moveRight(dog);
-
-// 데이터(객체)를 우선순위에 놓는 것
+```
+##### 데이터(객체)를 우선순위에 놓는 것
+```js
 duck.moveLeft();
 duck.moveRight();
 dog.moveLeft();
@@ -846,50 +854,58 @@ repeatedly 함수는 함수형 스타일로 생각하면 어떤 효과를 거둘
 
 **1. 30세 이상인 users를 거른다.**
 
+##### 명령형
 ```js
-// 명령형
 const temp_users = [];
 for (let i = 0; i < users.length; i++) {
   if (users[i].age >= 30) {
     temp_users.push(users[i]);
   }
 }
-// 함수형
+```
+##### 함수형
+```js
 const over_30 = users.filter(({age}) => age >= 30);
 ```
 **2. 30세 이상인 users의 names를 수집한다.**
 
+##### 명령형
 ```js
-// 명령형
 const names = [];
 for (let i = 0; i < temp_users.length; i++) {
   names.push(temp_users[i].name);
 }
-// 함수형
+```
+##### 함수형
+```js
 const names = over_30.map(({name}) => name);
 ```
 **3. 30세 미만인 users를 거른다.**
 
+##### 명령형
 ```js
-// 명령형
 const temp_users2 = [];
 for (let i = 0; i < users.length; i++) {
   if (users[i].age < 30) {
     temp_users2.push(users[i]);
   }
 }
-// 함수형
+```
+##### 함수형
+```js
 const under_30 = users.filter(({age}) => age < 30);
 ```
 **4. 30세 미만인 users의 ages를 수집한다.**
 
+##### 명령형
 ```js
-// 명령형
 const ages = [];
 for (let i = 0; i < temp_users2.length; i++) {
   ages.push(temp_users2[i].age);
 }
-// 함수형
+```
+##### 함수형
+```js
 const ages = under_30.map(({age}) => age)
 ```
 
@@ -920,14 +936,13 @@ extractThird(books) // {title: '토르'}
 
 
 ```js
-const curry = (fn) => (arg) => fn(arg)
-
 parseInt('11') // => 11
 parseInt('11', 2) // => 3
 
 ['11', '11', '11'].map(parseInt)
 // => [11, NaN, 3]
 
+const curry = (fn) => (arg) => fn(arg)
 ['11', '11', '11'].map(curry(parseInt))
 // => [11, 11, 11]
 ```
