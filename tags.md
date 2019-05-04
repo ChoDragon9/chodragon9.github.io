@@ -8,10 +8,7 @@ title: Tags
   {% endfor %}
   
   {% for tag in site.tags %}
-  <h3 style="
-      color: #888;
-      text-align: center;
-  " class="posts" id="{{ tag[0] }}">#{{ tag[0] }}</h3>
+  <h3 style="text-align: center" class="posts" id="{{ tag[0] }}">#{{ tag[0] }}</h3>
   <ul class="posts noList">
     {% for post in tag[1] %}
     <li>

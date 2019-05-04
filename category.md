@@ -4,10 +4,7 @@ title: Category
 ---
 <div class="home" id="home">
   {% for category in site.categories %}
-  <h3 style="
-      color: #888;
-      text-align: center;
-  " class="posts" id="{{ category[0] }}">{{ category[0] }}</h3>
+  <h3 style="text-align: center" class="posts" id="{{ category[0] }}">{{ category[0] }}</h3>
   <ul class="posts noList">
     {% for post in category[1] %}
     <li>
