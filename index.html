@@ -5,9 +5,8 @@ description: 웹 프런트 엔지니어에 관한 내용을 다룹니다.
 ---
 
 <div class="home" id="home">
-  <!--<h1 class="pageTitle">Recent Posts</h1>-->
   <ul class="posts noList">
-    {% for post in paginator.posts %}
+    {% for post in site.posts %}
       <li>
         <h4>
           <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
@@ -25,22 +24,4 @@ description: 웹 프런트 엔지니어에 관한 내용을 다룹니다.
       </li>
     {% endfor %}
   </ul>
-  <!-- Pagination links -->
-  <div class="pagination">
-    {% if paginator.previous_page %}
-    <a href="{{ paginator.previous_page_path | prepend: site.baseurl }}">Prev</a>&nbsp;
-    {% endif %}
-    {% for page in (1..paginator.total_pages) %}
-      {% if page == paginator.page %}
-      <em>{{ page }}</em>
-      {% elsif page == 1 %}
-      <a href="{{ paginator.previous_page_path | prepend: site.baseurl }}">{{ page }}</a>
-      {% else %}
-      <a href="/blog/page{{page}}/">{{ page }}</a>
-      {% endif %}
-    {% endfor %}
-    {% if paginator.next_page %}
-    &nbsp;<a href="{{ paginator.next_page_path | prepend: site.baseurl }}">Next</a>
-    {% endif %}
-  </div>
 </div>
