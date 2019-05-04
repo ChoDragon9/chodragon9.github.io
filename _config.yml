@@ -15,7 +15,7 @@ navigation:
  - title: 홈
    url: /
  - title: 카테고리
-    url: /category
+   url: /category
  - title: 태그
    url: /tags
  - title: 내소개
