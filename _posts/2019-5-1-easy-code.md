@@ -482,7 +482,7 @@ for (let i = 0, len = cookies.length; i < len; i++) {
 }
 ```
 
-정말 지저분한 코드다. 다음과 같이 사용할 수 있는 `get_cookie()`함수를 만들어야 할 것 처럼 보인다.
+정말 지저분한 코드다. 다음과 같이 사용할 수 있는 `getCookie()`함수를 만들어야 할 것 처럼 보인다.
 
 ```js
 const maxResults = Number(getCookie('max_results'))
