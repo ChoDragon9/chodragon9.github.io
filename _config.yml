@@ -12,13 +12,13 @@ gems: [jekyll-paginate]
 paginate: 20
 
 navigation:
- - title: 홈
+ - title: Home
    url: /
- - title: 카테고리
+ - title: Category
    url: /category
- - title: 태그
+ - title: Tags
    url: /tags
- - title: 내소개
+ - title: About
    url: /about
 
 social:

@@ -9,7 +9,7 @@ title: Category
       text-align: center;
   " class="posts" id="{{ category[0] }}">{{ category[0] }}</h3>
   <ul class="posts noList">
-    {% for post in tag[1] %}
+    {% for post in category[1] %}
     <li>
         <h4>
             <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
