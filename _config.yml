@@ -12,8 +12,6 @@ gems: [jekyll-paginate]
 paginate: 20
 
 navigation:
- - title: Home
-   url: /
  - title: Category
    url: /category
  - title: Tags
