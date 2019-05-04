@@ -4,6 +4,7 @@ title:  "이해하기 쉬운 코드 작성방법 정리"
 date:   2019-05-01
 description: 이해하기 쉬운 코드 작성 방법을 학습했고 학습자료를 정리한 포스트
 tags: [summary, book]
+category: 연구자료
 comments: true
 ---
 ### 글의 목적

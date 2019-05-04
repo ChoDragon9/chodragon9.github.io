@@ -4,6 +4,7 @@ title:  "논리적인 디자인 방법"
 date:   2019-04-27
 description: 레이아웃/색상/타이포그래피/사진편집을 심리학적, 통계적으로 접근한 가이드 문서입니다.
 tags: [design]
+category: UI/UX
 comments: true
 ---
 ### 글의 목적
