@@ -5,7 +5,6 @@ date:   2018-12-06
 description: 역참조/전방탐색/후방탐색 사용방법을 정리합니다.
 tags: [regexp, book]
 category: Javascript
-comments: true
 ---
 
 ### 8장 역참조 사용하기
