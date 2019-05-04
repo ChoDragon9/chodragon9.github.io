@@ -4,7 +4,7 @@
          <h1 class="logo"><a href="{{ site.baseurl }}/">{{ site.title }}</a></h1>
          <nav class="nav-collapse">
              <ul class="noList">
-                <li class="element {% page.url == '' %}current{% endif %}">
+                <li class="element {% if page.url == '' or page.url == 'index.html' %}current{% endif %}">
                   <a href="{{site.baseurl}}">Home</a>
                 </li>
                  {% for link in site.navigation %}{% assign current = nil %}{% if page.url contains link.url or forloop.first and page.url == '' or page.url == 'index.html' %}{% assign current = 'current' %}{% endif %}
