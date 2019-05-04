@@ -5,7 +5,6 @@ date:   2019-04-25
 description: Float/Flex/Grid 비교를 비교하고 Grid를 사용해야 하는 이유를 설명합니다.
 tags: [css]
 category: CSS
-comments: true
 ---
 ### 글의 목적
 레이아웃을 코딩하는 방법은 다양한 방법이 있습니다. Float, Flex, Grid 순서로 레이아웃을 배치하는 방법이 발전되었습니다.
