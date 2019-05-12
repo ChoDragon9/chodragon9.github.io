@@ -42,7 +42,7 @@ PageComponent는 헤더, 사이드 네비게이션, 타임라인 콘텐츠, 온�
 PageComponent의 개선포인트는 **3가지**가 있다.
 
 **첫번째**는 상위레벨에서 하위레벨의 역할을 수행하고 있는 것이다.
-여기서는 네비게이션을 숨기는 기능을 PageComponent에서 다루고 있고, SideNaviComponent로 이동이 필요하다.
+여기서는 네비게이션 숨김기능을 PageComponent에서 다루고 있고, SideNaviComponent로 이동이 필요하다.
 
 **두번째**는 컴포넌트화가 필요한 볼륨이 컴포넌트화가 안되있고, 복잡성을 증가하는 부분이다.
 여기서는 타임라인을 구체적으로 표시하는 방법을 PageComponent에서 다루고 있어,
@@ -60,7 +60,7 @@ PageComponent의 개선포인트는 **3가지**가 있다.
 개선 포인트를 반영하여 **재설계**한 구조이다.
 PageComponent에서 개선이 필요한 **3가지**를 반영했다.
 
-**첫번째**는 네비게이션을 숨기는 기능은 SideNaviComponent 내부로 이동되었다.
+**첫번째**는 네비게이션 숨김기능은 SideNaviComponent 내부로 이동되었다.
 PageComponent에 있는 숨김기능의 **상태**와 **로직**을 SideNaviComponent로 이동되었고,
 PageComponent는 SideNaviComponent를 사용하는 것만 담당하게 된다.
 
@@ -74,8 +74,8 @@ OnlineListComponent는 OnlineFriendsComponent으로 네이밍이 변경됬다.
 #### 구조 리펙토링 과정
 ![](https://chodragon9.github.io/assets/img/structure-refactoring/4.png)
 
-먼제 네이밍 변경과 역할 이동하는 부분부터 진행한다.
-리펙토링을 시작할 때는 먼저 볼륨이 작거나 쉽게 수정이 가능한 부분부터 해결한다.
+먼저 네이밍 변경과 역할 이동하는 부분부터 진행한다.
+이처럼 리펙토링을 시작할 때는 먼저 볼륨이 작거나 쉽게 수정이 가능한 부분부터 해결한다.
 
 ![](https://chodragon9.github.io/assets/img/structure-refactoring/5.png)
 
@@ -91,10 +91,11 @@ OnlineListComponent는 OnlineFriendsComponent으로 네이밍이 변경됬다.
 **Step 2**, **상태와 로직**을 개선한 위치로 이동한다.
 마크업에 사용된 상태와 로직을 이동하는 것이다.
 마크업의 가장 위에 있는 라인부터 필요한 상태와 로직을 찾아 이동할 위치에 복사&붙여넣기를 한다.
-옮기는 작업을 할 때는 **IDE**의 도움이 필요하다. 누락된 부분을 **린트 또는 컴파일러**를 통해 즉각적으로 확인한다.
+옮기는 작업을 할 때는 **IDE**의 도움이 필요하다. 
+옮기는 작업 시 누락된 부분을 **린트 또는 컴파일러**를 통해 즉각적으로 확인한다.
 
-**Step 3**, 이동된 구조와 기존 구조의 **기능을 확인**한다.
-원본 기능과 비교해 기존에 구현되었던 사용자 스토리를 확인한다.
+**Step 3**, 이동된 구조와 원본 구조의 **기능을 확인**한다.
+원본 기능과 비교해 원본에 구현되었던 사용자 스토리를 확인한다.
 
 **Step 4**, **원본을 삭제**한다. 원본 기능을 삭제하고 신규로 옮긴 부분만 남긴다.
 이때도 **IDE**의 도움을 받아 미사용 코드를 모두 삭제하도록한다.
@@ -103,9 +104,10 @@ OnlineListComponent는 OnlineFriendsComponent으로 네이밍이 변경됬다.
 소스 커밋을 할 때는 앞에 `[리펙토링]`으로 시작하여 로그를 남기면 리펙토링 관련해서 로그를 파악하기 용이하다.
    
 #### 중복코드가 발생되는 경우
-컴포넌트를 만들때 생성된 컴포넌트나 역할이 이동된 컴포넌트에 중복된 코드가 생성될 수 있다.
-구조레벨 수정중에 중복된 코드가 보여도 **구조레벨 수정 완료 후**에 한번에 진행하는 것을 권한다.
-중복 코드를 수정하는 작업은 코드레벨의 리펙토링이다.
+역할이동, 신규 컴포넌트로 이동된 상태나 로직이 중복되어 기술될 수 있다.
+하지만 구조레벨 수정중에 중복된 코드가 보여도 **구조레벨 수정 완료 후**에 한번에 진행하는 것을 권한다.
+
+중복 코드를 수정하는 작업은 **코드레벨의 리펙토링**이다.
 다른 작업을 병렬적으로 작업하게 되면 실수할 여지가 있으므로 구조레벨의 리펙토링이 완료 후에 하는 것이 권한다.
 
 ### 리펙토링 적용부분
@@ -117,16 +119,16 @@ OnlineListComponent는 OnlineFriendsComponent으로 네이밍이 변경됬다.
 **응답형식**은 사용자가 챗봇에게 질문을 했을 때 **답변을 설정하는 부분**이다.
 
 **응답형식그룹** 부분은 뮤직, 이미지, 텍스트, 리스트, 커머스 등과 같이 다양한 기능이 있다.
-구체적인 기능으로는 추가/수정/삭제 버튼을 통해 레이어팝업이 노출되고, 그룹과 그룹내부에서 정렬을 기능이 수행할 수 있다.
+구체적인 기능으로는 추가/수정/삭제 버튼을 통해 **레이어팝업**이 노출되고, 그룹과 그룹내부에서 **정렬**을 기능이 수행할 수 있다.
 
 #### 리펙토링 결과
 ![](https://chodragon9.github.io/assets/img/structure-refactoring/7.png)
 
 개선 포인트는 **4가지**가 있다.
 
-**첫번째**는 응답형식을 의미하는 기능이 ResponseComponent에 구체적으로 기술되어 볼륨이 크다. 응답형식을 의미하는 ResponseTypeGroupComponent를 신규로 만들어 추상화하여 해결했다.
+**첫번째**는 응답형식을 의미하는 기능이 ResponseComponent에 구체적으로 기술되어 볼륨이 크다. 응답형식을 의미하는 ResponseTypeGroupComponent를 신규로 만들어 구체적인 기능들을 이동했다.
 
-**두번째**는 역할이 다른 기능이 ResponseTypeGroupComponent에 기술되어 카카오톡 응답형식과 카카오미니 응답형식의 역할을 담당하는 컴포넌트를 나눴다.
+**두번째**는 카카오톡 응답형식과 카카오미니 응답형식의 역할을 담당하는 기능이 ResponseTypeGroupComponent에 기술되었다. 두가지로 역할 구분이 가능하기 때문에 KakaoTalkResponseComponent와 KakaoMiniResponseComponent로 나눴다.
 
 **세번째**는 컴포넌트 컨벤션과 다르게 정의되어 네이밍을 수정했다. ResponseAddQuickreplyComponent를 QuickReplyComponent로,
 ResponseAddResponseTypeComponent에서 ResponseTypePanelComponent로 수정되었다.
