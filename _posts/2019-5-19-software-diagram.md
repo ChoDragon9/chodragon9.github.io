@@ -14,26 +14,26 @@ Vue에서 표현하는 방식을 선호하기 때문에 Vue사이트를 참고�
 
 ### High Level
 #### Layout
-![]({{ '/assets/img/diagram-image/layout.png' | prepend: site.baseurl }})
-[input-output.psd]({{ '/assets/img/diagram-image/layout.psd' | prepend: site.baseurl }})
+![]({{ '/assets/img/diagram-images/layout.png' | prepend: site.baseurl }})
+[input-output.psd]({{ '/assets/img/diagram-images/layout.psd' | prepend: site.baseurl }})
 
 #### Tree
-![]({{ '/assets/img/diagram-image/tree.png' | prepend: site.baseurl }})
-[input-output.psd]({{ '/assets/img/diagram-image/tree.psd' | prepend: site.baseurl }})
+![]({{ '/assets/img/diagram-images/tree.png' | prepend: site.baseurl }})
+[input-output.psd]({{ '/assets/img/diagram-images/tree.psd' | prepend: site.baseurl }})
 
 #### Layout to tree
-![]({{ '/assets/img/diagram-image/layout-to-tree.png' | prepend: site.baseurl }})
-[input-output.psd]({{ '/assets/img/diagram-image/layout-to-tree.psd' | prepend: site.baseurl }})
+![]({{ '/assets/img/diagram-images/layout-to-tree.png' | prepend: site.baseurl }})
+[input-output.psd]({{ '/assets/img/diagram-images/layout-to-tree.psd' | prepend: site.baseurl }})
 
 ### Low Level
 #### Object
-![]({{ '/assets/img/diagram-image/object.png' | prepend: site.baseurl }})
-[input-output.psd]({{ '/assets/img/diagram-image/object.psd' | prepend: site.baseurl }})
+![]({{ '/assets/img/diagram-images/object.png' | prepend: site.baseurl }})
+[input-output.psd]({{ '/assets/img/diagram-images/object.psd' | prepend: site.baseurl }})
 
 #### Store
-![]({{ '/assets/img/diagram-image/store.png' | prepend: site.baseurl }})
-[input-output.psd]({{ '/assets/img/diagram-image/store.psd' | prepend: site.baseurl }})
+![]({{ '/assets/img/diagram-images/store.png' | prepend: site.baseurl }})
+[input-output.psd]({{ '/assets/img/diagram-images/store.psd' | prepend: site.baseurl }})
 
 #### Input-Output
-![]({{ '/assets/img/diagram-image/input-output.png' | prepend: site.baseurl }})
-[input-output.psd]({{ '/assets/img/diagram-image/input-output.psd' | prepend: site.baseurl }})
+![]({{ '/assets/img/diagram-images/input-output.png' | prepend: site.baseurl }})
+[input-output.psd]({{ '/assets/img/diagram-images/input-output.psd' | prepend: site.baseurl }})
