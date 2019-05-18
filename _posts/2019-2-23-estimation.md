@@ -3,7 +3,7 @@ layout: post
 title:  "개발 일정산정"
 description:  개발 일정산정 방법과 효과에 대한 내용을 다룹니다.
 date:   2019-2-23
-tags: [summary]
+tags: [calendar]
 category: 연구자료
 ---
 ### 글의 목적
