@@ -230,5 +230,5 @@ const save = async () => {
 #### 참고자료
 - [함수형 프로그래밍과 JavaScript ES6+ 응용편 유인동](https://www.inflearn.com/course/%ED%95%A8%EC%88%98%ED%98%95_ES6_%EC%9D%91%EC%9A%A9%ED%8E%B8#)
 - [함수형 프로그래밍과 JavaScript ES6+ 유인동](https://www.inflearn.com/course/functional-es6)
-- 함수형 자바스크립트 | 루이스 아텐시오
-- 코딩을 지탱하는 기술 요약
+- 함수형 자바스크립트 - 루이스 아텐시오
+- 코딩을 지탱하는 기술
