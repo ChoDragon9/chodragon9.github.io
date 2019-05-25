@@ -4,7 +4,7 @@ title:  "형상관리 전략정리"
 date:   2019-5-9
 description: 기억속에 파편화되있는 형상관리 전략에 대한 정리
 tags: [git]
-category: 연구자료
+category: 정리자료
 ---
 ### 글의 목적
 > 형상관리 도구는 Git을 기준으로 설명합니다.
