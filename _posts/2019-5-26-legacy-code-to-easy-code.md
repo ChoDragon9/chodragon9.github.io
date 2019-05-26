@@ -135,6 +135,7 @@ const ages = users.map(({age}) => age)
 4. 다른 페이지에서도 사용되는 기능은 **Core, Shared Service**나 **Utils**로 이동하여 중복코드를 최소화했다.
 
 ### 2019.05 응답형식 구조 리팩토링
+![]({{ '/assets/img/legacy-code-to-easy-code/wireframe.png' | prepend: site.baseurl }})<br>
 응답형식에서는 **출력플랫폼**에 따라 **카카오톡과 카카오미니**가 있고,
 **카카오톡**은 응답하는 방법에 따라 6가지(이미지, 텍스트, 리스트, 커머스, 카드, 뮤직)가 있다.
 이러한 많은 역할을 **응답형식 컴포넌트**에서 담당을 하고 있었다.
