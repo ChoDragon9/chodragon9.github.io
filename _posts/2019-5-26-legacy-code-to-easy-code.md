@@ -49,11 +49,15 @@ category: 리펙토링
 중복 코드가 파편화되어 동일한 기능을 어디서 사용되는 지 파악하기도 힘들었다.
 
 #### 기존 1.0의 문제점 해결
+![]({{ '/assets/img/legacy-code-to-easy-code/one-css.png' | prepend: site.baseurl }})
+
 **협업의 장벽**은 컴포넌트별 각각 스타일 파일을 삭제하고, 협력업체에서 전달되는 파일을 바로 적용할 수 있도록 변경했다. 
 초기에는 서비스의 스타일 코드와 협력업체의 스타일 코드가 **싱크가 맞지 않아** 둘중 어느 코드가 **가장최신 스타일 코드를 구분하기 힘들었다**.
 
 하지만 지속적으로 커뮤니케이션을 진행하고 스타일 코드를 한곳으로 옮겨 최신코드를 유지하게 되었고
 전달받은 스타일 산출을 적용하는 비용을 최대한 줄일 수 있었다.
+
+![]({{ '/assets/img/legacy-code-to-easy-code/restructure.png' | prepend: site.baseurl }})
 
 **비구조화**는 Angular의 보편적으로 사용되는 **폴더구조를 따르게 수정**했다.
 URL Path 기준으로 **Feature Module**로 정의하고 Lazy Loading을 적용했다. 그리고 공통 모듈인 **Core/Shared Module**을 정의했다. **Core Module**는 앱 전역에서 싱글톤으로 정의되는 요소를 정의하고, **Shared Module**을 Feature Module에서 반복적으로 사용되는 요소를 정의한다.
@@ -78,11 +82,15 @@ URL Path 기준으로 **Feature Module**로 정의하고 Lazy Loading을 적용�
 예를들어 Material 라이브러리의 **MatSnackBar**은 **this.snackBar.open(Component, null, {duration: 3000})**과 같은 형태를 가진다. 여기서 **두번째와 세번째 인자는 모든 파일에 동일한 옵션**으로 사용하고 있다.
 인자순서, 옵션형태, 옵션값의 변경이 필요하면 무수히 많은 파일들(현재 58개 파일에서 사용중)을 수정하려면 쉽게 수정이 불가능할것이다.
 
+![]({{ '/assets/img/legacy-code-to-easy-code/one-dep.png' | prepend: site.baseurl }})
+
 **해결방법**은 외부라이브러리의 진입점을 담당하는 **tooltipService**를 만들어 해당 서비스를 통해서만 진입하도록 했다.
 
 **세번째는 단방향 데이터 흐름**을 만드는 것이다.
 현재는 컴포넌트에 상태/뮤테이션/액션들의 모두 정의되어 있고, 서비스는 API 서버와 통신하는 역할만 한다.
 컴포넌트는 뷰를 담당하기 때문에 변경이 자주일어나고 뷰의 액션과 데이터를 전달하는 역할만해도 충분하다고 생각한다.
+
+![]({{ '/assets/img/legacy-code-to-easy-code/state.png' | prepend: site.baseurl }})
 
 그래서 **서비스**에 **상태/뮤테이션/액션**들을 정의하고 **컴포넌트**는 **서비스에 상태/액션을 요청**하는 것으로 수정한다.
 
@@ -127,6 +135,8 @@ URL Path 기준으로 **Feature Module**로 정의하고 Lazy Loading을 적용�
 수정하기 힘들거라 예상되어 리팩토링을 바로 진행했다.
 
 #### 설정 리팩토링 과정
+![]({{ '/assets/img/legacy-code-to-easy-code/setting-state.png' | prepend: site.baseurl }})
+
 1. 설정 페이지의 Feature Module에 **전용 서비스**인 **SettingService**를 만들었다.
 2. 옮길 필요가 있는 **상태**를 컴포넌트에서 추출하여 **서비스에 옮겼다**.
    - 설정을 저장요청 할 때 사용될 모델을 서비스에 옮겼다.
