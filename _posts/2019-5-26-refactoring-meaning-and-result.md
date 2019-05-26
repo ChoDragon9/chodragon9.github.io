@@ -4,7 +4,7 @@ title:  "리펙토링 정의와 결과"
 date:   2019-05-26
 description: 저자 마틴 파울러의 리팩토링 책 일부 정리
 tags: [summary]
-category: 정리자료
+category: 리펙토링
 ---
 > 저자 마틴 파울러의 리팩토링 책 일부 정리
 
