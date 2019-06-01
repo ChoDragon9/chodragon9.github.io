@@ -2,7 +2,7 @@
 layout: post
 title:  "레거시 코드에서 이해하기 쉬운코드로 리팩토링 2"
 date:   2019-06-01
-description: 각 레거시 코드별로 방법에 대한 정리
+description: 각 레거시 코드별로 이해하기 쉬운 코드로 바꾸는 방법에 대한 정리
 tags: [summary]
 category: 리펙토링
 ---
