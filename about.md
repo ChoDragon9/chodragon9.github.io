@@ -6,9 +6,8 @@ title: About
 <div class="post">
 	<img src="{{ '/assets/img/profile.png' | prepend: site.baseurl }}" alt="">
 	<p class="intro">
-	조용구 | 1994.07.10<br>
-	프런트 엔지니어 | 함수형 프로그래밍<br>
-	04whdydrn30@hanmail.net | peter.cho@kakaocorp.com
+	조용구 | 프런트 엔지니어<br>
+	호기심이 생기는 것을 학습하고, 유용한 정보를 공유하는 블로그를 운영한다.
 	</p>
 	<h3>Work</h3>
 	<ul>
