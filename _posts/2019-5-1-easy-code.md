@@ -3,7 +3,7 @@ layout: post
 title:  "이해하기 쉬운 코드 작성방법 정리"
 date:   2019-05-01
 description: 이해하기 쉬운 코드 작성 방법에 대한 리서치 자료
-tags: [summary, book]
+tags: [code, book]
 category: 좋은코드
 ---
 ### 글의 목적

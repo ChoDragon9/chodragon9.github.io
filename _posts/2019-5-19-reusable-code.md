@@ -3,7 +3,7 @@ layout: post
 title:  "재사용 가능한 코드 개발"
 date:   2019-05-19
 description: 재사용 가능한 코드 개발을 위해서 어떠한 원칙들을 지켜야하고 어떤 과정이 있는 지 정리한 포스트이다.
-tags: [summary]
+tags: [code]
 category: 좋은코드
 ---
 ### 글의 목적

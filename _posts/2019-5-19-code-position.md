@@ -3,7 +3,7 @@ layout: post
 title:  "코드의 위치를 정하는 기준"
 description:  코드의 명확한 위치를 정하는 기준에 대해서 알아보기 위해 작성한 글이다.
 date:   2019-5-19
-tags: [summary]
+tags: [code]
 category: 좋은코드
 ---
 ### 글의 목적

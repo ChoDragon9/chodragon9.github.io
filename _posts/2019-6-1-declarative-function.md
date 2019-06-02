@@ -3,7 +3,7 @@ layout: post
 title:  "선언형으로 대체 가능한 문법들 정리"
 date:   2019-06-01
 description: 객체, 조건문, 반복문을 이해하기 쉽게 작성하는 선언형 함수를 정리해봤다.
-tags: [summary]
+tags: [code]
 category: 좋은코드
 ---
 ### 글의 목적
