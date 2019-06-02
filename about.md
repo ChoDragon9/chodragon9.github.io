@@ -17,7 +17,7 @@ title: About
 		<li>삼성테크윈 | 선행개발연구소 | 2013.01.29~2015.12.31</li>
   	</ul>
 	<h3>Competition</h3>
-	<p>고등학교 시절에 우연히 기능올림픽을 하게 되었고, 업계에 발을 들이게 됬다.</p>
+	<p>고등학교 시절에 우연히 기능올림픽을 하게 되었고, 덕분에 업계에 발을 들이게 됬다.</p>
 	<ul>
 		<li>Gold Medal | Web Design | Worldskills | 2013</li>
 		<li>Best of nation | Web Design | Worldskills | 2013</li>
