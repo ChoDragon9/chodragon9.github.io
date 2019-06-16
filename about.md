@@ -20,5 +20,3 @@ title: About
 		<li><a href="https://worldskills.org/what/competitions/albert-vidal-award/" target="_blank">Albert Vidal Award</a> | Web Design | Worldskills | 2013 | <a href="https://api.worldskills.org/resources/download/2383/2383/3041?l=en" target="_blank">수상결과</a></li>
   	</ul>
 </div>
-
-<a href="https://results.worldskills.org/results?base_skill=127&offset=0&event=9&member=16" target="_blank">수상결과</a>
