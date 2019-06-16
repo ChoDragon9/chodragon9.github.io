@@ -16,7 +16,7 @@ title: About
   	</ul>
 	<h3>Competition</h3>
 	<ul>
-		<li>Gold Medal | Web Design | Worldskills | 2013</li>
-		<li>Best of nation | Web Design | Worldskills | 2013</li>
+		<li>Gold Medal | Web Design | Worldskills | 2013 | [수상결과](https://results.worldskills.org/results?base_skill=127&offset=0&event=9&member=16)</li>
+		<li>[Albert Vidal Award](https://worldskills.org/what/competitions/albert-vidal-award/) | Web Design | Worldskills | 2013 | [수상결과](https://api.worldskills.org/resources/download/2383/2383/3041?l=en)</li>
   	</ul>
 </div>
