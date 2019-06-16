@@ -79,6 +79,25 @@ const endMs = new Date().getTime() - startMs
 console.log(`Load time was: ${endMs / 1000} seconds`)
 ```
 
+##### 파일 사이즈 경우
+```js
+
+if (isValidFile && file.size > this.maxFileSizeInBytes) {
+  this.tooltipService.show(`파일 용량은 ${this.maxFileSizeInBytes / 1000}KB를 초과할 수 없습니다`)
+  isValidFile = false
+}
+
+{
+  get maxFileSizeKB (): number {
+    return Math.floor(this.maxFileSizeInBytes / 1000)
+  }
+
+  get currentFileSizeKB (): number {
+    return Math.floor(this.currentFileSize / 1000)
+  }
+}
+```
+
 **3. 위험한 요소 표현**
 
 나중에 잘못 이해했을 때 심각한 버그를 만들 가능성 있는 것들을 표현하는 게 좋다.
@@ -489,6 +508,23 @@ const maxResults = Number(getCookie('max_results'))
 
 여기서 **이상적이지 않은 인터페이스를 그냥 받아들일 이유가 없다**는 교훈을 얻을 수 있다.
 이런 인터페이스가 있으면 언제나 이를 둘러싸는 함수를 작성하여 지저분한 내부를 감출 수 있다.
+
+##### sessionStorage 경우
+```js
+const BROWSER_STORAGE = sessionStorage
+const setItem = (key, value) => {
+  BROWSER_STORAGE.setItem(key, JSON.stringify(value))
+}
+const getItem = (key) => {
+  return JSON.parse(BROWSER_STORAGE.getItem(key))
+}
+
+setItem('isCanlender', true)
+setItem('dateIds', [1, 2, 3])
+
+console.log(getItem('isCanlender'))
+console.log(getItem('dateIds'))
+```
 
 ### 테스트 코드
 **테스트 코드가 읽기 쉬워야 한다는 점**은 테스트와 상관없는 실제 코드와 마찬가지로 중요하다. 다른 프로그래머는 종종 테스트 코드를 실제 코드가 **어떻게 동작**하며 **어떻게 사용**되어야 하는지에 관한 **비공식적인 문서**라고 생각한다. 따라서 테스트 코드가 읽기 쉬우면, 사용자는 실제 코드가 어떻게 동작하는 지 그만큼 더 쉽게 이해할 수 있다.
@@ -933,21 +969,14 @@ extractThird(books) // {title: '토르'}
 ```
 
 #### 커링
-각각의 논리적 인자에 대응하는 새로운 함수를 반환하는 함수를 **커리함수**라고 한다.
-
-자바스크립트는 인자의 개수와 부가적인 특화 인자의 개수가 정해져 있을 때가 많다. 커링이 발생하는 과정을 명시적으로 보여주고 한개의 인자만 받도록 강제할 수 있다.
-
+다인자 함수의 각각의 논리적 인자에 대응하는 새로운 함수를 반환하는 함수를 **커리함수**라고 한다.
 
 ```js
-parseInt('11') // => 11
-parseInt('11', 2) // => 3
+const curry = fn => a => b => f(a, b)
+const add = (a, b) => a + b
 
-['11', '11', '11'].map(parseInt)
-// => [11, NaN, 3]
-
-const curry = (fn) => (arg) => fn(arg)
-['11', '11', '11'].map(curry(parseInt))
-// => [11, 11, 11]
+curry(add)(1)(2) // 3
+add(1, 2) // 3
 ```
 
 #### 부분 적용
