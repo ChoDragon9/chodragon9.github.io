@@ -4,7 +4,7 @@ title:  "소프트웨어 다이어그램 정리"
 date:   2019-05-19
 description: 소프트웨어를 이미지로 표현하는 방법을 정리한다.
 tags: [design]
-category: UI/UX
+category: 정리자료
 ---
 ### 글의 목적
 소프트웨어를 다른 사람에게 설명하는 것은 힘든일이다.
