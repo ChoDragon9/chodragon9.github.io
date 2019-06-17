@@ -970,9 +970,11 @@ extractThird(books) // {title: '토르'}
 
 #### 커링
 다인자 함수의 각각의 논리적 인자에 대응하는 새로운 함수를 반환하는 함수를 **커리함수**라고 한다.
+`f : (X ⋅ Y) → Z` 함수가 주어질 때 커링은 새로운 함수 `h : X → (Y → Z)`를 만든다. h는 X의 원소를 받아 Y가 Z에 매핑하는 함수를 반환한다. `h(x)(y) = f(x, y)` 이와 같이 정의되며
+`curry(f) = h` 이렇게도 사용된다.
 
 ```js
-const curry = fn => a => b => f(a, b)
+const curry = fn => a => b => fn(a, b)
 const add = (a, b) => a + b
 
 curry(add)(1)(2) // 3
