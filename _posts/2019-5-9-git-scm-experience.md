@@ -70,13 +70,7 @@ category: 정리자료
 기능을 쪼개는 단위는 페이지나 부문으로 나누면 경험상 대부분 해결됐다. 이렇게 브랜치를 나누면 해당 기능 개발에 집중할 수 있고, PR 시 코드분량의 따른 부담을 줄일 수 있다.
 
 ##### 작은 기능을 나눠만든 feature 브랜치 예시
-```
-      A---B---C feature/timeline-comment
-     /         
-D---E develop
-     \         
-      F---G feature/timeline-like-button
-```
+![]({{ '/assets/img/git-scm-experience/1.png' | prepend: site.baseurl }})
 
 #### 많은 기능을 혼자 개발 할 때 사례
 이 상황은 확실히 분리 가능한 기능들을 혼자서 개발해야 할 때다. 혼자 작업을 하더라도 feature 브랜치를 나누는 것이 업무의 효율을 높일 수 있다. 특정 기능이 스펙아웃되거나 다수의 기능 중 일부만 배포해야 되는 상황이 존재한다.
@@ -84,13 +78,7 @@ D---E develop
 브랜치가 하나일 경우 특정 기능을 제거하기 위한 많은 시간과 위험성을 가지게 된다. 다수의 브랜치로 작업을 하게 되면 병합 전에는 유연하게 대응 가능하므로 브랜치를 나눠 작업하는 것을 권하고 싶다.
 
 ##### 기능을 나눠만든 feature 브랜치 예시
-```
-      A---B feature/timeline-infinite-scroll
-     /         
-C---D develop
-     \         
-      E---F---G feature/my-profile
-```
+![]({{ '/assets/img/git-scm-experience/2.png' | prepend: site.baseurl }})
 
 ### 깃 플로우 기반으로 브랜치 관리
 깃 플로우와 브랜치 작명에 대한 경험적인 내용을 다루는 부분이다. 깃 플로우에 대한 경험이 많다면 이 부분은 넘어가도 된다.
@@ -99,11 +87,7 @@ C---D develop
 기능 개발은 feature 브랜치에서 작업한다. feature 브랜치는 develop 브랜치로부터 만든다.
 
 ##### feature 브랜치 만들기 예시
-```
-      A---B---C feature
-     /         
-D---E---F---G---H develop
-```
+![]({{ '/assets/img/git-scm-experience/3.png' | prepend: site.baseurl }})<br>
 
 네이밍은 `feature/<기능명>`,`feature/<이슈 아이디>`와 같이 했다.
 
@@ -118,35 +102,20 @@ D---E---F---G---H develop
 개발완료되면 feature 브랜치에서 develop 브랜치로 병합한다.
 
 ##### feature 브랜치 병합 예시
-```
-      A---B---C feature
-     /         \
-D---E---F---G---H develop
-```
+![]({{ '/assets/img/git-scm-experience/4.png' | prepend: site.baseurl }})
 
 #### Release 브랜치에서 배포 개발
 배포 시기에는 release 브랜치에서 작업한다. release 브랜치는 develop 브랜치로부터 만든다.
 
 ##### release 브랜치 만들기 예시
-```
-D---E master
+![]({{ '/assets/img/git-scm-experience/5.png' | prepend: site.baseurl }})<br>
 
-          A---B---C release
-         /         
-D---E---F---G---H develop
-```
 release 브랜치는 feature 브랜치와 다르게 확실한 작명 정책이 필요했다. 개발기간에 수정된 내용을 배포하는 것이므로 `release/YYYYMMDD`, `release/<version>`, `release/<스프린트명>`을 사용했다.
 
 release 브랜치에서 QA를 진행 완료 후 배포를 하게 된다. 완료 후에 release 브랜치는 master와 develop 브랜치에 병합되며 배포 태그를 생성한다. 그리고 master 브랜치를 기준으로 서비스 배포를 진행하면 배포가 완료된다.
 
 ##### release 브랜치 병합 예시
-```
-D---E---F---G---H---I master
-                   /
-          A---B---C release
-         /         \
-D---E---F---G---H---I develop
-```
+![]({{ '/assets/img/git-scm-experience/6.png' | prepend: site.baseurl }})<br>
 
 #### Hotfix 브랜치에서 긴급 수정
 핫픽스는 배포한 소프트웨어가 비즈니스적으로 문제가 발생했을 때 즉각 대응하는 방안이다. 큰 이슈가 아닌 이상 핫픽스를 하지 않는 것을 추천하며, 마이너한 버그는 다음 배포 시기에 포함하는 게 안정적인 서비스 운영에 도움이 된다.
@@ -154,24 +123,12 @@ D---E---F---G---H---I develop
 ##### hotfix 브랜치 만들기 예시
 hotfix 브랜치는 master 브랜치로부터 만든다. 네이밍은 `hotfix/fix-<기능명>`으로 작명했다.
 
-```
-D---E---F master
-         \         
-          A---B---C hotfix
-                  
-D---E---F---G develop
-```
+![]({{ '/assets/img/git-scm-experience/7.png' | prepend: site.baseurl }})<br>
 
 기능 수정이 완료되면 hotfix 브랜치는 develop과 master 브랜치에 병합되고 핫픽스 태그를 생성한다.
 
 ##### hotfix 브랜치 병합 예시
-```
-D---E---F---A---B---C master
-         \         /
-          A---B---C hotfix
-                   \    
-D---E---F---A---B---C develop
-```
+![]({{ '/assets/img/git-scm-experience/8png' | prepend: site.baseurl }})
 
 ### 예외 상황일 때 대응 사례
 소프트웨어는 이해관계자가 다수 연결되어 항상 아름다운 방향으로만 흐르지 않는다. 흔히 발생하는 형상관리 이슈는 feature 브랜치를 작업할 때 빈번하게 발생한다. feature 브랜치 전략에 대한 경험적인 내용과 급히 기능 추가에 대한 경험을 작성한 부분이다.
@@ -181,20 +138,12 @@ D---E---F---A---B---C develop
 병합 시에는 발생한 충돌 사항들 중 동료와 연관있는 기능이라면 꼭 페어 체크를 해야 한다.
 
 ##### develop 브랜치를 feature 브랜치에 병합 예시
-```
-      A---B---C---D---E feature
-     /           /     
-F---G---H---I---J develop
-```
+![]({{ '/assets/img/git-scm-experience/9.png' | prepend: site.baseurl }})<br>
 
 충돌을 수정완료 한 뒤에는 다시 feature 브랜치를 develop 브랜치에 병합하면 완료된다.
 
 ##### feature 브랜치를 develop 브랜치에 병합 예시
-```
-      A---B---C---D---E feature
-     /           /     \
-F---G---H---I---J---K---L develop
-```
+![]({{ '/assets/img/git-scm-experience/10.png' | prepend: site.baseurl }})
 
 #### Pull Request 중인 브랜치에 작업한 사례
 이 상황은 실수로 PR(Pull Request) 중인 브랜치로 작업을 하는 경우이다. 이때 PR 중인 브랜치를 기준으로 브랜치를 생성하는 선택을 하면 안 된다. PR이 완료되어 브랜치를 삭제하면 연관된 브랜치도 삭제되기 때문이다.
@@ -202,13 +151,7 @@ F---G---H---I---J---K---L develop
 이 경우를 해결하기 위해서는 먼저 feature 브랜치를 develop 브랜치로부터 만든다. 그리고 생성한 feature 브랜치에 필요한 내용만 `cherry-pick`하여 가져가면 해결된다.
 
 ##### cherry-pick 예시
-```
-      A---B---C---D---E feature
-     /         \
-F---G---H---I---J---K develop
-                     \
-                      K---[D]---[E] new feature
-```
+![]({{ '/assets/img/git-scm-experience/11.png' | prepend: site.baseurl }})
 
 #### 예정된 배포 일정 앞에 기능 배포한 사례
 이 상황은 신규 기능 개발은 급하게 필요하지만, develop에 반영되어있던 기능들이 production에 배포하면 안 되는 사항이 있을 때다.
@@ -216,46 +159,22 @@ F---G---H---I---J---K develop
 이 상황은 hotfix 전략으로 해결할 수 있다. 먼저 `hotfix/YYYYMMDD`로 hotfix+develop 역할의 핫픽스 개발 브랜치를 생성한다. hotfix 처럼 개발완료 시 master/develop에 병합되고, develop 처럼 feature를 만들어 병합할 수 있는 역할의 브랜치이다. 
 
 ##### hotfix+develop 역할 브랜치 만들기 예시
-```
-D---E---F master
-         \         
-          A hotfix/YYYYMMDD
-                  
-D---E---F---G develop
-```
+![]({{ '/assets/img/git-scm-experience/12.png' | prepend: site.baseurl }})<br>
 
 그리고 `hotfix/YYYYMMDD`를 기준으로 기능별로 브랜치를 만들어서 작업한다. 해당 브랜치도 핫픽스의 의미를 내포하여 hotfix라는 접두사를 붙여 작명을 한다.
 
 ##### hotfix 브랜치 만들기 예시
-```
-  A---B---C hotfix/add-new-form
- /        
-D hotfix/YYYYMMDD
- \
-  E---F---G---H hotfix/add-new-page
-```
+![]({{ '/assets/img/git-scm-experience/13.png' | prepend: site.baseurl }})<br>
 
 각 기능의 PR은 `hotfix/YYYYMMDD`에 진행을 한다. 개발 완료 후 내부 테스트가 필요하면 Sandbox에 배포 시 `hotfix/YYYYMMDD`로 배포를 한다. 
 
 ##### hotfix 브랜치를 hotfix/YYYYMMDD 브랜치에 병합 예시
-```
-  A---B---C hotfix/add-new-form
- /         \
-D-----------E---F hotfix/YYYYMMDD
- \             /
-  G---H---I---J hotfix/add-new-page
-```
+![]({{ '/assets/img/git-scm-experience/14.png' | prepend: site.baseurl }})<br>
 
 테스트 완료 후 master/develop에 머지를 진행한다. production 배포는 기존 프로세스와 같이 master로 진행한다. 이렇게 되면 깃플로우 정책을 해치지 않고 작업이 가능하다.
 
 ##### hotfix/YYYYMMDD를 master와 develop 브랜치에 병합 예시
-```
-D---E---F---A---B---C master
-         \         /
-          A---B---C hotfix/YYYYMMDD
-                   \    
-D---E---F---A---B---C develop
-```
+![]({{ '/assets/img/git-scm-experience/15.png' | prepend: site.baseurl }})
 
 ##### 고민이 되었던 부분
 이 솔루션을 알기 전까지는 배포하는 부분에서 고민했다. develop/master를 통해서만 배포를 해야 한다는 생각을 가졌는데,
