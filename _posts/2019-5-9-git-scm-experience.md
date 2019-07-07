@@ -4,7 +4,7 @@ title:  "형상관리 전략정리"
 date:   2019-5-9
 description: 기억속에 파편화되있는 형상관리 전략에 대한 정리
 tags: [git]
-category: 정리자료
+category: 관리
 ---
 > 이 글을 읽기 위해 <a href="https://git-scm.com/book/ko/v1/Git%EC%9D%98-%EA%B8%B0%EC%B4%88" target="_blank">Git의 기초</a>와 <a href="https://git-scm.com/book/ko/v1/Git-%EB%B8%8C%EB%9E%9C%EC%B9%98" target="_blank">Git 브랜치</a> 사전지식이 필요합니다.
 
