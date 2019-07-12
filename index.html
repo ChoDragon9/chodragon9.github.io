@@ -6,22 +6,34 @@ description: 웹 프런트 엔지니어에 관한 내용을 다룹니다.
 <div class="home" id="home">
   <h3 style="text-align: center" class="posts" id="최근글">최근글</h3>
   <ul class="posts noList">
-    {% for post in [site.posts[0], site.posts[1]] %}
     <li>
       <h4>
-        <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        <a class="post-link" href="{{ site.posts[0].url | prepend: site.baseurl }}">{{ site.posts[0].title }}</a>
         <br>
         <span class="date">
-              {{ post.date | date: '%Y.%m.%d' }}
+              {{ site.posts[0].date | date: '%Y.%m.%d' }}
             </span>
       </h4>
       <figure>
         <img
-                src="/assets/img/tags/{{post.tags[0]}}.png"
-                alt="{{post.tags[0]}}">
+                src="/assets/img/tags/{{site.posts[0].tags[0]}}.png"
+                alt="{{site.posts[0].tags[0]}}">
       </figure>
     </li>
-    {% endfor %}
+    <li>
+      <h4>
+        <a class="post-link" href="{{ site.posts[1].url | prepend: site.baseurl }}">{{ site.posts[1].title }}</a>
+        <br>
+        <span class="date">
+              {{ site.posts[1].date | date: '%Y.%m.%d' }}
+            </span>
+      </h4>
+      <figure>
+        <img
+                src="/assets/img/tags/{{site.posts[1].tags[0]}}.png"
+                alt="{{site.posts[1].tags[0]}}">
+      </figure>
+    </li>
   </ul>
 
   {% for category in site.categories %}
