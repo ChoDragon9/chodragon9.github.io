@@ -184,6 +184,7 @@ changeDate () {
 #### 수동으로 전파!
 - 수동으로 전파할 경우, 모든 코드에 따라다님
 - 하나라도 미정의시 오류
+
 ```js
 changeDate () {
   const startDate = '2019-03-01'
@@ -195,10 +196,10 @@ changeDate () {
   range$.next(this.range(startDate, endDate))
 }
 ```
----
 
 #### RxJs의 자동 전파
 - combineLatest 사용으로 **상태 의존성 관리**
+
 ```js
 startDate$ = new BehaviorSubject()
 endDate$ = new BehaviorSubject()
