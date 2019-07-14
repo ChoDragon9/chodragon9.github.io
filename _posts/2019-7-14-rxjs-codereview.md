@@ -21,7 +21,7 @@ subject.subscribe((v) => console.log(`observer: ${v}`));
 subject.next(1);
 subject.next(2);
 ```
-위 실행된 코드는 아래와 같다.
+위 실행된 결과는 아래와 같다.
 ```
 $ "observer: 1"
 $ "observer: 2"
