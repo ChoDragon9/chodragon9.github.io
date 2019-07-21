@@ -3,8 +3,8 @@ layout: post
 title:  "RxJs 코드리뷰 사례"
 date:   2019-07-14
 description: RxJs 코드리뷰에 코멘트를 줬던 사례
-tags: [es6]
-category: Javascript
+tags: [angular]
+category: Angular
 ---
 이 글은 코드리뷰하며 코멘트를 줬던 사항이다. 아래 3가지 사례에 대한 글이다.
 - [상태 전파 코드 위치](#상태-전파-코드-위치)
