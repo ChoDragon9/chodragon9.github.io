@@ -3,7 +3,7 @@ layout: post
 title:  "GoF 디자인 패턴 정리"
 date:   2018-12-09
 tags: [summary, pattern]
-comments: true
+category: 패턴
 ---
 #### 생성패턴
 - **싱글턴** : 오직 한 개의 인스턴스 보장, 전역적인 접근 제공
