@@ -2,7 +2,7 @@
 layout: post
 title:  "GoF 디자인 패턴 정리"
 date:   2018-12-09
-tags: [summary, pattern]
+tags: [pattern]
 category: 패턴
 ---
 #### 생성패턴
