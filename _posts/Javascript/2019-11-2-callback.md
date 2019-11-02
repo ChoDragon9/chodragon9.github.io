@@ -88,6 +88,7 @@ const map = (arr, callback) => {
 ```js
 const arr = [1, 2, 3]
 const result = map(arr, (item) => item + 1)
+// [2, 3, 4]
 ```
 ```js
 const product = [
@@ -101,6 +102,10 @@ const changedProduct = map(product, ({price, count}) => {
     total: price * count
   }
 })
+// [
+//   { price: 1000, count: 2, total: 2000 },
+//   { price: 2000, count: 3, total: 6000 }
+// ]
 ```
 
 #### 결론
