@@ -2,7 +2,7 @@
 layout: post
 title:  "코드리뷰를 위한 React 컨벤션"
 date:   2019-11-29
-description: 코드리뷰를 위한 React 컨벤션
+description: 코드리뷰를 위한 React 무경험자 시각의 React 컨벤션 정리이다.
 tags: [words]
 category: 정리자료
 ---
