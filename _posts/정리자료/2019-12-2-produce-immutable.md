@@ -54,4 +54,4 @@ console.log(nextState[1] !== baseState[1]) // true
 ### 끝
 해당 함수를 구현해서 서비스에 사용중이다. 만약에 영속적 자료 구조의 이점이 필요없고, 단순히 immer의 인터페이스때문에 사용중이라면 해당 기능으로 대체 가능하다.
 
-clone 함수는 JSON에서 지원하는 타입만 사용가능하다. 다양한 타입이나 좀더 좋은 성능의 clone함수는 [경우에 따른 clone 함수](경우에-따른-clone-함수)에서 다룬다.
+clone 함수는 JSON에서 지원하는 타입만 사용가능하다. 다양한 타입이나 좀더 좋은 성능의 clone함수는 [경우에 따른 clone 함수](https://chodragon9.github.io/blog/clone-function/)에서 다룬다.
