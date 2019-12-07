@@ -84,6 +84,7 @@ const unpack = pack => pack[symbol]
   - 그렇지 않으면
     - undefined나 null 일 때, undefined를 프록시로 감싼다.
     - 정상적인 값이면 정상적인 값을 프록시로 감싼다.
+
 ```js
 const toProxy = (state, revokes) => {
   const wrap = pack(state)
