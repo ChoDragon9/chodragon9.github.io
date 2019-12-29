@@ -4,7 +4,7 @@ title:  "함수형 프로그래밍 정리"
 date:   2019-06-15
 description: 함수형 프로그래밍에 대한 내용 정리
 tags: [FP]
-category: 정리자료
+category: 함수형
 ---
 # 함수형은 함수를 이해하는 게 절반이다
 

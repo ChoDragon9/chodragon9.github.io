@@ -3,8 +3,8 @@ layout: post
 title:  "produce 구현해보기 - OOP 버전"
 date:   2019-12-01
 description: ImmerJs의 produce 함수 내부 로직을 OOP 로직으로 만들어봤다. 
-tags: [words]
-category: 정리자료
+tags: [FP]
+category: 함수형
 ---
 [produce 구현해보기](https://chodragon9.github.io/blog/produce/)에서 작성된 코드를 OOP 버전으로 리팩토링한 코드이다.
 
