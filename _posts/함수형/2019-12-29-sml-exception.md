@@ -32,3 +32,9 @@ fun calc (n) = if n < 0.0
 val balance = calc(~10.0)
               handle Domain => ~10.0
 ```
+
+##### 실행 결과
+```
+val calc = fn : real -> real
+val balance = ~10.0 : real
+```
