@@ -7,6 +7,8 @@ tags: [FP]
 category: SML
 ---
 ### 자료형 정의
+자료형 정의는 `datatype`으로 정의한다. 자료형으로 정의된 형은 네임스페이스 없이 바로 접근 가능하다.
+
 ```
 datatype color = Red | Green | Blue
 
@@ -66,5 +68,13 @@ val myTree = Node (
 fun count (Leaf n) = n
   | count (Node (left, n, right)) = count(left) + n + count(right)
 
-val myTreeCount = count(myTree) (* 32 *)
+val myTreeCount = count(myTree)
+```
+
+##### 실행결과
+```
+datatype 'a btree = Leaf of 'a | Node of 'a btree * 'a * 'a btree
+val myTree = Node (Leaf 9,8,Node (Leaf #,5,Leaf #)) : int btree
+val count = fn : int btree -> int
+val myTreeCount = 32 : int
 ```
