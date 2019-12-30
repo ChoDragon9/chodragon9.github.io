@@ -28,7 +28,7 @@ val b = toAlpha(1)
 val c = toAlpha(2)
 ```
 
-### 제귀
+### 재귀
 ```
 fun factorial (n) =
   if n = 0
