@@ -4,7 +4,7 @@ title:  "SML: Standard ML 예외처리"
 date:   2019-12-29
 description: Standard Meta Language 예외처리
 tags: [FP]
-category: 함수형
+category: SML
 ---
 ### 예외처리
 예외처리는 `raise`로 정의한다.

@@ -4,7 +4,7 @@ title:  "SML: Standard ML 고차함수"
 date:   2019-12-29
 description: Standard Meta Language 고차함수 정의 정리
 tags: [FP]
-category: 함수형
+category: SML
 ---
 ### 고차 함수
 값 처럼 사용할 수 있는 함수를 고차 함수라고 한다. 익명함수, 람다식, 클로저가 있다.

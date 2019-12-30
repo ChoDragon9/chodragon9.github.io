@@ -4,7 +4,7 @@ title:  "SML: Standard ML 자료형 정의"
 date:   2019-12-29
 description: Standard Meta Language 자료형 정의
 tags: [FP]
-category: 함수형
+category: SML
 ---
 ### 자료형 정의
 ```
