@@ -52,7 +52,7 @@ val strTree = Node (Leaf "B","A",Node (Leaf #,"C",Leaf #)) : string btree
 #### 숫자값 모두 더하기
 ```
 datatype 'a btree = 
-  Leaf of 'a
+    Leaf of 'a
   | Node of 'a btree * 'a * 'a btree
 
 val myTree = Node (
