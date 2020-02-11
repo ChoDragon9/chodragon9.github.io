@@ -10,7 +10,7 @@ category: 정리자료
 인하우스 서비스 구축하며 사용했던 TypeScript의 문법들을 정리한다. 어떤 것을 알고 있는 지 식별하기 위함과 생산성을 위한 최소한의 문법들을 정리하기 위함이다.
 
 ### 기본 타입
-> http://www.typescriptlang.org/docs/handbook/basic-types.html
+> [Basic Types](http://www.typescriptlang.org/docs/handbook/basic-types.html)
 
 ```ts
 const canDelete: boolean = false
@@ -35,7 +35,7 @@ anyType = 'string' // Ok
 anyType = ['string'] // Ok
 ```
 
-> [Type assertions](http://www.typescriptlang.org/docs/handbook/basic-types.html#type-assertions)는 특정 DOM을 사용할 때 유용하다.
+> [Type assertions](http://www.typescriptlang.org/docs/handbook/basic-types.html#type-assertions)는 특정 DOM 타입을 사용할 때 유용하다.
 
 ```ts
 const str: any = 'this is a string'
@@ -44,14 +44,14 @@ const len: number = (str as string).length
 
 ### 사용자 타입 정의
 #### function
-> http://www.typescriptlang.org/docs/handbook/functions.html#function-types
+> [Function Types](http://www.typescriptlang.org/docs/handbook/functions.html#function-types)
 
 ```ts
 const add: (x: number, y: number) => number = (x, y) => x + y
 ```
 
 #### Interface
-> http://www.typescriptlang.org/docs/handbook/interfaces.html
+> [Interfaces](http://www.typescriptlang.org/docs/handbook/interfaces.html)
 
 ```ts
 interface DateOption {
@@ -65,7 +65,7 @@ interface CalendarOption extends DateOption {
 ```
 
 #### class
-> https://www.typescriptlang.org/docs/handbook/release-notes/typescript-1-6.html#class-expressions
+> [Class Expressions](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-1-6.html#class-expressions)
 
 ```ts
 class ToggleHelper {
@@ -95,7 +95,7 @@ ToggleHelper.create() // Ok
 ```
 
 #### namespace
-> https://www.typescriptlang.org/docs/handbook/release-notes/typescript-1-5.html#namespace-keyword
+> [namespace](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-1-5.html#namespace-keyword)
 
 ```ts
 namespace MyBackendApi {
@@ -105,7 +105,7 @@ namespace MyBackendApi {
 ```
 
 #### Generic
-> http://www.typescriptlang.org/docs/handbook/generics.html#introduction
+> [Generic](http://www.typescriptlang.org/docs/handbook/generics.html#introduction)
 
 ```ts
 type NoticeKey<T> = {
@@ -117,7 +117,7 @@ type MultiNoticeKey = NoticeKey<number[]>
 ```
 
 #### type
-> https://www.typescriptlang.org/docs/handbook/release-notes/typescript-1-4.html#type-aliases
+> [Type Aliases](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-1-4.html#type-aliases)
 
 ```ts
 type Callback = () => void
@@ -126,7 +126,7 @@ type MultiNoticeKey = NoticeKey<number[]>
 ```
 
 #### declare
-> http://www.typescriptlang.org/docs/handbook/declaration-files/by-example.html#reusable-types-interfaces
+> [Reusable Types Interfaces](http://www.typescriptlang.org/docs/handbook/declaration-files/by-example.html#reusable-types-interfaces)
 
 ```ts
 declare namespace GetNotice {
@@ -141,7 +141,7 @@ declare namespace GetNoticeList {
 
 ### 타입 조합하기
 #### Intersection Types
-> http://www.typescriptlang.org/docs/handbook/advanced-types.html#intersection-types
+> [Intersection Types](http://www.typescriptlang.org/docs/handbook/advanced-types.html#intersection-types)
 
 ```ts
 interface YearField {
@@ -164,7 +164,7 @@ const option: DateOption = {
 ```
 
 #### Union Types
-> http://www.typescriptlang.org/docs/handbook/advanced-types.html#union-types
+> [Union Types](http://www.typescriptlang.org/docs/handbook/advanced-types.html#union-types)
 
 ```ts
 let option: DateOption | null = null
@@ -176,7 +176,7 @@ option = {
 ```
 
 #### keyof
-> https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-1.html#keyof-and-lookup-types
+> [keyof and lookup types](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-1.html#keyof-and-lookup-types)
 
 ```ts
 type DateOptionKey = keyof DateOption
@@ -223,7 +223,7 @@ const PHASE_CONFIG: PhaseHost = {
 ```
 
 ### Mapped Types
-> http://www.typescriptlang.org/docs/handbook/utility-types.html#partialt
+> [Partial](http://www.typescriptlang.org/docs/handbook/utility-types.html#partialt)
 
 ```ts
 interface DateOption {
@@ -251,7 +251,7 @@ const selectedDay: DateOptionPartial = {
 }
 ```
 
-> http://www.typescriptlang.org/docs/handbook/utility-types.html#picktk
+> [Pick](http://www.typescriptlang.org/docs/handbook/utility-types.html#picktk)
 
 ```ts
 interface DateOption {
@@ -269,7 +269,7 @@ const calendarTitle: Pick<DateOption, 'year' | 'month'> = {
 
 ### Postfix
 #### Definite Assignment Assertions
-- https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-7.html#definite-assignment-assertions
+> [Definite Assignment Assertions](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-7.html#definite-assignment-assertions)
 
 ```ts
 // Wrong
@@ -290,7 +290,7 @@ function init() {
 ```
 
 #### Optional parameters and properties
-> https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-0.html#optional-parameters-and-properties
+> [Optional parameters and properties](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-0.html#optional-parameters-and-properties)
 
 ```ts
 interface DateOption {year: number, month: number}
