@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>강제성, 단일화 그리고 날짜 헬퍼 개발 | ChoDragon9</title>
+    <meta name="description" content="도구로 해결할 수 없는 강제성을 해결하자">
+    <meta name="generator" content="VuePress 1.3.1">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.ec1b8bff.css" as="style"><link rel="preload" href="/assets/js/app.89589982.js" as="script"><link rel="preload" href="/assets/js/2.b682ec10.js" as="script"><link rel="preload" href="/assets/js/23.1e12da23.js" as="script"><link rel="prefetch" href="/assets/js/10.985c2b80.js"><link rel="prefetch" href="/assets/js/11.93966beb.js"><link rel="prefetch" href="/assets/js/12.233d50bf.js"><link rel="prefetch" href="/assets/js/13.0255935a.js"><link rel="prefetch" href="/assets/js/14.baaee00b.js"><link rel="prefetch" href="/assets/js/15.d5094919.js"><link rel="prefetch" href="/assets/js/16.be639cec.js"><link rel="prefetch" href="/assets/js/17.111c829a.js"><link rel="prefetch" href="/assets/js/18.a0e7b776.js"><link rel="prefetch" href="/assets/js/19.1bd918c6.js"><link rel="prefetch" href="/assets/js/20.fd0a5e59.js"><link rel="prefetch" href="/assets/js/21.02e9c333.js"><link rel="prefetch" href="/assets/js/22.0eb3731b.js"><link rel="prefetch" href="/assets/js/24.bcefbcc4.js"><link rel="prefetch" href="/assets/js/25.483fe671.js"><link rel="prefetch" href="/assets/js/26.d0a11ad8.js"><link rel="prefetch" href="/assets/js/27.72a013ad.js"><link rel="prefetch" href="/assets/js/28.cb190229.js"><link rel="prefetch" href="/assets/js/29.697d53a4.js"><link rel="prefetch" href="/assets/js/3.a0639062.js"><link rel="prefetch" href="/assets/js/30.1e934195.js"><link rel="prefetch" href="/assets/js/31.2a98ed64.js"><link rel="prefetch" href="/assets/js/32.4404b982.js"><link rel="prefetch" href="/assets/js/33.dcb9e62e.js"><link rel="prefetch" href="/assets/js/34.9b28e17f.js"><link rel="prefetch" href="/assets/js/35.d25b1317.js"><link rel="prefetch" href="/assets/js/36.6429478f.js"><link rel="prefetch" href="/assets/js/37.1fdd82f6.js"><link rel="prefetch" href="/assets/js/38.edac1fd4.js"><link rel="prefetch" href="/assets/js/39.d0eb1aa0.js"><link rel="prefetch" href="/assets/js/4.131bec4f.js"><link rel="prefetch" href="/assets/js/40.8e33b195.js"><link rel="prefetch" href="/assets/js/41.94dfb828.js"><link rel="prefetch" href="/assets/js/42.9b21d10f.js"><link rel="prefetch" href="/assets/js/43.6cecdbbd.js"><link rel="prefetch" href="/assets/js/44.d28291da.js"><link rel="prefetch" href="/assets/js/45.76ec9f40.js"><link rel="prefetch" href="/assets/js/46.b074b5b9.js"><link rel="prefetch" href="/assets/js/47.361a9d6e.js"><link rel="prefetch" href="/assets/js/48.9e8efb98.js"><link rel="prefetch" href="/assets/js/49.fa9e02e4.js"><link rel="prefetch" href="/assets/js/5.46a38e10.js"><link rel="prefetch" href="/assets/js/50.6f1e8ca0.js"><link rel="prefetch" href="/assets/js/51.438cc244.js"><link rel="prefetch" href="/assets/js/52.691a7ad9.js"><link rel="prefetch" href="/assets/js/53.451b3fde.js"><link rel="prefetch" href="/assets/js/54.9b4ba27c.js"><link rel="prefetch" href="/assets/js/55.5908fa94.js"><link rel="prefetch" href="/assets/js/56.02c1cd4a.js"><link rel="prefetch" href="/assets/js/57.ad8facce.js"><link rel="prefetch" href="/assets/js/58.3637fe16.js"><link rel="prefetch" href="/assets/js/59.8cefb217.js"><link rel="prefetch" href="/assets/js/6.d94c3d70.js"><link rel="prefetch" href="/assets/js/60.1c6d8c13.js"><link rel="prefetch" href="/assets/js/61.fd508bac.js"><link rel="prefetch" href="/assets/js/62.15a6b5ad.js"><link rel="prefetch" href="/assets/js/7.ef610d6c.js"><link rel="prefetch" href="/assets/js/8.ec3c650c.js"><link rel="prefetch" href="/assets/js/9.3941f8b7.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.ec1b8bff.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">ChoDragon9</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="패러다임" class="dropdown-title"><span class="title">패러다임</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          객체지향
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/object/" class="nav-link">
+  객체 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/produce-oop/" class="nav-link">
+  produce 구현해보기 - OOP 버전
+</a></li></ul></li><li class="dropdown-item"><h4>
+          함수형
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/functional/" class="nav-link">
+  함수형 프로그래밍 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/functional2/" class="nav-link">
+  함수형 프로그래밍 정리2
+</a></li><li class="dropdown-subitem"><a href="/blog/produce/" class="nav-link">
+  produce 구현해보기
+</a></li><li class="dropdown-subitem"><a href="/blog/produce-immutable/" class="nav-link">
+  produce 구현해보기 - 불변성편
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="언어" class="dropdown-title"><span class="title">언어</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Javascript
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/es6/" class="nav-link">
+  [ECMAScript] ES6 Overview
+</a></li><li class="dropdown-subitem"><a href="/blog/this/" class="nav-link">
+  this, this is magic.
+</a></li><li class="dropdown-subitem"><a href="/blog/callback/" class="nav-link">
+  콜백 사용 시점
+</a></li><li class="dropdown-subitem"><a href="/blog/safe-chain/" class="nav-link">
+  안전한 체이닝을 위한 safeChain
+</a></li><li class="dropdown-subitem"><a href="/blog/async-await-case/" class="nav-link">
+  async await 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/observation-mechanism/" class="nav-link">
+  옵져버 매커니즘
+</a></li><li class="dropdown-subitem"><a href="/blog/call-stack-and-coroutine/" class="nav-link">
+  코루틴을 사용한 지연 평가
+</a></li><li class="dropdown-subitem"><a href="/blog/regexp-book-backref/" class="nav-link">
+  [손에 잡히는 정규표현식] 역참조/전방탐색/후방탐색
+</a></li><li class="dropdown-subitem"><a href="/blog/promise/" class="nav-link">
+  Promise 정리
+</a></li></ul></li><li class="dropdown-item"><h4>
+          SML
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/sml-basic/" class="nav-link">
+  기초
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-builtin-datatype/" class="nav-link">
+  빌트인 자료형
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-datatype/" class="nav-link">
+  자료형 정의
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-exception/" class="nav-link">
+  예외처리
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-function/" class="nav-link">
+  함수
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-higher-order-function/" class="nav-link">
+  고차함수
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-infix/" class="nav-link">
+  infix 정의
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-module/" class="nav-link">
+  모듈 시스템
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="오픈소스" class="dropdown-title"><span class="title">오픈소스</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Angular
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/rxjs-codereview/" class="nav-link">
+  RxJs 코드리뷰 사례
+</a></li><li class="dropdown-subitem"><a href="/blog/angular/" class="nav-link">
+  Angular의 강력함과 아쉬운점
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Vue
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/nuxt-ts/" class="nav-link">
+  Nuxt에서 TypeScript로 개발하기
+</a></li><li class="dropdown-subitem"><a href="/blog/nuxt-migration/" class="nav-link">
+  Nuxt v2.0에서 v2.11로 마이그레이션
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="설계" class="dropdown-title"><span class="title">설계</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          좋은코드
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/easy-code/" class="nav-link">
+  이해하기 쉬운 코드 작성방법 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/code-position/" class="nav-link">
+  코드의 위치를 정하는 기준
+</a></li><li class="dropdown-subitem"><a href="/blog/reusable-code/" class="nav-link">
+  재사용 가능한 코드 개발
+</a></li><li class="dropdown-subitem"><a href="/blog/declarative-function/" class="nav-link">
+  선언형으로 대체 가능한 문법들 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/date-helper-development/" class="nav-link router-link-exact-active router-link-active">
+  강제성, 단일화 그리고 날짜 헬퍼 개발
+</a></li></ul></li><li class="dropdown-item"><h4>
+          패턴
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/mvc/" class="nav-link">
+  MVC
+</a></li><li class="dropdown-subitem"><a href="/blog/mvvm/" class="nav-link">
+  MVVM
+</a></li><li class="dropdown-subitem"><a href="/blog/gof-design-pattern-summary/" class="nav-link">
+  GoF 디자인 패턴 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/design-pattern-structural/" class="nav-link">
+  GoF 디자인 패턴 | 구조패턴
+</a></li><li class="dropdown-subitem"><a href="/blog/design-pattern-creational/" class="nav-link">
+  GoF 디자인 패턴 | 생성패턴
+</a></li><li class="dropdown-subitem"><a href="/blog/design-pattern-behavioral/" class="nav-link">
+  GoF 디자인 패턴 | 행동패턴
+</a></li></ul></li><li class="dropdown-item"><h4>
+          리팩토링
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/structure-refactoring/" class="nav-link">
+  [리펙토링] 구조 리펙토링 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/legacy-code-to-easy-code/" class="nav-link">
+  레거시 코드에서 이해하기 쉬운코드로 리팩토링
+</a></li><li class="dropdown-subitem"><a href="/blog/legacy-code-to-easy-code-2/" class="nav-link">
+  레거시 코드에서 이해하기 쉬운코드로 리팩토링 2
+</a></li><li class="dropdown-subitem"><a href="/blog/refactoring-meaning-and-result/" class="nav-link">
+  리펙토링 정의와 결과
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="정리" class="dropdown-title"><span class="title">정리</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          관리
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/estimation/" class="nav-link">
+  개발 일정산정
+</a></li><li class="dropdown-subitem"><a href="/blog/release/" class="nav-link">
+  배포 어디까지 알고 있나요?
+</a></li><li class="dropdown-subitem"><a href="/blog/facilitation-for-meeting/" class="nav-link">
+  효율적인 회의를 위한 퍼실리테이션
+</a></li><li class="dropdown-subitem"><a href="/blog/preventive-maintenance/" class="nav-link">
+  위험상황을 대비하는 위험관리
+</a></li><li class="dropdown-subitem"><a href="/blog/git-scm-experience/" class="nav-link">
+  형상관리 전략정리
+</a></li></ul></li><li class="dropdown-item"><h4>
+          정리자료
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/programming-standards/" class="nav-link">
+  프로그래밍의 정석 도서 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/non-functional-requirement/" class="nav-link">
+  소프트웨어의 핵심 비기능 요구사항
+</a></li><li class="dropdown-subitem"><a href="/blog/how-to-catch-error/" class="nav-link">
+  에러 처리 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/cors-and-http-cookie/" class="nav-link">
+  CORS와 HTTP Cookie
+</a></li><li class="dropdown-subitem"><a href="/blog/abstract/" class="nav-link">
+  추상화 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/react-convention-for-codereview/" class="nav-link">
+  코드리뷰를 위한 React 컨벤션
+</a></li><li class="dropdown-subitem"><a href="/blog/clone-function/" class="nav-link">
+  경우에 따른 clone 함수
+</a></li><li class="dropdown-subitem"><a href="/blog/branch-n-case/" class="nav-link">
+  분기를 작성하는 방법 n가지
+</a></li><li class="dropdown-subitem"><a href="/blog/typescript-from-inhouse-service/" class="nav-link">
+  인하우스 서비스 구축하며 사용했던 TypeScript 문법 정리
+</a></li></ul></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="패러다임" class="dropdown-title"><span class="title">패러다임</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          객체지향
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/object/" class="nav-link">
+  객체 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/produce-oop/" class="nav-link">
+  produce 구현해보기 - OOP 버전
+</a></li></ul></li><li class="dropdown-item"><h4>
+          함수형
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/functional/" class="nav-link">
+  함수형 프로그래밍 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/functional2/" class="nav-link">
+  함수형 프로그래밍 정리2
+</a></li><li class="dropdown-subitem"><a href="/blog/produce/" class="nav-link">
+  produce 구현해보기
+</a></li><li class="dropdown-subitem"><a href="/blog/produce-immutable/" class="nav-link">
+  produce 구현해보기 - 불변성편
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="언어" class="dropdown-title"><span class="title">언어</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Javascript
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/es6/" class="nav-link">
+  [ECMAScript] ES6 Overview
+</a></li><li class="dropdown-subitem"><a href="/blog/this/" class="nav-link">
+  this, this is magic.
+</a></li><li class="dropdown-subitem"><a href="/blog/callback/" class="nav-link">
+  콜백 사용 시점
+</a></li><li class="dropdown-subitem"><a href="/blog/safe-chain/" class="nav-link">
+  안전한 체이닝을 위한 safeChain
+</a></li><li class="dropdown-subitem"><a href="/blog/async-await-case/" class="nav-link">
+  async await 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/observation-mechanism/" class="nav-link">
+  옵져버 매커니즘
+</a></li><li class="dropdown-subitem"><a href="/blog/call-stack-and-coroutine/" class="nav-link">
+  코루틴을 사용한 지연 평가
+</a></li><li class="dropdown-subitem"><a href="/blog/regexp-book-backref/" class="nav-link">
+  [손에 잡히는 정규표현식] 역참조/전방탐색/후방탐색
+</a></li><li class="dropdown-subitem"><a href="/blog/promise/" class="nav-link">
+  Promise 정리
+</a></li></ul></li><li class="dropdown-item"><h4>
+          SML
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/sml-basic/" class="nav-link">
+  기초
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-builtin-datatype/" class="nav-link">
+  빌트인 자료형
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-datatype/" class="nav-link">
+  자료형 정의
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-exception/" class="nav-link">
+  예외처리
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-function/" class="nav-link">
+  함수
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-higher-order-function/" class="nav-link">
+  고차함수
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-infix/" class="nav-link">
+  infix 정의
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-module/" class="nav-link">
+  모듈 시스템
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="오픈소스" class="dropdown-title"><span class="title">오픈소스</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Angular
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/rxjs-codereview/" class="nav-link">
+  RxJs 코드리뷰 사례
+</a></li><li class="dropdown-subitem"><a href="/blog/angular/" class="nav-link">
+  Angular의 강력함과 아쉬운점
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Vue
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/nuxt-ts/" class="nav-link">
+  Nuxt에서 TypeScript로 개발하기
+</a></li><li class="dropdown-subitem"><a href="/blog/nuxt-migration/" class="nav-link">
+  Nuxt v2.0에서 v2.11로 마이그레이션
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="설계" class="dropdown-title"><span class="title">설계</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          좋은코드
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/easy-code/" class="nav-link">
+  이해하기 쉬운 코드 작성방법 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/code-position/" class="nav-link">
+  코드의 위치를 정하는 기준
+</a></li><li class="dropdown-subitem"><a href="/blog/reusable-code/" class="nav-link">
+  재사용 가능한 코드 개발
+</a></li><li class="dropdown-subitem"><a href="/blog/declarative-function/" class="nav-link">
+  선언형으로 대체 가능한 문법들 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/date-helper-development/" class="nav-link router-link-exact-active router-link-active">
+  강제성, 단일화 그리고 날짜 헬퍼 개발
+</a></li></ul></li><li class="dropdown-item"><h4>
+          패턴
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/mvc/" class="nav-link">
+  MVC
+</a></li><li class="dropdown-subitem"><a href="/blog/mvvm/" class="nav-link">
+  MVVM
+</a></li><li class="dropdown-subitem"><a href="/blog/gof-design-pattern-summary/" class="nav-link">
+  GoF 디자인 패턴 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/design-pattern-structural/" class="nav-link">
+  GoF 디자인 패턴 | 구조패턴
+</a></li><li class="dropdown-subitem"><a href="/blog/design-pattern-creational/" class="nav-link">
+  GoF 디자인 패턴 | 생성패턴
+</a></li><li class="dropdown-subitem"><a href="/blog/design-pattern-behavioral/" class="nav-link">
+  GoF 디자인 패턴 | 행동패턴
+</a></li></ul></li><li class="dropdown-item"><h4>
+          리팩토링
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/structure-refactoring/" class="nav-link">
+  [리펙토링] 구조 리펙토링 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/legacy-code-to-easy-code/" class="nav-link">
+  레거시 코드에서 이해하기 쉬운코드로 리팩토링
+</a></li><li class="dropdown-subitem"><a href="/blog/legacy-code-to-easy-code-2/" class="nav-link">
+  레거시 코드에서 이해하기 쉬운코드로 리팩토링 2
+</a></li><li class="dropdown-subitem"><a href="/blog/refactoring-meaning-and-result/" class="nav-link">
+  리펙토링 정의와 결과
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="정리" class="dropdown-title"><span class="title">정리</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          관리
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/estimation/" class="nav-link">
+  개발 일정산정
+</a></li><li class="dropdown-subitem"><a href="/blog/release/" class="nav-link">
+  배포 어디까지 알고 있나요?
+</a></li><li class="dropdown-subitem"><a href="/blog/facilitation-for-meeting/" class="nav-link">
+  효율적인 회의를 위한 퍼실리테이션
+</a></li><li class="dropdown-subitem"><a href="/blog/preventive-maintenance/" class="nav-link">
+  위험상황을 대비하는 위험관리
+</a></li><li class="dropdown-subitem"><a href="/blog/git-scm-experience/" class="nav-link">
+  형상관리 전략정리
+</a></li></ul></li><li class="dropdown-item"><h4>
+          정리자료
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/programming-standards/" class="nav-link">
+  프로그래밍의 정석 도서 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/non-functional-requirement/" class="nav-link">
+  소프트웨어의 핵심 비기능 요구사항
+</a></li><li class="dropdown-subitem"><a href="/blog/how-to-catch-error/" class="nav-link">
+  에러 처리 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/cors-and-http-cookie/" class="nav-link">
+  CORS와 HTTP Cookie
+</a></li><li class="dropdown-subitem"><a href="/blog/abstract/" class="nav-link">
+  추상화 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/react-convention-for-codereview/" class="nav-link">
+  코드리뷰를 위한 React 컨벤션
+</a></li><li class="dropdown-subitem"><a href="/blog/clone-function/" class="nav-link">
+  경우에 따른 clone 함수
+</a></li><li class="dropdown-subitem"><a href="/blog/branch-n-case/" class="nav-link">
+  분기를 작성하는 방법 n가지
+</a></li><li class="dropdown-subitem"><a href="/blog/typescript-from-inhouse-service/" class="nav-link">
+  인하우스 서비스 구축하며 사용했던 TypeScript 문법 정리
+</a></li></ul></li></ul></div></div> <!----></nav>  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><blockquote><p>현재 진행 중인 프로젝트의 기술 스택은 Angular, TypeScript 사용중이다.</p> <p>이 글에서 Angular, Typescript의 예제를 사용한다.</p></blockquote> <h3 id="목차"><a href="#목차" class="header-anchor">#</a> 목차</h3> <ul><li><a href="#%EB%8F%84%EA%B5%AC%EB%A1%9C-%ED%95%B4%EA%B2%B0%ED%95%A0-%EC%88%98-%EC%97%86%EB%8A%94-%EA%B0%95%EC%A0%9C%EC%84%B1">도구로 해결할 수 없는 강제성</a></li> <li><a href="#%EB%82%A0%EC%A7%9C-%ED%97%AC%ED%8D%BC%EB%A5%BC-%EB%A7%8C%EB%93%A4%EA%B2%8C-%EB%90%9C-%EC%9D%B4%EC%9C%A0">날짜 헬퍼를 만들게 된 이유</a></li> <li><a href="#%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EC%97%90-%EC%A0%81%ED%95%A9%ED%95%9C-%EB%B0%A9%EC%8B%9D-%EC%84%A0%EC%A0%95%ED%95%98%EA%B8%B0">프로젝트에 적합한 방식 선정하기</a></li> <li><a href="#%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4-%EC%84%A4%EA%B3%84%ED%95%98%EA%B8%B0">인터페이스 설계하기</a></li> <li><a href="#%EA%B0%9C%EB%B0%9C%ED%95%98%EA%B8%B0">개발하기</a></li> <li><a href="#%EC%A0%81%EC%9A%A9%ED%95%98%EA%B8%B0">적용하기</a></li> <li><a href="#%EA%B3%BC%EC%A0%95-%EC%9A%94%EC%95%BD">과정 요약</a></li></ul> <h3 id="도구로-해결할-수-없는-강제성"><a href="#도구로-해결할-수-없는-강제성" class="header-anchor">#</a> 도구로 해결할 수 없는 강제성</h3> <p>우선 강제성에 대한 정의가 필요할 거 같다. 강제성의 사전적 정의는 &quot;본인의 의사와는 관계없이 권력이나 힘을 이용해 원하지 않는 일을 억지로 시키는 경향&quot;이다.</p> <p>내가 진행했던 프로젝트는 강제성을 부여하기도 했다. 린트를 통한 코딩 컨벤션과 유닛 테스트를 통과해야 커밋이 가능한 강제성이 있었다. 요새는 린트를 필수로 사용한다. 린트를 사용하지 않으면 사람 대 사람으로 피드백이 필요하다. 타인에게 주는 피드백은 의도치 않은 결과를 초래하기도 한다. 의도치 않은 것을 받아들여 감정을 상할 여지가 있다.</p> <p>그러므로 서로의 감정을 상하지 않게 하려면 도구를 통해 피드백을 주는 것이 좋다고 느꼈다.</p> <p>하지만 도구로 해결할 수 없는 것이 있다. 도구로 해결할 수 없는 것은 코드의 역할과 의미를 제어 하는 것이다. 예를 들어 날짜를 의미하는 값은 다양한 방법이 있다.</p> <p>타임스탬프, 문자로 표기하는 날짜 포맷, Date 객체 그리고 Moment와 같은 라이브러리로 다루는 것이다. 이런 값들은 도구로서 강제하기 힘들고 코드리뷰를 통해 강제해야 한다.</p> <p>코드리뷰를 통해 코드의 동작을 강제하는 것은 리뷰이와 리뷰어 모두 피곤한 작업이다. 코드리뷰에 익숙하지 않은 리뷰이는 공격적으로 받아들이고 방어적인 성향을 띄게 되는 경우를 많이 봤다. 그래서 이러한 부분은 다른 방향으로 해결해야 한다.</p> <h3 id="날짜-헬퍼를-만들게-된-이유"><a href="#날짜-헬퍼를-만들게-된-이유" class="header-anchor">#</a> 날짜 헬퍼를 만들게 된 이유</h3> <p>최근에는 날짜 헬퍼를 만들었다. 날짜 헬퍼의 역할은 날짜를 다루는 연산작업과 생성작업을 단일화하는 것이다. 단일화하여 날짜를 다루는 타입을 하나로 할 길이 열린다.</p> <p>만들게 된 자세한 배경은 다음과 같다.</p> <p>프로젝트에서 자바스크립트로 날짜를 다루는 타입은 4가지가 있었다.</p> <ol><li><strong>Date 객체</strong></li> <li><strong>숫자</strong>타입의 타임스탬프</li> <li>YYYY-MM-DD 형태의 <strong>문자</strong>타입</li> <li>Moment 라이브러리</li></ol> <p>결국, Date 객체를 사용해서 만들어진 타입들이다. 하지만 계산 작업을 할 때는 이렇게 많은 타입이 필요하지 않다.</p> <p>YYYY-MM-DD의 형태는 <strong>API 통신</strong>이나 <strong>탬플릿</strong>에 필요한 타입이다. 타임스탬프는 비교 연산을 위해 사용되는 데, 자바스크립트는 문자도 비교연산을 사용 가능하다. 즉, 타임스탬프도 불필요하다.</p> <h5 id="날짜를-다루는-방법이-많다"><a href="#날짜를-다루는-방법이-많다" class="header-anchor">#</a> 날짜를 다루는 방법이 많다...</h5> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token keyword">const</span> date<span class="token operator">:</span> Date <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> timestamp<span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">=</span> Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> dateFormat<span class="token operator">:</span> <span class="token builtin">string</span> <span class="token operator">=</span> <span class="token function">moment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token string">'YYYY-MM-DD'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> current<span class="token operator">:</span> Moment <span class="token operator">=</span> <span class="token function">moment</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre></div><p>프로젝트에서 사용되는 날짜를 의미하는 타입이 불규칙적이다. 불규칙적이기 때문에 코드를 해석하기 힘들어졌다. 그래서 단일 타입을 강제하는 게 필요해졌다.</p> <p>단일 타입과 강제성을 부여하기 위한 가장 쉬운 방법은 한 위치에서 제어 하는 것이었다. 새로운 날짯값을 만들거나 계산 작업이 필요할 때 한 위치에서 제어 하는 것이다.</p> <p>프로젝트에서는 재사용을 위한 함수 분리는 헬퍼에 정의한다. 날짜 헬퍼도 이렇게 해서 만들어졌다. 날짜 헬퍼를 사용하면 사용 측에서는 &quot;어떻게 연산해야 하는지&quot; 고민할 필요 없이 함수의 인자에 전달과 반환 값을 사용하기만 하면 된다.</p> <p>이제 어떻게 날짜 헬퍼를 구성했는지 알아보겠다.</p> <h3 id="프로젝트에-적합한-방식-선정하기"><a href="#프로젝트에-적합한-방식-선정하기" class="header-anchor">#</a> 프로젝트에 적합한 방식 선정하기</h3> <p>처음에는 헬퍼를 만들게 돼서 어떤 형태로 개발할지 고민을 했다. 프로젝트에서는 함수형과 객체 지향을 강제하지 않는다. 그래서 내가 선호하는 방식인 함수형과 객체지향으로 고민했다. 그래서 두 가지 방향으로 자주 사용되는 인터페이스를 10가지 정도 만들어 봤었다.</p> <p>그런데 가장 중요한 사항을 잊고 있었는데, 실제로 사용한 프로젝트 구성원의 의견을 듣지 않았다. 헬퍼를 만들게 되면 실제로 사용할 구성원들에게 의견을 듣는 게 좋겠다는 생각이 들었다.</p> <p>그래서 회의를 통해서 선호하는 타입을 선정했고, 아쉽게 내가 생각하는 방향과 다르게 타입이 결정되었다. 타입은 문자로 결정되었고, Moment와 Date는 직접 사용하는 것은 제재하기로 했다.</p> <p>오히려 미리 의견을 물었던 게 이득이었지 않을까 추측됐다. 내가 생각했던 방향으로만 진행됐으면 오히려 함수형과 객체지향에 익숙하지 않은 구성원은 적응하는 데 시간이 걸렸을 것이다.</p> <p>결정된 사항으로 만들게 되면 절차지향으로 개발되고 모두가 익숙한 방법이다. 역시 좋은 게 좋은 게 아니라 프로젝트에 좋은 게 좋은 거다.</p> <h5 id="함수형으로-설계했던-인터페이스"><a href="#함수형으로-설계했던-인터페이스" class="header-anchor">#</a> 함수형으로 설계했던 인터페이스</h5> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> <span class="token function-variable function">addDate</span> <span class="token operator">=</span> <span class="token parameter">date</span> <span class="token operator">=&gt;</span> <span class="token parameter">count</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> clonedDate <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span>date<span class="token punctuation">)</span>
+  clonedDate<span class="token punctuation">.</span><span class="token function">setDate</span><span class="token punctuation">(</span>clonedDate<span class="token punctuation">.</span><span class="token function">getDate</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> count<span class="token punctuation">)</span>
+  <span class="token keyword">return</span> clonedDate
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> today <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token number">2019</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> addFromToday <span class="token operator">=</span> <span class="token function">addDate</span><span class="token punctuation">(</span>today<span class="token punctuation">)</span>
+<span class="token keyword">const</span> tomorrow <span class="token operator">=</span> <span class="token function">addFromToday</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> nextWeek <span class="token operator">=</span> <span class="token function">addFromToday</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">)</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>today<span class="token punctuation">.</span><span class="token function">getDate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// 1</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>tomorrow<span class="token punctuation">.</span><span class="token function">getDate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// 2</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>nextWeek<span class="token punctuation">.</span><span class="token function">getDate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// 8</span>
+</code></pre></div><h5 id="객체지향으로-설계했던-인터페이스"><a href="#객체지향으로-설계했던-인터페이스" class="header-anchor">#</a> 객체지향으로 설계했던 인터페이스</h5> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">class</span> <span class="token class-name">CustomDate</span> <span class="token keyword">extends</span> <span class="token class-name">Date</span> <span class="token punctuation">{</span> 
+  <span class="token function">addDate</span> <span class="token punctuation">(</span><span class="token parameter">count</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setDate</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getDate</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> count<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">static</span> <span class="token function">create</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span>args</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">CustomDate</span><span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> customDate <span class="token operator">=</span> CustomDate<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token number">2019</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>customDate<span class="token punctuation">.</span><span class="token function">getDate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// 1</span>
+customDate<span class="token punctuation">.</span><span class="token function">addDate</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>customDate<span class="token punctuation">.</span><span class="token function">getDate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// 11</span>
+</code></pre></div><h5 id="하지만-현재는-이렇게"><a href="#하지만-현재는-이렇게" class="header-anchor">#</a> 하지만 현재는 이렇게</h5> <blockquote><p>@Injectable()은 Angular의 Service 정의시 사용되는 데코레이터이다.</p></blockquote> <div class="language-ts extra-class"><pre class="language-ts"><code>@<span class="token function">Injectable</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">MomentHelper</span> <span class="token punctuation">{</span>
+  <span class="token function">addDate</span> <span class="token punctuation">(</span>date<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span> count<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">string</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">moment</span><span class="token punctuation">(</span>date<span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>count<span class="token punctuation">,</span> <span class="token string">'days'</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token string">'YYYY-MM-DD'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>이제 구체적인 구현 과정을 알아보겠다.</p> <h3 id="인터페이스-설계하기"><a href="#인터페이스-설계하기" class="header-anchor">#</a> 인터페이스 설계하기</h3> <p>먼저 프로젝트에서 사용하는 기능을 식별한다. IDE의 전체 코드 검색창에서 <strong>new Date</strong>, <strong>Date.now</strong>, <strong>moment</strong>를 검색해서 구현된 로직들을 분석했다. 그리고 추가로 기존에 사용 중인 유틸리티도 검색했다.</p> <p>자주 사용되는 기능 추렸을 때 이런 기능들이 식별됐다.</p> <div class="language- extra-class"><pre class="language-text"><code>- 오늘 가져오기
+- 다음 날, 이전 날 이동
+- 년월일 비교
+- 윤달 여부
+- 마지막 달 가져오기
+- 어제 날짜
+- 날짜를 특정 포맷으로 변환하기
+- 날짜범위 가져오기
+</code></pre></div><p>이렇게 식별된 기능을 토대로 인터페이스를 만든다. 초기 이름은 MomentHelper로 지었다. 일단 자주 사용되는 인터페이스만 만들어봤다.</p> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token keyword">const</span> <span class="token keyword">enum</span> Format <span class="token operator">=</span> <span class="token punctuation">{</span>
+  DateTime <span class="token operator">=</span> <span class="token string">'YYYY-MM-DD HH:mm:ss'</span><span class="token punctuation">,</span>
+  Date <span class="token operator">=</span> <span class="token string">'YYYY-MM-DD'</span><span class="token punctuation">,</span>
+  Time <span class="token operator">=</span> <span class="token string">'HH:mm:ss'</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">MomentHelper</span> <span class="token punctuation">{</span>
+  <span class="token function">getToday</span> <span class="token punctuation">(</span>format<span class="token operator">:</span> Format<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">string</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+  <span class="token function">getYesterday</span> <span class="token punctuation">(</span>format<span class="token operator">:</span> Format<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">string</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+  <span class="token function">addDate</span> <span class="token punctuation">(</span>date<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span> count<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span> format<span class="token operator">:</span> Format<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">string</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+  <span class="token function">subtractDate</span> <span class="token punctuation">(</span>date<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span> count<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span> format<span class="token operator">:</span> Format<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">string</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+  <span class="token function">isSameDate</span> <span class="token punctuation">(</span>srcDate<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span> targetDate<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">boolean</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+  <span class="token function">isSameMonth</span> <span class="token punctuation">(</span>srcDate<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span> targetDate<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">boolean</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+  <span class="token function">isSameYear</span> <span class="token punctuation">(</span>srcDate<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span> targetDate<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">boolean</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+  <span class="token function">isLeapYear</span> <span class="token punctuation">(</span>date<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">boolean</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>인터페이스를 만들었으면 검증하는 것이 중요하다. 검증은 실제로 사용할 코드에서 인터페이스를 사용해보는 것이다. 이를 통해서 원하는 방향으로 인터페이스가 설계되었는지 그리고 깔끔하게 설계가 되었는지 알 수 있다.</p> <p>내 기준에 깔끔한 설계는 <strong>라이브러리를 대체할 만한 편의성과 직관성</strong>을 제공하는 것을 기준으로 한다.</p> <p>인터페이스 설계가 완료되면 본격적으로 개발을 시작한다.</p> <h3 id="개발하기"><a href="#개발하기" class="header-anchor">#</a> 개발하기</h3> <p>헬퍼로 작성된 코드는 다수의 파일에서 사용할 목적이기 때문에 <strong>안전성이 보장</strong>돼야 한다. 나는 안전성을 보장하는 방법으로 유닛 테스트를 작성한다. 또한, 유닛 테스트를 통해 함수의 사용법까지 전달할 수 있다.</p> <p>유닛 테스트는 유닛 테스트 라이브러리를 사용해도 좋고 동작 여부를 확인하는 함수를 별도로 작성해도 좋다. 진행한 프로젝트는 <strong>Karma + Jasmine</strong>으로 환경이 구성돼서 그대로 사용했다.</p> <p>테스트 코드는 이런 형태로 작성했다.</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token function">describe</span><span class="token punctuation">(</span><span class="token string">'addDate'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> helper<span class="token operator">:</span> MomentHelper
+  <span class="token function">beforeEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span> helper <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MomentHelper</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  
+  <span class="token function">it</span><span class="token punctuation">(</span><span class="token string">'addDate - 기본 포맷'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Given</span>
+    <span class="token keyword">const</span> <span class="token constant">DATE</span> <span class="token operator">=</span> <span class="token string">'2019-03-01 10:25:30'</span>
+    <span class="token keyword">const</span> <span class="token constant">COUNT</span> <span class="token operator">=</span> <span class="token number">1</span>
+
+    <span class="token comment">// When</span>
+    <span class="token keyword">const</span> result <span class="token operator">=</span> helper<span class="token punctuation">.</span><span class="token function">addDate</span><span class="token punctuation">(</span><span class="token constant">DATE</span><span class="token punctuation">,</span> <span class="token constant">COUNT</span><span class="token punctuation">)</span>
+
+    <span class="token comment">// Then</span>
+    <span class="token function">expect</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toBe</span><span class="token punctuation">(</span><span class="token string">'2019-03-02'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p>간단하게 설명하면 이런 의미를 부여하며 작성했다.</p> <div class="language- extra-class"><pre class="language-text"><code>- describe: 어떤 함수를 테스트할 것인가
+- it: 어떤 동작 케이스 또는 시나리오인가
+- Given: 주어진 값, 전재가 무엇인가
+- When: 함수 실행과 결과는 무엇인가
+- Then: 실행결과와 의도한 결과가 일치하는 가
+</code></pre></div><p>이렇게 테스트 코드에 함수의 의도와 실행결과를 작성한다. 함수의 스펙을 정의하는 셈이다.</p> <p>테스트를 작성한 뒤에는 moment를 사용해서 함수 내부를 작성했다. 함수의 동작은 테스트 코드 동작을 통해 빠르게 피드백을 받을 수 있다. 정상일 때는 초록색으로 비정상일 때는 빨간색으로 피드백을 받을 수 있다.</p> <div class="language-ts extra-class"><pre class="language-ts"><code>@<span class="token function">Injectable</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">MomentHelper</span> <span class="token punctuation">{</span>
+  <span class="token function">addDate</span> <span class="token punctuation">(</span>date<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span> count<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span> format<span class="token operator">:</span> <span class="token constant">FORMAT</span> <span class="token operator">=</span> <span class="token constant">DEFAULT_FORMAT</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">string</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">moment</span><span class="token punctuation">(</span>date<span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>count<span class="token punctuation">,</span> <span class="token string">'days'</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span>format<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>이 과정을 반복하면서 하나씩 기능을 추가하면 안전성이 보장된 코드를 작성할 수 있다.</p> <p>모든 인터페이스를 개발하면 <strong>리팩토링</strong>한다. 리팩토링을 통한 수정된 코드는 테스트 코드를 통해 안전성이 보장된다. 리펙토링 중에 오류가 발생해도 테스트 코드를 통해 바로 피드백을 받을 수 있다.</p> <p>여기서 리팩토링은 상수화, 공통로직의 메소드화, 네이밍 수정 등이 이뤄진다.</p> <p>이제 헬퍼를 작성했으니 사용 측 파일에 적용해보자.</p> <h3 id="적용하기"><a href="#적용하기" class="header-anchor">#</a> 적용하기</h3> <blockquote><p>다시 전재를 설명하면 타입스크립트를 사용중이고, 날짜를 다루는 타입은 이제 문자 즉 string 타입을 사용한다.</p></blockquote> <p>적용할 때는 타입 선언을 먼저 변경했다. 타입 스크립트를 사용하는 중인데 타입 스크립트는 잘못된 타입을 사용하면 바로 피드백해준다. 그래서 Date, number를 사용하는 위치에 string으로 변경해서 영향있는 곳을 파악했다.</p> <p>기존에 사용된 코드가 이런 형태라면,</p> <div class="language-typescript extra-class"><pre class="language-typescript"><code><span class="token keyword">const</span> today<span class="token operator">:</span> Date <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> yesterday<span class="token operator">:</span> Date <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span>
+  today<span class="token punctuation">.</span><span class="token function">getFullYear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> 
+  today<span class="token punctuation">.</span><span class="token function">getMonth</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> 
+  today<span class="token punctuation">.</span><span class="token function">getDate</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span>
+<span class="token punctuation">)</span>
+<span class="token keyword">const</span> tomorrow<span class="token operator">:</span> Date <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span>
+  today<span class="token punctuation">.</span><span class="token function">getFullYear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> 
+  today<span class="token punctuation">.</span><span class="token function">getMonth</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> 
+  today<span class="token punctuation">.</span><span class="token function">getDate</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span>
+<span class="token punctuation">)</span>
+</code></pre></div><p>헬퍼를 사용해서 이런 형태로 바뀌었다.</p> <div class="language-typescript extra-class"><pre class="language-typescript"><code><span class="token keyword">const</span> today<span class="token operator">:</span> <span class="token builtin">string</span> <span class="token operator">=</span> momentHelper<span class="token punctuation">.</span><span class="token function">getToday</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> yesterday<span class="token operator">:</span> <span class="token builtin">string</span> <span class="token operator">=</span> momentHelper<span class="token punctuation">.</span><span class="token function">subtractDate</span><span class="token punctuation">(</span>today<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> tomorrow<span class="token operator">:</span> <span class="token builtin">string</span> <span class="token operator">=</span> momentHelper<span class="token punctuation">.</span><span class="token function">addDate</span><span class="token punctuation">(</span>today<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
+</code></pre></div><h4 id="컴포넌트-통신-구간-적용"><a href="#컴포넌트-통신-구간-적용" class="header-anchor">#</a> 컴포넌트 통신 구간 적용</h4> <p>수정하기 가장 까다로운 부분은 다른 코드와 의존성이 있는 코드이다.</p> <p>컴포넌트간의 통신 타입으로 Date나 Timestamp를 사용할 때가 있는 데, 지금은 string 타입으로 변경이 필요하다. 이 때는 먼저 서로 의존성을 끊는 게 중요하다.</p> <p>A와 B 컴포넌트가 있고, today 변수가 있다고 가정하겠다.</p> <p>현재 두 컴포넌트 간의 통신 타입으로 Date 타입을 사용한다. A에서 today 타입을 string으로 수정하면 B에 영향이 생긴다.</p> <div class="language- extra-class"><pre class="language-text"><code>[A] (today: Date)---(Date Type)---(today: Date) [B]
+</code></pre></div><p>A 내부의 날짜 타입을 string으로 변경하기 위해서는 통신 시점에 변환이 필요하다. 일단 today를 string으로 변경하고 B와 통신할 때 Date 타입으로 변경해서 통신한다.</p> <div class="language- extra-class"><pre class="language-text"><code>[A] (today: string)=&gt;(outputToday: Date)---(Date Type)---(today: Date) [B]
+</code></pre></div><p>이렇게 되면 A 내부의 날짜 데이터들은 모두 string으로 변경 가능하다. A 내부 날짜 타입을 변경 완료 후에 B는 Date를 전달받고 string으로 변환한다. 그리고 B 내부의 날짜 데이터들을 모두 string으로 변경한다.</p> <div class="language- extra-class"><pre class="language-text"><code>[A] (today: string)=&gt;(outputToday: Date)---(Date Type)---(inputToday: Date)=&gt;(today: string) [B]
+</code></pre></div><p>A와 B 모두 수정 완료되면 통신 구간을 변경한다. 이렇게 하면 오류를 발생시키지 않고 적용 가능하다.</p> <div class="language- extra-class"><pre class="language-text"><code>[A] (today: string)---(string Type)---(today: string) [B]
+</code></pre></div><p>이 방법은 함수간의 통신, 컴포넌트 간의 통신, 모듈간의 통신 모두 적용할 수 있다.</p> <h4 id="적용-완료"><a href="#적용-완료" class="header-anchor">#</a> 적용 완료</h4> <blockquote><p>Service, Pipe, Component는 Angular의 아키텍쳐 구성요소이다.</p></blockquote> <p>적용을 완료했을 때는 Service 파일 2건, Pipe 파일 3건, Component 파일 12건에 적용되었고,  Pull Request 3건을 통해 완료했다.</p> <p><strong>바로 보이는 장점</strong>은 외부 라이브러리인 Moment를 제거하기 쉬워졌다. Moment는 트리 쉐이킹이 안되면서 많은 기능을 사용하지 않고 있었다. 그런데 사용되는 파일이 날짜 헬퍼인 단 하나의 파일에만 존재하기 때문에 제거하기 쉬워졌다.</p> <p><strong>헬퍼 네이밍</strong>이 Moment에 의존해서 변경이 필요해 보였다. 프로젝트의 공통 코드 프리픽스는 Bee를 사용하고 있다. 프로젝트 네임인 Bumblebee의 마지막 발음인 Bee에서 따온 것이다. 새로 변경된 네이밍은 BeeDateHelper로 변경했다.</p> <p>마지막으로 <strong>아쉬운 점</strong>이 있다면 Angular의 Service로 정의되어 코드가 길어지는 경향이 있다. 항상 <code>this.beeDateHelper</code> 로 시작해서 함수에 접근해야 한다. 이 부분은 Service로 선언하지 않고 각 함수들을 순수함수로 정의하면 해결할 수 있다. 프로젝트 구성원들의 의견을 묻고 수정해 봐야 될 거 같다.</p> <h3 id="과정-요약"><a href="#과정-요약" class="header-anchor">#</a> 과정 요약</h3> <p>지금까지의 날짜 헬퍼를 만드는 과정은 아래와 같다.</p> <ol><li>프로젝트에 적합한 방식을 구성원과 결정하기
+<ul><li>구체적인 타입과 사용방법을 결정한다.</li></ul></li> <li>인터페이스 설계하기
+<ul><li>실제로 사용해보면서 인터페이스를 검증한다.</li></ul></li> <li>헬퍼 개발하기
+<ul><li>유닛 테스트를 통해 코드의 안전성을 보장한다.</li></ul></li> <li>헬퍼 적용하기
+<ul><li>안전한 적용 전략으로 사이드 이펙트 없이 적용한다.</li></ul></li></ol> <h3 id="끝"><a href="#끝" class="header-anchor">#</a> 끝</h3></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.89589982.js" defer></script><script src="/assets/js/2.b682ec10.js" defer></script><script src="/assets/js/23.1e12da23.js" defer></script>
+  </body>
+</html>

@@ -146,6 +146,14 @@ module.exports = {
       {
         'ga': 'UA-135042351-1'
       }
-    ]
+    ],
+    [
+      'vuepress-plugin-clean-urls',
+      {
+        normalSuffix: '/',
+        indexSuffix: '/',
+        notFoundPath: '/404.html',
+      },
+    ],
   ]
 }

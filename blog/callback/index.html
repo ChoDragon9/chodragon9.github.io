@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>콜백 사용 시점 | ChoDragon9</title>
+    <meta name="description" content="콜백의 적절한 사용시점에 대한 정리이다.">
+    <meta name="generator" content="VuePress 1.3.1">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.ec1b8bff.css" as="style"><link rel="preload" href="/assets/js/app.89589982.js" as="script"><link rel="preload" href="/assets/js/2.b682ec10.js" as="script"><link rel="preload" href="/assets/js/20.fd0a5e59.js" as="script"><link rel="prefetch" href="/assets/js/10.985c2b80.js"><link rel="prefetch" href="/assets/js/11.93966beb.js"><link rel="prefetch" href="/assets/js/12.233d50bf.js"><link rel="prefetch" href="/assets/js/13.0255935a.js"><link rel="prefetch" href="/assets/js/14.baaee00b.js"><link rel="prefetch" href="/assets/js/15.d5094919.js"><link rel="prefetch" href="/assets/js/16.be639cec.js"><link rel="prefetch" href="/assets/js/17.111c829a.js"><link rel="prefetch" href="/assets/js/18.a0e7b776.js"><link rel="prefetch" href="/assets/js/19.1bd918c6.js"><link rel="prefetch" href="/assets/js/21.02e9c333.js"><link rel="prefetch" href="/assets/js/22.0eb3731b.js"><link rel="prefetch" href="/assets/js/23.1e12da23.js"><link rel="prefetch" href="/assets/js/24.bcefbcc4.js"><link rel="prefetch" href="/assets/js/25.483fe671.js"><link rel="prefetch" href="/assets/js/26.d0a11ad8.js"><link rel="prefetch" href="/assets/js/27.72a013ad.js"><link rel="prefetch" href="/assets/js/28.cb190229.js"><link rel="prefetch" href="/assets/js/29.697d53a4.js"><link rel="prefetch" href="/assets/js/3.a0639062.js"><link rel="prefetch" href="/assets/js/30.1e934195.js"><link rel="prefetch" href="/assets/js/31.2a98ed64.js"><link rel="prefetch" href="/assets/js/32.4404b982.js"><link rel="prefetch" href="/assets/js/33.dcb9e62e.js"><link rel="prefetch" href="/assets/js/34.9b28e17f.js"><link rel="prefetch" href="/assets/js/35.d25b1317.js"><link rel="prefetch" href="/assets/js/36.6429478f.js"><link rel="prefetch" href="/assets/js/37.1fdd82f6.js"><link rel="prefetch" href="/assets/js/38.edac1fd4.js"><link rel="prefetch" href="/assets/js/39.d0eb1aa0.js"><link rel="prefetch" href="/assets/js/4.131bec4f.js"><link rel="prefetch" href="/assets/js/40.8e33b195.js"><link rel="prefetch" href="/assets/js/41.94dfb828.js"><link rel="prefetch" href="/assets/js/42.9b21d10f.js"><link rel="prefetch" href="/assets/js/43.6cecdbbd.js"><link rel="prefetch" href="/assets/js/44.d28291da.js"><link rel="prefetch" href="/assets/js/45.76ec9f40.js"><link rel="prefetch" href="/assets/js/46.b074b5b9.js"><link rel="prefetch" href="/assets/js/47.361a9d6e.js"><link rel="prefetch" href="/assets/js/48.9e8efb98.js"><link rel="prefetch" href="/assets/js/49.fa9e02e4.js"><link rel="prefetch" href="/assets/js/5.46a38e10.js"><link rel="prefetch" href="/assets/js/50.6f1e8ca0.js"><link rel="prefetch" href="/assets/js/51.438cc244.js"><link rel="prefetch" href="/assets/js/52.691a7ad9.js"><link rel="prefetch" href="/assets/js/53.451b3fde.js"><link rel="prefetch" href="/assets/js/54.9b4ba27c.js"><link rel="prefetch" href="/assets/js/55.5908fa94.js"><link rel="prefetch" href="/assets/js/56.02c1cd4a.js"><link rel="prefetch" href="/assets/js/57.ad8facce.js"><link rel="prefetch" href="/assets/js/58.3637fe16.js"><link rel="prefetch" href="/assets/js/59.8cefb217.js"><link rel="prefetch" href="/assets/js/6.d94c3d70.js"><link rel="prefetch" href="/assets/js/60.1c6d8c13.js"><link rel="prefetch" href="/assets/js/61.fd508bac.js"><link rel="prefetch" href="/assets/js/62.15a6b5ad.js"><link rel="prefetch" href="/assets/js/7.ef610d6c.js"><link rel="prefetch" href="/assets/js/8.ec3c650c.js"><link rel="prefetch" href="/assets/js/9.3941f8b7.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.ec1b8bff.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">ChoDragon9</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="패러다임" class="dropdown-title"><span class="title">패러다임</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          객체지향
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/object/" class="nav-link">
+  객체 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/produce-oop/" class="nav-link">
+  produce 구현해보기 - OOP 버전
+</a></li></ul></li><li class="dropdown-item"><h4>
+          함수형
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/functional/" class="nav-link">
+  함수형 프로그래밍 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/functional2/" class="nav-link">
+  함수형 프로그래밍 정리2
+</a></li><li class="dropdown-subitem"><a href="/blog/produce/" class="nav-link">
+  produce 구현해보기
+</a></li><li class="dropdown-subitem"><a href="/blog/produce-immutable/" class="nav-link">
+  produce 구현해보기 - 불변성편
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="언어" class="dropdown-title"><span class="title">언어</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Javascript
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/es6/" class="nav-link">
+  [ECMAScript] ES6 Overview
+</a></li><li class="dropdown-subitem"><a href="/blog/this/" class="nav-link">
+  this, this is magic.
+</a></li><li class="dropdown-subitem"><a href="/blog/callback/" class="nav-link router-link-exact-active router-link-active">
+  콜백 사용 시점
+</a></li><li class="dropdown-subitem"><a href="/blog/safe-chain/" class="nav-link">
+  안전한 체이닝을 위한 safeChain
+</a></li><li class="dropdown-subitem"><a href="/blog/async-await-case/" class="nav-link">
+  async await 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/observation-mechanism/" class="nav-link">
+  옵져버 매커니즘
+</a></li><li class="dropdown-subitem"><a href="/blog/call-stack-and-coroutine/" class="nav-link">
+  코루틴을 사용한 지연 평가
+</a></li><li class="dropdown-subitem"><a href="/blog/regexp-book-backref/" class="nav-link">
+  [손에 잡히는 정규표현식] 역참조/전방탐색/후방탐색
+</a></li><li class="dropdown-subitem"><a href="/blog/promise/" class="nav-link">
+  Promise 정리
+</a></li></ul></li><li class="dropdown-item"><h4>
+          SML
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/sml-basic/" class="nav-link">
+  기초
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-builtin-datatype/" class="nav-link">
+  빌트인 자료형
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-datatype/" class="nav-link">
+  자료형 정의
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-exception/" class="nav-link">
+  예외처리
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-function/" class="nav-link">
+  함수
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-higher-order-function/" class="nav-link">
+  고차함수
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-infix/" class="nav-link">
+  infix 정의
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-module/" class="nav-link">
+  모듈 시스템
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="오픈소스" class="dropdown-title"><span class="title">오픈소스</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Angular
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/rxjs-codereview/" class="nav-link">
+  RxJs 코드리뷰 사례
+</a></li><li class="dropdown-subitem"><a href="/blog/angular/" class="nav-link">
+  Angular의 강력함과 아쉬운점
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Vue
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/nuxt-ts/" class="nav-link">
+  Nuxt에서 TypeScript로 개발하기
+</a></li><li class="dropdown-subitem"><a href="/blog/nuxt-migration/" class="nav-link">
+  Nuxt v2.0에서 v2.11로 마이그레이션
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="설계" class="dropdown-title"><span class="title">설계</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          좋은코드
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/easy-code/" class="nav-link">
+  이해하기 쉬운 코드 작성방법 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/code-position/" class="nav-link">
+  코드의 위치를 정하는 기준
+</a></li><li class="dropdown-subitem"><a href="/blog/reusable-code/" class="nav-link">
+  재사용 가능한 코드 개발
+</a></li><li class="dropdown-subitem"><a href="/blog/declarative-function/" class="nav-link">
+  선언형으로 대체 가능한 문법들 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/date-helper-development/" class="nav-link">
+  강제성, 단일화 그리고 날짜 헬퍼 개발
+</a></li></ul></li><li class="dropdown-item"><h4>
+          패턴
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/mvc/" class="nav-link">
+  MVC
+</a></li><li class="dropdown-subitem"><a href="/blog/mvvm/" class="nav-link">
+  MVVM
+</a></li><li class="dropdown-subitem"><a href="/blog/gof-design-pattern-summary/" class="nav-link">
+  GoF 디자인 패턴 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/design-pattern-structural/" class="nav-link">
+  GoF 디자인 패턴 | 구조패턴
+</a></li><li class="dropdown-subitem"><a href="/blog/design-pattern-creational/" class="nav-link">
+  GoF 디자인 패턴 | 생성패턴
+</a></li><li class="dropdown-subitem"><a href="/blog/design-pattern-behavioral/" class="nav-link">
+  GoF 디자인 패턴 | 행동패턴
+</a></li></ul></li><li class="dropdown-item"><h4>
+          리팩토링
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/structure-refactoring/" class="nav-link">
+  [리펙토링] 구조 리펙토링 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/legacy-code-to-easy-code/" class="nav-link">
+  레거시 코드에서 이해하기 쉬운코드로 리팩토링
+</a></li><li class="dropdown-subitem"><a href="/blog/legacy-code-to-easy-code-2/" class="nav-link">
+  레거시 코드에서 이해하기 쉬운코드로 리팩토링 2
+</a></li><li class="dropdown-subitem"><a href="/blog/refactoring-meaning-and-result/" class="nav-link">
+  리펙토링 정의와 결과
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="정리" class="dropdown-title"><span class="title">정리</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          관리
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/estimation/" class="nav-link">
+  개발 일정산정
+</a></li><li class="dropdown-subitem"><a href="/blog/release/" class="nav-link">
+  배포 어디까지 알고 있나요?
+</a></li><li class="dropdown-subitem"><a href="/blog/facilitation-for-meeting/" class="nav-link">
+  효율적인 회의를 위한 퍼실리테이션
+</a></li><li class="dropdown-subitem"><a href="/blog/preventive-maintenance/" class="nav-link">
+  위험상황을 대비하는 위험관리
+</a></li><li class="dropdown-subitem"><a href="/blog/git-scm-experience/" class="nav-link">
+  형상관리 전략정리
+</a></li></ul></li><li class="dropdown-item"><h4>
+          정리자료
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/programming-standards/" class="nav-link">
+  프로그래밍의 정석 도서 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/non-functional-requirement/" class="nav-link">
+  소프트웨어의 핵심 비기능 요구사항
+</a></li><li class="dropdown-subitem"><a href="/blog/how-to-catch-error/" class="nav-link">
+  에러 처리 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/cors-and-http-cookie/" class="nav-link">
+  CORS와 HTTP Cookie
+</a></li><li class="dropdown-subitem"><a href="/blog/abstract/" class="nav-link">
+  추상화 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/react-convention-for-codereview/" class="nav-link">
+  코드리뷰를 위한 React 컨벤션
+</a></li><li class="dropdown-subitem"><a href="/blog/clone-function/" class="nav-link">
+  경우에 따른 clone 함수
+</a></li><li class="dropdown-subitem"><a href="/blog/branch-n-case/" class="nav-link">
+  분기를 작성하는 방법 n가지
+</a></li><li class="dropdown-subitem"><a href="/blog/typescript-from-inhouse-service/" class="nav-link">
+  인하우스 서비스 구축하며 사용했던 TypeScript 문법 정리
+</a></li></ul></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="패러다임" class="dropdown-title"><span class="title">패러다임</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          객체지향
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/object/" class="nav-link">
+  객체 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/produce-oop/" class="nav-link">
+  produce 구현해보기 - OOP 버전
+</a></li></ul></li><li class="dropdown-item"><h4>
+          함수형
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/functional/" class="nav-link">
+  함수형 프로그래밍 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/functional2/" class="nav-link">
+  함수형 프로그래밍 정리2
+</a></li><li class="dropdown-subitem"><a href="/blog/produce/" class="nav-link">
+  produce 구현해보기
+</a></li><li class="dropdown-subitem"><a href="/blog/produce-immutable/" class="nav-link">
+  produce 구현해보기 - 불변성편
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="언어" class="dropdown-title"><span class="title">언어</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Javascript
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/es6/" class="nav-link">
+  [ECMAScript] ES6 Overview
+</a></li><li class="dropdown-subitem"><a href="/blog/this/" class="nav-link">
+  this, this is magic.
+</a></li><li class="dropdown-subitem"><a href="/blog/callback/" class="nav-link router-link-exact-active router-link-active">
+  콜백 사용 시점
+</a></li><li class="dropdown-subitem"><a href="/blog/safe-chain/" class="nav-link">
+  안전한 체이닝을 위한 safeChain
+</a></li><li class="dropdown-subitem"><a href="/blog/async-await-case/" class="nav-link">
+  async await 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/observation-mechanism/" class="nav-link">
+  옵져버 매커니즘
+</a></li><li class="dropdown-subitem"><a href="/blog/call-stack-and-coroutine/" class="nav-link">
+  코루틴을 사용한 지연 평가
+</a></li><li class="dropdown-subitem"><a href="/blog/regexp-book-backref/" class="nav-link">
+  [손에 잡히는 정규표현식] 역참조/전방탐색/후방탐색
+</a></li><li class="dropdown-subitem"><a href="/blog/promise/" class="nav-link">
+  Promise 정리
+</a></li></ul></li><li class="dropdown-item"><h4>
+          SML
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/sml-basic/" class="nav-link">
+  기초
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-builtin-datatype/" class="nav-link">
+  빌트인 자료형
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-datatype/" class="nav-link">
+  자료형 정의
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-exception/" class="nav-link">
+  예외처리
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-function/" class="nav-link">
+  함수
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-higher-order-function/" class="nav-link">
+  고차함수
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-infix/" class="nav-link">
+  infix 정의
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-module/" class="nav-link">
+  모듈 시스템
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="오픈소스" class="dropdown-title"><span class="title">오픈소스</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Angular
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/rxjs-codereview/" class="nav-link">
+  RxJs 코드리뷰 사례
+</a></li><li class="dropdown-subitem"><a href="/blog/angular/" class="nav-link">
+  Angular의 강력함과 아쉬운점
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Vue
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/nuxt-ts/" class="nav-link">
+  Nuxt에서 TypeScript로 개발하기
+</a></li><li class="dropdown-subitem"><a href="/blog/nuxt-migration/" class="nav-link">
+  Nuxt v2.0에서 v2.11로 마이그레이션
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="설계" class="dropdown-title"><span class="title">설계</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          좋은코드
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/easy-code/" class="nav-link">
+  이해하기 쉬운 코드 작성방법 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/code-position/" class="nav-link">
+  코드의 위치를 정하는 기준
+</a></li><li class="dropdown-subitem"><a href="/blog/reusable-code/" class="nav-link">
+  재사용 가능한 코드 개발
+</a></li><li class="dropdown-subitem"><a href="/blog/declarative-function/" class="nav-link">
+  선언형으로 대체 가능한 문법들 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/date-helper-development/" class="nav-link">
+  강제성, 단일화 그리고 날짜 헬퍼 개발
+</a></li></ul></li><li class="dropdown-item"><h4>
+          패턴
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/mvc/" class="nav-link">
+  MVC
+</a></li><li class="dropdown-subitem"><a href="/blog/mvvm/" class="nav-link">
+  MVVM
+</a></li><li class="dropdown-subitem"><a href="/blog/gof-design-pattern-summary/" class="nav-link">
+  GoF 디자인 패턴 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/design-pattern-structural/" class="nav-link">
+  GoF 디자인 패턴 | 구조패턴
+</a></li><li class="dropdown-subitem"><a href="/blog/design-pattern-creational/" class="nav-link">
+  GoF 디자인 패턴 | 생성패턴
+</a></li><li class="dropdown-subitem"><a href="/blog/design-pattern-behavioral/" class="nav-link">
+  GoF 디자인 패턴 | 행동패턴
+</a></li></ul></li><li class="dropdown-item"><h4>
+          리팩토링
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/structure-refactoring/" class="nav-link">
+  [리펙토링] 구조 리펙토링 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/legacy-code-to-easy-code/" class="nav-link">
+  레거시 코드에서 이해하기 쉬운코드로 리팩토링
+</a></li><li class="dropdown-subitem"><a href="/blog/legacy-code-to-easy-code-2/" class="nav-link">
+  레거시 코드에서 이해하기 쉬운코드로 리팩토링 2
+</a></li><li class="dropdown-subitem"><a href="/blog/refactoring-meaning-and-result/" class="nav-link">
+  리펙토링 정의와 결과
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="정리" class="dropdown-title"><span class="title">정리</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          관리
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/estimation/" class="nav-link">
+  개발 일정산정
+</a></li><li class="dropdown-subitem"><a href="/blog/release/" class="nav-link">
+  배포 어디까지 알고 있나요?
+</a></li><li class="dropdown-subitem"><a href="/blog/facilitation-for-meeting/" class="nav-link">
+  효율적인 회의를 위한 퍼실리테이션
+</a></li><li class="dropdown-subitem"><a href="/blog/preventive-maintenance/" class="nav-link">
+  위험상황을 대비하는 위험관리
+</a></li><li class="dropdown-subitem"><a href="/blog/git-scm-experience/" class="nav-link">
+  형상관리 전략정리
+</a></li></ul></li><li class="dropdown-item"><h4>
+          정리자료
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/programming-standards/" class="nav-link">
+  프로그래밍의 정석 도서 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/non-functional-requirement/" class="nav-link">
+  소프트웨어의 핵심 비기능 요구사항
+</a></li><li class="dropdown-subitem"><a href="/blog/how-to-catch-error/" class="nav-link">
+  에러 처리 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/cors-and-http-cookie/" class="nav-link">
+  CORS와 HTTP Cookie
+</a></li><li class="dropdown-subitem"><a href="/blog/abstract/" class="nav-link">
+  추상화 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/react-convention-for-codereview/" class="nav-link">
+  코드리뷰를 위한 React 컨벤션
+</a></li><li class="dropdown-subitem"><a href="/blog/clone-function/" class="nav-link">
+  경우에 따른 clone 함수
+</a></li><li class="dropdown-subitem"><a href="/blog/branch-n-case/" class="nav-link">
+  분기를 작성하는 방법 n가지
+</a></li><li class="dropdown-subitem"><a href="/blog/typescript-from-inhouse-service/" class="nav-link">
+  인하우스 서비스 구축하며 사용했던 TypeScript 문법 정리
+</a></li></ul></li></ul></div></div> <!----></nav>  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><h3 id="글의-목적"><a href="#글의-목적" class="header-anchor">#</a> 글의 목적</h3> <p>자바스크립트 코드를 작성할 때 콜백을 사용하는 시점은 명확히 구분해서 사용하고 있다. 비동기 코드를 작성할 때는 Promise에만 사용하고, 동기 코드를 작성할 때는 map, filter, reduce와 같은 함수의 인자로 사용한다.</p> <p>비동기 코드를 작성할 때, 왜! 인자로 콜백을 사용하지 않는 지 뻔한 이야기를 다시 되새겨 보려고 한다. 그리고 동기 코드에서 콜백을 인자로 사용하는 의미를 정리해보려고 한다.</p> <h3 id="목차"><a href="#목차" class="header-anchor">#</a> 목차</h3> <ul><li><a href="#%EB%B9%84%EB%8F%99%EA%B8%B0-%EC%B2%98%EB%A6%AC-%EC%8B%9C-%EC%BD%9C%EB%B0%B1-%ED%8C%A8%ED%84%B4%EC%9D%80-%EC%99%9C-%EC%A0%81%EC%A0%88%ED%95%98%EC%A7%80-%EC%95%8A%EC%9D%84%EA%B9%8C">비동기 처리 시 콜백 패턴은 왜 적절하지 않을까</a></li> <li><a href="#%EB%8F%99%EA%B8%B0-%EC%BD%94%EB%93%9C%EC%97%90%EC%84%9C-%EC%BD%9C%EB%B0%B1%EC%9D%84-%EC%9D%B8%EC%9E%90%EB%A1%9C-%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94-%EC%9D%98%EB%AF%B8%EB%8A%94-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80">동기 코드에서 콜백을 인자로 사용하는 의미는 무엇인가?</a></li></ul> <h3 id="비동기-처리-시-콜백-패턴은-왜-적절하지-않을까"><a href="#비동기-처리-시-콜백-패턴은-왜-적절하지-않을까" class="header-anchor">#</a> 비동기 처리 시 콜백 패턴은 왜 적절하지 않을까</h3> <p>비동기 처리 시 콜백 패턴을 사용하면 중첩과 들여쓰기로 코드를 알아보기 어렵게 한다. 하지만 이것은 시선의 주의를 분산시키는 부수적인 요소일 뿐이고 다른 이유가 있다.</p> <p>비동기 처리 시 콜백 패턴을 사용하면 안되는 이유는 두가지로 정리할 수 있다.</p> <p><strong>첫번째</strong>는 콜백 패턴은 비동기 흐름을 비선형적, 비순차적인 방향으로 나타낸다. 그래서 구현된 코드를 이해하기 위해서는 한 함수에서 다른 함수로 또 그 다음 함수로 순차적인 흐름을 따라가기 위해 코드 베이스 전체를 널뛰기 해야 한다.</p> <p>사람의 두되는 순차적, 단일-스레드 방식을 계획하는 데 익숙하지만 콜백 패턴은 사람이 추론하기 힘들게 만든다.</p> <p><strong>두번째</strong>는 콜백 패턴은 제어권을 호출 파트에 암시적으로 넘겨줘야 하므로 믿음성 문제에 봉착하게 된다.</p> <p>원하지 않는 반복적인 호출을 방지하거나, 성공/에러 신호를 동시에 받거나 전혀 못 받을 수 있는 상황을 걸러내는 코딩을 추가적으로 필요로 한다.</p> <p>비동기 흐름 제어와 함수 제어권에 문제가 발생하기 때문에 콜백을 인자로 받는 것은 이해하기 쉬운 코드를 작성함에 있어 방해가 된다.</p> <p>해결 방안은 우리 모두가 알고 있는 <code>Promise</code>를 사용하는 것이다. <code>Promise</code>를 사용하면 비동기 흐름 제어와 함수 제어권을 가질 수 있다.</p> <h3 id="동기-코드에서-콜백을-인자로-사용하는-의미는-무엇인가"><a href="#동기-코드에서-콜백을-인자로-사용하는-의미는-무엇인가" class="header-anchor">#</a> 동기 코드에서 콜백을 인자로 사용하는 의미는 무엇인가?</h3> <p>동기 코드에서 콜백을 인자로 사용하는 의미는 제어권을 나눠가지는 것을 의미한다. 제어권을 나눠가지게 되면 재사용성과 다형성을 할 수 있게 된다.</p> <p>앞에서 콜백을 사용하면 제어권에 문제가 생기는 것을 설명했다. 비동기일 때는 콜백을 사용하면 순서를 보장하기 힘들기 때문에 콜백에 반환값이 없다.
+하지만 동기 코드에서는 순서가 보장되기 때문에 반환값을 가질 수 있다. 그 결과 제어권 또한 나눠가지게 된다.</p> <p>여기 배열을 반복해서 1을 더하는 add 함수가 있다고 가정하겠다. 이 함수는 반복과 연산의 제어권을 모두 가지고 있다.</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> <span class="token function-variable function">add</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">arr</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> newArr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> item <span class="token keyword">of</span> arr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    newArr<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>item <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> newArr
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span>
+<span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token function">add</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span> <span class="token comment">// [2, 3, 4]</span>
+</code></pre></div><p>이젠 콜백을 인자로 받아 제어권을 나눠서 가져보자. 콜백을 인자로 받아 반복과 연산의 제어권 중 연산의 제어권을 얻을 수 있다.</p> <p>1을 더하는 연산의 제어권을 add함수를 사용하는 측에서 제어하게 되었다. 또한 다른 연산도 할 수 있게 되었다.</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> <span class="token function-variable function">add</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">arr<span class="token punctuation">,</span> callback</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> newArr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> item <span class="token keyword">of</span> arr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    newArr<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token function">callback</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> newArr
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span>
+<span class="token keyword">const</span> added1 <span class="token operator">=</span> <span class="token function">add</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">item</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> item <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> added10 <span class="token operator">=</span> <span class="token function">add</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">item</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> item <span class="token operator">+</span> <span class="token number">10</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>added1<span class="token punctuation">)</span> <span class="token comment">// [2, 3, 4]</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>added10<span class="token punctuation">)</span> <span class="token comment">// [11, 12, 13]</span>
+</code></pre></div><p>이제 다형성에 대한 이야기로 넘어가자. 다형성을 쉽게 설명하면 2개 이상의 타입에서 동작하는 함수를 다형성을 이룬다고 현상을 설명할 수 있다. 즉, 2개 이상의 타입이 사용할 수 있는 연산의 현상을 말한다.</p> <p>add 함수는 숫자를 더하는 기능 뿐만 아니라 배열의 아이템을 수정하는 기능을 가지고 있다.
+이러한 함수는 map이라고 불린다. add함수명을 map으로 바꿔 사용한 예제이다.</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> <span class="token function-variable function">map</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">arr<span class="token punctuation">,</span> callback</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> newArr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> item <span class="token keyword">of</span> arr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    newArr<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token function">callback</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> newArr
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span>
+<span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token function">map</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">item</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> item <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token comment">// [2, 3, 4]</span>
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> product <span class="token operator">=</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">{</span> price<span class="token operator">:</span> <span class="token number">1000</span><span class="token punctuation">,</span> count<span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span> total<span class="token operator">:</span> <span class="token number">0</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span> price<span class="token operator">:</span> <span class="token number">2000</span><span class="token punctuation">,</span> count<span class="token operator">:</span> <span class="token number">3</span><span class="token punctuation">,</span> total<span class="token operator">:</span> <span class="token number">0</span> <span class="token punctuation">}</span>
+<span class="token punctuation">]</span>
+<span class="token keyword">const</span> changedProduct <span class="token operator">=</span> <span class="token function">map</span><span class="token punctuation">(</span>product<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span>price<span class="token punctuation">,</span> count<span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">{</span>
+    price<span class="token punctuation">,</span>
+    count<span class="token punctuation">,</span>
+    total<span class="token operator">:</span> price <span class="token operator">*</span> count
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment">// [</span>
+<span class="token comment">//   { price: 1000, count: 2, total: 2000 },</span>
+<span class="token comment">//   { price: 2000, count: 3, total: 6000 }</span>
+<span class="token comment">// ]</span>
+</code></pre></div><h4 id="결론"><a href="#결론" class="header-anchor">#</a> 결론</h4> <p>비동기 코드에서는 콜백을 인자로 사용하면 비순차적인 흐름 제어와 제어 역전에 따른 믿음성 문제가 발생하지만
+동기 코드에서는 제어권을 나눔으로써 재사용성과 다형성을 가지게 된다.
+같은 콜백 패턴이지만 경우에 따라 많은 이점을 가져다 준다. 적절하게 사용된다면 이해하기 쉬운 코드의 일한이 될 거라고 생각된다.</p></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.89589982.js" defer></script><script src="/assets/js/2.b682ec10.js" defer></script><script src="/assets/js/20.fd0a5e59.js" defer></script>
+  </body>
+</html>
