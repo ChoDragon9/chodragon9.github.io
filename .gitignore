@@ -3,3 +3,4 @@
 _site
 *.iml
 .idea
+docs/.vuepress/dist

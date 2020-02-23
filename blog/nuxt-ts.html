@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Nuxt에서 TypeScript로 개발하기 | ChoDragon9</title>
+    <meta name="description" content="Nuxt에서 TypeScript로 개발세팅 및 Vue 코드 작성방법 정리">
+    <meta name="generator" content="VuePress 1.3.1">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.ec1b8bff.css" as="style"><link rel="preload" href="/assets/js/app.e9216216.js" as="script"><link rel="preload" href="/assets/js/2.b682ec10.js" as="script"><link rel="preload" href="/assets/js/36.6429478f.js" as="script"><link rel="prefetch" href="/assets/js/10.985c2b80.js"><link rel="prefetch" href="/assets/js/11.93966beb.js"><link rel="prefetch" href="/assets/js/12.233d50bf.js"><link rel="prefetch" href="/assets/js/13.0255935a.js"><link rel="prefetch" href="/assets/js/14.baaee00b.js"><link rel="prefetch" href="/assets/js/15.d5094919.js"><link rel="prefetch" href="/assets/js/16.be639cec.js"><link rel="prefetch" href="/assets/js/17.844b70a3.js"><link rel="prefetch" href="/assets/js/18.779a6db3.js"><link rel="prefetch" href="/assets/js/19.1bd918c6.js"><link rel="prefetch" href="/assets/js/20.fd0a5e59.js"><link rel="prefetch" href="/assets/js/21.02e9c333.js"><link rel="prefetch" href="/assets/js/22.0eb3731b.js"><link rel="prefetch" href="/assets/js/23.1e12da23.js"><link rel="prefetch" href="/assets/js/24.bcefbcc4.js"><link rel="prefetch" href="/assets/js/25.483fe671.js"><link rel="prefetch" href="/assets/js/26.d0a11ad8.js"><link rel="prefetch" href="/assets/js/27.72a013ad.js"><link rel="prefetch" href="/assets/js/28.cb190229.js"><link rel="prefetch" href="/assets/js/29.697d53a4.js"><link rel="prefetch" href="/assets/js/3.a0639062.js"><link rel="prefetch" href="/assets/js/30.1e934195.js"><link rel="prefetch" href="/assets/js/31.2a98ed64.js"><link rel="prefetch" href="/assets/js/32.4404b982.js"><link rel="prefetch" href="/assets/js/33.dcb9e62e.js"><link rel="prefetch" href="/assets/js/34.9b28e17f.js"><link rel="prefetch" href="/assets/js/35.d25b1317.js"><link rel="prefetch" href="/assets/js/37.1fdd82f6.js"><link rel="prefetch" href="/assets/js/38.edac1fd4.js"><link rel="prefetch" href="/assets/js/39.d0eb1aa0.js"><link rel="prefetch" href="/assets/js/4.131bec4f.js"><link rel="prefetch" href="/assets/js/40.8e33b195.js"><link rel="prefetch" href="/assets/js/41.94dfb828.js"><link rel="prefetch" href="/assets/js/42.9b21d10f.js"><link rel="prefetch" href="/assets/js/43.6cecdbbd.js"><link rel="prefetch" href="/assets/js/44.d28291da.js"><link rel="prefetch" href="/assets/js/45.76ec9f40.js"><link rel="prefetch" href="/assets/js/46.b074b5b9.js"><link rel="prefetch" href="/assets/js/47.361a9d6e.js"><link rel="prefetch" href="/assets/js/48.9e8efb98.js"><link rel="prefetch" href="/assets/js/49.fa9e02e4.js"><link rel="prefetch" href="/assets/js/5.46a38e10.js"><link rel="prefetch" href="/assets/js/50.6f1e8ca0.js"><link rel="prefetch" href="/assets/js/51.438cc244.js"><link rel="prefetch" href="/assets/js/52.691a7ad9.js"><link rel="prefetch" href="/assets/js/53.451b3fde.js"><link rel="prefetch" href="/assets/js/54.9b4ba27c.js"><link rel="prefetch" href="/assets/js/55.5908fa94.js"><link rel="prefetch" href="/assets/js/56.02c1cd4a.js"><link rel="prefetch" href="/assets/js/57.ad8facce.js"><link rel="prefetch" href="/assets/js/58.3637fe16.js"><link rel="prefetch" href="/assets/js/59.8cefb217.js"><link rel="prefetch" href="/assets/js/6.d94c3d70.js"><link rel="prefetch" href="/assets/js/60.1c6d8c13.js"><link rel="prefetch" href="/assets/js/61.fd508bac.js"><link rel="prefetch" href="/assets/js/62.15a6b5ad.js"><link rel="prefetch" href="/assets/js/7.ef610d6c.js"><link rel="prefetch" href="/assets/js/8.ec3c650c.js"><link rel="prefetch" href="/assets/js/9.3941f8b7.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.ec1b8bff.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">ChoDragon9</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="패러다임" class="dropdown-title"><span class="title">패러다임</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          객체지향
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/object/" class="nav-link">
+  객체 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/produce-oop/" class="nav-link">
+  produce 구현해보기 - OOP 버전
+</a></li></ul></li><li class="dropdown-item"><h4>
+          함수형
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/functional/" class="nav-link">
+  함수형 프로그래밍 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/functional2/" class="nav-link">
+  함수형 프로그래밍 정리2
+</a></li><li class="dropdown-subitem"><a href="/blog/produce/" class="nav-link">
+  produce 구현해보기
+</a></li><li class="dropdown-subitem"><a href="/blog/produce-immutable/" class="nav-link">
+  produce 구현해보기 - 불변성편
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="언어" class="dropdown-title"><span class="title">언어</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Javascript
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/es6/" class="nav-link">
+  [ECMAScript] ES6 Overview
+</a></li><li class="dropdown-subitem"><a href="/blog/this/" class="nav-link">
+  this, this is magic.
+</a></li><li class="dropdown-subitem"><a href="/blog/callback/" class="nav-link">
+  콜백 사용 시점
+</a></li><li class="dropdown-subitem"><a href="/blog/safe-chain/" class="nav-link">
+  안전한 체이닝을 위한 safeChain
+</a></li><li class="dropdown-subitem"><a href="/blog/async-await-case/" class="nav-link">
+  async await 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/observation-mechanism/" class="nav-link">
+  옵져버 매커니즘
+</a></li><li class="dropdown-subitem"><a href="/blog/call-stack-and-coroutine/" class="nav-link">
+  코루틴을 사용한 지연 평가
+</a></li><li class="dropdown-subitem"><a href="/blog/regexp-book-backref/" class="nav-link">
+  [손에 잡히는 정규표현식] 역참조/전방탐색/후방탐색
+</a></li><li class="dropdown-subitem"><a href="/blog/promise/" class="nav-link">
+  Promise 정리
+</a></li></ul></li><li class="dropdown-item"><h4>
+          SML
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/sml-basic/" class="nav-link">
+  기초
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-builtin-datatype/" class="nav-link">
+  빌트인 자료형
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-datatype/" class="nav-link">
+  자료형 정의
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-exception/" class="nav-link">
+  예외처리
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-function/" class="nav-link">
+  함수
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-higher-order-function/" class="nav-link">
+  고차함수
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-infix/" class="nav-link">
+  infix 정의
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-module/" class="nav-link">
+  모듈 시스템
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="오픈소스" class="dropdown-title"><span class="title">오픈소스</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Angular
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/rxjs-codereview/" class="nav-link">
+  RxJs 코드리뷰 사례
+</a></li><li class="dropdown-subitem"><a href="/blog/angular/" class="nav-link">
+  Angular의 강력함과 아쉬운점
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Vue
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/nuxt-ts/" class="nav-link">
+  Nuxt에서 TypeScript로 개발하기
+</a></li><li class="dropdown-subitem"><a href="/blog/nuxt-migration/" class="nav-link">
+  Nuxt v2.0에서 v2.11로 마이그레이션
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="설계" class="dropdown-title"><span class="title">설계</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          좋은코드
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/easy-code/" class="nav-link">
+  이해하기 쉬운 코드 작성방법 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/code-position/" class="nav-link">
+  코드의 위치를 정하는 기준
+</a></li><li class="dropdown-subitem"><a href="/blog/reusable-code/" class="nav-link">
+  재사용 가능한 코드 개발
+</a></li><li class="dropdown-subitem"><a href="/blog/declarative-function/" class="nav-link">
+  선언형으로 대체 가능한 문법들 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/date-helper-development/" class="nav-link">
+  강제성, 단일화 그리고 날짜 헬퍼 개발
+</a></li></ul></li><li class="dropdown-item"><h4>
+          패턴
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/mvc/" class="nav-link">
+  MVC
+</a></li><li class="dropdown-subitem"><a href="/blog/mvvm/" class="nav-link">
+  MVVM
+</a></li><li class="dropdown-subitem"><a href="/blog/gof-design-pattern-summary/" class="nav-link">
+  GoF 디자인 패턴 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/design-pattern-structural/" class="nav-link">
+  GoF 디자인 패턴 | 구조패턴
+</a></li><li class="dropdown-subitem"><a href="/blog/design-pattern-creational/" class="nav-link">
+  GoF 디자인 패턴 | 생성패턴
+</a></li><li class="dropdown-subitem"><a href="/blog/design-pattern-behavioral/" class="nav-link">
+  GoF 디자인 패턴 | 행동패턴
+</a></li></ul></li><li class="dropdown-item"><h4>
+          리팩토링
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/structure-refactoring/" class="nav-link">
+  [리펙토링] 구조 리펙토링 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/legacy-code-to-easy-code/" class="nav-link">
+  레거시 코드에서 이해하기 쉬운코드로 리팩토링
+</a></li><li class="dropdown-subitem"><a href="/blog/legacy-code-to-easy-code-2/" class="nav-link">
+  레거시 코드에서 이해하기 쉬운코드로 리팩토링 2
+</a></li><li class="dropdown-subitem"><a href="/blog/refactoring-meaning-and-result/" class="nav-link">
+  리펙토링 정의와 결과
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="정리" class="dropdown-title"><span class="title">정리</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          관리
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/estimation/" class="nav-link">
+  개발 일정산정
+</a></li><li class="dropdown-subitem"><a href="/blog/release/" class="nav-link">
+  배포 어디까지 알고 있나요?
+</a></li><li class="dropdown-subitem"><a href="/blog/facilitation-for-meeting/" class="nav-link">
+  효율적인 회의를 위한 퍼실리테이션
+</a></li><li class="dropdown-subitem"><a href="/blog/preventive-maintenance/" class="nav-link">
+  위험상황을 대비하는 위험관리
+</a></li><li class="dropdown-subitem"><a href="/blog/git-scm-experience/" class="nav-link">
+  형상관리 전략정리
+</a></li></ul></li><li class="dropdown-item"><h4>
+          정리자료
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/programming-standards/" class="nav-link">
+  프로그래밍의 정석 도서 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/non-functional-requirement/" class="nav-link">
+  소프트웨어의 핵심 비기능 요구사항
+</a></li><li class="dropdown-subitem"><a href="/blog/how-to-catch-error/" class="nav-link">
+  에러 처리 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/cors-and-http-cookie/" class="nav-link">
+  CORS와 HTTP Cookie
+</a></li><li class="dropdown-subitem"><a href="/blog/abstract/" class="nav-link">
+  추상화 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/react-convention-for-codereview/" class="nav-link">
+  코드리뷰를 위한 React 컨벤션
+</a></li><li class="dropdown-subitem"><a href="/blog/clone-function/" class="nav-link">
+  경우에 따른 clone 함수
+</a></li><li class="dropdown-subitem"><a href="/blog/branch-n-case/" class="nav-link">
+  분기를 작성하는 방법 n가지
+</a></li><li class="dropdown-subitem"><a href="/blog/typescript-from-inhouse-service/" class="nav-link">
+  인하우스 서비스 구축하며 사용했던 TypeScript 문법 정리
+</a></li></ul></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="패러다임" class="dropdown-title"><span class="title">패러다임</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          객체지향
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/object/" class="nav-link">
+  객체 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/produce-oop/" class="nav-link">
+  produce 구현해보기 - OOP 버전
+</a></li></ul></li><li class="dropdown-item"><h4>
+          함수형
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/functional/" class="nav-link">
+  함수형 프로그래밍 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/functional2/" class="nav-link">
+  함수형 프로그래밍 정리2
+</a></li><li class="dropdown-subitem"><a href="/blog/produce/" class="nav-link">
+  produce 구현해보기
+</a></li><li class="dropdown-subitem"><a href="/blog/produce-immutable/" class="nav-link">
+  produce 구현해보기 - 불변성편
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="언어" class="dropdown-title"><span class="title">언어</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Javascript
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/es6/" class="nav-link">
+  [ECMAScript] ES6 Overview
+</a></li><li class="dropdown-subitem"><a href="/blog/this/" class="nav-link">
+  this, this is magic.
+</a></li><li class="dropdown-subitem"><a href="/blog/callback/" class="nav-link">
+  콜백 사용 시점
+</a></li><li class="dropdown-subitem"><a href="/blog/safe-chain/" class="nav-link">
+  안전한 체이닝을 위한 safeChain
+</a></li><li class="dropdown-subitem"><a href="/blog/async-await-case/" class="nav-link">
+  async await 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/observation-mechanism/" class="nav-link">
+  옵져버 매커니즘
+</a></li><li class="dropdown-subitem"><a href="/blog/call-stack-and-coroutine/" class="nav-link">
+  코루틴을 사용한 지연 평가
+</a></li><li class="dropdown-subitem"><a href="/blog/regexp-book-backref/" class="nav-link">
+  [손에 잡히는 정규표현식] 역참조/전방탐색/후방탐색
+</a></li><li class="dropdown-subitem"><a href="/blog/promise/" class="nav-link">
+  Promise 정리
+</a></li></ul></li><li class="dropdown-item"><h4>
+          SML
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/sml-basic/" class="nav-link">
+  기초
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-builtin-datatype/" class="nav-link">
+  빌트인 자료형
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-datatype/" class="nav-link">
+  자료형 정의
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-exception/" class="nav-link">
+  예외처리
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-function/" class="nav-link">
+  함수
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-higher-order-function/" class="nav-link">
+  고차함수
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-infix/" class="nav-link">
+  infix 정의
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-module/" class="nav-link">
+  모듈 시스템
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="오픈소스" class="dropdown-title"><span class="title">오픈소스</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Angular
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/rxjs-codereview/" class="nav-link">
+  RxJs 코드리뷰 사례
+</a></li><li class="dropdown-subitem"><a href="/blog/angular/" class="nav-link">
+  Angular의 강력함과 아쉬운점
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Vue
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/nuxt-ts/" class="nav-link">
+  Nuxt에서 TypeScript로 개발하기
+</a></li><li class="dropdown-subitem"><a href="/blog/nuxt-migration/" class="nav-link">
+  Nuxt v2.0에서 v2.11로 마이그레이션
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="설계" class="dropdown-title"><span class="title">설계</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          좋은코드
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/easy-code/" class="nav-link">
+  이해하기 쉬운 코드 작성방법 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/code-position/" class="nav-link">
+  코드의 위치를 정하는 기준
+</a></li><li class="dropdown-subitem"><a href="/blog/reusable-code/" class="nav-link">
+  재사용 가능한 코드 개발
+</a></li><li class="dropdown-subitem"><a href="/blog/declarative-function/" class="nav-link">
+  선언형으로 대체 가능한 문법들 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/date-helper-development/" class="nav-link">
+  강제성, 단일화 그리고 날짜 헬퍼 개발
+</a></li></ul></li><li class="dropdown-item"><h4>
+          패턴
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/mvc/" class="nav-link">
+  MVC
+</a></li><li class="dropdown-subitem"><a href="/blog/mvvm/" class="nav-link">
+  MVVM
+</a></li><li class="dropdown-subitem"><a href="/blog/gof-design-pattern-summary/" class="nav-link">
+  GoF 디자인 패턴 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/design-pattern-structural/" class="nav-link">
+  GoF 디자인 패턴 | 구조패턴
+</a></li><li class="dropdown-subitem"><a href="/blog/design-pattern-creational/" class="nav-link">
+  GoF 디자인 패턴 | 생성패턴
+</a></li><li class="dropdown-subitem"><a href="/blog/design-pattern-behavioral/" class="nav-link">
+  GoF 디자인 패턴 | 행동패턴
+</a></li></ul></li><li class="dropdown-item"><h4>
+          리팩토링
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/structure-refactoring/" class="nav-link">
+  [리펙토링] 구조 리펙토링 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/legacy-code-to-easy-code/" class="nav-link">
+  레거시 코드에서 이해하기 쉬운코드로 리팩토링
+</a></li><li class="dropdown-subitem"><a href="/blog/legacy-code-to-easy-code-2/" class="nav-link">
+  레거시 코드에서 이해하기 쉬운코드로 리팩토링 2
+</a></li><li class="dropdown-subitem"><a href="/blog/refactoring-meaning-and-result/" class="nav-link">
+  리펙토링 정의와 결과
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="정리" class="dropdown-title"><span class="title">정리</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          관리
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/estimation/" class="nav-link">
+  개발 일정산정
+</a></li><li class="dropdown-subitem"><a href="/blog/release/" class="nav-link">
+  배포 어디까지 알고 있나요?
+</a></li><li class="dropdown-subitem"><a href="/blog/facilitation-for-meeting/" class="nav-link">
+  효율적인 회의를 위한 퍼실리테이션
+</a></li><li class="dropdown-subitem"><a href="/blog/preventive-maintenance/" class="nav-link">
+  위험상황을 대비하는 위험관리
+</a></li><li class="dropdown-subitem"><a href="/blog/git-scm-experience/" class="nav-link">
+  형상관리 전략정리
+</a></li></ul></li><li class="dropdown-item"><h4>
+          정리자료
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/programming-standards/" class="nav-link">
+  프로그래밍의 정석 도서 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/non-functional-requirement/" class="nav-link">
+  소프트웨어의 핵심 비기능 요구사항
+</a></li><li class="dropdown-subitem"><a href="/blog/how-to-catch-error/" class="nav-link">
+  에러 처리 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/cors-and-http-cookie/" class="nav-link">
+  CORS와 HTTP Cookie
+</a></li><li class="dropdown-subitem"><a href="/blog/abstract/" class="nav-link">
+  추상화 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/react-convention-for-codereview/" class="nav-link">
+  코드리뷰를 위한 React 컨벤션
+</a></li><li class="dropdown-subitem"><a href="/blog/clone-function/" class="nav-link">
+  경우에 따른 clone 함수
+</a></li><li class="dropdown-subitem"><a href="/blog/branch-n-case/" class="nav-link">
+  분기를 작성하는 방법 n가지
+</a></li><li class="dropdown-subitem"><a href="/blog/typescript-from-inhouse-service/" class="nav-link">
+  인하우스 서비스 구축하며 사용했던 TypeScript 문법 정리
+</a></li></ul></li></ul></div></div> <!----></nav>  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><h3 id="글의-목적"><a href="#글의-목적" class="header-anchor">#</a> 글의 목적</h3> <p>Angular 기반한 프로젝트를 한 경험이 있다. Angular는 TypeScript를 필수로 사용한다. 그 프로젝트에서 TypeScript를 사용하면 생산성이 높아지는 것을 몸소 느끼게 되었다. 그래서 새롭게 프로젝트를 하게되면 TypeScript를 사용하는 것으로 마음(?)먹었다.</p> <p>이 글에서는 Nuxt를 TypeScript 기반으로 개발하는 것을 가이드한다. Nuxt를 TypeScript로 개발하는 것에 대한 레퍼런스가 아직 많이 없기 때문에 직접 작성하기로 했다. 이 글에서는 Nuxt에 TypeScript를 세팅하는 방법과 TypeScript로 작성한 Vue와 Vuex 코드를 소개한다.</p> <h3 id="설치-및-설정"><a href="#설치-및-설정" class="header-anchor">#</a> 설치 및 설정</h3> <p>먼저 개발환경을 잡기 위해서 필요할 모듈 설치와 환경설정이 필요하다.</p> <h4 id="npx-설치"><a href="#npx-설치" class="header-anchor">#</a> NPX 설치</h4> <p>TypeScript로 작성된 Nuxt는 <code>npx</code>를 통해서 커멘드를 실행하는 게 좋다. 기본으로 제공하는 <code>dev</code> 명령어는 TypeScript를 기반으로 실행해주지 않기 때문에 <code>npx</code> 설치는 필수이다.</p> <p><a href="https://www.npmjs.com/package/npx#description" target="_blank" rel="noopener noreferrer">npx<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>는 <code>node_modules/.bin</code>에 설치되는 커멘드를 프로젝트 로컬에서 실행가능하도록 해주는 모듈이다.</p> <div class="language- extra-class"><pre class="language-text"><code>$ npm install -g npx
+</code></pre></div><h4 id="nuxt-프로젝트-설치"><a href="#nuxt-프로젝트-설치" class="header-anchor">#</a> Nuxt 프로젝트 설치</h4> <blockquote><p><a href="https://nuxtjs.org/guide/installation" target="_blank" rel="noopener noreferrer">공식 가이드 문서<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>를 참고한다.</p></blockquote> <p>Nuxt를 설치하는 것은 JS로 개발할 때와 동일하다. 이 명령어를 실행하면 <strong>UI Framework</strong>와 <strong>Server-side Framework</strong> 선택이 나온다. 원하는 Framework를 선택하면 된다.</p> <div class="language- extra-class"><pre class="language-text"><code>$ npx create-nuxt-app &lt;project-name&gt;
+</code></pre></div><h4 id="nuxt-typescript-설치"><a href="#nuxt-typescript-설치" class="header-anchor">#</a> Nuxt TypeScript 설치</h4> <p>컴파일 타임에 타입 체크를 하기 위해서 <code>devDependencies</code>에 <code>@nuxt/typescript</code>와 <code>nuxt-property-decorator</code>를 설치한다.</p> <div class="language- extra-class"><pre class="language-text"><code>$ npm install -D @nuxt/typescript nuxt-property-decorator
+</code></pre></div><p><code>nuxt.config.ts</code>와 <code>serverMiddlewares</code>에 TypeScript를 런타임에 지원하기 위해서 <code>dependencies</code>에 <code>ts-node</code>를 설치한다.</p> <div class="language- extra-class"><pre class="language-text"><code>$ npm install ts-node
+</code></pre></div><h4 id="설정-파일-수정"><a href="#설정-파일-수정" class="header-anchor">#</a> 설정 파일 수정</h4> <p>모듈 설치가 끝나면 TypeScript로 개발할 수 있도록 설정이 필요하다.</p> <ol><li><code>touch tsconfig.json</code> 명령어로 TypeScript 설정파일을 만든다.</li> <li><code>npx nuxt</code> 명령어로 <code>tsconfig.json</code>을 수정한다. <code>nuxt</code>를 처음 실행하면 <code>tsconfig.json</code>을 자동으로 업데이트 해준다.</li> <li><code>tsconfig.json</code>에 <code>@nuxt/config</code>을 추가한다. nuxt 타입을 IDE에서 자동완성 가능하게 된다.</li></ol> <div class="language-diff extra-class"><pre class="language-diff"><code>&quot;types&quot;: [
+<span class="token unchanged"> &quot;@types/node&quot;,
+ &quot;@nuxt/vue-app&quot;,
+</span><span class="token inserted-sign inserted">+ &quot;@nuxt/config&quot;
+</span>]
+</code></pre></div><h4 id="설정파일을-typescript로-변경"><a href="#설정파일을-typescript로-변경" class="header-anchor">#</a> 설정파일을 TypeScript로 변경</h4> <ol><li><code>nuxt.config.js</code>를 <code>nuxt.config.ts</code>로 변경한다.</li> <li>TypeScript로 <code>nuxt.config.ts</code>를 수정한다.</li></ol> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token keyword">import</span> NuxtConfiguration <span class="token keyword">from</span> <span class="token string">'@nuxt/config'</span>
+
+<span class="token keyword">const</span> config<span class="token operator">:</span> NuxtConfiguration <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token comment">// Type or Press `Ctrl + Space` for autocompletion</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> config
+</code></pre></div><h4 id="실행하기"><a href="#실행하기" class="header-anchor">#</a> 실행하기</h4> <p>Nuxt에서 TypeScript를 사용하기 위해서는 해당 명령어로 실행해야 한다.
+<code>npm run dev</code> 명령어가 기본으로 설정되어 있지만 해당 명령어로는 TypeScript가 동작하지 않는다.</p> <div class="language- extra-class"><pre class="language-text"><code>$ npx nuxt
+</code></pre></div><h4 id="빌드하기"><a href="#빌드하기" class="header-anchor">#</a> 빌드하기</h4> <p>빌드는 2가지가 있다. <code>SPA</code>와 <code>정적파일 생성</code>이다.</p> <ul><li><code>npx nuxt build</code>: SPA 빌드</li> <li><code>npx nuxt generate</code>: 정적파일 생성</li></ul> <h3 id="빌드-파일-실행하기"><a href="#빌드-파일-실행하기" class="header-anchor">#</a> 빌드 파일 실행하기</h3> <p>빌드 결과가 있는 <code>dist</code> 폴더를 실행하기 위해서는 아래 명령어를 사용한다.</p> <div class="language- extra-class"><pre class="language-text"><code>$ npx nuxt start
+</code></pre></div><h3 id="typescript로-vue-코드-작성하기"><a href="#typescript로-vue-코드-작성하기" class="header-anchor">#</a> TypeScript로 Vue 코드 작성하기</h3> <h4 id="vue의-script-를-typescript로-설정하기"><a href="#vue의-script-를-typescript로-설정하기" class="header-anchor">#</a> Vue의 <code>&lt;script&gt;</code>를 TypeScript로 설정하기</h4> <p>먼저 <strong>주의</strong>할 점은 <code>.vue</code>파일에 <code>&lt;script&gt;</code>는 <code>&lt;script lang=&quot;ts&quot;&gt;</code>로만 작성해야 한다. <code>lang=&quot;ts&quot;</code>를 추가하면 IDE에서 컴포넌트를 자동으로 <code>import</code>가능하다.</p> <h4 id="컴포넌트-작성하기"><a href="#컴포넌트-작성하기" class="header-anchor">#</a> 컴포넌트 작성하기</h4> <blockquote><p><code>v-for</code>를 사용하면 <code>:key</code>를 필수로 사용해야 한다.</p></blockquote> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>VueToNuxtLogo<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span> <span class="token attr-name">v-for</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>item in classes<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">:class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>`${COMMON_CLASS} ${item}`<span class="token punctuation">&quot;</span></span> <span class="token attr-name">:key</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>item<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>ts<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+<span class="token keyword">import</span> Component <span class="token keyword">from</span> <span class="token string">'vue-class-component'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Vue <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'nuxt-property-decorator'</span>
+
+@<span class="token function">Component</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">class</span> <span class="token class-name">Logo</span> <span class="token keyword">extends</span> <span class="token class-name">Vue</span> <span class="token punctuation">{</span>
+  <span class="token constant">COMMON_CLASS</span> <span class="token operator">=</span> <span class="token string">'Triangle'</span>
+  classes<span class="token operator">:</span> string<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token string">'Triangle--two'</span><span class="token punctuation">,</span>
+    <span class="token string">'Triangle--one'</span><span class="token punctuation">,</span>
+    <span class="token string">'Triangle--three'</span><span class="token punctuation">,</span>
+    <span class="token string">'Triangle--four'</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> Logo
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>container<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>logo</span> <span class="token punctuation">/&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>button--green<span class="token punctuation">&quot;</span></span> <span class="token attr-name">@click.prevent</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>upCount()<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+      Up
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
+    { { count } }
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>button--grey<span class="token punctuation">&quot;</span></span> <span class="token attr-name">@click.prevent</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>downCount()<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+      Down
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>ts<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+<span class="token keyword">import</span> Component <span class="token keyword">from</span> <span class="token string">'vue-class-component'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Vue <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'nuxt-property-decorator'</span>
+<span class="token keyword">import</span> Logo <span class="token keyword">from</span> <span class="token string">'~/components/Logo.vue'</span>
+
+@<span class="token function">Component</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  components<span class="token operator">:</span> <span class="token punctuation">{</span>
+    Logo
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">class</span> <span class="token class-name">Page</span> <span class="token keyword">extends</span> <span class="token class-name">Vue</span> <span class="token punctuation">{</span>
+  count<span class="token operator">:</span> number <span class="token operator">=</span> <span class="token number">0</span>
+  <span class="token function">upCount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>count<span class="token operator">++</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">downCount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>count<span class="token operator">++</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> Page
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><h4 id="vuex-루트에-사용하기"><a href="#vuex-루트에-사용하기" class="header-anchor">#</a> Vuex 루트에 사용하기</h4> <p>루트에 정의할 때는 <code>store/index.ts</code>에 <code>state</code>, <code>mutations</code>, <code>getters</code>, <code>actions</code>를 정의한다.</p> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token function-variable function">state</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+  count<span class="token operator">:</span> <span class="token number">0</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token keyword">export</span> <span class="token keyword">const</span> mutations <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token function">upCount</span><span class="token punctuation">(</span><span class="token parameter">state</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    state<span class="token punctuation">.</span>count<span class="token operator">++</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token function">downCount</span><span class="token punctuation">(</span><span class="token parameter">state</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    state<span class="token punctuation">.</span>count<span class="token operator">--</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>컴포넌트에서는 데코레이터만 붙이면 사용가능하다.</p> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token keyword">class</span> <span class="token class-name">Page</span> <span class="token keyword">extends</span> <span class="token class-name">Vue</span> <span class="token punctuation">{</span>
+  @State count
+  @Mutation upCount
+  @Mutation downCount
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="vuex-모듈-모드-사용하기"><a href="#vuex-모듈-모드-사용하기" class="header-anchor">#</a> Vuex 모듈 모드 사용하기</h4> <p>모듈 모드로 정의할 때는 <code>store</code>에 다른 파일을 정의한다. 파일 내부에는 <code>state</code>, <code>mutations</code>, <code>getters</code>, <code>actions</code>를 정의한다.</p> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token comment">// page.ts</span>
+<span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token function-variable function">state</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+  count<span class="token operator">:</span> <span class="token number">0</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token keyword">export</span> <span class="token keyword">const</span> mutations <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token function">upCount</span><span class="token punctuation">(</span><span class="token parameter">state</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    state<span class="token punctuation">.</span>count<span class="token operator">++</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token function">downCount</span><span class="token punctuation">(</span><span class="token parameter">state</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    state<span class="token punctuation">.</span>count<span class="token operator">--</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>컴포넌트에서 사용할 때는 모듈을 접근해서 사용한다.</p> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token keyword">class</span> <span class="token class-name">Page</span> <span class="token keyword">extends</span> <span class="token class-name">Vue</span> <span class="token punctuation">{</span>
+  @<span class="token function">State</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">state</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> state<span class="token punctuation">.</span>page<span class="token punctuation">.</span>count<span class="token punctuation">)</span>
+  count
+  @<span class="token function">Mutation</span><span class="token punctuation">(</span><span class="token string">'page/upCount'</span><span class="token punctuation">)</span>
+  upCount
+  @<span class="token function">Mutation</span><span class="token punctuation">(</span><span class="token string">'page/downCount'</span><span class="token punctuation">)</span>
+  downCount
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="끝"><a href="#끝" class="header-anchor">#</a> 끝</h3> <p>이 글에서 작성된 설정과정을 보일러 플레이트로 만들어서 <a href="https://github.com/ChoDragon9/create-nuxt-ts" target="_blank" rel="noopener noreferrer">create-nuxt-ts<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>에 올렸다. 이 저장소를 내려받으면 설정 과정없이 바로 사용 가능하다.</p> <p>그리고 처음 인텔리제이를 통해서 개발환경세팅을 했는 데, 인텔리제이는 IDE에 설정과정에서 많은 삽질이 필요하다. 웹스톰을 사용하면 별도로 IDE 설정 필요없이 바로 사용가능하다.</p></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.e9216216.js" defer></script><script src="/assets/js/2.b682ec10.js" defer></script><script src="/assets/js/36.6429478f.js" defer></script>
+  </body>
+</html>

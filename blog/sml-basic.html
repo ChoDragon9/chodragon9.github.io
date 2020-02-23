@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>SML: Standard Meta Language 기초 | ChoDragon9</title>
+    <meta name="description" content="Standard Meta Language 개발 환경 세팅 및 기초 정리">
+    <meta name="generator" content="VuePress 1.3.1">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.ec1b8bff.css" as="style"><link rel="preload" href="/assets/js/app.e9216216.js" as="script"><link rel="preload" href="/assets/js/2.b682ec10.js" as="script"><link rel="preload" href="/assets/js/52.691a7ad9.js" as="script"><link rel="prefetch" href="/assets/js/10.985c2b80.js"><link rel="prefetch" href="/assets/js/11.93966beb.js"><link rel="prefetch" href="/assets/js/12.233d50bf.js"><link rel="prefetch" href="/assets/js/13.0255935a.js"><link rel="prefetch" href="/assets/js/14.baaee00b.js"><link rel="prefetch" href="/assets/js/15.d5094919.js"><link rel="prefetch" href="/assets/js/16.be639cec.js"><link rel="prefetch" href="/assets/js/17.844b70a3.js"><link rel="prefetch" href="/assets/js/18.779a6db3.js"><link rel="prefetch" href="/assets/js/19.1bd918c6.js"><link rel="prefetch" href="/assets/js/20.fd0a5e59.js"><link rel="prefetch" href="/assets/js/21.02e9c333.js"><link rel="prefetch" href="/assets/js/22.0eb3731b.js"><link rel="prefetch" href="/assets/js/23.1e12da23.js"><link rel="prefetch" href="/assets/js/24.bcefbcc4.js"><link rel="prefetch" href="/assets/js/25.483fe671.js"><link rel="prefetch" href="/assets/js/26.d0a11ad8.js"><link rel="prefetch" href="/assets/js/27.72a013ad.js"><link rel="prefetch" href="/assets/js/28.cb190229.js"><link rel="prefetch" href="/assets/js/29.697d53a4.js"><link rel="prefetch" href="/assets/js/3.a0639062.js"><link rel="prefetch" href="/assets/js/30.1e934195.js"><link rel="prefetch" href="/assets/js/31.2a98ed64.js"><link rel="prefetch" href="/assets/js/32.4404b982.js"><link rel="prefetch" href="/assets/js/33.dcb9e62e.js"><link rel="prefetch" href="/assets/js/34.9b28e17f.js"><link rel="prefetch" href="/assets/js/35.d25b1317.js"><link rel="prefetch" href="/assets/js/36.6429478f.js"><link rel="prefetch" href="/assets/js/37.1fdd82f6.js"><link rel="prefetch" href="/assets/js/38.edac1fd4.js"><link rel="prefetch" href="/assets/js/39.d0eb1aa0.js"><link rel="prefetch" href="/assets/js/4.131bec4f.js"><link rel="prefetch" href="/assets/js/40.8e33b195.js"><link rel="prefetch" href="/assets/js/41.94dfb828.js"><link rel="prefetch" href="/assets/js/42.9b21d10f.js"><link rel="prefetch" href="/assets/js/43.6cecdbbd.js"><link rel="prefetch" href="/assets/js/44.d28291da.js"><link rel="prefetch" href="/assets/js/45.76ec9f40.js"><link rel="prefetch" href="/assets/js/46.b074b5b9.js"><link rel="prefetch" href="/assets/js/47.361a9d6e.js"><link rel="prefetch" href="/assets/js/48.9e8efb98.js"><link rel="prefetch" href="/assets/js/49.fa9e02e4.js"><link rel="prefetch" href="/assets/js/5.46a38e10.js"><link rel="prefetch" href="/assets/js/50.6f1e8ca0.js"><link rel="prefetch" href="/assets/js/51.438cc244.js"><link rel="prefetch" href="/assets/js/53.451b3fde.js"><link rel="prefetch" href="/assets/js/54.9b4ba27c.js"><link rel="prefetch" href="/assets/js/55.5908fa94.js"><link rel="prefetch" href="/assets/js/56.02c1cd4a.js"><link rel="prefetch" href="/assets/js/57.ad8facce.js"><link rel="prefetch" href="/assets/js/58.3637fe16.js"><link rel="prefetch" href="/assets/js/59.8cefb217.js"><link rel="prefetch" href="/assets/js/6.d94c3d70.js"><link rel="prefetch" href="/assets/js/60.1c6d8c13.js"><link rel="prefetch" href="/assets/js/61.fd508bac.js"><link rel="prefetch" href="/assets/js/62.15a6b5ad.js"><link rel="prefetch" href="/assets/js/7.ef610d6c.js"><link rel="prefetch" href="/assets/js/8.ec3c650c.js"><link rel="prefetch" href="/assets/js/9.3941f8b7.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.ec1b8bff.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">ChoDragon9</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="패러다임" class="dropdown-title"><span class="title">패러다임</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          객체지향
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/object/" class="nav-link">
+  객체 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/produce-oop/" class="nav-link">
+  produce 구현해보기 - OOP 버전
+</a></li></ul></li><li class="dropdown-item"><h4>
+          함수형
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/functional/" class="nav-link">
+  함수형 프로그래밍 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/functional2/" class="nav-link">
+  함수형 프로그래밍 정리2
+</a></li><li class="dropdown-subitem"><a href="/blog/produce/" class="nav-link">
+  produce 구현해보기
+</a></li><li class="dropdown-subitem"><a href="/blog/produce-immutable/" class="nav-link">
+  produce 구현해보기 - 불변성편
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="언어" class="dropdown-title"><span class="title">언어</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Javascript
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/es6/" class="nav-link">
+  [ECMAScript] ES6 Overview
+</a></li><li class="dropdown-subitem"><a href="/blog/this/" class="nav-link">
+  this, this is magic.
+</a></li><li class="dropdown-subitem"><a href="/blog/callback/" class="nav-link">
+  콜백 사용 시점
+</a></li><li class="dropdown-subitem"><a href="/blog/safe-chain/" class="nav-link">
+  안전한 체이닝을 위한 safeChain
+</a></li><li class="dropdown-subitem"><a href="/blog/async-await-case/" class="nav-link">
+  async await 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/observation-mechanism/" class="nav-link">
+  옵져버 매커니즘
+</a></li><li class="dropdown-subitem"><a href="/blog/call-stack-and-coroutine/" class="nav-link">
+  코루틴을 사용한 지연 평가
+</a></li><li class="dropdown-subitem"><a href="/blog/regexp-book-backref/" class="nav-link">
+  [손에 잡히는 정규표현식] 역참조/전방탐색/후방탐색
+</a></li><li class="dropdown-subitem"><a href="/blog/promise/" class="nav-link">
+  Promise 정리
+</a></li></ul></li><li class="dropdown-item"><h4>
+          SML
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/sml-basic/" class="nav-link">
+  기초
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-builtin-datatype/" class="nav-link">
+  빌트인 자료형
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-datatype/" class="nav-link">
+  자료형 정의
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-exception/" class="nav-link">
+  예외처리
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-function/" class="nav-link">
+  함수
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-higher-order-function/" class="nav-link">
+  고차함수
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-infix/" class="nav-link">
+  infix 정의
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-module/" class="nav-link">
+  모듈 시스템
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="오픈소스" class="dropdown-title"><span class="title">오픈소스</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Angular
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/rxjs-codereview/" class="nav-link">
+  RxJs 코드리뷰 사례
+</a></li><li class="dropdown-subitem"><a href="/blog/angular/" class="nav-link">
+  Angular의 강력함과 아쉬운점
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Vue
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/nuxt-ts/" class="nav-link">
+  Nuxt에서 TypeScript로 개발하기
+</a></li><li class="dropdown-subitem"><a href="/blog/nuxt-migration/" class="nav-link">
+  Nuxt v2.0에서 v2.11로 마이그레이션
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="설계" class="dropdown-title"><span class="title">설계</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          좋은코드
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/easy-code/" class="nav-link">
+  이해하기 쉬운 코드 작성방법 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/code-position/" class="nav-link">
+  코드의 위치를 정하는 기준
+</a></li><li class="dropdown-subitem"><a href="/blog/reusable-code/" class="nav-link">
+  재사용 가능한 코드 개발
+</a></li><li class="dropdown-subitem"><a href="/blog/declarative-function/" class="nav-link">
+  선언형으로 대체 가능한 문법들 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/date-helper-development/" class="nav-link">
+  강제성, 단일화 그리고 날짜 헬퍼 개발
+</a></li></ul></li><li class="dropdown-item"><h4>
+          패턴
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/mvc/" class="nav-link">
+  MVC
+</a></li><li class="dropdown-subitem"><a href="/blog/mvvm/" class="nav-link">
+  MVVM
+</a></li><li class="dropdown-subitem"><a href="/blog/gof-design-pattern-summary/" class="nav-link">
+  GoF 디자인 패턴 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/design-pattern-structural/" class="nav-link">
+  GoF 디자인 패턴 | 구조패턴
+</a></li><li class="dropdown-subitem"><a href="/blog/design-pattern-creational/" class="nav-link">
+  GoF 디자인 패턴 | 생성패턴
+</a></li><li class="dropdown-subitem"><a href="/blog/design-pattern-behavioral/" class="nav-link">
+  GoF 디자인 패턴 | 행동패턴
+</a></li></ul></li><li class="dropdown-item"><h4>
+          리팩토링
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/structure-refactoring/" class="nav-link">
+  [리펙토링] 구조 리펙토링 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/legacy-code-to-easy-code/" class="nav-link">
+  레거시 코드에서 이해하기 쉬운코드로 리팩토링
+</a></li><li class="dropdown-subitem"><a href="/blog/legacy-code-to-easy-code-2/" class="nav-link">
+  레거시 코드에서 이해하기 쉬운코드로 리팩토링 2
+</a></li><li class="dropdown-subitem"><a href="/blog/refactoring-meaning-and-result/" class="nav-link">
+  리펙토링 정의와 결과
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="정리" class="dropdown-title"><span class="title">정리</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          관리
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/estimation/" class="nav-link">
+  개발 일정산정
+</a></li><li class="dropdown-subitem"><a href="/blog/release/" class="nav-link">
+  배포 어디까지 알고 있나요?
+</a></li><li class="dropdown-subitem"><a href="/blog/facilitation-for-meeting/" class="nav-link">
+  효율적인 회의를 위한 퍼실리테이션
+</a></li><li class="dropdown-subitem"><a href="/blog/preventive-maintenance/" class="nav-link">
+  위험상황을 대비하는 위험관리
+</a></li><li class="dropdown-subitem"><a href="/blog/git-scm-experience/" class="nav-link">
+  형상관리 전략정리
+</a></li></ul></li><li class="dropdown-item"><h4>
+          정리자료
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/programming-standards/" class="nav-link">
+  프로그래밍의 정석 도서 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/non-functional-requirement/" class="nav-link">
+  소프트웨어의 핵심 비기능 요구사항
+</a></li><li class="dropdown-subitem"><a href="/blog/how-to-catch-error/" class="nav-link">
+  에러 처리 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/cors-and-http-cookie/" class="nav-link">
+  CORS와 HTTP Cookie
+</a></li><li class="dropdown-subitem"><a href="/blog/abstract/" class="nav-link">
+  추상화 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/react-convention-for-codereview/" class="nav-link">
+  코드리뷰를 위한 React 컨벤션
+</a></li><li class="dropdown-subitem"><a href="/blog/clone-function/" class="nav-link">
+  경우에 따른 clone 함수
+</a></li><li class="dropdown-subitem"><a href="/blog/branch-n-case/" class="nav-link">
+  분기를 작성하는 방법 n가지
+</a></li><li class="dropdown-subitem"><a href="/blog/typescript-from-inhouse-service/" class="nav-link">
+  인하우스 서비스 구축하며 사용했던 TypeScript 문법 정리
+</a></li></ul></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="패러다임" class="dropdown-title"><span class="title">패러다임</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          객체지향
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/object/" class="nav-link">
+  객체 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/produce-oop/" class="nav-link">
+  produce 구현해보기 - OOP 버전
+</a></li></ul></li><li class="dropdown-item"><h4>
+          함수형
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/functional/" class="nav-link">
+  함수형 프로그래밍 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/functional2/" class="nav-link">
+  함수형 프로그래밍 정리2
+</a></li><li class="dropdown-subitem"><a href="/blog/produce/" class="nav-link">
+  produce 구현해보기
+</a></li><li class="dropdown-subitem"><a href="/blog/produce-immutable/" class="nav-link">
+  produce 구현해보기 - 불변성편
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="언어" class="dropdown-title"><span class="title">언어</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Javascript
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/es6/" class="nav-link">
+  [ECMAScript] ES6 Overview
+</a></li><li class="dropdown-subitem"><a href="/blog/this/" class="nav-link">
+  this, this is magic.
+</a></li><li class="dropdown-subitem"><a href="/blog/callback/" class="nav-link">
+  콜백 사용 시점
+</a></li><li class="dropdown-subitem"><a href="/blog/safe-chain/" class="nav-link">
+  안전한 체이닝을 위한 safeChain
+</a></li><li class="dropdown-subitem"><a href="/blog/async-await-case/" class="nav-link">
+  async await 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/observation-mechanism/" class="nav-link">
+  옵져버 매커니즘
+</a></li><li class="dropdown-subitem"><a href="/blog/call-stack-and-coroutine/" class="nav-link">
+  코루틴을 사용한 지연 평가
+</a></li><li class="dropdown-subitem"><a href="/blog/regexp-book-backref/" class="nav-link">
+  [손에 잡히는 정규표현식] 역참조/전방탐색/후방탐색
+</a></li><li class="dropdown-subitem"><a href="/blog/promise/" class="nav-link">
+  Promise 정리
+</a></li></ul></li><li class="dropdown-item"><h4>
+          SML
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/sml-basic/" class="nav-link">
+  기초
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-builtin-datatype/" class="nav-link">
+  빌트인 자료형
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-datatype/" class="nav-link">
+  자료형 정의
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-exception/" class="nav-link">
+  예외처리
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-function/" class="nav-link">
+  함수
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-higher-order-function/" class="nav-link">
+  고차함수
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-infix/" class="nav-link">
+  infix 정의
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-module/" class="nav-link">
+  모듈 시스템
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="오픈소스" class="dropdown-title"><span class="title">오픈소스</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Angular
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/rxjs-codereview/" class="nav-link">
+  RxJs 코드리뷰 사례
+</a></li><li class="dropdown-subitem"><a href="/blog/angular/" class="nav-link">
+  Angular의 강력함과 아쉬운점
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Vue
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/nuxt-ts/" class="nav-link">
+  Nuxt에서 TypeScript로 개발하기
+</a></li><li class="dropdown-subitem"><a href="/blog/nuxt-migration/" class="nav-link">
+  Nuxt v2.0에서 v2.11로 마이그레이션
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="설계" class="dropdown-title"><span class="title">설계</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          좋은코드
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/easy-code/" class="nav-link">
+  이해하기 쉬운 코드 작성방법 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/code-position/" class="nav-link">
+  코드의 위치를 정하는 기준
+</a></li><li class="dropdown-subitem"><a href="/blog/reusable-code/" class="nav-link">
+  재사용 가능한 코드 개발
+</a></li><li class="dropdown-subitem"><a href="/blog/declarative-function/" class="nav-link">
+  선언형으로 대체 가능한 문법들 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/date-helper-development/" class="nav-link">
+  강제성, 단일화 그리고 날짜 헬퍼 개발
+</a></li></ul></li><li class="dropdown-item"><h4>
+          패턴
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/mvc/" class="nav-link">
+  MVC
+</a></li><li class="dropdown-subitem"><a href="/blog/mvvm/" class="nav-link">
+  MVVM
+</a></li><li class="dropdown-subitem"><a href="/blog/gof-design-pattern-summary/" class="nav-link">
+  GoF 디자인 패턴 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/design-pattern-structural/" class="nav-link">
+  GoF 디자인 패턴 | 구조패턴
+</a></li><li class="dropdown-subitem"><a href="/blog/design-pattern-creational/" class="nav-link">
+  GoF 디자인 패턴 | 생성패턴
+</a></li><li class="dropdown-subitem"><a href="/blog/design-pattern-behavioral/" class="nav-link">
+  GoF 디자인 패턴 | 행동패턴
+</a></li></ul></li><li class="dropdown-item"><h4>
+          리팩토링
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/structure-refactoring/" class="nav-link">
+  [리펙토링] 구조 리펙토링 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/legacy-code-to-easy-code/" class="nav-link">
+  레거시 코드에서 이해하기 쉬운코드로 리팩토링
+</a></li><li class="dropdown-subitem"><a href="/blog/legacy-code-to-easy-code-2/" class="nav-link">
+  레거시 코드에서 이해하기 쉬운코드로 리팩토링 2
+</a></li><li class="dropdown-subitem"><a href="/blog/refactoring-meaning-and-result/" class="nav-link">
+  리펙토링 정의와 결과
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="정리" class="dropdown-title"><span class="title">정리</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          관리
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/estimation/" class="nav-link">
+  개발 일정산정
+</a></li><li class="dropdown-subitem"><a href="/blog/release/" class="nav-link">
+  배포 어디까지 알고 있나요?
+</a></li><li class="dropdown-subitem"><a href="/blog/facilitation-for-meeting/" class="nav-link">
+  효율적인 회의를 위한 퍼실리테이션
+</a></li><li class="dropdown-subitem"><a href="/blog/preventive-maintenance/" class="nav-link">
+  위험상황을 대비하는 위험관리
+</a></li><li class="dropdown-subitem"><a href="/blog/git-scm-experience/" class="nav-link">
+  형상관리 전략정리
+</a></li></ul></li><li class="dropdown-item"><h4>
+          정리자료
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/programming-standards/" class="nav-link">
+  프로그래밍의 정석 도서 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/non-functional-requirement/" class="nav-link">
+  소프트웨어의 핵심 비기능 요구사항
+</a></li><li class="dropdown-subitem"><a href="/blog/how-to-catch-error/" class="nav-link">
+  에러 처리 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/cors-and-http-cookie/" class="nav-link">
+  CORS와 HTTP Cookie
+</a></li><li class="dropdown-subitem"><a href="/blog/abstract/" class="nav-link">
+  추상화 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/react-convention-for-codereview/" class="nav-link">
+  코드리뷰를 위한 React 컨벤션
+</a></li><li class="dropdown-subitem"><a href="/blog/clone-function/" class="nav-link">
+  경우에 따른 clone 함수
+</a></li><li class="dropdown-subitem"><a href="/blog/branch-n-case/" class="nav-link">
+  분기를 작성하는 방법 n가지
+</a></li><li class="dropdown-subitem"><a href="/blog/typescript-from-inhouse-service/" class="nav-link">
+  인하우스 서비스 구축하며 사용했던 TypeScript 문법 정리
+</a></li></ul></li></ul></div></div> <!----></nav>  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><h3 id="글의-목적"><a href="#글의-목적" class="header-anchor">#</a> 글의 목적</h3> <p>최근에 <a href="http://www.yes24.com/Product/Goods/82591994" target="_blank" rel="noopener noreferrer">순수 함수형 데이터 구조<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>라는 도서를 접했다.
+함수형 데이터 구조를 다루는 책으로 <a href="https://en.wikipedia.org/wiki/Standard_ML" target="_blank" rel="noopener noreferrer">SML<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>이라는 언어로 예제를 설명한다.
+한국어로 작성된 SML의 학습 자료가 부족하고, 함수형 언어를 공부하고 싶은 마음에 정리한 자료이다.</p> <h3 id="소개"><a href="#소개" class="header-anchor">#</a> 소개</h3> <blockquote><p>Standard ML(SML; &quot;Standard Meta Language&quot;)</p></blockquote> <p>Standard ML는 모듈식, 함수형 프로그래밍 언어이다. 컴파일 타임에 타입 체크와 타입 추론을 한다. 타입에 대한 설명은 아래에서 자세히 다룬다.</p> <h4 id="모듈식-프로그래밍"><a href="#모듈식-프로그래밍" class="header-anchor">#</a> 모듈식 프로그래밍</h4> <p>모듈식 프로그래밍은 프로그램 기능을 독립적이고 상호 교환 가능한 모듈로 분리하는 것을 강조하는 소프트웨어 설계 기법이다. 각 모듈에는 원하는 기능의 한 측면만 실행하는 데 필요한 모든 것이 포함된다.</p> <h3 id="개발-환경-설치"><a href="#개발-환경-설치" class="header-anchor">#</a> 개발 환경 설치</h3> <h4 id="step-1-인스톨러-패키지-다운로드"><a href="#step-1-인스톨러-패키지-다운로드" class="header-anchor">#</a> Step 1. 인스톨러 패키지 다운로드</h4> <ol><li><a href="http://www.smlnj.org/" target="_blank" rel="noopener noreferrer">Standard ML of New Jersey<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>에 접속한다.</li> <li>Downloads 링크를 클릭한다.</li> <li>Software Links 링크를 클릭한다.</li> <li>PC의 OS에 맞게 패키지를 설치한다.</li></ol> <h4 id="step-2-mac-os-환경변수-추가"><a href="#step-2-mac-os-환경변수-추가" class="header-anchor">#</a> Step 2. Mac OS 환경변수 추가</h4> <p>패키지가 설치되면 <code>/usr/local/smlnj</code>로 설치된다. 해당 폴더에 있는 <code>bin</code> 폴더를 환경변수에 추가한다.</p> <h5 id="_1-터미널에서-환경변수를-추가한다"><a href="#_1-터미널에서-환경변수를-추가한다" class="header-anchor">#</a> 1. 터미널에서 환경변수를 추가한다.</h5> <div class="language-bash extra-class"><pre class="language-bash"><code>$ <span class="token function">vi</span> ~/.bash_profile
+</code></pre></div><h5 id="_2-환경변수-추가-후-sml-명령어로-확인한다"><a href="#_2-환경변수-추가-후-sml-명령어로-확인한다" class="header-anchor">#</a> 2. 환경변수 추가 후 <code>sml</code> 명령어로 확인한다.</h5> <div class="language-bash extra-class"><pre class="language-bash"><code>$ sml
+Standard ML of New Jersey <span class="token punctuation">(</span><span class="token number">64</span>-bit<span class="token punctuation">)</span> v110.96 <span class="token punctuation">[</span>built: Fri Dec <span class="token number">13</span> <span class="token number">14</span>:59:34 <span class="token number">2019</span><span class="token punctuation">]</span>
+-
+</code></pre></div><h5 id="_3-control-d-단축키로-종료한다"><a href="#_3-control-d-단축키로-종료한다" class="header-anchor">#</a> 3. Control-D 단축키로 종료한다.</h5> <div class="language-bash extra-class"><pre class="language-bash"><code>$ sml
+Standard ML of New Jersey <span class="token punctuation">(</span><span class="token number">64</span>-bit<span class="token punctuation">)</span> v110.96 <span class="token punctuation">[</span>built: Fri Dec <span class="token number">13</span> <span class="token number">14</span>:59:34 <span class="token number">2019</span><span class="token punctuation">]</span>
+- ^D
+$
+</code></pre></div><h3 id="개발-환경-사용-방법"><a href="#개발-환경-사용-방법" class="header-anchor">#</a> 개발 환경 사용 방법</h3> <h4 id="코드-작성-후-실행"><a href="#코드-작성-후-실행" class="header-anchor">#</a> 코드 작성 후 실행</h4> <p>코드 작성 후 세미 콜론을 작성하면 실행된다. 아래는 <code>1 + 2;</code>를 입력한 결과이다.</p> <h5 id="예제코드"><a href="#예제코드" class="header-anchor">#</a> 예제코드</h5> <div class="language-bash extra-class"><pre class="language-bash"><code>- <span class="token number">1</span> + <span class="token number">2</span><span class="token punctuation">;</span>
+</code></pre></div><h5 id="실행결과"><a href="#실행결과" class="header-anchor">#</a> 실행결과</h5> <div class="language-bash extra-class"><pre class="language-bash"><code>val it <span class="token operator">=</span> <span class="token number">3</span> <span class="token builtin class-name">:</span> int
+</code></pre></div><h4 id="다중-라인-작성-후-실행"><a href="#다중-라인-작성-후-실행" class="header-anchor">#</a> 다중 라인 작성 후 실행</h4> <p>한 줄 작성한 뒤 <code>Enter</code>를 하면 <code>=</code>으로 표기된다. 마찬가지로 코드 입력 후 세미콜론으로 실행할 수 있다.</p> <blockquote><p>SML의 변수 선언은 <code>val</code>로 한다.</p></blockquote> <h5 id="예제코드-2"><a href="#예제코드-2" class="header-anchor">#</a> 예제코드</h5> <div class="language- extra-class"><pre class="language-text"><code>- val x = 1
+= val y = 2;
+</code></pre></div><h5 id="실행결과-2"><a href="#실행결과-2" class="header-anchor">#</a> 실행결과</h5> <div class="language- extra-class"><pre class="language-text"><code>val x = 1 : int
+val y = 2 : int
+</code></pre></div><h4 id="파일-실행"><a href="#파일-실행" class="header-anchor">#</a> 파일 실행</h4> <p>파일은 <code>use &quot;&lt;Path&gt;&quot;</code> 형태로 사용된다. 현재 폴더를 기준으로 파일 경로를 찾는다.</p> <h5 id="sum-sml-파일"><a href="#sum-sml-파일" class="header-anchor">#</a> sum.sml 파일</h5> <div class="language- extra-class"><pre class="language-text"><code>val x = 1 + 2
+</code></pre></div><h5 id="sum-sml-실행"><a href="#sum-sml-실행" class="header-anchor">#</a> sum.sml 실행</h5> <div class="language- extra-class"><pre class="language-text"><code>- use &quot;./sum.sml&quot;;
+[opening ./sum.sml]
+val x = 3 : int
+val it = () : unit
+</code></pre></div><h3 id="문법"><a href="#문법" class="header-anchor">#</a> 문법</h3> <h4 id="주석"><a href="#주석" class="header-anchor">#</a> 주석</h4> <p>SML은 주석의 시작은 <code>(*</code>로 하고, 끝은 <code>*)</code> 이렇게 한다.</p> <h4 id="숫자"><a href="#숫자" class="header-anchor">#</a> 숫자</h4> <h5 id="예제코드-3"><a href="#예제코드-3" class="header-anchor">#</a> 예제코드</h5> <div class="language- extra-class"><pre class="language-text"><code>- val rent = 1200
+= val phone_no = 5551337
+= val pi = 3.14159
+= val negative_number = ~15 (* 음수는 ~를 붙여 사용한다. *);
+</code></pre></div><h5 id="실행결과-3"><a href="#실행결과-3" class="header-anchor">#</a> 실행결과</h5> <div class="language- extra-class"><pre class="language-text"><code>val rent = 1200 : int
+val phone_no = 5551337 : int
+val pi = 3.14159 : real
+val negative_number = ~15 : int
+</code></pre></div><h4 id="숫자-연산"><a href="#숫자-연산" class="header-anchor">#</a> 숫자 연산</h4> <p>숫자 연산 시 타입을 명확히 사용해야 한다. 만약에 다른 타입으로 연산하면 에러가 발생한다.</p> <h5 id="예제코드-4"><a href="#예제코드-4" class="header-anchor">#</a> 예제코드</h5> <div class="language- extra-class"><pre class="language-text"><code>- val pi = 3.14159
+= val tau = 2 * pi;
+</code></pre></div><h5 id="실행결과-4"><a href="#실행결과-4" class="header-anchor">#</a> 실행결과</h5> <div class="language- extra-class"><pre class="language-text"><code>stdIn:7.5-7.17 Error: operator and operand do not agree [overload conflict]
+  operator domain: [* ty] * [* ty]
+  operand:         [* ty] * real
+  in expression:
+    2 * pi
+</code></pre></div><p>정확한 타입을 사용하면 정상적으로 연산 결과를 확인할 수 있다.</p> <h5 id="예제코드-5"><a href="#예제코드-5" class="header-anchor">#</a> 예제코드</h5> <div class="language- extra-class"><pre class="language-text"><code>- val pi = 3.14159
+= val tau = 2.0 * pi;
+</code></pre></div><h5 id="실행결과-5"><a href="#실행결과-5" class="header-anchor">#</a> 실행결과</h5> <div class="language- extra-class"><pre class="language-text"><code>val pi = 3.14159 : real
+val tau = 6.28318 : real
+</code></pre></div><p>이외 이러한 연산자를 지원한다.</p> <h5 id="예제코드-6"><a href="#예제코드-6" class="header-anchor">#</a> 예제코드</h5> <div class="language- extra-class"><pre class="language-text"><code>- val real_division = 14.0 / 4.0 (* 3.5 *)
+= val int_division = 14 div 4 (* 3 *)
+= val int_remainder = 14 mod 4; (* 2 *)
+</code></pre></div><h5 id="실행결과-6"><a href="#실행결과-6" class="header-anchor">#</a> 실행결과</h5> <div class="language- extra-class"><pre class="language-text"><code>val real_division = 3.5 : real
+val int_division = 3 : int
+val int_remainder = 2 : int
+</code></pre></div><h4 id="타입-선언"><a href="#타입-선언" class="header-anchor">#</a> 타입 선언</h4> <p>타입을 추가하고 싶다면 타입을 선언할 수 있다. 하지만 SML은 자동으로 타입을 추론하기 때문에 불필요한 작업이다.</p> <div class="language- extra-class"><pre class="language-text"><code>- val diameter = 7926 : int
+= val e = 2.718 : real
+= val name = &quot;Bobby&quot; : string;
+</code></pre></div><h4 id="불리언"><a href="#불리언" class="header-anchor">#</a> 불리언</h4> <ul><li><code>andalso</code> 연산자는 and 연산을 한다.</li> <li><code>orelse</code> 연산자는 or 연산을 한다.</li> <li><code>not</code> 함수는 not 연산을 한다.</li></ul> <div class="language- extra-class"><pre class="language-text"><code>val got_milk = true
+val got_bread = false
+val has_breakfast = got_milk andalso got_bread
+val has_something = got_milk orelse got_bread
+val is_sad = not(has_something);
+</code></pre></div><h4 id="문자열"><a href="#문자열" class="header-anchor">#</a> 문자열</h4> <ul><li>문자 하나만 사용할 때는 <code>#</code>을 사용한다.</li> <li>문자를 연결할 때는 <code>^</code>를 사용한다.</li> <li>문자를 출력할 때는 바로 <code>print &lt;Variable&gt;</code> 형태로 사용할 수 없다. 항상 <code>val _ = print &lt;Variable&gt;</code> 형태로 사용한다.</li></ul> <h5 id="예제코드-7"><a href="#예제코드-7" class="header-anchor">#</a> 예제코드</h5> <div class="language- extra-class"><pre class="language-text"><code>val foo = &quot;Hello World!\n&quot;
+val one_letter = #&quot;a&quot;
+val combined = &quot;Hello &quot; ^ &quot;World!&quot; ^ &quot;\n&quot;
+
+val _ = print foo
+val _ = print combined;
+</code></pre></div><h5 id="실행결과-7"><a href="#실행결과-7" class="header-anchor">#</a> 실행결과</h5> <div class="language- extra-class"><pre class="language-text"><code>Hello World!
+Hello World!
+val foo = &quot;Hello World!\n&quot; : string
+val one_letter = #&quot;a&quot; : char
+val combined = &quot;Hello World!\n&quot; : string
+</code></pre></div><h4 id="함수"><a href="#함수" class="header-anchor">#</a> 함수</h4> <p>함수는 <code>fun</code>으로 선언한다. <code>fun &lt;함수명&gt; &lt;인자&gt; = &lt;반환값&gt;</code> 형태로 이뤄진다.</p> <h5 id="예제코드-8"><a href="#예제코드-8" class="header-anchor">#</a> 예제코드</h5> <div class="language- extra-class"><pre class="language-text"><code>fun is_large x = x &gt; 10
+val some_answer = is_large(11) (* true *)
+val some_answer2 = is_large 11; (* true *)
+</code></pre></div><h5 id="실행결과-8"><a href="#실행결과-8" class="header-anchor">#</a> 실행결과</h5> <div class="language- extra-class"><pre class="language-text"><code>val is_large = fn : int -&gt; bool
+val some_answer = true : bool
+</code></pre></div><p>인자를 괄호(<code>()</code>)로 묶어서 사용하는 것도 가능하다.</p> <h5 id="예제코드-9"><a href="#예제코드-9" class="header-anchor">#</a> 예제코드</h5> <div class="language- extra-class"><pre class="language-text"><code>- fun is_large (x) = x &gt; 10
+= val some_answer = is_large(11);
+</code></pre></div><h5 id="실행결과-9"><a href="#실행결과-9" class="header-anchor">#</a> 실행결과</h5> <div class="language- extra-class"><pre class="language-text"><code>val is_large = fn : int -&gt; bool
+val some_answer = true : bool
+</code></pre></div><h3 id="참고자료"><a href="#참고자료" class="header-anchor">#</a> 참고자료</h3> <ul><li>https://en.wikipedia.org/wiki/Modular_programming</li> <li>https://learnxinyminutes.com/docs/standard-ml/</li> <li>https://en.wikipedia.org/wiki/Standard_ML</li> <li>http://www.smlnj.org/doc/interact.html</li> <li>http://www.smlnj.org/doc/FAQ/usage.html#loadFile</li></ul></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.e9216216.js" defer></script><script src="/assets/js/2.b682ec10.js" defer></script><script src="/assets/js/52.691a7ad9.js" defer></script>
+  </body>
+</html>

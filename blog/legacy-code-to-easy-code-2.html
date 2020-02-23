@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>레거시 코드에서 이해하기 쉬운코드로 리팩토링 2 | ChoDragon9</title>
+    <meta name="description" content="각 레거시 코드별로 이해하기 쉬운 코드로 바꾸는 방법에 대한 정리">
+    <meta name="generator" content="VuePress 1.3.1">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.ec1b8bff.css" as="style"><link rel="preload" href="/assets/js/app.e9216216.js" as="script"><link rel="preload" href="/assets/js/2.b682ec10.js" as="script"><link rel="preload" href="/assets/js/33.dcb9e62e.js" as="script"><link rel="prefetch" href="/assets/js/10.985c2b80.js"><link rel="prefetch" href="/assets/js/11.93966beb.js"><link rel="prefetch" href="/assets/js/12.233d50bf.js"><link rel="prefetch" href="/assets/js/13.0255935a.js"><link rel="prefetch" href="/assets/js/14.baaee00b.js"><link rel="prefetch" href="/assets/js/15.d5094919.js"><link rel="prefetch" href="/assets/js/16.be639cec.js"><link rel="prefetch" href="/assets/js/17.844b70a3.js"><link rel="prefetch" href="/assets/js/18.779a6db3.js"><link rel="prefetch" href="/assets/js/19.1bd918c6.js"><link rel="prefetch" href="/assets/js/20.fd0a5e59.js"><link rel="prefetch" href="/assets/js/21.02e9c333.js"><link rel="prefetch" href="/assets/js/22.0eb3731b.js"><link rel="prefetch" href="/assets/js/23.1e12da23.js"><link rel="prefetch" href="/assets/js/24.bcefbcc4.js"><link rel="prefetch" href="/assets/js/25.483fe671.js"><link rel="prefetch" href="/assets/js/26.d0a11ad8.js"><link rel="prefetch" href="/assets/js/27.72a013ad.js"><link rel="prefetch" href="/assets/js/28.cb190229.js"><link rel="prefetch" href="/assets/js/29.697d53a4.js"><link rel="prefetch" href="/assets/js/3.a0639062.js"><link rel="prefetch" href="/assets/js/30.1e934195.js"><link rel="prefetch" href="/assets/js/31.2a98ed64.js"><link rel="prefetch" href="/assets/js/32.4404b982.js"><link rel="prefetch" href="/assets/js/34.9b28e17f.js"><link rel="prefetch" href="/assets/js/35.d25b1317.js"><link rel="prefetch" href="/assets/js/36.6429478f.js"><link rel="prefetch" href="/assets/js/37.1fdd82f6.js"><link rel="prefetch" href="/assets/js/38.edac1fd4.js"><link rel="prefetch" href="/assets/js/39.d0eb1aa0.js"><link rel="prefetch" href="/assets/js/4.131bec4f.js"><link rel="prefetch" href="/assets/js/40.8e33b195.js"><link rel="prefetch" href="/assets/js/41.94dfb828.js"><link rel="prefetch" href="/assets/js/42.9b21d10f.js"><link rel="prefetch" href="/assets/js/43.6cecdbbd.js"><link rel="prefetch" href="/assets/js/44.d28291da.js"><link rel="prefetch" href="/assets/js/45.76ec9f40.js"><link rel="prefetch" href="/assets/js/46.b074b5b9.js"><link rel="prefetch" href="/assets/js/47.361a9d6e.js"><link rel="prefetch" href="/assets/js/48.9e8efb98.js"><link rel="prefetch" href="/assets/js/49.fa9e02e4.js"><link rel="prefetch" href="/assets/js/5.46a38e10.js"><link rel="prefetch" href="/assets/js/50.6f1e8ca0.js"><link rel="prefetch" href="/assets/js/51.438cc244.js"><link rel="prefetch" href="/assets/js/52.691a7ad9.js"><link rel="prefetch" href="/assets/js/53.451b3fde.js"><link rel="prefetch" href="/assets/js/54.9b4ba27c.js"><link rel="prefetch" href="/assets/js/55.5908fa94.js"><link rel="prefetch" href="/assets/js/56.02c1cd4a.js"><link rel="prefetch" href="/assets/js/57.ad8facce.js"><link rel="prefetch" href="/assets/js/58.3637fe16.js"><link rel="prefetch" href="/assets/js/59.8cefb217.js"><link rel="prefetch" href="/assets/js/6.d94c3d70.js"><link rel="prefetch" href="/assets/js/60.1c6d8c13.js"><link rel="prefetch" href="/assets/js/61.fd508bac.js"><link rel="prefetch" href="/assets/js/62.15a6b5ad.js"><link rel="prefetch" href="/assets/js/7.ef610d6c.js"><link rel="prefetch" href="/assets/js/8.ec3c650c.js"><link rel="prefetch" href="/assets/js/9.3941f8b7.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.ec1b8bff.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">ChoDragon9</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="패러다임" class="dropdown-title"><span class="title">패러다임</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          객체지향
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/object/" class="nav-link">
+  객체 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/produce-oop/" class="nav-link">
+  produce 구현해보기 - OOP 버전
+</a></li></ul></li><li class="dropdown-item"><h4>
+          함수형
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/functional/" class="nav-link">
+  함수형 프로그래밍 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/functional2/" class="nav-link">
+  함수형 프로그래밍 정리2
+</a></li><li class="dropdown-subitem"><a href="/blog/produce/" class="nav-link">
+  produce 구현해보기
+</a></li><li class="dropdown-subitem"><a href="/blog/produce-immutable/" class="nav-link">
+  produce 구현해보기 - 불변성편
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="언어" class="dropdown-title"><span class="title">언어</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Javascript
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/es6/" class="nav-link">
+  [ECMAScript] ES6 Overview
+</a></li><li class="dropdown-subitem"><a href="/blog/this/" class="nav-link">
+  this, this is magic.
+</a></li><li class="dropdown-subitem"><a href="/blog/callback/" class="nav-link">
+  콜백 사용 시점
+</a></li><li class="dropdown-subitem"><a href="/blog/safe-chain/" class="nav-link">
+  안전한 체이닝을 위한 safeChain
+</a></li><li class="dropdown-subitem"><a href="/blog/async-await-case/" class="nav-link">
+  async await 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/observation-mechanism/" class="nav-link">
+  옵져버 매커니즘
+</a></li><li class="dropdown-subitem"><a href="/blog/call-stack-and-coroutine/" class="nav-link">
+  코루틴을 사용한 지연 평가
+</a></li><li class="dropdown-subitem"><a href="/blog/regexp-book-backref/" class="nav-link">
+  [손에 잡히는 정규표현식] 역참조/전방탐색/후방탐색
+</a></li><li class="dropdown-subitem"><a href="/blog/promise/" class="nav-link">
+  Promise 정리
+</a></li></ul></li><li class="dropdown-item"><h4>
+          SML
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/sml-basic/" class="nav-link">
+  기초
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-builtin-datatype/" class="nav-link">
+  빌트인 자료형
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-datatype/" class="nav-link">
+  자료형 정의
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-exception/" class="nav-link">
+  예외처리
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-function/" class="nav-link">
+  함수
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-higher-order-function/" class="nav-link">
+  고차함수
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-infix/" class="nav-link">
+  infix 정의
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-module/" class="nav-link">
+  모듈 시스템
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="오픈소스" class="dropdown-title"><span class="title">오픈소스</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Angular
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/rxjs-codereview/" class="nav-link">
+  RxJs 코드리뷰 사례
+</a></li><li class="dropdown-subitem"><a href="/blog/angular/" class="nav-link">
+  Angular의 강력함과 아쉬운점
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Vue
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/nuxt-ts/" class="nav-link">
+  Nuxt에서 TypeScript로 개발하기
+</a></li><li class="dropdown-subitem"><a href="/blog/nuxt-migration/" class="nav-link">
+  Nuxt v2.0에서 v2.11로 마이그레이션
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="설계" class="dropdown-title"><span class="title">설계</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          좋은코드
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/easy-code/" class="nav-link">
+  이해하기 쉬운 코드 작성방법 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/code-position/" class="nav-link">
+  코드의 위치를 정하는 기준
+</a></li><li class="dropdown-subitem"><a href="/blog/reusable-code/" class="nav-link">
+  재사용 가능한 코드 개발
+</a></li><li class="dropdown-subitem"><a href="/blog/declarative-function/" class="nav-link">
+  선언형으로 대체 가능한 문법들 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/date-helper-development/" class="nav-link">
+  강제성, 단일화 그리고 날짜 헬퍼 개발
+</a></li></ul></li><li class="dropdown-item"><h4>
+          패턴
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/mvc/" class="nav-link">
+  MVC
+</a></li><li class="dropdown-subitem"><a href="/blog/mvvm/" class="nav-link">
+  MVVM
+</a></li><li class="dropdown-subitem"><a href="/blog/gof-design-pattern-summary/" class="nav-link">
+  GoF 디자인 패턴 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/design-pattern-structural/" class="nav-link">
+  GoF 디자인 패턴 | 구조패턴
+</a></li><li class="dropdown-subitem"><a href="/blog/design-pattern-creational/" class="nav-link">
+  GoF 디자인 패턴 | 생성패턴
+</a></li><li class="dropdown-subitem"><a href="/blog/design-pattern-behavioral/" class="nav-link">
+  GoF 디자인 패턴 | 행동패턴
+</a></li></ul></li><li class="dropdown-item"><h4>
+          리팩토링
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/structure-refactoring/" class="nav-link">
+  [리펙토링] 구조 리펙토링 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/legacy-code-to-easy-code/" class="nav-link">
+  레거시 코드에서 이해하기 쉬운코드로 리팩토링
+</a></li><li class="dropdown-subitem"><a href="/blog/legacy-code-to-easy-code-2/" class="nav-link">
+  레거시 코드에서 이해하기 쉬운코드로 리팩토링 2
+</a></li><li class="dropdown-subitem"><a href="/blog/refactoring-meaning-and-result/" class="nav-link">
+  리펙토링 정의와 결과
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="정리" class="dropdown-title"><span class="title">정리</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          관리
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/estimation/" class="nav-link">
+  개발 일정산정
+</a></li><li class="dropdown-subitem"><a href="/blog/release/" class="nav-link">
+  배포 어디까지 알고 있나요?
+</a></li><li class="dropdown-subitem"><a href="/blog/facilitation-for-meeting/" class="nav-link">
+  효율적인 회의를 위한 퍼실리테이션
+</a></li><li class="dropdown-subitem"><a href="/blog/preventive-maintenance/" class="nav-link">
+  위험상황을 대비하는 위험관리
+</a></li><li class="dropdown-subitem"><a href="/blog/git-scm-experience/" class="nav-link">
+  형상관리 전략정리
+</a></li></ul></li><li class="dropdown-item"><h4>
+          정리자료
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/programming-standards/" class="nav-link">
+  프로그래밍의 정석 도서 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/non-functional-requirement/" class="nav-link">
+  소프트웨어의 핵심 비기능 요구사항
+</a></li><li class="dropdown-subitem"><a href="/blog/how-to-catch-error/" class="nav-link">
+  에러 처리 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/cors-and-http-cookie/" class="nav-link">
+  CORS와 HTTP Cookie
+</a></li><li class="dropdown-subitem"><a href="/blog/abstract/" class="nav-link">
+  추상화 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/react-convention-for-codereview/" class="nav-link">
+  코드리뷰를 위한 React 컨벤션
+</a></li><li class="dropdown-subitem"><a href="/blog/clone-function/" class="nav-link">
+  경우에 따른 clone 함수
+</a></li><li class="dropdown-subitem"><a href="/blog/branch-n-case/" class="nav-link">
+  분기를 작성하는 방법 n가지
+</a></li><li class="dropdown-subitem"><a href="/blog/typescript-from-inhouse-service/" class="nav-link">
+  인하우스 서비스 구축하며 사용했던 TypeScript 문법 정리
+</a></li></ul></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="패러다임" class="dropdown-title"><span class="title">패러다임</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          객체지향
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/object/" class="nav-link">
+  객체 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/produce-oop/" class="nav-link">
+  produce 구현해보기 - OOP 버전
+</a></li></ul></li><li class="dropdown-item"><h4>
+          함수형
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/functional/" class="nav-link">
+  함수형 프로그래밍 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/functional2/" class="nav-link">
+  함수형 프로그래밍 정리2
+</a></li><li class="dropdown-subitem"><a href="/blog/produce/" class="nav-link">
+  produce 구현해보기
+</a></li><li class="dropdown-subitem"><a href="/blog/produce-immutable/" class="nav-link">
+  produce 구현해보기 - 불변성편
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="언어" class="dropdown-title"><span class="title">언어</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Javascript
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/es6/" class="nav-link">
+  [ECMAScript] ES6 Overview
+</a></li><li class="dropdown-subitem"><a href="/blog/this/" class="nav-link">
+  this, this is magic.
+</a></li><li class="dropdown-subitem"><a href="/blog/callback/" class="nav-link">
+  콜백 사용 시점
+</a></li><li class="dropdown-subitem"><a href="/blog/safe-chain/" class="nav-link">
+  안전한 체이닝을 위한 safeChain
+</a></li><li class="dropdown-subitem"><a href="/blog/async-await-case/" class="nav-link">
+  async await 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/observation-mechanism/" class="nav-link">
+  옵져버 매커니즘
+</a></li><li class="dropdown-subitem"><a href="/blog/call-stack-and-coroutine/" class="nav-link">
+  코루틴을 사용한 지연 평가
+</a></li><li class="dropdown-subitem"><a href="/blog/regexp-book-backref/" class="nav-link">
+  [손에 잡히는 정규표현식] 역참조/전방탐색/후방탐색
+</a></li><li class="dropdown-subitem"><a href="/blog/promise/" class="nav-link">
+  Promise 정리
+</a></li></ul></li><li class="dropdown-item"><h4>
+          SML
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/sml-basic/" class="nav-link">
+  기초
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-builtin-datatype/" class="nav-link">
+  빌트인 자료형
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-datatype/" class="nav-link">
+  자료형 정의
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-exception/" class="nav-link">
+  예외처리
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-function/" class="nav-link">
+  함수
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-higher-order-function/" class="nav-link">
+  고차함수
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-infix/" class="nav-link">
+  infix 정의
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-module/" class="nav-link">
+  모듈 시스템
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="오픈소스" class="dropdown-title"><span class="title">오픈소스</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Angular
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/rxjs-codereview/" class="nav-link">
+  RxJs 코드리뷰 사례
+</a></li><li class="dropdown-subitem"><a href="/blog/angular/" class="nav-link">
+  Angular의 강력함과 아쉬운점
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Vue
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/nuxt-ts/" class="nav-link">
+  Nuxt에서 TypeScript로 개발하기
+</a></li><li class="dropdown-subitem"><a href="/blog/nuxt-migration/" class="nav-link">
+  Nuxt v2.0에서 v2.11로 마이그레이션
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="설계" class="dropdown-title"><span class="title">설계</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          좋은코드
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/easy-code/" class="nav-link">
+  이해하기 쉬운 코드 작성방법 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/code-position/" class="nav-link">
+  코드의 위치를 정하는 기준
+</a></li><li class="dropdown-subitem"><a href="/blog/reusable-code/" class="nav-link">
+  재사용 가능한 코드 개발
+</a></li><li class="dropdown-subitem"><a href="/blog/declarative-function/" class="nav-link">
+  선언형으로 대체 가능한 문법들 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/date-helper-development/" class="nav-link">
+  강제성, 단일화 그리고 날짜 헬퍼 개발
+</a></li></ul></li><li class="dropdown-item"><h4>
+          패턴
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/mvc/" class="nav-link">
+  MVC
+</a></li><li class="dropdown-subitem"><a href="/blog/mvvm/" class="nav-link">
+  MVVM
+</a></li><li class="dropdown-subitem"><a href="/blog/gof-design-pattern-summary/" class="nav-link">
+  GoF 디자인 패턴 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/design-pattern-structural/" class="nav-link">
+  GoF 디자인 패턴 | 구조패턴
+</a></li><li class="dropdown-subitem"><a href="/blog/design-pattern-creational/" class="nav-link">
+  GoF 디자인 패턴 | 생성패턴
+</a></li><li class="dropdown-subitem"><a href="/blog/design-pattern-behavioral/" class="nav-link">
+  GoF 디자인 패턴 | 행동패턴
+</a></li></ul></li><li class="dropdown-item"><h4>
+          리팩토링
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/structure-refactoring/" class="nav-link">
+  [리펙토링] 구조 리펙토링 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/legacy-code-to-easy-code/" class="nav-link">
+  레거시 코드에서 이해하기 쉬운코드로 리팩토링
+</a></li><li class="dropdown-subitem"><a href="/blog/legacy-code-to-easy-code-2/" class="nav-link">
+  레거시 코드에서 이해하기 쉬운코드로 리팩토링 2
+</a></li><li class="dropdown-subitem"><a href="/blog/refactoring-meaning-and-result/" class="nav-link">
+  리펙토링 정의와 결과
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="정리" class="dropdown-title"><span class="title">정리</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          관리
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/estimation/" class="nav-link">
+  개발 일정산정
+</a></li><li class="dropdown-subitem"><a href="/blog/release/" class="nav-link">
+  배포 어디까지 알고 있나요?
+</a></li><li class="dropdown-subitem"><a href="/blog/facilitation-for-meeting/" class="nav-link">
+  효율적인 회의를 위한 퍼실리테이션
+</a></li><li class="dropdown-subitem"><a href="/blog/preventive-maintenance/" class="nav-link">
+  위험상황을 대비하는 위험관리
+</a></li><li class="dropdown-subitem"><a href="/blog/git-scm-experience/" class="nav-link">
+  형상관리 전략정리
+</a></li></ul></li><li class="dropdown-item"><h4>
+          정리자료
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/programming-standards/" class="nav-link">
+  프로그래밍의 정석 도서 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/non-functional-requirement/" class="nav-link">
+  소프트웨어의 핵심 비기능 요구사항
+</a></li><li class="dropdown-subitem"><a href="/blog/how-to-catch-error/" class="nav-link">
+  에러 처리 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/cors-and-http-cookie/" class="nav-link">
+  CORS와 HTTP Cookie
+</a></li><li class="dropdown-subitem"><a href="/blog/abstract/" class="nav-link">
+  추상화 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/react-convention-for-codereview/" class="nav-link">
+  코드리뷰를 위한 React 컨벤션
+</a></li><li class="dropdown-subitem"><a href="/blog/clone-function/" class="nav-link">
+  경우에 따른 clone 함수
+</a></li><li class="dropdown-subitem"><a href="/blog/branch-n-case/" class="nav-link">
+  분기를 작성하는 방법 n가지
+</a></li><li class="dropdown-subitem"><a href="/blog/typescript-from-inhouse-service/" class="nav-link">
+  인하우스 서비스 구축하며 사용했던 TypeScript 문법 정리
+</a></li></ul></li></ul></div></div> <!----></nav>  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><h3 id="글의-목적"><a href="#글의-목적" class="header-anchor">#</a> 글의 목적</h3> <p>프로젝트 코드에 레거시 코드가 존재하는 데 <strong>모든 레거시 코드를 이해하기 쉬운 코드로 작성이 불가능한가</strong>의 생각으로
+각 코드별로 방법에 대한 정리를 시작했다.</p> <p>프로젝트 코드 하나하나 확인한 뒤 이해하기 힘든 부분을 찾아 이해하기 쉬운 코드로 바꾸는 방법을 작성해봤다.
+다른 사람이 작성한 코드를 보고 개선하는 것만큼 현실세계에 발생할 만한 사항이다.</p> <h3 id="용어정의"><a href="#용어정의" class="header-anchor">#</a> 용어정의</h3> <ul><li>테크니컬 라이터: 소프트웨어의 전문적인 지식을 비전문가에게 이해하기 쉽게 전달하는 매체(음성, 영상, 글)을 생산하는 역할이다.</li> <li>책임연쇄패턴: 문제를 처리에 적합한 요소를 <strong>연쇄적</strong>으로 찾아 <strong>책임을 부여</strong>하는 패턴이다.</li></ul> <h3 id="카테고리"><a href="#카테고리" class="header-anchor">#</a> 카테고리</h3> <ul><li><a href="#%EC%8A%A4%ED%83%80%EC%9D%BC%EA%B3%BC-%EB%AC%B8%EA%B5%AC">스타일과 문구</a></li> <li><a href="#%EA%B0%9D%EC%B2%B4">객체</a></li> <li><a href="#%EC%A1%B0%EA%B1%B4%EB%AC%B8">조건문</a></li> <li><a href="#%EB%B0%B0%EC%97%B4%EA%B3%BC-%EB%B0%98%EB%B3%B5%EB%AC%B8">배열과 반복문</a></li></ul> <p>먼저 가벼운 내용부터 시작하겠다.</p> <h3 id="스타일과-문구"><a href="#스타일과-문구" class="header-anchor">#</a> 스타일과 문구</h3> <p><strong>스타일과 문구</strong>는 정책적인 사항이라고 볼 수 있다. <strong>스타일</strong>은 <strong>디자인 정책</strong>, <strong>문구</strong>는 <strong>용어 정책</strong>이다.</p> <p><strong>스타일</strong>은 색상, 요소의 위치, 라운딩값 등 시각적인 요소를 의미한다. <strong>스타일</strong>은 디자이너의 의견이 반영된 <strong>디자인 정책</strong>이다.</p> <p><strong>문구</strong>는 타이틀, 가이드 문구, 툴팁 문구, 일시적인 오류에 따른 문구 등 문구에 관련된 요소들을 의미한다. <strong>문구</strong>는 기획자 또는 테크니컬 라이터의 의견이 반영된 <strong>용어 정책</strong>이다.</p> <h4 id="차트-라이브러리-옵션"><a href="#차트-라이브러리-옵션" class="header-anchor">#</a> 차트 라이브러리 옵션</h4> <p>차트 라이브러리에 사용되는 <strong>옵션값</strong>도 <strong>디자인 정책</strong>에 해당된다.
+이러한 정책 사항들은 로직이 있는 코드와 같이 기술되면 <strong>불필요하게 해석</strong>하게 된다.</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> chartOption <span class="token operator">=</span> <span class="token punctuation">{</span>
+  label<span class="token operator">:</span> <span class="token punctuation">{</span>
+    xAxis<span class="token operator">:</span> <span class="token punctuation">{</span>x<span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">,</span> y<span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">,</span> color<span class="token operator">:</span> <span class="token string">'#000'</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+    yAxis<span class="token operator">:</span> <span class="token punctuation">{</span>x<span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span> y<span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span> color<span class="token operator">:</span> <span class="token string">'#000'</span><span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p><strong>상수</strong>로 정의하여 <strong>네이밍에 의미를 전달</strong>하고 <strong>불변성</strong>을 전달하여 이해하기 쉽게 할 수 있다.</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> <span class="token constant">CHART_LABEL_STYLE</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+  xAxis<span class="token operator">:</span> <span class="token punctuation">{</span>x<span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">,</span> y<span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">,</span> color<span class="token operator">:</span> <span class="token string">'#000'</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+  yAxis<span class="token operator">:</span> <span class="token punctuation">{</span>x<span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span> y<span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span> color<span class="token operator">:</span> <span class="token string">'#000'</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">const</span> chartOption <span class="token operator">=</span> <span class="token punctuation">{</span>
+  label<span class="token operator">:</span> <span class="token constant">CHART_LABEL_STYLE</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="가이드-문구"><a href="#가이드-문구" class="header-anchor">#</a> 가이드 문구</h4> <p><strong>약관 동의 시 이메일, 휴대폰 번호가 수집됩니다</strong>와 같은 가이드 문구는 <strong>용어 정책</strong>사항이다. 마크업파일에 정의되든 스크립트파일에 정의되든 모두 분리가 필요한 사항이다.</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> terms <span class="token operator">=</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">{</span>
+    title<span class="token operator">:</span> <span class="token string">'광고 동의'</span><span class="token punctuation">,</span>
+    guide<span class="token operator">:</span> <span class="token string">'약관 동의 시 광고성 이메일을 받을 수 있습니다.'</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>
+    title<span class="token operator">:</span> <span class="token string">'서비스 이용동의'</span><span class="token punctuation">,</span>
+    guide<span class="token operator">:</span> <span class="token string">'약관 동의 시 이메일, 휴대폰 번호가 수집됩니다.'</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">]</span>
+</code></pre></div><p><strong>문구</strong>도 하나의 정책 사항이기 때문에 <strong>상수</strong>로 정의한다. <strong>문구변경</strong>은 <strong>굉장히 빈번</strong>하게 발생된다. <strong>파일로 분리</strong>할 경우 세밀하게 로직을 피해 수정할 필요없이 문구만 수정 가능하다.</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// constants/terms.js</span>
+<span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token constant">AD_TITLE</span> <span class="token operator">=</span> <span class="token string">'광고 동의'</span>
+<span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token constant">AD_GUIDE</span> <span class="token operator">=</span> <span class="token string">'약관 동의 시 광고성 이메일을 받을 수 있습니다.'</span>
+<span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token constant">SERVICE_TITLE</span> <span class="token operator">=</span> <span class="token string">'서비스 이용동의'</span>
+<span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token constant">SERVICE_GUIDE</span> <span class="token operator">=</span> <span class="token string">'약관 동의 시 이메일, 휴대폰 번호가 수집됩니다.'</span>
+
+<span class="token comment">// component/terms.js</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>
+  <span class="token constant">AD_TITLE</span><span class="token punctuation">,</span> <span class="token constant">AD_GUIDE</span><span class="token punctuation">,</span>
+  <span class="token constant">SERVICE_TITLE</span><span class="token punctuation">,</span> <span class="token constant">SERVICE_GUIDE</span>
+<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'constants/terms'</span>
+
+<span class="token keyword">const</span> terms <span class="token operator">=</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">{</span>title<span class="token operator">:</span> <span class="token constant">AD_TITLE</span><span class="token punctuation">,</span> guide<span class="token operator">:</span> <span class="token constant">AD_GUIDE</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>title<span class="token operator">:</span> <span class="token constant">SERVICE_TITLE</span><span class="token punctuation">,</span> guide<span class="token operator">:</span> <span class="token constant">SERVICE_GUIDE</span><span class="token punctuation">}</span>
+<span class="token punctuation">]</span>
+</code></pre></div><h3 id="객체"><a href="#객체" class="header-anchor">#</a> 객체</h3> <h4 id="객체-추출하여-다른-객체-만들기"><a href="#객체-추출하여-다른-객체-만들기" class="header-anchor">#</a> 객체 추출하여 다른 객체 만들기</h4> <p>객체에서 특정한 프로퍼티만 추출하여 다른 객체를 만들고 싶을 때가 있다.
+새로운 객체를 만들어 객체의 값을 할당하는 형태이다. 이 코드는 이해하기 어렵지 않지만 <strong>chatBot 변수사용의 중복</strong>이 발생한다.</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> httpBody <span class="token operator">=</span> <span class="token punctuation">{</span>
+  name<span class="token operator">:</span> chatBot<span class="token punctuation">.</span>name<span class="token punctuation">,</span>
+  fallbacks<span class="token operator">:</span> chatBot<span class="token punctuation">.</span>fallbacks<span class="token punctuation">,</span>
+  config<span class="token operator">:</span> chatBot<span class="token punctuation">.</span>config<span class="token punctuation">,</span>
+  tags<span class="token operator">:</span> chatBot<span class="token punctuation">.</span>tags<span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p><strong>해체</strong>를 통해 프로퍼티을 추출하고 할당하는 방식을 사용하면 중복을 줄일 수 있다.</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> <span class="token punctuation">{</span>name<span class="token punctuation">,</span> fallbacks<span class="token punctuation">,</span> config<span class="token punctuation">,</span> tags<span class="token punctuation">}</span> <span class="token operator">=</span> chatBot
+<span class="token keyword">const</span> httpBody <span class="token operator">=</span> <span class="token punctuation">{</span>name<span class="token punctuation">,</span> fallbacks<span class="token punctuation">,</span> config<span class="token punctuation">,</span> tags<span class="token punctuation">}</span>
+</code></pre></div><p>만약에 프로퍼티의 중복을 줄이고 싶으면 <strong>pick함수</strong>으로 해결 가능하다.</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> httpBody <span class="token operator">=</span> <span class="token function">pick</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">,</span> <span class="token string">'fallbacks'</span><span class="token punctuation">,</span> <span class="token string">'config'</span><span class="token punctuation">,</span> <span class="token string">'tags'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> chatBot<span class="token punctuation">)</span>
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> <span class="token function-variable function">pick</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">keys<span class="token punctuation">,</span> obj</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> keys
+  <span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">key</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token operator">:</span> obj<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">acc<span class="token punctuation">,</span> obj</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> Object<span class="token punctuation">.</span><span class="token function">assign</span><span class="token punctuation">(</span>acc<span class="token punctuation">,</span> obj<span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre></div><h4 id="깊은-객체-비교"><a href="#깊은-객체-비교" class="header-anchor">#</a> 깊은 객체 비교</h4> <p>config.source.appId와 config.target.appId가 다른지를 비교하는 함수이다.
+각 프로퍼티가 없을 때 반환을 하여 안전하게 비교가능하게 작성한 코드이다.</p> <p>source, target의 유무와 각 appId의 유무를 확인하고 appId를 비교하는 등 많은 기능으로 해석하기 힘들게 한다.</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> <span class="token function-variable function">isSameAppId</span> <span class="token operator">=</span> <span class="token parameter">config</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">{</span>source<span class="token punctuation">,</span> target<span class="token punctuation">}</span> <span class="token operator">=</span> config
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>target <span class="token operator">||</span> <span class="token operator">!</span>target<span class="token punctuation">.</span>appId <span class="token operator">||</span> <span class="token operator">!</span>source <span class="token operator">||</span> <span class="token operator">!</span>source<span class="token punctuation">.</span>appId<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token boolean">false</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> target<span class="token punctuation">.</span>appId <span class="token operator">!==</span> source<span class="token punctuation">.</span>appId
+<span class="token punctuation">}</span>
+</code></pre></div><p>해체에 <strong>기본값</strong>을 사용하면 가장 얕은 프로퍼티의 유무를 확인 할 필요없이 작성이 가능하다. 즉, 함수의 역할에 맞게 appId를 중심으로 표현이 가능하다.</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> <span class="token function-variable function">isSameAppId</span> <span class="token operator">=</span> <span class="token parameter">config</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">{</span>source <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> target <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">}</span> <span class="token operator">=</span> config
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>target<span class="token punctuation">.</span>appId <span class="token operator">&amp;&amp;</span> source<span class="token punctuation">.</span>appId<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> target<span class="token punctuation">.</span>appId <span class="token operator">!==</span> source<span class="token punctuation">.</span>appId
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> <span class="token boolean">false</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="객체-할당"><a href="#객체-할당" class="header-anchor">#</a> 객체 할당</h4> <p>객체의 프로퍼티에 값를 할당하는 코드이다.
+이해하기 쉬운 코드지만 프로퍼티에 값을 할당하는 부분이 중복된다.</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> circle <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Circle</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+circle<span class="token punctuation">.</span>radius <span class="token operator">=</span> <span class="token number">100</span>
+circle<span class="token punctuation">.</span>x <span class="token operator">=</span> <span class="token number">50</span>
+circle<span class="token punctuation">.</span>y <span class="token operator">=</span> <span class="token number">50</span>
+</code></pre></div><p><strong>Object.assign</strong>을 사용하면 중복을 제거할 수 있다.</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> circle <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">assign</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Circle</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  radius<span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span>
+  x<span class="token operator">:</span> <span class="token number">50</span><span class="token punctuation">,</span>
+  y<span class="token operator">:</span> <span class="token number">50</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><h3 id="조건문"><a href="#조건문" class="header-anchor">#</a> 조건문</h3> <h4 id="동일한-값을-비교할-경우"><a href="#동일한-값을-비교할-경우" class="header-anchor">#</a> 동일한 값을 비교할 경우</h4> <p><strong>if/else</strong>로 작성되면 에러코드에 따른 동작을 파악하기 위해 시선이
+<strong>Z형태</strong>(<strong>errorCode -&gt; 211 -&gt; navigate</strong>)로 이동되어 한번에 읽기 어렵게 한다.</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">if</span> <span class="token punctuation">(</span>errorCode <span class="token operator">===</span> <span class="token number">211</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">navigate</span><span class="token punctuation">(</span><span class="token string">'/signup'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>errorCode <span class="token operator">===</span> <span class="token number">208</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">navigate</span><span class="token punctuation">(</span><span class="token string">'/user/registration'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>errorCode <span class="token operator">===</span> <span class="token number">202</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">navigate</span><span class="token punctuation">(</span><span class="token string">'/home'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>errorCode <span class="token operator">===</span> <span class="token number">212</span> <span class="token operator">||</span> errorCode <span class="token operator">===</span> <span class="token number">213</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">navigate</span><span class="token punctuation">(</span><span class="token string">'/signup'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+  <span class="token function">navigate</span><span class="token punctuation">(</span><span class="token string">'/login'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p><strong>switch/case</strong>로 작성되면 에러코드와 동작이 <strong>수직</strong>으로 위치하여 시선이 수직으로 이동되어 읽기 쉽게 만든다.
+그리고 숫자를 작은 것부터 높은 순서로 작성하고 동일한 동작을 하는 코드는 같이 작성하였다.</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">switch</span> <span class="token punctuation">(</span>errorCode<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">case</span> <span class="token number">202</span><span class="token operator">:</span> <span class="token function">navigate</span><span class="token punctuation">(</span><span class="token string">'/home'</span><span class="token punctuation">)</span>
+    <span class="token keyword">break</span>
+  <span class="token keyword">case</span> <span class="token number">208</span><span class="token operator">:</span> <span class="token function">navigate</span><span class="token punctuation">(</span><span class="token string">'/user/registration'</span><span class="token punctuation">)</span>
+    <span class="token keyword">break</span>
+  <span class="token keyword">case</span> <span class="token number">211</span><span class="token operator">:</span>
+  <span class="token keyword">case</span> <span class="token number">212</span><span class="token operator">:</span>
+  <span class="token keyword">case</span> <span class="token number">213</span><span class="token operator">:</span> <span class="token function">navigate</span><span class="token punctuation">(</span><span class="token string">'/signup'</span><span class="token punctuation">)</span>
+    <span class="token keyword">break</span>
+  <span class="token keyword">default</span><span class="token operator">:</span> <span class="token function">navigate</span><span class="token punctuation">(</span><span class="token string">'/login'</span><span class="token punctuation">)</span>
+    <span class="token keyword">break</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="다른-값을-비교할-경우"><a href="#다른-값을-비교할-경우" class="header-anchor">#</a> 다른 값을 비교할 경우</h4> <p>조건문에 다른 값들을 비교할 때이다. 결과에 따라 각자 다른 동작을 하고 있다.
+일관성이 없기 때문에 읽기 어렵고 이해하기 쉽게 작성되어 있다.</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">if</span> <span class="token punctuation">(</span>error<span class="token punctuation">.</span>httpStatus <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">openToast</span><span class="token punctuation">(</span><span class="token string">'알 수 없는 오류가 발생했습니다.'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>error<span class="token punctuation">.</span>response <span class="token operator">&amp;&amp;</span> error<span class="token punctuation">.</span>response<span class="token punctuation">.</span>name <span class="token operator">===</span> <span class="token string">'TimeoutError'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">openToast</span><span class="token punctuation">(</span><span class="token string">'타임아웃이 발생했습니다.'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>error<span class="token punctuation">.</span>code <span class="token operator">===</span> <span class="token number">211</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">navigate</span><span class="token punctuation">(</span><span class="token string">'/signup'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>error<span class="token punctuation">.</span>code <span class="token operator">===</span> <span class="token number">208</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">navigate</span><span class="token punctuation">(</span><span class="token string">'/user/registration'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+  <span class="token function">navigate</span><span class="token punctuation">(</span><span class="token string">'/login'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>먼저 <strong>switch/case</strong>를 통해 <strong>책임연쇄패턴</strong>을 작성하여 조건문과 동작을 동일 시선으로 만들 수 있다.</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">switch</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">case</span> error<span class="token punctuation">.</span>httpStatus <span class="token operator">===</span> <span class="token number">0</span><span class="token operator">:</span>
+    <span class="token function">openToast</span><span class="token punctuation">(</span><span class="token string">'알 수 없는 오류가 발생했습니다.'</span><span class="token punctuation">)</span>
+    <span class="token keyword">break</span>
+  <span class="token keyword">case</span> error<span class="token punctuation">.</span>response <span class="token operator">&amp;&amp;</span> error<span class="token punctuation">.</span>response<span class="token punctuation">.</span>name <span class="token operator">===</span> <span class="token string">'TimeoutError'</span><span class="token operator">:</span>
+    <span class="token function">openToast</span><span class="token punctuation">(</span><span class="token string">'타임아웃이 발생했습니다.'</span><span class="token punctuation">)</span>
+    <span class="token keyword">break</span>
+  <span class="token keyword">case</span> error<span class="token punctuation">.</span>code <span class="token operator">===</span> <span class="token number">211</span><span class="token operator">:</span>
+    <span class="token function">navigate</span><span class="token punctuation">(</span><span class="token string">'/signup'</span><span class="token punctuation">)</span>
+    <span class="token keyword">break</span>
+  <span class="token keyword">case</span> error<span class="token punctuation">.</span>code <span class="token operator">===</span> <span class="token number">208</span><span class="token operator">:</span>
+    <span class="token function">navigate</span><span class="token punctuation">(</span><span class="token string">'/user/registration'</span><span class="token punctuation">)</span>
+    <span class="token keyword">break</span>
+  <span class="token keyword">default</span><span class="token operator">:</span>
+    <span class="token function">navigate</span><span class="token punctuation">(</span><span class="token string">'/login'</span><span class="token punctuation">)</span>
+    <span class="token keyword">break</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>그리고 마지막으로 조건문을 함수로 만들면 일관성있는 코드가 작성되어 이해하기 쉽게 한다.</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> <span class="token function-variable function">isUnknownError</span> <span class="token operator">=</span> <span class="token parameter">error</span> <span class="token operator">=&gt;</span> error<span class="token punctuation">.</span>httpStatus <span class="token operator">===</span> <span class="token number">0</span>
+<span class="token keyword">const</span> <span class="token function-variable function">isTimeoutError</span> <span class="token operator">=</span> <span class="token parameter">error</span> <span class="token operator">=&gt;</span> error<span class="token punctuation">.</span>response <span class="token operator">&amp;&amp;</span> error<span class="token punctuation">.</span>response<span class="token punctuation">.</span>name <span class="token operator">===</span> <span class="token string">'TimeoutError'</span>
+<span class="token keyword">const</span> <span class="token function-variable function">isUnregist</span> <span class="token operator">=</span> <span class="token parameter">error</span> <span class="token operator">=&gt;</span> error<span class="token punctuation">.</span>code <span class="token operator">===</span> <span class="token number">211</span>
+<span class="token keyword">const</span> <span class="token function-variable function">isUnauth</span> <span class="token operator">=</span> <span class="token parameter">error</span> <span class="token operator">=&gt;</span> error<span class="token punctuation">.</span>code <span class="token operator">===</span> <span class="token number">208</span>
+
+<span class="token keyword">switch</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">case</span> <span class="token function">isUnknownError</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token operator">:</span>
+    <span class="token function">openToast</span><span class="token punctuation">(</span><span class="token string">'알 수 없는 오류가 발생했습니다.'</span><span class="token punctuation">)</span>
+    <span class="token keyword">break</span>
+  <span class="token keyword">case</span> <span class="token function">isTimeoutError</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token operator">:</span>
+    <span class="token function">openToast</span><span class="token punctuation">(</span><span class="token string">'타임아웃이 발생했습니다.'</span><span class="token punctuation">)</span>
+    <span class="token keyword">break</span>
+  <span class="token keyword">case</span> <span class="token function">isUnregist</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token operator">:</span>
+    <span class="token function">navigate</span><span class="token punctuation">(</span><span class="token string">'/user/registration'</span><span class="token punctuation">)</span>
+    <span class="token keyword">break</span>
+  <span class="token keyword">case</span> <span class="token function">isUnauth</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token operator">:</span>
+    <span class="token function">navigate</span><span class="token punctuation">(</span><span class="token string">'/signin'</span><span class="token punctuation">)</span>
+    <span class="token keyword">break</span>
+  <span class="token keyword">default</span><span class="token operator">:</span>
+    <span class="token function">navigate</span><span class="token punctuation">(</span><span class="token string">'/login'</span><span class="token punctuation">)</span>
+    <span class="token keyword">break</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="특정-값이-존재할-때-할당하는-경우"><a href="#특정-값이-존재할-때-할당하는-경우" class="header-anchor">#</a> 특정 값이 존재할 때 할당하는 경우</h4> <p>응답에러와 응답메시지가 있을 때 메시지변수에 할당을 하고, 둘다 없을 경우 공통 메시지를 할당하는 코드이다.
+간단한 코드지만 메세지변수를 <strong>let</strong>으로 선언하여 <strong>변경가능성</strong>을 표현하였고,
+시선이 한방향으로 흐르지 않고 있다.</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">let</span> message
+<span class="token keyword">if</span> <span class="token punctuation">(</span>response<span class="token punctuation">.</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  message <span class="token operator">=</span> response<span class="token punctuation">.</span>error
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>response<span class="token punctuation">.</span>message<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  message <span class="token operator">=</span> response<span class="token punctuation">.</span>message
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+  message <span class="token operator">=</span> <span class="token constant">COMMON_MESSAGE</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p><strong>OR</strong>를 통해 작성하면 참일 때 메세지변수에 할당하게 된다.
+메세지변수의 <strong>불변</strong>으로 선언하였고, 시선이 한방향으로 흐르게 하였다.</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> message <span class="token operator">=</span> response<span class="token punctuation">.</span>error <span class="token operator">||</span> response<span class="token punctuation">.</span>message <span class="token operator">||</span> <span class="token constant">COMMON_MESSAGE</span>
+</code></pre></div><h4 id="각-인자값-분기"><a href="#각-인자값-분기" class="header-anchor">#</a> 각 인자값 분기</h4> <p>Angular의 HttpParams를 사용하여 쿼리스트링을 만드는 함수이다.
+인자의 존재 유무에 따라 파라미터의 추가가 결정된다.
+다른 값이 사용되어 각 값마다 분기가 사용되어 로직이 중복된다.</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> <span class="token function-variable function">convertToParams</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span>name<span class="token punctuation">,</span> status<span class="token punctuation">,</span> page<span class="token punctuation">,</span> pageSize<span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> params <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HttpParams</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>name<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    params <span class="token operator">=</span> params<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">'name'</span><span class="token punctuation">,</span> name<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>status<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    params <span class="token operator">=</span> params<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">'status'</span><span class="token punctuation">,</span> <span class="token function">String</span><span class="token punctuation">(</span>status<span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>page<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    params <span class="token operator">=</span> params<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">'page'</span><span class="token punctuation">,</span> <span class="token function">String</span><span class="token punctuation">(</span>page<span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>pageSize<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    params <span class="token operator">=</span> params<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">'size'</span><span class="token punctuation">,</span> <span class="token function">String</span><span class="token punctuation">(</span>pageSize<span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> params
+<span class="token punctuation">}</span>
+</code></pre></div><p>결국 이 함수는 여러개의 값을 모아 하나의 값을 만드는 작업을 한다.
+이때 <strong>reduce</strong>를 사용하면 params과 중복된 로직을 삭제할 수 있다.</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> <span class="token function-variable function">convertToParams</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span>botName<span class="token punctuation">,</span> status<span class="token punctuation">,</span> page<span class="token punctuation">,</span> pageSize<span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">[</span><span class="token string">'botName'</span><span class="token punctuation">,</span> botName<span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token string">'status'</span><span class="token punctuation">,</span> status<span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token string">'page'</span><span class="token punctuation">,</span> page<span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token string">'size'</span><span class="token punctuation">,</span> pageSize<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">params<span class="token punctuation">,</span> <span class="token punctuation">[</span>key<span class="token punctuation">,</span> value<span class="token punctuation">]</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      params <span class="token operator">=</span> params<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> <span class="token function">String</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> params
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">HttpParams</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>이 코드에서도 개선 사항이 있다. 파라미터를 배열로 선언해야 하고, reduce 내부의 작업이 많다. 각 역할에 맞게 <strong>선언형 함수</strong>를 사용하면 좀 더 개선 가능하다.</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> <span class="token function-variable function">convertToParams</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span>botName<span class="token punctuation">,</span> status<span class="token punctuation">,</span> page<span class="token punctuation">,</span> pageSize<span class="token operator">:</span> size<span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> Object
+    <span class="token punctuation">.</span><span class="token function">entries</span><span class="token punctuation">(</span><span class="token punctuation">{</span>botName<span class="token punctuation">,</span> status<span class="token punctuation">,</span> page<span class="token punctuation">,</span> size<span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">[</span>key<span class="token punctuation">,</span> value<span class="token punctuation">]</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> value<span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">[</span>key<span class="token punctuation">,</span> value<span class="token punctuation">]</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">[</span>key<span class="token punctuation">,</span> <span class="token function">String</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">params<span class="token punctuation">,</span> <span class="token punctuation">[</span>key<span class="token punctuation">,</span> value<span class="token punctuation">]</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> params<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> <span class="token function">String</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">HttpParams</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="배열과-반복문"><a href="#배열과-반복문" class="header-anchor">#</a> 배열과 반복문</h3> <h4 id="인덱스-반복문"><a href="#인덱스-반복문" class="header-anchor">#</a> 인덱스 반복문</h4> <p><strong>for (let i = 0; i &lt; 7; i++)</strong> 이런 형태의 인덱스 반복문을 많이 봤을 것이다. 이런 형태의 반복문은 바깥의 변수를 조작하는 <strong>부수효과</strong>를 만들게 된다.</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> days <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">7</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  days<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">'Day '</span> <span class="token operator">+</span> i<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// ['Day 0', 'Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6']</span>
+</code></pre></div><p>이러한 반복문은 <strong>range</strong>를 통해 작성이 가능하고 <strong>부수효과를 제거</strong>할 수 있다. 그리고 문자는 <strong>템플릿 리터럴</strong>로 정의하면 더 읽기 쉽게 정의할 수 있다.</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> days <span class="token operator">=</span> <span class="token function">range</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">i</span> <span class="token operator">=&gt;</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Day </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>i<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span>
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> <span class="token function-variable function">range</span> <span class="token operator">=</span> <span class="token parameter">length</span> <span class="token operator">=&gt;</span> Array<span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span><span class="token punctuation">{</span>length<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">_<span class="token punctuation">,</span> i</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> i<span class="token punctuation">)</span>
+<span class="token function">range</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token comment">// [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</span>
+</code></pre></div><h4 id="배열의-요소-찾기"><a href="#배열의-요소-찾기" class="header-anchor">#</a> 배열의 요소 찾기</h4> <p>배열에 요소가 있는 지 찾는 코드를 indexOf를 통해 작성하는 코드 작성하기도 한다.</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> <span class="token function-variable function">hasItem</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">arr<span class="token punctuation">,</span> item</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> arr<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span> <span class="token operator">&gt;=</span> <span class="token number">0</span>
+<span class="token function">hasItem</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">,</span> <span class="token string">'b'</span><span class="token punctuation">,</span> <span class="token string">'c'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">'a'</span><span class="token punctuation">)</span>
+</code></pre></div><p>하지만 요소를 찾는 역할은 includes로 변경 가능하다.</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> <span class="token function-variable function">hasItem</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">arr<span class="token punctuation">,</span> item</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> arr<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span>
+<span class="token function">hasItem</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">,</span> <span class="token string">'b'</span><span class="token punctuation">,</span> <span class="token string">'c'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">'a'</span><span class="token punctuation">)</span>
+</code></pre></div><h4 id="깊은-배열-탐색하기"><a href="#깊은-배열-탐색하기" class="header-anchor">#</a> 깊은 배열 탐색하기</h4> <p>이런 형태의 데이터를 현실세계에서는 자주볼 수 있다.</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> parents <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+  value<span class="token operator">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
+  children<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>value<span class="token operator">:</span> <span class="token string">''</span><span class="token punctuation">}</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">]</span>
+</code></pre></div><p>중복된 이름인지 찾기 위한 작업을 할 때 이러한 코드를 볼 수 있다.
+<strong>for...of</strong>를 통해 배열을 순회한 뒤 값을 비교한다.
+동일한 이름을 사용될 때 <strong>true</strong>을 반환하고 없을 때 <strong>false</strong>을 반환한다.</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> <span class="token function-variable function">isDupName</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">parents<span class="token punctuation">,</span> newName</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> parent <span class="token keyword">of</span> parents<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>parent<span class="token punctuation">.</span>name <span class="token operator">===</span> newName<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token boolean">true</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> child <span class="token keyword">of</span> parent<span class="token punctuation">.</span>children<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>child<span class="token punctuation">.</span>name <span class="token operator">===</span> newName<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token boolean">true</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> <span class="token boolean">false</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>특정 값이 일치하는 지 찾는 동작은 <strong>some</strong>을 통해서 할 수 있다.</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> <span class="token function-variable function">isDupName</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">parents<span class="token punctuation">,</span> newName</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> parents
+  <span class="token punctuation">.</span><span class="token function">some</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span>name<span class="token punctuation">,</span> children<span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>name <span class="token operator">===</span> newName<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token boolean">true</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> children<span class="token punctuation">.</span><span class="token function">some</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span>name<span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> name <span class="token operator">===</span> newName<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><h3 id="끝"><a href="#끝" class="header-anchor">#</a> 끝</h3> <p>카테고리 별로 요약하면 아래와 같다.</p> <ul><li>스타일과 문구: 정책 사항과 로직을 분리하기</li> <li>객체: 객체 접근 중복 제거</li> <li>조건문: 시선을 한방향으로 흐르게 하기</li> <li>배열과 반복문: 선언형 함수 사용하기</li></ul></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.e9216216.js" defer></script><script src="/assets/js/2.b682ec10.js" defer></script><script src="/assets/js/33.dcb9e62e.js" defer></script>
+  </body>
+</html>
