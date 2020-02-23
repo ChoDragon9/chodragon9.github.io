@@ -18,4 +18,4 @@ ViewModel는 View가 데이터 바인딩에 사용할 수 있는 Model을 전문
 - UI의 재사용 가능한 부분에 대한 추상적 표현
 - Selection과 Commands를 포함
 
-![]({{ '/assets/img/pattern/mvvm.svg' }})
+![](../img/pattern/mvvm.svg)

@@ -28,14 +28,14 @@ Angular에서 사용하는 **리스트 렌더링 문법**이다. vue에서는 `v
 조건문의 **왼쪽**은 질문을 받는 표현을 정의하고, **오른쪽**에는 비교대상을 정의한다.
 
 #### 컴포넌트 표기
-![](https://chodragon9.github.io/assets/img/structure-refactoring/1.png)
+![](../img/structure-refactoring/1.png)
 
 여기서 컴포넌트를 표현할 때는 **박스**를 통해서 표현한다. 컴포넌트의 내부에서 정의된 기능들을 `<feature>`로 표현한다.
 ### 컴포넌트 리펙토링 과정
 PageComponent라는 메인페이지를 의미하는 컴포넌트를 예를 들어 작성한 리펙토링 과정이다.
 
 #### AS IS 모습
-![](https://chodragon9.github.io/assets/img/structure-refactoring/2.png)
+![](../img/structure-refactoring/2.png)
 
 PageComponent는 헤더, 사이드 네비게이션, 타임라인 콘텐츠, 온라인중인 친구리스트로 구성된다.
 PageComponent의 개선포인트는 **3가지**가 있다.
@@ -54,7 +54,7 @@ PageComponent의 개선포인트는 **3가지**가 있다.
 리펙토링을 시작하기 앞서 **설계작업**을 하는 게 좋다. 현실적인 방법이 아닌 **이상적인 구조**로 설계를 한다.
 이상적인 구조는 이해하기 쉽고, 역할을 명확히 알 수 있게 구분하는 작업이다.
 
-![](https://chodragon9.github.io/assets/img/structure-refactoring/3.png)
+![](../img/structure-refactoring/3.png)
 
 개선 포인트를 반영하여 **재설계**한 구조이다.
 PageComponent에서 개선이 필요한 **3가지**를 반영했다.
@@ -71,12 +71,12 @@ PageComponent는 구체적인 부분을 다룰 필요가 없어졌다.
 OnlineListComponent는 OnlineFriendsComponent으로 네이밍이 변경됬다.
 
 #### 구조 리펙토링 과정
-![](https://chodragon9.github.io/assets/img/structure-refactoring/4.png)
+![](../img/structure-refactoring/4.png)
 
 먼저 네이밍 변경과 역할 이동하는 부분부터 진행한다.
 이처럼 리펙토링을 시작할 때는 먼저 볼륨이 작거나 쉽게 수정이 가능한 부분부터 해결한다.
 
-![](https://chodragon9.github.io/assets/img/structure-refactoring/5.png)
+![](../img/structure-refactoring/5.png)
 
 이제 볼륨이 큰 부분을 작업한다. 컴포넌트를 생성하여 다른 컴포넌트에 이동하는 작업은 많은 작업을 동반하기 때문에 유의해야 한다.
 이렇게 완료를 하면 한 싸이클이 완료된다. 하위 컴포넌트의 리펙토링이 필요하면 이런 형태로 싸이클을 반복하면 작업하는 것을 권하고 싶다.
@@ -112,7 +112,7 @@ OnlineListComponent는 OnlineFriendsComponent으로 네이밍이 변경됬다.
 ### 리펙토링 적용부분
 이번에 리펙토링을 적용된 기능은 이와 같은 형태이다.
 
-![](https://chodragon9.github.io/assets/img/structure-refactoring/6.png)
+![](../img/structure-refactoring/6.png)
 
 특정 페이지의 컴포넌트의 영역이다. 해당 컴포넌트는 타이틀, 탭, 응답형식그룹, 바로연결 버튼설정, 응답형식 추가 및 상태로 구성된다.
 **응답형식**은 사용자가 챗봇에게 질문을 했을 때 **답변을 설정하는 부분**이다.
@@ -121,7 +121,7 @@ OnlineListComponent는 OnlineFriendsComponent으로 네이밍이 변경됬다.
 구체적인 기능으로는 추가/수정/삭제 버튼을 통해 **레이어팝업**이 노출되고, 그룹과 그룹내부에서 **정렬**을 기능이 수행할 수 있다.
 
 #### 리펙토링 결과
-![](https://chodragon9.github.io/assets/img/structure-refactoring/7.png)
+![](../img/structure-refactoring/7.png)
 
 개선 포인트는 **4가지**가 있다.
 

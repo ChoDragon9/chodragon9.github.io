@@ -36,14 +36,14 @@ category: 리펙토링
 중복 코드가 파편화되어 동일한 기능을 어디서 사용되는 지 파악하기도 힘들었다.
 
 #### 기존 1.0의 문제점 해결
-![]({{ '/assets/img/legacy-code-to-easy-code/one-css.png' | prepend: site.baseurl }})<br>
+![](../img/legacy-code-to-easy-code/one-css.png)<br>
 **첫번째, 협업의 장벽**은 컴포넌트별 각각 스타일 파일을 삭제하고, 협력업체에서 전달되는 파일을 바로 적용할 수 있도록 변경했다. 
 초기에는 서비스의 스타일 코드와 협력업체의 스타일 코드가 **싱크가 맞지 않아** 둘중 어느 코드가 **가장최신 스타일 코드를 구분하기 힘들었다**.
 
 하지만 **지속적으로 커뮤니케이션을 진행**하고 스타일 코드를 한곳으로 옮겨 최신코드를 유지하게 되었고
 전달받은 스타일 산출을 적용하는 비용을 최대한 줄일 수 있었다.
 
-![]({{ '/assets/img/legacy-code-to-easy-code/restructure.png' | prepend: site.baseurl }})<br>
+![](../img/legacy-code-to-easy-code/restructure.png)<br>
 **두번째, 비구조화**는 Angular의 보편적으로 사용되는 **폴더구조를 따르게 수정**했다.
 URL Path 기준으로 **Feature Module**로 정의하고 Lazy Loading을 적용했다. 그리고 공통 모듈인 **Core/Shared Module**을 정의했다. **Core Module**는 앱 전역에서 싱글톤으로 정의되는 요소를 정의하고, **Shared Module**을 Feature Module에서 반복적으로 사용되는 요소를 정의한다.
 
@@ -78,14 +78,14 @@ const ages = users.map(({age}) => age)
 
 인자순서, 옵션형태, 옵션값의 변경이 필요하면 무수히 많은 파일들을 수정하려면 쉽게 수정이 불가능할것이다.
 
-![]({{ '/assets/img/legacy-code-to-easy-code/one-dep.png' | prepend: site.baseurl }})<br>
+![](../img/legacy-code-to-easy-code/one-dep.png)<br>
 **해결방법**은 외부라이브러리의 진입점을 담당하는 **TooltipService**를 만들어 해당 서비스를 통해서만 진입하는 것이다.
 
 **세번째는 단방향 데이터 흐름**을 만드는 것이다.
 현재는 **컴포넌트**에 **상태/뮤테이션/액션들의 모두 정의**되어 있고, **서비스**는 **API 서버와 통신**하는 역할만 한다.
 컴포넌트는 뷰를 담당하기 때문에 변경이 자주일어나고 뷰의 액션과 데이터를 전달하는 역할만해도 충분하다고 생각한다.
 
-![]({{ '/assets/img/legacy-code-to-easy-code/state.png' | prepend: site.baseurl }})<br>
+![](../img/legacy-code-to-easy-code/state.png)<br>
 그래서 **서비스**에 **상태/뮤테이션/액션**들을 정의하고 **컴포넌트**는 **서비스에 상태/액션을 요청**하는 것으로 수정한다.
 
 **네번째는 역할이 2개이상 정의된 파일들을 정리**한다.
@@ -128,14 +128,14 @@ const ages = users.map(({age}) => age)
 수정하기 힘들거라 예상되어 리팩토링을 바로 진행했다.
 
 #### 설정 리팩토링 과정
-![]({{ '/assets/img/legacy-code-to-easy-code/setting-state.png' | prepend: site.baseurl }})
+![](../img/legacy-code-to-easy-code/setting-state.png)
 1. 설정 페이지의 **전용 서비스**인 **SettingService**를 만들었다.
 2. 컴포넌트에서 **공유할 상태**를 추출하여 서비스로 이동했다.
 3. 우선적으로 필요한 기능부터 **자식 컴포넌트**로 분리했다.
 4. 다른 페이지에서도 사용되는 기능은 **Core, Shared Service**나 **Utils**로 이동하여 중복코드를 최소화했다.
 
 ### 2019.05 응답형식 구조 리팩토링
-![]({{ '/assets/img/legacy-code-to-easy-code/wireframe.png' | prepend: site.baseurl }})<br>
+![](../img/legacy-code-to-easy-code/wireframe.png)<br>
 응답형식에서는 **출력플랫폼**에 따라 **카카오톡과 카카오미니**가 있고,
 **카카오톡**은 응답하는 방법에 따라 6가지(이미지, 텍스트, 리스트, 커머스, 카드, 뮤직)가 있다.
 이러한 많은 역할을 **응답형식 컴포넌트**에서 담당을 하고 있었다.
@@ -158,18 +158,18 @@ const ages = users.map(({age}) => age)
 #### AS IS
 ResponseComponent의 역할이 많아 알아야할 내용들이 많았다.
 
-![ResponseComponent-AS IS]({{ '/assets/img/legacy-code-to-easy-code/response-as-is.png' | prepend: site.baseurl }})
+![ResponseComponent-AS IS](../img/legacy-code-to-easy-code/response-as-is.png)
 
 #### TO BE
 ResponseComponent의 역할들을 최대한 분리하여 각 컴포넌트의 역할과 책임을 최소화하였다.
 
-![ResponseComponent-TO BE]({{ '/assets/img/legacy-code-to-easy-code/response-to-be.png' | prepend: site.baseurl }})
+![ResponseComponent-TO BE](../img/legacy-code-to-easy-code/response-to-be.png)
 
 #### 폴더 리팩토링
 컴포넌트 리팩토링을 하게 되면 역할과 책임이 분리된다.
 폴더 구조도 컴포넌트와 동일한 구조를 가질 수 있도록 수정했다.
 
-![폴더 리팩토링]({{ '/assets/img/legacy-code-to-easy-code/directory.png' | prepend: site.baseurl }})
+![폴더 리팩토링](../img/legacy-code-to-easy-code/directory.png)
 
 #### 요약
 - 협업장벽 해결
