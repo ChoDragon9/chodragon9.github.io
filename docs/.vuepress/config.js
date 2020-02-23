@@ -89,6 +89,20 @@ module.exports = {
           { text: '리펙토링 정의와 결과', link: '/refactoring/refactoring-meaning-and-result/' },
         ]
       },
+      {
+        text: '정리자료',
+        items: [
+          { text: '프로그래밍의 정석 도서 정리', link: '/record/programming-standards/' },
+          { text: '소프트웨어의 핵심 비기능 요구사항', link: '/record/non-functional-requirement/' },
+          { text: '에러 처리 정리', link: '/record/how-to-catch-error/' },
+          { text: 'CORS와 HTTP Cookie', link: '/record/cors-and-http-cookie/' },
+          { text: '추상화 정리', link: '/record/abstract/' },
+          { text: '코드리뷰를 위한 React 컨벤션', link: '/record/react-convention-for-codereview/' },
+          { text: '경우에 따른 clone 함수', link: '/record/clone-function/' },
+          { text: '분기를 작성하는 방법 n가지', link: '/record/branch-n-case/' },
+          { text: '인하우스 서비스 구축하며 사용했던 TypeScript 문법 정리', link: '/record/typescript-from-inhouse-service/' },
+        ]
+      },
     ]
   },
   plugins: [
