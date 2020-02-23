@@ -24,6 +24,13 @@ module.exports = {
         ]
       },
       {
+        text: 'Vue',
+        items: [
+          { text: 'Nuxt에서 TypeScript로 개발하기', link: '/vue/nuxt-ts/' },
+          { text: 'Nuxt v2.0에서 v2.11로 마이그레이션', link: '/vue/nuxt-migration/' },
+        ]
+      },
+      {
         text: 'SML',
         items: [
           { text: '기초', link: '/sml/sml-basic/' },
