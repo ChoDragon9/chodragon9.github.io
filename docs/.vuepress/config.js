@@ -80,6 +80,15 @@ module.exports = {
           { text: '형상관리 전략정리', link: '/management/git-scm-experience/' },
         ]
       },
+      {
+        text: '리팩토링',
+        items: [
+          { text: '[리펙토링] 구조 리펙토링 정리', link: '/refactoring/structure-refactoring/' },
+          { text: '레거시 코드에서 이해하기 쉬운코드로 리팩토링', link: '/refactoring/legacy-code-to-easy-code/' },
+          { text: '레거시 코드에서 이해하기 쉬운코드로 리팩토링 2', link: '/refactoring/legacy-code-to-easy-code-2/' },
+          { text: '리펙토링 정의와 결과', link: '/refactoring/refactoring-meaning-and-result/' },
+        ]
+      },
     ]
   },
   plugins: [
