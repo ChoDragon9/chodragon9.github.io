@@ -58,7 +58,18 @@ module.exports = {
           { text: 'infix 정의', link: '/sml/sml-infix/' },
           { text: '모듈 시스템', link: '/sml/sml-module/' },
         ]
-      }
+      },
+      {
+        text: '패턴',
+        items: [
+          { text: 'MVC', link: '/pattern/mvc/' },
+          { text: 'MVVM', link: '/pattern/mvvm/' },
+          { text: 'GoF 디자인 패턴 정리', link: '/pattern/gof-design-pattern-summary/' },
+          { text: 'GoF 디자인 패턴 | 구조패턴', link: '/pattern/design-pattern-structural/' },
+          { text: 'GoF 디자인 패턴 | 생성패턴', link: '/pattern/design-pattern-creational/' },
+          { text: 'GoF 디자인 패턴 | 행동패턴', link: '/pattern/design-pattern-behavioral/' },
+        ]
+      },
     ]
   },
   plugins: [
