@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>소프트웨어의 핵심 비기능 요구사항 | ChoDragon9</title>
+    <meta name="description" content="비기능 요구사항의 관점들이 무엇이 있는 지 정리하기 위해 작성된 포스트다.">
+    <meta name="generator" content="VuePress 1.3.1">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.ec1b8bff.css" as="style"><link rel="preload" href="/assets/js/app.e9216216.js" as="script"><link rel="preload" href="/assets/js/2.b682ec10.js" as="script"><link rel="preload" href="/assets/js/34.9b28e17f.js" as="script"><link rel="prefetch" href="/assets/js/10.985c2b80.js"><link rel="prefetch" href="/assets/js/11.93966beb.js"><link rel="prefetch" href="/assets/js/12.233d50bf.js"><link rel="prefetch" href="/assets/js/13.0255935a.js"><link rel="prefetch" href="/assets/js/14.baaee00b.js"><link rel="prefetch" href="/assets/js/15.d5094919.js"><link rel="prefetch" href="/assets/js/16.be639cec.js"><link rel="prefetch" href="/assets/js/17.844b70a3.js"><link rel="prefetch" href="/assets/js/18.779a6db3.js"><link rel="prefetch" href="/assets/js/19.1bd918c6.js"><link rel="prefetch" href="/assets/js/20.fd0a5e59.js"><link rel="prefetch" href="/assets/js/21.02e9c333.js"><link rel="prefetch" href="/assets/js/22.0eb3731b.js"><link rel="prefetch" href="/assets/js/23.1e12da23.js"><link rel="prefetch" href="/assets/js/24.bcefbcc4.js"><link rel="prefetch" href="/assets/js/25.483fe671.js"><link rel="prefetch" href="/assets/js/26.d0a11ad8.js"><link rel="prefetch" href="/assets/js/27.72a013ad.js"><link rel="prefetch" href="/assets/js/28.cb190229.js"><link rel="prefetch" href="/assets/js/29.697d53a4.js"><link rel="prefetch" href="/assets/js/3.a0639062.js"><link rel="prefetch" href="/assets/js/30.1e934195.js"><link rel="prefetch" href="/assets/js/31.2a98ed64.js"><link rel="prefetch" href="/assets/js/32.4404b982.js"><link rel="prefetch" href="/assets/js/33.dcb9e62e.js"><link rel="prefetch" href="/assets/js/35.d25b1317.js"><link rel="prefetch" href="/assets/js/36.6429478f.js"><link rel="prefetch" href="/assets/js/37.1fdd82f6.js"><link rel="prefetch" href="/assets/js/38.edac1fd4.js"><link rel="prefetch" href="/assets/js/39.d0eb1aa0.js"><link rel="prefetch" href="/assets/js/4.131bec4f.js"><link rel="prefetch" href="/assets/js/40.8e33b195.js"><link rel="prefetch" href="/assets/js/41.94dfb828.js"><link rel="prefetch" href="/assets/js/42.9b21d10f.js"><link rel="prefetch" href="/assets/js/43.6cecdbbd.js"><link rel="prefetch" href="/assets/js/44.d28291da.js"><link rel="prefetch" href="/assets/js/45.76ec9f40.js"><link rel="prefetch" href="/assets/js/46.b074b5b9.js"><link rel="prefetch" href="/assets/js/47.361a9d6e.js"><link rel="prefetch" href="/assets/js/48.9e8efb98.js"><link rel="prefetch" href="/assets/js/49.fa9e02e4.js"><link rel="prefetch" href="/assets/js/5.46a38e10.js"><link rel="prefetch" href="/assets/js/50.6f1e8ca0.js"><link rel="prefetch" href="/assets/js/51.438cc244.js"><link rel="prefetch" href="/assets/js/52.691a7ad9.js"><link rel="prefetch" href="/assets/js/53.451b3fde.js"><link rel="prefetch" href="/assets/js/54.9b4ba27c.js"><link rel="prefetch" href="/assets/js/55.5908fa94.js"><link rel="prefetch" href="/assets/js/56.02c1cd4a.js"><link rel="prefetch" href="/assets/js/57.ad8facce.js"><link rel="prefetch" href="/assets/js/58.3637fe16.js"><link rel="prefetch" href="/assets/js/59.8cefb217.js"><link rel="prefetch" href="/assets/js/6.d94c3d70.js"><link rel="prefetch" href="/assets/js/60.1c6d8c13.js"><link rel="prefetch" href="/assets/js/61.fd508bac.js"><link rel="prefetch" href="/assets/js/62.15a6b5ad.js"><link rel="prefetch" href="/assets/js/7.ef610d6c.js"><link rel="prefetch" href="/assets/js/8.ec3c650c.js"><link rel="prefetch" href="/assets/js/9.3941f8b7.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.ec1b8bff.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">ChoDragon9</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="패러다임" class="dropdown-title"><span class="title">패러다임</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          객체지향
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/object/" class="nav-link">
+  객체 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/produce-oop/" class="nav-link">
+  produce 구현해보기 - OOP 버전
+</a></li></ul></li><li class="dropdown-item"><h4>
+          함수형
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/functional/" class="nav-link">
+  함수형 프로그래밍 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/functional2/" class="nav-link">
+  함수형 프로그래밍 정리2
+</a></li><li class="dropdown-subitem"><a href="/blog/produce/" class="nav-link">
+  produce 구현해보기
+</a></li><li class="dropdown-subitem"><a href="/blog/produce-immutable/" class="nav-link">
+  produce 구현해보기 - 불변성편
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="언어" class="dropdown-title"><span class="title">언어</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Javascript
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/es6/" class="nav-link">
+  [ECMAScript] ES6 Overview
+</a></li><li class="dropdown-subitem"><a href="/blog/this/" class="nav-link">
+  this, this is magic.
+</a></li><li class="dropdown-subitem"><a href="/blog/callback/" class="nav-link">
+  콜백 사용 시점
+</a></li><li class="dropdown-subitem"><a href="/blog/safe-chain/" class="nav-link">
+  안전한 체이닝을 위한 safeChain
+</a></li><li class="dropdown-subitem"><a href="/blog/async-await-case/" class="nav-link">
+  async await 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/observation-mechanism/" class="nav-link">
+  옵져버 매커니즘
+</a></li><li class="dropdown-subitem"><a href="/blog/call-stack-and-coroutine/" class="nav-link">
+  코루틴을 사용한 지연 평가
+</a></li><li class="dropdown-subitem"><a href="/blog/regexp-book-backref/" class="nav-link">
+  [손에 잡히는 정규표현식] 역참조/전방탐색/후방탐색
+</a></li><li class="dropdown-subitem"><a href="/blog/promise/" class="nav-link">
+  Promise 정리
+</a></li></ul></li><li class="dropdown-item"><h4>
+          SML
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/sml-basic/" class="nav-link">
+  기초
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-builtin-datatype/" class="nav-link">
+  빌트인 자료형
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-datatype/" class="nav-link">
+  자료형 정의
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-exception/" class="nav-link">
+  예외처리
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-function/" class="nav-link">
+  함수
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-higher-order-function/" class="nav-link">
+  고차함수
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-infix/" class="nav-link">
+  infix 정의
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-module/" class="nav-link">
+  모듈 시스템
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="오픈소스" class="dropdown-title"><span class="title">오픈소스</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Angular
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/rxjs-codereview/" class="nav-link">
+  RxJs 코드리뷰 사례
+</a></li><li class="dropdown-subitem"><a href="/blog/angular/" class="nav-link">
+  Angular의 강력함과 아쉬운점
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Vue
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/nuxt-ts/" class="nav-link">
+  Nuxt에서 TypeScript로 개발하기
+</a></li><li class="dropdown-subitem"><a href="/blog/nuxt-migration/" class="nav-link">
+  Nuxt v2.0에서 v2.11로 마이그레이션
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="설계" class="dropdown-title"><span class="title">설계</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          좋은코드
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/easy-code/" class="nav-link">
+  이해하기 쉬운 코드 작성방법 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/code-position/" class="nav-link">
+  코드의 위치를 정하는 기준
+</a></li><li class="dropdown-subitem"><a href="/blog/reusable-code/" class="nav-link">
+  재사용 가능한 코드 개발
+</a></li><li class="dropdown-subitem"><a href="/blog/declarative-function/" class="nav-link">
+  선언형으로 대체 가능한 문법들 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/date-helper-development/" class="nav-link">
+  강제성, 단일화 그리고 날짜 헬퍼 개발
+</a></li></ul></li><li class="dropdown-item"><h4>
+          패턴
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/mvc/" class="nav-link">
+  MVC
+</a></li><li class="dropdown-subitem"><a href="/blog/mvvm/" class="nav-link">
+  MVVM
+</a></li><li class="dropdown-subitem"><a href="/blog/gof-design-pattern-summary/" class="nav-link">
+  GoF 디자인 패턴 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/design-pattern-structural/" class="nav-link">
+  GoF 디자인 패턴 | 구조패턴
+</a></li><li class="dropdown-subitem"><a href="/blog/design-pattern-creational/" class="nav-link">
+  GoF 디자인 패턴 | 생성패턴
+</a></li><li class="dropdown-subitem"><a href="/blog/design-pattern-behavioral/" class="nav-link">
+  GoF 디자인 패턴 | 행동패턴
+</a></li></ul></li><li class="dropdown-item"><h4>
+          리팩토링
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/structure-refactoring/" class="nav-link">
+  [리펙토링] 구조 리펙토링 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/legacy-code-to-easy-code/" class="nav-link">
+  레거시 코드에서 이해하기 쉬운코드로 리팩토링
+</a></li><li class="dropdown-subitem"><a href="/blog/legacy-code-to-easy-code-2/" class="nav-link">
+  레거시 코드에서 이해하기 쉬운코드로 리팩토링 2
+</a></li><li class="dropdown-subitem"><a href="/blog/refactoring-meaning-and-result/" class="nav-link">
+  리펙토링 정의와 결과
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="정리" class="dropdown-title"><span class="title">정리</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          관리
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/estimation/" class="nav-link">
+  개발 일정산정
+</a></li><li class="dropdown-subitem"><a href="/blog/release/" class="nav-link">
+  배포 어디까지 알고 있나요?
+</a></li><li class="dropdown-subitem"><a href="/blog/facilitation-for-meeting/" class="nav-link">
+  효율적인 회의를 위한 퍼실리테이션
+</a></li><li class="dropdown-subitem"><a href="/blog/preventive-maintenance/" class="nav-link">
+  위험상황을 대비하는 위험관리
+</a></li><li class="dropdown-subitem"><a href="/blog/git-scm-experience/" class="nav-link">
+  형상관리 전략정리
+</a></li></ul></li><li class="dropdown-item"><h4>
+          정리자료
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/programming-standards/" class="nav-link">
+  프로그래밍의 정석 도서 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/non-functional-requirement/" class="nav-link">
+  소프트웨어의 핵심 비기능 요구사항
+</a></li><li class="dropdown-subitem"><a href="/blog/how-to-catch-error/" class="nav-link">
+  에러 처리 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/cors-and-http-cookie/" class="nav-link">
+  CORS와 HTTP Cookie
+</a></li><li class="dropdown-subitem"><a href="/blog/abstract/" class="nav-link">
+  추상화 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/react-convention-for-codereview/" class="nav-link">
+  코드리뷰를 위한 React 컨벤션
+</a></li><li class="dropdown-subitem"><a href="/blog/clone-function/" class="nav-link">
+  경우에 따른 clone 함수
+</a></li><li class="dropdown-subitem"><a href="/blog/branch-n-case/" class="nav-link">
+  분기를 작성하는 방법 n가지
+</a></li><li class="dropdown-subitem"><a href="/blog/typescript-from-inhouse-service/" class="nav-link">
+  인하우스 서비스 구축하며 사용했던 TypeScript 문법 정리
+</a></li></ul></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="패러다임" class="dropdown-title"><span class="title">패러다임</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          객체지향
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/object/" class="nav-link">
+  객체 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/produce-oop/" class="nav-link">
+  produce 구현해보기 - OOP 버전
+</a></li></ul></li><li class="dropdown-item"><h4>
+          함수형
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/functional/" class="nav-link">
+  함수형 프로그래밍 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/functional2/" class="nav-link">
+  함수형 프로그래밍 정리2
+</a></li><li class="dropdown-subitem"><a href="/blog/produce/" class="nav-link">
+  produce 구현해보기
+</a></li><li class="dropdown-subitem"><a href="/blog/produce-immutable/" class="nav-link">
+  produce 구현해보기 - 불변성편
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="언어" class="dropdown-title"><span class="title">언어</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Javascript
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/es6/" class="nav-link">
+  [ECMAScript] ES6 Overview
+</a></li><li class="dropdown-subitem"><a href="/blog/this/" class="nav-link">
+  this, this is magic.
+</a></li><li class="dropdown-subitem"><a href="/blog/callback/" class="nav-link">
+  콜백 사용 시점
+</a></li><li class="dropdown-subitem"><a href="/blog/safe-chain/" class="nav-link">
+  안전한 체이닝을 위한 safeChain
+</a></li><li class="dropdown-subitem"><a href="/blog/async-await-case/" class="nav-link">
+  async await 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/observation-mechanism/" class="nav-link">
+  옵져버 매커니즘
+</a></li><li class="dropdown-subitem"><a href="/blog/call-stack-and-coroutine/" class="nav-link">
+  코루틴을 사용한 지연 평가
+</a></li><li class="dropdown-subitem"><a href="/blog/regexp-book-backref/" class="nav-link">
+  [손에 잡히는 정규표현식] 역참조/전방탐색/후방탐색
+</a></li><li class="dropdown-subitem"><a href="/blog/promise/" class="nav-link">
+  Promise 정리
+</a></li></ul></li><li class="dropdown-item"><h4>
+          SML
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/sml-basic/" class="nav-link">
+  기초
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-builtin-datatype/" class="nav-link">
+  빌트인 자료형
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-datatype/" class="nav-link">
+  자료형 정의
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-exception/" class="nav-link">
+  예외처리
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-function/" class="nav-link">
+  함수
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-higher-order-function/" class="nav-link">
+  고차함수
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-infix/" class="nav-link">
+  infix 정의
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-module/" class="nav-link">
+  모듈 시스템
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="오픈소스" class="dropdown-title"><span class="title">오픈소스</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Angular
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/rxjs-codereview/" class="nav-link">
+  RxJs 코드리뷰 사례
+</a></li><li class="dropdown-subitem"><a href="/blog/angular/" class="nav-link">
+  Angular의 강력함과 아쉬운점
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Vue
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/nuxt-ts/" class="nav-link">
+  Nuxt에서 TypeScript로 개발하기
+</a></li><li class="dropdown-subitem"><a href="/blog/nuxt-migration/" class="nav-link">
+  Nuxt v2.0에서 v2.11로 마이그레이션
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="설계" class="dropdown-title"><span class="title">설계</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          좋은코드
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/easy-code/" class="nav-link">
+  이해하기 쉬운 코드 작성방법 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/code-position/" class="nav-link">
+  코드의 위치를 정하는 기준
+</a></li><li class="dropdown-subitem"><a href="/blog/reusable-code/" class="nav-link">
+  재사용 가능한 코드 개발
+</a></li><li class="dropdown-subitem"><a href="/blog/declarative-function/" class="nav-link">
+  선언형으로 대체 가능한 문법들 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/date-helper-development/" class="nav-link">
+  강제성, 단일화 그리고 날짜 헬퍼 개발
+</a></li></ul></li><li class="dropdown-item"><h4>
+          패턴
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/mvc/" class="nav-link">
+  MVC
+</a></li><li class="dropdown-subitem"><a href="/blog/mvvm/" class="nav-link">
+  MVVM
+</a></li><li class="dropdown-subitem"><a href="/blog/gof-design-pattern-summary/" class="nav-link">
+  GoF 디자인 패턴 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/design-pattern-structural/" class="nav-link">
+  GoF 디자인 패턴 | 구조패턴
+</a></li><li class="dropdown-subitem"><a href="/blog/design-pattern-creational/" class="nav-link">
+  GoF 디자인 패턴 | 생성패턴
+</a></li><li class="dropdown-subitem"><a href="/blog/design-pattern-behavioral/" class="nav-link">
+  GoF 디자인 패턴 | 행동패턴
+</a></li></ul></li><li class="dropdown-item"><h4>
+          리팩토링
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/structure-refactoring/" class="nav-link">
+  [리펙토링] 구조 리펙토링 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/legacy-code-to-easy-code/" class="nav-link">
+  레거시 코드에서 이해하기 쉬운코드로 리팩토링
+</a></li><li class="dropdown-subitem"><a href="/blog/legacy-code-to-easy-code-2/" class="nav-link">
+  레거시 코드에서 이해하기 쉬운코드로 리팩토링 2
+</a></li><li class="dropdown-subitem"><a href="/blog/refactoring-meaning-and-result/" class="nav-link">
+  리펙토링 정의와 결과
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="정리" class="dropdown-title"><span class="title">정리</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          관리
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/estimation/" class="nav-link">
+  개발 일정산정
+</a></li><li class="dropdown-subitem"><a href="/blog/release/" class="nav-link">
+  배포 어디까지 알고 있나요?
+</a></li><li class="dropdown-subitem"><a href="/blog/facilitation-for-meeting/" class="nav-link">
+  효율적인 회의를 위한 퍼실리테이션
+</a></li><li class="dropdown-subitem"><a href="/blog/preventive-maintenance/" class="nav-link">
+  위험상황을 대비하는 위험관리
+</a></li><li class="dropdown-subitem"><a href="/blog/git-scm-experience/" class="nav-link">
+  형상관리 전략정리
+</a></li></ul></li><li class="dropdown-item"><h4>
+          정리자료
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/programming-standards/" class="nav-link">
+  프로그래밍의 정석 도서 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/non-functional-requirement/" class="nav-link">
+  소프트웨어의 핵심 비기능 요구사항
+</a></li><li class="dropdown-subitem"><a href="/blog/how-to-catch-error/" class="nav-link">
+  에러 처리 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/cors-and-http-cookie/" class="nav-link">
+  CORS와 HTTP Cookie
+</a></li><li class="dropdown-subitem"><a href="/blog/abstract/" class="nav-link">
+  추상화 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/react-convention-for-codereview/" class="nav-link">
+  코드리뷰를 위한 React 컨벤션
+</a></li><li class="dropdown-subitem"><a href="/blog/clone-function/" class="nav-link">
+  경우에 따른 clone 함수
+</a></li><li class="dropdown-subitem"><a href="/blog/branch-n-case/" class="nav-link">
+  분기를 작성하는 방법 n가지
+</a></li><li class="dropdown-subitem"><a href="/blog/typescript-from-inhouse-service/" class="nav-link">
+  인하우스 서비스 구축하며 사용했던 TypeScript 문법 정리
+</a></li></ul></li></ul></div></div> <!----></nav>  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><h3 id="글의-목적"><a href="#글의-목적" class="header-anchor">#</a> 글의 목적</h3> <p>프로라면 어떤도구를 사용하든 <strong>기능 요구사항</strong>은 당연히 구현가능해야 된다고 생각한다. 문서로는 소프트웨어를 완변하게 설계했지만, 소프트웨어가 의도한 데로 동작하지 않다면 문서를 작성한 노력과 소프트웨어 개발한 노력은 인정받기 힘들다.</p> <p><strong>소프트웨어의 품질</strong>을 높이기 위해서는 <strong>비기능 요구사항이 충족</strong>해야 한다.
+비기능 요구사항은 개발이나 유지보수, 운영, 컴퓨터 리소스의 효율적 활용에 커다란 영향을 미친다. 배포 후 운영 시 발생하는 장애의 대부분 비기능적인 특성에 기인한다.</p> <p>그만큼 중요한 사항임에도 비기능은 기능에 비해 경시되고 있으며 이를 별도로 주목하지 않고 뒤로 미루려는 경향이 있다. 비기능 요구사항의 관점들이 무엇이 있는 지 정리하기 위해 작성된 포스트다.</p> <h3 id="비기능-요구사항"><a href="#비기능-요구사항" class="header-anchor">#</a> 비기능 요구사항</h3> <p><strong>비기능 요구사항</strong>이란 기능 외적인면 전반에 관한 요구사항을 뜻한다.
+비기능 요구사항의 관점에는 다음과 같은 것들이 있다.</p> <ul><li><a href="#1-%EB%B3%80%EA%B2%BD-%EC%9A%A9%EC%9D%B4%EC%84%B1">변경 용이성</a></li> <li><a href="#2-%EC%83%81%ED%98%B8-%EC%9A%B4%EC%9A%A9%EC%84%B1">상호 운용성</a></li> <li><a href="#3-%ED%9A%A8%EC%9C%A8%EC%84%B1">효율성</a></li> <li><a href="#4-%EC%8B%A0%EB%A2%B0%EC%84%B1">신뢰성</a></li> <li><a href="#5-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%9A%A9%EC%9D%B4%EC%84%B1">테스트 용이성</a></li> <li><a href="#6-%EC%9E%AC%EC%82%AC%EC%9A%A9%EC%84%B1">재사용성</a></li></ul> <h4 id="_1-변경-용이성"><a href="#_1-변경-용이성" class="header-anchor">#</a> 1. 변경 용이성</h4> <p><strong>변경 용이성</strong>이란 소프트웨어를 얼마나 쉽게 개선할 수 있는지에 대한 능력을 뜻한다. 구체적으로 소프트웨어를 쉽게 수정/확장/재조직, 다른 플랫폼으로 이식 할 수 있는지 등의 능력을 뜻한다.</p> <p>소프트웨어가 처음 배포된 채 그대로 사용되는 경우가 없다.
+소프트웨어는 기존의 요구사항은 변경되고 새로운 요구사항이 추가된다.
+사용자의 요구사항을 장기간에 걸쳐 세심하고 빠르게 대응하려면 코드를 변경하기 쉬운 아키텍쳐가 필요하다.</p> <p><strong>변경 용이성</strong>을 위한 <strong>좋은 아키텍처 설계 핵심</strong>은 소프트웨어의 <strong>어느 부분이 변경에 대해 높은 유연성</strong>을 지녀야 하는 지, 반대로 변경이 발생하지 않는 부분이 어디인지를 파악하는 것이다.
+그런 다음 유연성을 지녀야 할 부분은 변경을 고려한 설계를 지원하는 패턴을
+사용하므로써 유연성을 높여야 한다.</p> <h5 id="브라우저-저장소-사용하는-경우"><a href="#브라우저-저장소-사용하는-경우" class="header-anchor">#</a> 브라우저 저장소 사용하는 경우</h5> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> <span class="token constant">BROWSER_STORAGE</span> <span class="token operator">=</span> sessionStorage
+<span class="token keyword">const</span> <span class="token function-variable function">setItem</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">key<span class="token punctuation">,</span> value</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token constant">BROWSER_STORAGE</span><span class="token punctuation">.</span><span class="token function">setItem</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">const</span> <span class="token function-variable function">getItem</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">key</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token constant">BROWSER_STORAGE</span><span class="token punctuation">.</span><span class="token function">getItem</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> <span class="token constant">IS_OPENED</span> <span class="token operator">=</span> <span class="token string">'isOpened'</span>
+<span class="token keyword">const</span> <span class="token constant">DATE_IDS</span> <span class="token operator">=</span> <span class="token string">'dateIds'</span>
+
+<span class="token function">setItem</span><span class="token punctuation">(</span><span class="token constant">IS_OPENED</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span>
+<span class="token function">setItem</span><span class="token punctuation">(</span><span class="token constant">DATE_IDS</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token function">getItem</span><span class="token punctuation">(</span><span class="token constant">IS_OPENED</span><span class="token punctuation">)</span> <span class="token comment">// true</span>
+<span class="token function">getItem</span><span class="token punctuation">(</span><span class="token constant">DATE_IDS</span><span class="token punctuation">)</span> <span class="token comment">// [1, 2, 3]</span>
+</code></pre></div><h4 id="_2-상호-운용성"><a href="#_2-상호-운용성" class="header-anchor">#</a> 2. 상호 운용성</h4> <p><strong>상호 운용성</strong>이란 소프트웨어가 다른 소프트웨어와 정보를 주고 받을 수 있는 능력을 뜻한다. 소프트웨어 간의 같은 교환 형식을 매개로 데이터를 주고 받거나, 같은 형식의 파일을 읽고 쓰거나, 같은 프로토콜을 사용함으로써 서로 연결 할 수 있는 능력이 요구된다.</p> <p>소프트웨어는 시스템의 일부이며 독립해서 존재하는 것이 아니다. 다른 시스템이나 환경과 빈번하게 상호작용한다. 다른 소프트웨어와 연결할 수 있다는 것은 기존 자산을 그대로 활용할 수 있다는 뜻이다.</p> <p>게다가 신규로 개발할 소프트웨어가 줄어든다는 효과도 있다. 따라서 <strong>연결성</strong>이 좋다는 것은 소프트웨어 용도의 선택지를 크게 확장하고 <strong>개발 기간 단축</strong>과 <strong>비용의 대폭 삭감</strong>으로 이어진다. 즉, <strong>연결의 용이성</strong>은 소프트웨어의 가치를 높인다.</p> <h4 id="_3-효율성"><a href="#_3-효율성" class="header-anchor">#</a> 3. 효율성</h4> <p><strong>효율성</strong>이란 소프트웨어가 실행되면서 동반되는 <strong>리소스 사용</strong>에 있어서 적절한 성능을 끌어내는 능력을 뜻한다. 효율성은 크게 <strong>2가지 관점</strong>으로 나뉜다.</p> <p><strong>첫째, 시간</strong>이라는 관점에서 리소스의 사용 효율을 정의한다. 일정 시간 내에 처리를 몇건 끝낼 수 있는 지를 뜻하는 <strong>처리율</strong>, 사용자의 입력조작 부터 응답까지 걸리는 시간인 <strong>응답시간</strong>, 사용자의 작업 개시로 부터 요구받는 정보의 출력을 끝내기까지 걸리는 시간인 <strong>소요시간</strong> 등으로 계측한다.</p> <p><strong>둘째, 컴퓨터 자원</strong>이라는 관점에서 리소스의 사용 효율을 정의한다. CPU 사용시간이나 메모리 사용량, 스토리지 소비량, 네트워크 전송량 등으로 계측한다.</p> <p><strong>효율성</strong>을 높이려면 <strong>성능 최적화</strong>가 필요하다. 기본적으로 <strong>정적 리소스</strong>는 웹팩의 <a href="#%ED%8A%B8%EB%A6%AC-%EC%89%90%EC%9D%B4%ED%82%B9">트리 쉐이킹</a>과 <a href="#%EC%BD%94%EB%93%9C-%EC%8A%A4%ED%94%8C%EB%A6%AC%ED%8C%85">코드 스플리팅</a>을 활용하여 최적화 할 수 있다. <strong>네트워크 속도</strong>는 현재 필요한 정보만 요청하거나 병렬 요청 가능한 부분을 병렬로 바꾸면 향상 시킬 수 있다.</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Not Cool</span>
+<span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> data1 <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">requestData1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> data2 <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">requestData2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> data3 <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">requestData3</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Cool</span>
+<span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>data1<span class="token punctuation">,</span> data2<span class="token punctuation">,</span> data3<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">await</span> Promise<span class="token punctuation">.</span><span class="token function">all</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+    requestData1<span class="token punctuation">,</span> requestData2<span class="token punctuation">,</span> requestData3
+  <span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h5 id="트리-쉐이킹"><a href="#트리-쉐이킹" class="header-anchor">#</a> 트리 쉐이킹</h5> <p>트리 쉐이킹은 <strong>사용하지 않는 코드를 제거</strong>하는 방식이다. <strong>ES6 모듈의 구문에 의존</strong>하여 의존성 트리를 만들고 사용하지 않는 코드를 삭제한다. 사이트 이펙트를 일으키는 코드는 제거되지 않고 남겨준다. 웹팩에 <code>ModuleConcatenationPlugin</code>와 같은 서드 파티 도구를 사용해야 한다.</p> <h5 id="코드-스플리팅"><a href="#코드-스플리팅" class="header-anchor">#</a> 코드 스플리팅</h5> <p>자바스크립트를 청크로 분할하고 청크를 <strong>필요로 하는 애플리케이션의 경로에만 청크들을 배분</strong>하여 성능을 개선하는 기술이다. <strong>중복 코드 방지</strong>를 위해 <code>SplitChunksPlugin</code>를 사용하여 공통 의존성을 다른 청크파일로 분리한다. <strong>지연 로딩</strong>을 하기 위해서는 ES Proposal에 있는 <code>import()</code>를 사용하면 청크를 만들게 된다.</p> <h4 id="_4-신뢰성"><a href="#_4-신뢰성" class="header-anchor">#</a> 4. 신뢰성</h4> <p><strong>신뢰성</strong>이란 소프트웨어가 예외적인 상황 혹은 예기치 못한 방법이나 부정한 방법으로 사용된 상황에서도 기능을 유지하는 능력을 뜻한다. 신뢰성에는 <strong>2가지 측면</strong>이 있다.</p> <p><strong>첫째, 결함 허용력</strong>으로 소프트웨어에 장애가 발생했을 때 <strong>정상적인 동작을 계속 유지하는 능력</strong>이다. 예외 발생에 대해서 올바른 행위를 보증하는 한편 내부적으로 복구를 실시해야 한다. 대책으로 장애 발생 시에는 제공하는 기능을 한정하고 중요한 기능만을 제공해서 처리의 지속성을 우선시하는 설계도 고려해야 한다.</p> <p><strong>둘째, 견고성</strong>으로 부정한 사용 방법이나 입력 <strong>실수로부터 소프트웨어를 보호하는 능력</strong>이다. 다양한 사용 방법에 대해 시스템 차원에서 정의된 상태로 이행한다.
+대책으로 장애 발생 시에 해당 부분을 분리하는 설계와 사용자가 잘못된 조작을 해도 안전하게 가동할 수 있는 설계를 고려해야 한다.</p> <p>그리고 장애 발생 시 인지가 필요하다. 장애 발생 시 담당자가 인지와 추적을 할 수 있도록 하는 도구인 <a href="https://sentry.io/welcome/" target="_blank" rel="noopener noreferrer">Sentry<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>를 사용하는 것을 추천한다.</p> <h4 id="_5-테스트-용이성"><a href="#_5-테스트-용이성" class="header-anchor">#</a> 5. 테스트 용이성</h4> <p><strong>테스트 용이성</strong>이란 소프트웨어에 대해 효과적이면서 효율적으로 테스트를 수행하는 능력을 뜻한다. 테스트가 효과적이라는 말은 테스트가 깊이 있고 질이 높다는 뜻이다.</p> <p>소프트웨어의 규모와 복잡성이 증가 할 수록 테스트는 더욱 난해해지고 비용이 많이 든다. 따라서 소프트웨어가 원활하게 동작할 뿐만 아니라 테스트를 쉽게 수행할 수 있는 아키텍처가 요구된다.</p> <p><strong>테스트 용이성</strong>을 위해 설계할 때는 <strong>모듈 간 종속 관계를 제거</strong>하는 것이 핵심이다. 종속 관계가 있으면 테스트하기 어려운 부분을 만났을 때 테스트 전체가 발목이 잡힐 가능성이 커진다. 최대한 종속 관계를 제거하고 작은 단위로 테스트가 가능해지도록 설계해야 한다.</p> <h4 id="_6-재사용성"><a href="#_6-재사용성" class="header-anchor">#</a> 6. 재사용성</h4> <p><strong>재사용성</strong>이란 소프트웨어를 전체나 일부를 다른 소프트웨어 개발에 재사용하는 능력을 뜻한다. 재사용성에는 <strong>2가지 측면</strong>이 있다.</p> <p><strong>첫째, 재사용하는 소프트웨어 개발</strong>로 프로젝트 내의 기존 모듈, 예전 프로젝트의 모듈, 각종 라이브러리 등을 이용하는 것을 의미한다. 재사용 가능한 모듈을 개발 중인 소프트웨어에 그대로 혹은 변형해서 통합한다.</p> <p><strong>둘째, 재사용을 위한 소프트웨어 개발</strong>로 장래의 프로젝트에서 재사용할 수 있는 모듈을 현재 소프트웨어 개발 과정에서 창출하는 것을 의미한다. 다른 소프트웨어에서 재사용하기 위한 소프트웨어를 개발한다.</p> <p><strong>재사용하는 소프트웨어를 개발</strong>할 때는 아키텍처의 구성을 기존 구조나 모듈에 플러그인 할 수 있도록 한다. 여기에는 소프트웨어 컴포지션을 지원한다는 목적이 있다. 소프트웨어 <strong>컴포지션</strong>이란 소프트웨어를 기존 모듈을 가지고 조립하는 것이다.</p> <h3 id="끝"><a href="#끝" class="header-anchor">#</a> 끝</h3> <p>재사용성 관련해서는 <a href="/blog/reusable-code/">재사용 가능한 코드 개발</a>에서 자세히 다룬다.</p></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.e9216216.js" defer></script><script src="/assets/js/2.b682ec10.js" defer></script><script src="/assets/js/34.9b28e17f.js" defer></script>
+  </body>
+</html>
