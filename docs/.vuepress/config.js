@@ -138,6 +138,8 @@ module.exports = {
           },
         ]
       },
+      { text: 'About', link: '/about' },
+      { text: 'Github', link: 'https://github.com/ChoDragon9', target: '_blank'}
     ]
   },
   plugins: [
