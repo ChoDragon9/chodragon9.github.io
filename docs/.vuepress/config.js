@@ -3,6 +3,16 @@ module.exports = {
   themeConfig: {
     nav: [
       {
+        text: '좋은코드',
+        items: [
+          { text: '이해하기 쉬운 코드 작성방법 정리', link: '/good-core/easy-code/' },
+          { text: '코드의 위치를 정하는 기준', link: '/good-core/code-position/' },
+          { text: '재사용 가능한 코드 개발', link: '/good-core/reusable-code/' },
+          { text: '선언형으로 대체 가능한 문법들 정리', link: '/good-core/declarative-function/' },
+          { text: '강제성, 단일화 그리고 날짜 헬퍼 개발', link: '/good-core/date-helper-development/' },
+        ]
+      },
+      {
         text: '객체지향',
         items: [
           { text: '객체 정리', link: '/oop/object/' },
