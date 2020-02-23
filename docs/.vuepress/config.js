@@ -1,4 +1,5 @@
 module.exports = {
+  title: 'ChoDragon9',
   themeConfig: {
     nav: [
       {
