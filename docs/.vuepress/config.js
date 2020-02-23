@@ -3,6 +3,22 @@ module.exports = {
   themeConfig: {
     nav: [
       {
+        text: '객체지향',
+        items: [
+          { text: '객체 정리', link: '/oop/object/' },
+          { text: 'produce 구현해보기 - OOP 버전', link: '/oop/produce-oop/' }
+        ]
+      },
+      {
+        text: '함수형',
+        items: [
+          { text: '함수형 프로그래밍 정리', link: '/fp/functional/' },
+          { text: '함수형 프로그래밍 정리2', link: '/fp/functional2/' },
+          { text: 'produce 구현해보기', link: '/fp/produce/' },
+          { text: 'produce 구현해보기 - 불변성편', link: '/fp/produce-immutable/' },
+        ]
+      },
+      {
         text: 'Javascript',
         items: [
           { text: '[ECMAScript] ES6 Overview', link: '/javascript/es6/' },
