@@ -22,6 +22,19 @@ module.exports = {
           { text: 'RxJs 코드리뷰 사례', link: '/angular/rxjs-codereview/' },
           { text: 'Angular의 강력함과 아쉬운점', link: '/angular/angular/' }
         ]
+      },
+      {
+        text: 'SML',
+        items: [
+          { text: '기초', link: '/sml/sml-basic/' },
+          { text: '빌트인 자료형', link: '/sml/sml-builtin-datatype/' },
+          { text: '자료형 정의', link: '/sml/sml-datatype/' },
+          { text: '예외처리', link: '/sml/sml-exception/' },
+          { text: '함수', link: '/sml/sml-function/' },
+          { text: '고차함수', link: '/sml/sml-higher-order-function/' },
+          { text: 'infix 정의', link: '/sml/sml-infix/' },
+          { text: '모듈 시스템', link: '/sml/sml-module/' },
+        ]
       }
     ]
   },
