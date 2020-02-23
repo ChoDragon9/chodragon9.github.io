@@ -70,6 +70,16 @@ module.exports = {
           { text: 'GoF 디자인 패턴 | 행동패턴', link: '/pattern/design-pattern-behavioral/' },
         ]
       },
+      {
+        text: '관리',
+        items: [
+          { text: '개발 일정산정', link: '/management/estimation/' },
+          { text: '배포 어디까지 알고 있나요?', link: '/management/release/' },
+          { text: '효율적인 회의를 위한 퍼실리테이션', link: '/management/facilitation-for-meeting/' },
+          { text: '위험상황을 대비하는 위험관리', link: '/management/preventive-maintenance/' },
+          { text: '형상관리 전략정리', link: '/management/git-scm-experience/' },
+        ]
+      },
     ]
   },
   plugins: [
