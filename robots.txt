@@ -1,2 +1,1 @@
 User-agent: *
-Sitemap: https://chodragon9.github.io/sitemap.xml
