@@ -105,7 +105,8 @@ module.exports = {
           {
             text: 'Vue',
             items: [
-              {text: 'Nuxt에서 TypeScript로 개발하기', link: '/blog/nuxt-ts/'},
+              {text: 'Nuxt v2.11 기반 nuxt/typescript 환경 세팅', link: '/blog/nuxt-2-11-typescript/'},
+              {text: 'Nuxt v2.0에서 TypeScript로 개발하기', link: '/blog/nuxt-ts/'},
               {text: 'Nuxt v2.0에서 v2.11로 마이그레이션', link: '/blog/nuxt-migration/'},
             ]
           },
