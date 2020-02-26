@@ -15,7 +15,7 @@
   "scripts": {
     "dev": "vuepress dev docs",
     "build": "vuepress build docs",
-    "release": "mv docs/.vuepress/dist/* ."
+    "release": "rm -rf about assets blog && mv docs/.vuepress/dist/* ."
   },
   "repository": {
     "type": "git",
