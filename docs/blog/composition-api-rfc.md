@@ -55,11 +55,11 @@ export default {
 
 > 2. Lack of a clean and cost-free mechanism for extracting and reusing logic between multiple components. (More details in Logic Extraction and Reuse)
 
-2. 여러 구성 요고간에 논리를 추출하고 재사용하기 위한 깨끗하고 비용이 들지 않는 메커니즘이 없습니다. (논리 추출 및 재사용에 대한 자세한 내용)
+2. 여러 컴포넌트간에 논리를 추출하고 재사용하기 위한 깨끗하고 비용이 들지 않는 메커니즘이 없습니다. (논리 추출 및 재사용에 대한 자세한 내용)
 
 > The APIs proposed in this RFC provide the users with more flexibility when organizing component code. Instead of being forced to always organize code by options, code can now be organized as functions each dealing with a specific feature. The APIs also make it more straightforward to extract and reuse logic between components, or even outside components. We will show how these goals are achieved in the Detailed Design section.
 
-이 RFC에서 제안된 API는 컴포넌트 코드를 구성할 때 사용자에게 더 많은 유연성을 제공합니다. 코드는 항상 옵션별로 코드를 구성하는 대신 특정 기능을 처리하는 함수로 구성 할 수 있습니다. 또한 API는 구성 요소 간에 또는 심지어 외부 구성 요소 사이의 논리를 추출하고 재사용하는 것이 더 간단합니다. 상세 설계 섹션에서 이러한 목표를 달성하는 방법을 보여 드리겠습니다.
+이 RFC에서 제안된 API는 컴포넌트 코드를 구성할 때 사용자에게 더 많은 유연성을 제공합니다. 코드는 항상 옵션별로 코드를 구성하는 대신 특정 기능을 처리하는 함수로 구성 할 수 있습니다. 또한 API는 컴포넌트 간에 또는 심지어 외부 컴포넌트 사이의 논리를 추출하고 재사용하는 것이 더 간단합니다. 상세 설계 섹션에서 이러한 목표를 달성하는 방법을 보여 드리겠습니다.
 
 ### 더 좋은 타입 추론(Better Type Inference)
 > Another common feature request from developers working on large projects is better TypeScript support. Vue's current API has posed some challenges when it comes to integration with TypeScript, mostly due to the fact that Vue relies on a single `this` context for exposing properties, and that the use of `this` in a Vue component is a bit more magical than plain JavaScript (e.g. `this` inside functions nested under `methods` points to the component instance rather than the `methods` object). In other words, Vue's existing API simply wasn't designed with type inference in mind, and that creates a lot of complexity when trying to make it work nicely with TypeScript.
@@ -68,7 +68,7 @@ export default {
 
 > Most users who use Vue with TypeScript today are using `vue-class-component`, a library that allows components to be authored as TypeScript classes (with the help of decorators). While designing 3.0, we have attempted to provide a built-in Class API to better tackle the typing issues in a previous (dropped) RFC. However, as we discussed and iterated on the design, we noticed that in order for the Class API to resolve the typing issues, it must rely on decorators - which is a very unstable stage 2 proposal with a lot of uncertainty regarding its implementation details. This makes it a rather risky foundation to build upon. (More details on Class API type issues here)
 
-오늘날 Vue를 TypeScript와 함께 사용하는 대부분의 사용자는 데코레이터의 도움을 받아 구성 요소를 TypeScript 클래스로 제작할 수 있는 라이브러리인 `vue-class-component` 를 사용하고 있습니다. 3.0을 디자인하는 동안 이전 (드롭된) RFC에서 입력 문제를 보다 효과적으로 해결하기 위해 내장 클래스 API를 제공하려고 시도했습니다. 그러나 디자인에 대해 논의하고 반복하면서 클래스 API가 타이핑 문제를 해결하려면 데코레이터에 의존해야 한다는 것을 알았습니다. 이는 구현 세부 사항에 대해 많은 불확실성이 있는 매우 불안정한 2단계 제안입니다. 이것은 기반을 세우는 데 다소 위험한 토대가 됩니다. (클래스 API 타입 문제에 대한 자세한 내용은 [여기](https://vue-composition-api-rfc.netlify.com/#type-issues-with-class-api))
+오늘날 Vue를 TypeScript와 함께 사용하는 대부분의 사용자는 데코레이터의 도움을 받아 컴포넌트를 TypeScript 클래스로 제작할 수 있는 라이브러리인 `vue-class-component` 를 사용하고 있습니다. 3.0을 디자인하는 동안 이전 (드롭된) RFC에서 입력 문제를 보다 효과적으로 해결하기 위해 내장 클래스 API를 제공하려고 시도했습니다. 그러나 디자인에 대해 논의하고 반복하면서 클래스 API가 타이핑 문제를 해결하려면 데코레이터에 의존해야 한다는 것을 알았습니다. 이는 구현 세부 사항에 대해 많은 불확실성이 있는 매우 불안정한 2단계 제안입니다. 이것은 기반을 세우는 데 다소 위험한 토대가 됩니다. (클래스 API 타입 문제에 대한 자세한 내용은 [여기](https://vue-composition-api-rfc.netlify.com/#type-issues-with-class-api))
 
 > In comparison, the APIs proposed in this RFC utilize mostly plain variables and functions, which are naturally type friendly. Code written with the proposed APIs can enjoy full type inference with little need for manual type hints. This also means that code written with the proposed APIs will look almost identical in TypeScript and plain JavaScript, so even non-TypeScript users will potentially be able to benefit from the typings for better IDE support.
 
@@ -423,7 +423,7 @@ export default {
 
 > At this point we have replicated the component API with imported functions, but what for? Defining components with options seems to be much more organized than mixing everything together in a big function!
 
-이 시점에서 가져온 함수로 컴포넌트 API를 복제했습니다. 옵션으로 구성 요소를 정의하는 것은 큰 기능으로 모든 것을 함께 혼합하는 것보다 훨씬 더 체계적으로 보입니다!
+이 시점에서 가져온 함수로 컴포넌트 API를 복제했습니다. 옵션으로 컴포넌트를 정의하는 것은 큰 기능으로 모든 것을 함께 혼합하는 것보다 훨씬 더 체계적으로 보입니다!
 
 > This is an understandable first impression. But as mentioned in the Motivations section, we believe the Composition API actually leads to *better* organized code, particularly in complex components. Here we will try to explain why.
 
