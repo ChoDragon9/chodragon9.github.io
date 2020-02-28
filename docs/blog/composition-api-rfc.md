@@ -2,6 +2,7 @@
 title: Composition API RFC 번역
 sidebar: auto
 ---
+
 ::: warning
 Composition API 학습을 위해 [Composition API RFC](https://vue-composition-api-rfc.netlify.com/)을 번역한 포스트입니다. 공식 문서가 아님을 밝힙니다.
 :::
@@ -70,19 +71,19 @@ Ref는 기술적으로 이 제안에서 소개된 유일한 새로운 개념입�
 
 > We have discussed whether it is possible to completely avoid the Ref concept and use only reactive objects, however:
 
-그러나 Ref 개념을 완전히 피하고 반응성 객체만 사용할 수 있는지 여부에 대해 논의했습니다.
+우리는 Ref 개념을 완전히 피하고 반응성 객체만 사용할 수 있는지 여부에 대해 논의했습니다. 그러나:
 
 > - Computed getters can return primitive types, so a Ref-like container is unavoidable.
 > - Composition functions expecting or returning only primitive types also need to wrap the value in an object just for reactivity's sake. It's very likely that users will end up inventing their own Ref like patterns (and causing ecosystem fragmentation) if there is not a standard implementation provided by the framework.
 
 - 계산된 게터는 기본 유형을 반환 할 수 있으므로 Ref와 유사한 컨테이너는 피할수 없습니다.
-- 프리미티브 타입만 예상하거나 반환하는 컴포지션 함수는 반응성을 위해 객체의 값을 랩핑해야 합니다.
+- 프리미티브 타입만 예상하거나 반환하는 컴포지션 함수는 반응성을 위해 객체의 값을 랩핑해야 합니다. 프레임워크에서 제공하는 표준 구현이 없는 경우 사용자는 자신만의 Ref와 유사한 패턴(그리고 에코시스템 파편화)을 개발하게 될 가능성이 큽니다.
 
 ### Ref vs. Reactive
 
 > Understandably, users may get confused regarding which to use between ref and reactive. First thing to know is that you will need to understand both to efficiently make use of the Composition API. Using one exclusively will most likely lead to esoteric workarounds or reinvented wheels.
 
-당연히, 사용자는 `refs`과 `reactive` 사이에서 어느 것을 사용해야 할지 혼동 될 수 있습니다. 알아야 할 첫 번째 사항은 Composition API를 효율적으로 사용하려면 두 가지를 모두 이해해야한다는 것입니다. 하나를 독점적으로 사용하면 난해한 해결 방법이나 바퀴가 재발견 될 가능성이 높습니다.
+당연히, 사용자는 `refs`과 `reactive` 사이에서 어느 것을 사용해야 할지 혼동 될 수 있습니다. 알아야 할 첫 번째 사항은 Composition API를 효율적으로 사용하려면 두 가지를 모두 이해해야한다는 것입니다. 하나를 독점적으로 사용하면 난해한 해결 방법이나 [바퀴의 재발명](https://ko.wikipedia.org/wiki/%EB%B0%94%ED%80%B4%EC%9D%98_%EC%9E%AC%EB%B0%9C%EB%AA%85) 될 가능성이 높습니다.
 
 > The difference between using ref and reactive can be somewhat compared to how you would write standard JavaScript logic:
 
@@ -205,12 +206,12 @@ const { x, y } = useMousePosition()
 
 > There were suggestions to automatically expose variables declared in `setup()`, making the return statement optional. Again, we don't think this should be the default since it would go against the intuition of standard JavaScript. However, there are possible ways to make it less of a chore in userland:
 
-`setup()` 에 선언된 변수를 자동으로 노출하여 반환문을 선택적으로 제안하는 제안이 있었습니다. 다시 말하지만, 이것이 표준 JavaScript의 직관에 어긋날 것이기 때문에 이것이 기본값이라고 생각하지 않습니다. 그러나 사용자 영역에서 덜 번거롭게 만드는 방법이 있습니다.
+`setup()` 에 선언된 변수를 자동으로 노출하여 반환문을 선택적으로 만들자는 제안이 있었습니다. 다시 말하지만, 이것이 표준 JavaScript의 직관에 어긋날 것이기 때문에 이것이 기본값이라고 생각하지 않습니다. 그러나 사용자 영역에서 덜 번거롭게 만드는 방법이 있습니다.
 
 > - IDE extension that automatically generates the return statement based on variables declared in `setup()`
 > - Babel plugin that implicitly generates and inserts the return statement
 
--  `setup()` 에 선언된 변수를 기반으로 반환문을 자동으로 생성하는 IDE 확장
+- `setup()` 에 선언된 변수를 기반으로 반환문을 자동으로 생성하는 IDE 익스텐션
 - 암시적으로 반환문을 생성하고 삽입하는 Babel 플러그인
 
 ### 유연성이 높을수록 더 많은 훈련이 필요합니다(More Flexibility Requires More Discipline)
@@ -231,7 +232,7 @@ const { x, y } = useMousePosition()
 
 > Some users used Angular 1 controllers as examples of how the design could lead to poorly written code. The biggest difference between the Composition API and Angular 1 controllers is that it doesn't rely on a shared scope context. This makes it significantly easier to split out logic into separate functions, which is the core mechanism of JavaScript code organization.
 
-일부 사용자는 Angular 1 컨트롤러를 사용하여 디자인에서 코드 작성이 잘못되는 방법을 예로 들었습니다. Composition API와 Angular 1 컨트롤러의 가장 큰 차이점은 공유 범위 컨텍스트에 의존하지 않는다는 것입니다. 따라서 JavaScript 코드 구성의 핵심 매커니즘인 논리를 별도의 함수로 훨씬 쉽게 분리 할 수 있습니다.
+일부 사용자는 [Angular 1 컨트롤러](https://docs.angularjs.org/guide/controller)를 사용하여 디자인에서 코드 작성이 잘못되는 방법을 예로 들었습니다. Composition API와 Angular 1 컨트롤러의 가장 큰 차이점은 공유 범위 컨텍스트에 의존하지 않는다는 것입니다. 따라서 JavaScript 코드 구성의 핵심 매커니즘인 논리를 별도의 함수로 훨씬 쉽게 분리 할 수 있습니다.
 
 >  Any JavaScript program starts with an entry file (think of it as the `setup()` for a program). We organize the program by splitting it into functions and modules based on logical concerns. The Composition API enables us to do the same for Vue component code. In other words, skills in writing well-organized JavaScript code translates directly into skills of writing well-organized Vue code when using the Composition API.
 
