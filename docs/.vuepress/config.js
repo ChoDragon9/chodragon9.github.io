@@ -96,6 +96,12 @@ module.exports = {
         text: '오픈소스',
         items: [
           {
+            text: 'Vue Composition API',
+            items: [
+              {text: '[진행중] Composition API RFC 번역', link: '/blog/composition-api-rfc/'},
+            ]
+          },
+          {
             text: 'Angular',
             items: [
               {text: 'RxJs 코드리뷰 사례', link: '/blog/rxjs-codereview/'},
