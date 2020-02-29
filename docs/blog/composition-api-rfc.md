@@ -7,6 +7,14 @@ sidebar: auto
 Composition API 학습을 위해 [Composition API RFC](https://vue-composition-api-rfc.netlify.com/)을 번역한 포스트입니다. 공식 문서가 아님을 밝힙니다.
 :::
 
+::: tip
+RFC(Request for Comments) 문서는 비평을 기다리는 문서라는 의미로, 컴퓨터 네트워크 공학 등에서 인터넷 기술에 적용 가능한 새로운 연구, 혁신, 기법 등을 아우르는 메모를 나타낸다.
+
+- 출처: [위키백과:RFC](https://ko.wikipedia.org/wiki/RFC)
+:::
+
+- 참고 이슈: [#42](https://github.com/vuejs/rfcs/pull/42)
+
 ## 요약(Summary)
 > Introducing the Composition API: a set of additive, function-based APIs that allow flexible composition of component logic.
 

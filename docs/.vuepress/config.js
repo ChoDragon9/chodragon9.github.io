@@ -98,7 +98,7 @@ module.exports = {
           {
             text: 'Vue Composition API',
             items: [
-              {text: '[진행중] Composition API RFC 번역', link: '/blog/composition-api-rfc/'},
+              {text: 'Composition API RFC 번역', link: '/blog/composition-api-rfc/'},
             ]
           },
           {
