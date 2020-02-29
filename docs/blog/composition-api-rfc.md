@@ -942,7 +942,7 @@ const { x, y } = useMousePosition()
 
 > The Composition API is purely additive and does not affect / deprecate any existing 2.x APIs. It has been made available as a 2.x plugin via the [`@vue/composition` library](https://github.com/vuejs/composition-api/). The library's primary goal is to provide a way to experiment with the API and to collect feedback. The current implementation is up-to-date with this proposal, but may contain minor inconsistencies due to technical constraints of being a plugin. It may also receive braking changes as this proposal is updated, so we do not recommend using it in production at this stage.
 
-Composition API는 순전히 부가적이며 기존 2.x API에 영향을 미치거나 더 이상 사용되지 않습니다. `@vue/composition` 라이브러리를 통해 2.x 플러그인으로 제공되었습니다. 라이브러리의 주요 목표는 API를 실험하고 피드백을 수집하는 방법을 제공하는 것입니다. 현재 구현은 이 제안으로 최신 상태이지만 플러그인이라는 기술적 제약으로 인해 약간의 불일치가 있을 수 있습니다. 이 제안이 업데이트 될 때 브레이크 체인지가 될 수 있으므로 이 단계에서는 프로덕션에서 사용하지 않는 것이 좋습니다.
+Composition API는 순전히 부가적이며 기존 2.x API에 영향을 미치거나 어디에도 사용되지 않습니다. `@vue/composition` 라이브러리를 통해 2.x 플러그인으로 제공되었습니다. 라이브러리의 주요 목표는 API를 실험하고 피드백을 수집하는 방법을 제공하는 것입니다. 현재 구현은 이 제안으로 최신 상태이지만 플러그인이라는 기술적 제약으로 인해 약간의 불일치가 있을 수 있습니다. 이 제안이 업데이트 될 때 브레이크 체인지가 될 수 있으므로 이 단계에서는 프로덕션에서 사용하지 않는 것이 좋습니다.
 
 > We intend to ship the API as built-in in 3.0. It will be usable alongside existing 2.x options.
 
