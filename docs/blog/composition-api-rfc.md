@@ -759,9 +759,9 @@ Ref는 기술적으로 이 제안에서 소개된 유일한 새로운 개념입�
 
 > 1. When using the Composition API, we will need to constantly distinguish refs from plain values and objects, increasing the mental burden when working with the API. <br><br> The mental burden can be greatly reduced by using a naming convention (e.g. suffixing all ref variables as xxxRef), or by using a type system. On the other hand, due to the improved flexibility in code organization, component logic will more often be isolated into small functions where the local context is simple and the overhead of refs are easily manageable.
 
-1. 컴포지션 API를 사용할 때, API와 작업 할 때 정식적 부담을 증가 시켜서 참조값과 일반값 및 객체를 지속적으로 구분해야 합니다.
+1. 컴포지션 API를 사용할 때, API와 작업 할 때 정신적 부담을 증가 시켜서 참조값과 일반값 및 객체를 지속적으로 구분해야 합니다.
    <br><br>
-   명명 규칙(예: 모든 참조 변수의 접미사를 `xxxRef`로 사용)을 사용하거나 타입 시스템을 사용하면 정식적 부담을 크게 줄일 수 있습니다. 반면에, 코드 구성의 유연성이 향상되기 때문에 컴포넌트 로직이 로컬 컨텍스트가 단순하고 `refs`의 오버헤드를 쉽게 관리 할 수 있는 작은 기능으로 분리하는 경우가 더 많습니다.
+   명명 규칙(예: 모든 참조 변수의 접미사를 `xxxRef`로 사용)을 사용하거나 타입 시스템을 사용하면 정신적 부담을 크게 줄일 수 있습니다. 반면에, 코드 구성의 유연성이 향상되기 때문에 컴포넌트 로직이 로컬 컨텍스트가 단순하고 `refs`의 오버헤드를 쉽게 관리 할 수 있는 작은 기능으로 분리하는 경우가 더 많습니다.
 
 > 2. Reading and mutating refs are more verbose than working with plain values due to the need for `.value`. <br><br>
 >    Some have suggested compile-time syntax sugar (similar to Svelte 3) to solve this. While it is technically feasible, we do not believe it would make sense as the default for Vue (as discussed in [Comparison with Svelte](https://vue-composition-api-rfc.netlify.com/#comparison-with-svelte)). That said, this is technically feasible in userland as a Babel plugin.
