@@ -15,7 +15,8 @@
   "scripts": {
     "dev": "vuepress dev docs",
     "build": "vuepress build docs",
-    "release": "rm -rf about assets blog && mv docs/.vuepress/dist/* ."
+    "release": "rm -rf about assets blog && mv docs/.vuepress/dist/* .",
+    "push": "npm run build && npm run release && git add -A && git commit -m \"설명 수정\" && git push origin master"
   },
   "repository": {
     "type": "git",
