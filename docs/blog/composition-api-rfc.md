@@ -55,11 +55,11 @@ export default {
 
 > 2. Lack of a clean and cost-free mechanism for extracting and reusing logic between multiple components. (More details in Logic Extraction and Reuse)
 
-2. 여러 컴포넌트간에 논리를 추출하고 재사용하기 위한 깨끗하고 비용이 들지 않는 메커니즘이 없습니다. (논리 추출 및 재사용에 대한 자세한 내용)
+2. 여러 컴포넌트간에 논리를 추출하고 재사용하기 위한 깨끗하고 비용이 들지 않는 메커니즘이 없습니다. ([논리 추출 및 재사용](#논리-추출-및-재사용logic-extraction-and-reuse)에 대한 자세한 내용)
 
 > The APIs proposed in this RFC provide the users with more flexibility when organizing component code. Instead of being forced to always organize code by options, code can now be organized as functions each dealing with a specific feature. The APIs also make it more straightforward to extract and reuse logic between components, or even outside components. We will show how these goals are achieved in the Detailed Design section.
 
-이 RFC에서 제안된 API는 컴포넌트 코드를 구성할 때 사용자에게 더 많은 유연성을 제공합니다. 코드는 항상 옵션별로 코드를 구성하는 대신 특정 기능을 처리하는 함수로 구성 할 수 있습니다. 또한 API는 컴포넌트 간에 또는 심지어 외부 컴포넌트 사이의 논리를 추출하고 재사용하는 것이 더 간단합니다. 상세 설계 섹션에서 이러한 목표를 달성하는 방법을 보여 드리겠습니다.
+이 RFC에서 제안된 API는 컴포넌트 코드를 구성할 때 사용자에게 더 많은 유연성을 제공합니다. 코드는 항상 옵션별로 코드를 구성하는 대신 특정 기능을 처리하는 함수로 구성 할 수 있습니다. 또한 API는 컴포넌트 간에 또는 심지어 외부 컴포넌트 사이의 논리를 추출하고 재사용하는 것이 더 간단합니다. [상세 설계](#상세-설계detailed-design) 섹션에서 이러한 목표를 달성하는 방법을 보여 드리겠습니다.
 
 ### 더 좋은 타입 추론(Better Type Inference)
 > Another common feature request from developers working on large projects is better TypeScript support. Vue's current API has posed some challenges when it comes to integration with TypeScript, mostly due to the fact that Vue relies on a single `this` context for exposing properties, and that the use of `this` in a Vue component is a bit more magical than plain JavaScript (e.g. `this` inside functions nested under `methods` points to the component instance rather than the `methods` object). In other words, Vue's existing API simply wasn't designed with type inference in mind, and that creates a lot of complexity when trying to make it work nicely with TypeScript.
@@ -68,7 +68,7 @@ export default {
 
 > Most users who use Vue with TypeScript today are using `vue-class-component`, a library that allows components to be authored as TypeScript classes (with the help of decorators). While designing 3.0, we have attempted to provide a built-in Class API to better tackle the typing issues in a previous (dropped) RFC. However, as we discussed and iterated on the design, we noticed that in order for the Class API to resolve the typing issues, it must rely on decorators - which is a very unstable stage 2 proposal with a lot of uncertainty regarding its implementation details. This makes it a rather risky foundation to build upon. (More details on Class API type issues here)
 
-오늘날 Vue를 TypeScript와 함께 사용하는 대부분의 사용자는 데코레이터의 도움을 받아 컴포넌트를 TypeScript 클래스로 제작할 수 있는 라이브러리인 `vue-class-component` 를 사용하고 있습니다. 3.0을 디자인하는 동안 이전 (드롭된) RFC에서 입력 문제를 보다 효과적으로 해결하기 위해 내장 클래스 API를 제공하려고 시도했습니다. 그러나 디자인에 대해 논의하고 반복하면서 클래스 API가 타이핑 문제를 해결하려면 데코레이터에 의존해야 한다는 것을 알았습니다. 이는 구현 세부 사항에 대해 많은 불확실성이 있는 매우 불안정한 2단계 제안입니다. 이것은 기반을 세우는 데 다소 위험한 토대가 됩니다. (클래스 API 타입 문제에 대한 자세한 내용은 [여기](https://vue-composition-api-rfc.netlify.com/#type-issues-with-class-api))
+오늘날 Vue를 TypeScript와 함께 사용하는 대부분의 사용자는 데코레이터의 도움을 받아 컴포넌트를 TypeScript 클래스로 제작할 수 있는 라이브러리인 `vue-class-component` 를 사용하고 있습니다. 3.0을 설계하는 동안 [이전 (드롭된) RFC](https://github.com/vuejs/rfcs/pull/17)에서 입력 문제를 보다 효과적으로 해결하기 위해 내장 클래스 API를 제공하려고 시도했습니다. 그러나 설계에 대해 논의하고 반복하면서 클래스 API가 타이핑 문제를 해결하려면 데코레이터에 의존해야 한다는 것을 알았습니다. 이는 구현 세부 사항에 대해 많은 불확실성이 있는 매우 불안정한 2단계 제안입니다. 이것은 기반을 세우는 데 다소 위험한 토대가 됩니다. (클래스 API 타입 문제에 대한 자세한 내용은 [여기](#클래스-api의-타입-이슈type-issues-with-class-api))
 
 > In comparison, the APIs proposed in this RFC utilize mostly plain variables and functions, which are naturally type friendly. Code written with the proposed APIs can enjoy full type inference with little need for manual type hints. This also means that code written with the proposed APIs will look almost identical in TypeScript and plain JavaScript, so even non-TypeScript users will potentially be able to benefit from the typings for better IDE support.
 
@@ -121,11 +121,13 @@ watchEffect(() => {
 
 `watchEffect` 는 원하는 부수효과를 적용하는 함수를 기대합니다 (이 경우 `innerHTML` 설정). 함수를 즉시 실행하고 실행 중에 사용한 모든 반응 상태 속성을 종속성으로 추적합니다. 여기서 `state.count` 는 초기 실행 후이 감시자에 대한 종속성으로 추적됩니다. 앞으로 `state.count` 가 변경되면 내부 함수가 다시 실행됩니다.
 
-This is the very essence of Vue's reactivity system. When you return an object from `data()` in a component, it is internally made reactive by `reactive()`. The template is compiled into a render function (think of it as a more efficient `innerHTML`) that makes use of these reactive properties.
+> This is the very essence of Vue's reactivity system. When you return an object from `data()` in a component, it is internally made reactive by `reactive()`. The template is compiled into a render function (think of it as a more efficient `innerHTML`) that makes use of these reactive properties.
+
+이것이 Vue의 반응형 시스템의 핵심입니다. 컴포넌트의 `data()`에서 객체를 반환하면 내부적으로 `reactive()`에 의해 반응이 이루어집니다. 템플릿은 이러한 반응형 속성을 사용하는 렌더링 함수 (보다 효율적인 `innerHTML`로 생각)로 컴파일 됩니다.
 
 > `watchEffect` is similar to the 2.x `watch` option, but it doesn't require separating the watched data source and the side effect callback. Composition API also provides a `watch` function that behaves exactly the same as the 2.x option.
 
-> `watchEffect` 는 2.x `watch` 옵션과 유사하지만 감시된 데이터 소스와 부작용 콜백을 분리할 필요가 없습니다. Composition API는 2.x 옵션과 정확히 동일한 동작을 하는 `watch` 기능을 제공합니다.
+> `watchEffect` 는 2.x `watch` 옵션과 유사하지만 감시된 데이터 소스와 부수효과 콜백을 분리할 필요가 없습니다. Composition API는 2.x 옵션과 정확히 동일한 동작을 하는 `watch` 기능을 제공합니다.
 
 >  Continuing the above example, this is how we would handle user input:
 
@@ -244,7 +246,7 @@ state.count++ // -> 2
 
 > In addition to computed refs, we can also directly create plain mutable refs using the `ref` API:
 
-계단된 refs외에, `ref` API를 사용하여 일반 가변 참조를 직접 만들 수도 있습니다.
+계산된 refs외에, `ref` API를 사용하여 일반 가변 참조를 직접 만들 수도 있습니다.
 
 ```js
 const count = ref(0)
@@ -347,7 +349,7 @@ watchEffect(() => {
 
 > Now if we leave the tasks of calling `setup()`, creating the watcher, and rendering the template to the framework, we can define a component with just the `setup()` function and the template:
 
-이제 `setup()` 호출, 감시자 생성 및 템플릿을 프레임워크로 렌더링 하는 작업을 마지면 `setup()` 함수와 템플릿만으로 컴포넌트를 정의 할 수 있습니다.
+이제 `setup()` 호출, 감시자 생성 및 템플릿을 프레임워크로 렌더링 하는 작업을 마치면 `setup()` 함수와 템플릿만으로 컴포넌트를 정의 할 수 있습니다.
 
 ```html
 <template>
@@ -433,7 +435,7 @@ export default {
 
 > Let's take a step back and consider what we really mean when we talk about "organized code". The end goal of keeping code organized should be making the code easier to read and understand. And what do we mean by "understanding" the code? Can we really claim that we "understand" a component just because we know what options it contains? Have you ever run into a big component authored by another developer (for example [this one](https://github.com/vuejs/vue-cli/blob/a09407dd5b9f18ace7501ddb603b95e31d6d93c0/packages/@vue/cli-ui/src/components/folder/FolderExplorer.vue#L198-L404)), and have a hard time wrapping your head around it?
 
-한 걸음 물러서서 "조직화된 코드"에 대해 이야기 할 때 실제로 무엇을 의미하는 지 생각해 봅시다. 코드를 체계적으로 유지하는 최종 목표는 코드를 보다 쉽게 읽고 이해하도록 하는 것입니다. 그리고 코드를 "이해"한다는 것은 무엇을 의미합니까? 컴포넌트에 포함된 옵션을 알고 있기 때문에 컴포넌트를 "이해"한다고 실제로 말할 수 있습니까? 다른 개발자가 작성한 큰 컴포넌트를 본 적이 있습니까? (예: [이 중 하나](https://github.com/vuejs/vue-cli/blob/a09407dd5b9f18ace7501ddb603b95e31d6d93c0/packages/@vue/cli-ui/src/components/folder/FolderExplorer.vue#L198-L404)) 그리고 머리를 감싸매고 힘든 시간을 보내고 있습니까?
+한 걸음 물러서서 "조직화된 코드"에 대해 이야기 할 때 실제로 무엇을 의미하는 지 생각해 봅시다. 코드를 체계적으로 유지하는 최종 목표는 코드를 보다 쉽게 읽고 이해하도록 하는 것입니다. 그리고 코드를 "이해"한다는 것은 무엇을 의미합니까? 컴포넌트에 포함된 옵션을 알고 있기 때문에 컴포넌트를 "이해"한다고 실제로 말할 수 있습니까? 다른 개발자가 작성한 큰 컴포넌트를 본 적이 있습니까? (예를 들어 [이것](https://github.com/vuejs/vue-cli/blob/a09407dd5b9f18ace7501ddb603b95e31d6d93c0/packages/@vue/cli-ui/src/components/folder/FolderExplorer.vue#L198-L404)) 그리고 머리를 감싸매고 힘든 시간을 보내고 있습니까?
 
 > Think about how we would walk a fellow developer through a big component like the one linked above. You will most likely start with "this component is dealing with X, Y and Z" instead of "this component has these data properties, these computed properties and these methods". When it comes to understanding a component, we care more about "what the component is trying to do" (i.e. the intentions behind the code) rather than "what options the component happens to use". While code written with options-based API naturally answers the latter, it does a rather poor job at expressing the former.
 
@@ -513,7 +515,7 @@ function useCreateFolder (openFolder) {
 
 > Notice how all the logic related to the create new folder feature is now collocated and encapsulated in a single function. The function is also somewhat self-documenting due to its descriptive name. This is what we call a **composition function**. It is a recommended convention to start the function's name with `use` to indicate that it is a composition function. This pattern can be applied to all the other logical concerns in the component, resulting in a number of nicely decoupled functions:
 
-새 폴더 만들기 기능과 관련된 모든 논리가 이제 단일 기능으로 배치되고 캡슐화되는 방법에 주목하십시오. 이 기능은 설명적인 이름으로 인해 자체 문서화되어 있습니다. 이것을 **컴포지션 함수** 라고합니다. `use` 로 함수 이름을 시작하여 컴포지션 함수임을 나타내는 것이 권장되는 규칙입니다. 이 패턴은 컴포넌트의 다른 모든 논리적 문제에 적용될 수 있으며 여러 가지 기능이 분리되어 잇습니다.
+새 폴더 만들기 기능과 관련된 모든 논리가 이제 단일 기능으로 배치되고 캡슐화되는 방법에 주목하십시오. 이 기능은 설명적인 이름으로 인해 자체 문서화되어 있습니다. 이것을 **컴포지션 함수** 라고합니다. `use` 로 함수 이름을 시작하여 컴포지션 함수임을 나타내는 것이 권장되는 규칙입니다. 이 패턴은 컴포넌트의 다른 모든 논리적 문제에 적용될 수 있으며 여러 가지 기능이 분리되어 있습니다.
 
 > This comparison excludes import statements and the `setup()` function. The full component re-implemented using the Composition API can be found [here](https://gist.github.com/yyx990803/8854f8f6a97631576c14b63c8acd8f2e).
 
@@ -645,7 +647,7 @@ export default {
 
 > In the Composition API version of the file explorer example, we have extracted some utility code (such as `usePathUtils` and `useCwdUtils`) into external files because we found them useful to other components.
 
-파일 탐색기 예제의 Composition API 버전에서는 일부 유틸리티 코드(예:  `usePathUtils` 및 `useCwdUtils`)를 다른 컴포넌트에 유용하기 땜누에 외부 파일로 추출했습니다.
+파일 탐색기 예제의 Composition API 버전에서는 일부 유틸리티 코드(예:  `usePathUtils` 및 `useCwdUtils`)를 다른 컴포넌트에 유용하기 때문에 외부 파일로 추출했습니다.
 
 > Similar logic reuse can also be achieved using existing patterns such as mixins, higher-order components or renderless components (via scoped slots). There are plenty of information explaining these patterns on the internet, so we shall not repeat them in full details here. The high level idea is that each of these patterns has respective drawbacks when compared to composition functions:
 
@@ -690,7 +692,7 @@ Composition API는 기존 옵션 기반 API와 함께 사용할 수 있습니다
 
 > Many Vue plugins today inject properties onto `this`. For example, Vue Router injects `this.$route` and `this.$router`, and Vuex injects `this.$store`. This has made type inference tricky since each plugin requires the user to augment the Vue typing for injected properties.
 
-오늘날 많은 Vue 플러그인은 `this` 에 속성을 주입합니다. 예를 들어 Vue Router는 `this.$route`와 `this.$router` 를 주입하고 Vuex는 `this.$store`를 주입합니다. 각 플러그인은 사용자가 주입된 속성에 대한 Vue 타이핑을 강화해야 하기 때문에 타입 추런이 까다로워졌습니다.
+오늘날 많은 Vue 플러그인은 `this` 에 속성을 주입합니다. 예를 들어 Vue Router는 `this.$route`와 `this.$router` 를 주입하고 Vuex는 `this.$store`를 주입합니다. 각 플러그인은 사용자가 주입된 속성에 대한 Vue 타이핑을 강화해야 하기 때문에 타입 추론이 까다로워졌습니다.
 
 > When using the Composition API, there is no `this`. Instead, plugins will leverage [`provide` and `inject`](https://vue-composition-api-rfc.netlify.com/api.html#provide-inject) internally and expose a composition function. The following is hypothetical code for a plugin:
 
@@ -754,10 +756,10 @@ Ref는 기술적으로 이 제안에서 소개된 유일한 새로운 개념입�
    명명 규칙(예: 모든 참조 변수의 접미사를 `xxxRef`로 사용)을 사용하거나 타입 시스템을 사용하면 정식적 부담을 크게 줄일 수 있습니다. 반면에, 코드 구성의 유연성이 향상되기 때문에 컴포넌트 로직이 로컬 컨텍스트가 단순하고 `refs`의 오버헤드를 쉽게 관리 할 수 있는 작은 기능으로 분리하는 경우가 더 많습니다.
 
 > 2. Reading and mutating refs are more verbose than working with plain values due to the need for `.value`. <br><br>
->    Some have suggested compile-time syntax sugar (similar to Svelte 3) to solve this. While it is technically feasible, we do not believe it would make sense as the default for Vue (as discussed in Comparison with Svelte). That said, this is technically feasible in userland as a Babel plugin.
+>    Some have suggested compile-time syntax sugar (similar to Svelte 3) to solve this. While it is technically feasible, we do not believe it would make sense as the default for Vue (as discussed in [Comparison with Svelte](https://vue-composition-api-rfc.netlify.com/#comparison-with-svelte)). That said, this is technically feasible in userland as a Babel plugin.
 
 2. `refs`를 읽고 변경하는 것은 `.value`가 필요하기 때문에 일반값으로 작업하는 것보다 더 장황합니다. <br><br>
-   일부는 이것을 해결하기 위해 컴파일 타임 신텍스 슈거(Svelte 3와 유사)을 제안했습니다. 기술적으로 실현 가능하지만 Vue의 기본값으로 의미가 있다고 생각하지 않습니다(Svelte와 비교에서 논의 됨). 즉, 이것은 Userland에서 Babel 플러그인으로 기술적으로 가능합니다.
+   일부는 이것을 해결하기 위해 컴파일 타임 신텍스 슈거(Svelte 3와 유사)을 제안했습니다. 기술적으로 실현 가능하지만 Vue의 기본값으로 의미가 있다고 생각하지 않습니다([Svelte와 비교](https://vue-composition-api-rfc.netlify.com/#comparison-with-svelte)에서 논의 됨). 즉, 이것은 Userland에서 Babel 플러그인으로 기술적으로 가능합니다.
 
 > We have discussed whether it is possible to completely avoid the Ref concept and use only reactive objects, however:
 
@@ -766,7 +768,7 @@ Ref는 기술적으로 이 제안에서 소개된 유일한 새로운 개념입�
 > - Computed getters can return primitive types, so a Ref-like container is unavoidable.
 > - Composition functions expecting or returning only primitive types also need to wrap the value in an object just for reactivity's sake. It's very likely that users will end up inventing their own Ref like patterns (and causing ecosystem fragmentation) if there is not a standard implementation provided by the framework.
 
-- 계산된 게터는 기본 유형을 반환 할 수 있으므로 Ref와 유사한 컨테이너는 피할수 없습니다.
+- 계산된 게터는 프리미티브 타입을 반환 할 수 있으므로 Ref와 유사한 컨테이너는 피할수 없습니다.
 - 프리미티브 타입만 예상하거나 반환하는 컴포지션 함수는 반응성을 위해 객체의 값을 랩핑해야 합니다. 프레임워크에서 제공하는 표준 구현이 없는 경우 사용자는 자신만의 Ref와 유사한 패턴(그리고 에코시스템 파편화)을 개발하게 될 가능성이 큽니다.
 
 ### Ref vs. Reactive
@@ -912,7 +914,7 @@ const { x, y } = useMousePosition()
 
 >  We agree with that to a certain extent. However, we believe that:
 
-우리는 어느 정보 동의합니다. 그러나 우리는 다음을 믿습니다:
+우리는 어느 정도 동의합니다. 그러나 우리는 다음을 믿습니다:
 
 > 1. The gain in the upper bound far outweighs the loss in the lower bound.
 > 2. We can effectively address the code organization problem with proper documentation and community guidance.
@@ -922,7 +924,7 @@ const { x, y } = useMousePosition()
 
 > Some users used Angular 1 controllers as examples of how the design could lead to poorly written code. The biggest difference between the Composition API and Angular 1 controllers is that it doesn't rely on a shared scope context. This makes it significantly easier to split out logic into separate functions, which is the core mechanism of JavaScript code organization.
 
-일부 사용자는 [Angular 1 컨트롤러](https://docs.angularjs.org/guide/controller)를 사용하여 디자인에서 코드 작성이 잘못되는 방법을 예로 들었습니다. Composition API와 Angular 1 컨트롤러의 가장 큰 차이점은 공유 범위 컨텍스트에 의존하지 않는다는 것입니다. 따라서 JavaScript 코드 구성의 핵심 매커니즘인 논리를 별도의 함수로 훨씬 쉽게 분리 할 수 있습니다.
+일부 사용자는 [Angular 1 컨트롤러](https://docs.angularjs.org/guide/controller)를 사용하여 설계에서 코드 작성이 잘못되는 방법을 예로 들었습니다. Composition API와 Angular 1 컨트롤러의 가장 큰 차이점은 공유 범위 컨텍스트에 의존하지 않는다는 것입니다. 따라서 JavaScript 코드 구성의 핵심 매커니즘인 논리를 별도의 함수로 훨씬 쉽게 분리 할 수 있습니다.
 
 >  Any JavaScript program starts with an entry file (think of it as the `setup()` for a program). We organize the program by splitting it into functions and modules based on logical concerns. The Composition API enables us to do the same for Vue component code. In other words, skills in writing well-organized JavaScript code translates directly into skills of writing well-organized Vue code when using the Composition API.
 
@@ -946,5 +948,157 @@ Composition API는 순전히 부가적이며 기존 2.x API에 영향을 미치�
 
 API는 해결해야 할 문제가 주로 대규모 응용 프로그램에 나타나기 때문에 고급 기능으로 자리를 잡을 것입니다. 설명서를 기본값으로 사용하기 위해 설명서를 정밀 검사하지는 않습니다. 대신 문서에 전용 섹션이 있습니다.
 
-## [Appendix](https://vue-composition-api-rfc.netlify.com/#appendix)
-> 번역중
+## 부록(Appendix)
+
+### 클래스 API의 타입 이슈(Type Issues with Class API)
+
+> The primary goal of introducing the Class API was to provide an alternative API that comes with better TypeScript inference support. However, the fact that Vue components need to merge properties declared from multiple sources onto a single `this` context creates a bit of a challenge even with a Class-based API.
+
+클래스 API를 도입하는 주요 목표는보다 나은 TypeScript 추론 지원과 함께 제공되는 대체 API를 제공하는 것이 었습니다. 그러나 Vue 구성 요소가 여러 소스에서 선언된 속성을 단일 `this` 컨텍스트로 병합해야한다는 사실은 클래스 기반 API에서도 약간의 문제를 일으킵니다.
+
+> One example is the typing of props. In order to merge props onto `this`, we have to either use a generic argument to the component class, or use a decorator.
+
+props 입력이 그 예입니다. props을 `this` 에 병합하려면 컴포넌트 클래스에 제네릭 인자를 사용하거나 데코레이터를 사용해야합니다.
+
+> Here's an example using generic arguments:
+
+다음은 제네릭 인자를 사용하는 예입니다.
+
+```ts
+interface Props {
+  message: string
+}
+
+class App extends Component<Props> {
+  static props = {
+    message: String
+  }
+}
+```
+
+> Since the interface passed to the generic argument is in type-land only, the user still needs to provide a runtime props declaration for the props proxying behavior on `this`. This double-declaration is redundant and awkward.
+
+제네릭 인자에 전달된 인터페이스는 type-land에만 있기 때문에 사용자는 여전히 `this` 에 대한 props 프록싱 동작에 대한 런타임 props 선언을 제공해야합니다. 이 이중 선언은 중복되고 어색합니다.
+
+> We've considered using decorators as an alternative:
+
+우리는 데코레이터를 대안으로 사용하는 것을 고려했습니다.
+
+```ts
+class App extends Component<Props> {
+  @prop message: string
+}
+```
+
+> Using decorators creates a reliance on a stage-2 spec with a lot of uncertainties, especially when TypeScript's current implementation is completely out of sync with the TC39 proposal. In addition, there is no way to expose the types of props declared with decorators on `this.$props`, which breaks TSX support. Users may also assume they can declare a default value for the prop with `@prop message: string = 'foo'` when technically it just can't be made to work as expected.
+
+데코레이터를 사용하면 특히 TypeScript의 현재 구현이 TC39 제안과 완전히 일치하지 않을 때 많은 불확실성과 함께 2단계 사양에 의존합니다. 또한 `this.$props` 에서 데코레이터로 선언된 props 타입을 노출 할 수 있는 방법이 없으므로 TSX 지원이 중답됩니다. 사용자는 기술적으로 예상대로 작동하지 않을 때 `@prop message: string = 'foo'` 로 prop의 기본값을 선언할 수 있닥 가정할 수 있습니다.
+
+> In addition, currently there is no way to leverage contextual typing for the arguments of class methods - which means the arguments passed to a Class' `render` function cannot have inferred types based on the Class' other properties.
+
+또한 현재 클래스 메소드의 인자에 컨텍스트 타이핑을 활용할 수 있는 방법이 없습니다. 즉, 클래스 `render` 함수에 전달된 인자는 클래스의 다른 특성을 기반으로 추론된 타입을 가질 수 없습니다.
+
+### React Hooks과 비교(Comparison with React Hooks)
+
+> The function based API provides the same level of logic composition capabilities as React Hooks, but with some important differences. Unlike React hooks, the `setup()` function is called only once. This means code using Vue's Composition API is:
+
+함수 기반 API는 React Hooks와 동일한 수준의 논리 구성 기능을 제공하지만 몇 가지 중요한 차이점이 있습니다. React Hooks와 달리 `setup()` 함수는 한번만 호출됩니다. 이는 Vue의 Composition API를 사용하는 코드는 다음과 같습니다.
+
+> - In general more aligned with the intuitions of idiomatic JavaScript code;
+> - Not sensitive to call order and can be conditional;
+> - Not called repeatedly on each render and produces less GC pressure;
+> - Not subject to the issue where `useCallback` is almost always needed in order to prevent inline handlers causing over-re-rendering of child components;
+> - Not subject to the issue where `useEffect` and `useMemo` may capture stale variables if the user forgets to pass the correct dependency array. Vue's automated dependency tracking ensures watchers and computed values are always correctly invalidated.
+
+- 일반적으로 관용적 JavaScript 코드의 직관과 더 잘 맞습니다.
+- 호출 순서에 민감하지 않으며 조건부 일 수 있습니다.
+- 각 렌더에서 반복적으로 호출되지 않으며 GC 압력이 적습니다.
+- 인라인 핸들러가 자식 컴포넌트를 과도하게 다시 렌더링하는 것을 막기 위해 `useCallback` 이 거의 항상 필요한 문제는 아닙니다.
+- 사용자가 올바른 의존성 배열을 전달하는 것을 잊어 버린 경우 `useEffect` 및 `useMemo` 가 오래된 변수를 캡처 할 수 있는 문제는 아닙니다. Vue의 자동 종속성 추적 기능은 감시자와 계산된 값이 항상 올바르게 무효화되도록 합니다.
+
+> We acknowledge the creativity of React Hooks, and it is a major source of inspiration for this proposal. However, the issues mentioned above do exist in its design and we noticed Vue's reactivity model happens to provide a way around them.
+
+우리는 React Hooks의 창의성을 인정하며, 이 제안의 주요 영감원입니다. 그러나 위에서 언급한 문제는 설계에 존재하며 Vue의 반응성 모델이 그 주위에 방법을 제공한다는 것을 알았습니다.
+
+### Svelte와 비교(Comparison with Svelte)
+
+> Although taking very different routes, the Composition API and Svelte 3's compiler-based approach actually shares quite a bit in common conceptually. Here's a side-by-side example:
+
+비록 매우 다른 노선을 선택했지만, Composition API와 Svelte 3의 컴파일러 기반 접근 방식은 실제로 개념적으로 상당히 공통적입니다. 단계별 예는 다음과 같습니다.
+
+#### Vue
+
+```html
+<script>
+import { ref, watchEffect, onMounted } from 'vue'
+
+export default {
+  setup() {
+    const count = ref(0)
+
+    function increment() {
+      count.value++
+    }
+
+    watchEffect(() => console.log(count.value))
+
+    onMounted(() => console.log('mounted!'))
+
+    return {
+      count,
+      increment
+    }
+  }
+}
+</script>
+```
+
+#### Svelte
+
+```html
+<script>
+import { onMount } from 'svelte'
+
+let count = 0
+
+function increment() {
+  count++
+}
+
+$: console.log(count)
+
+onMount(() => console.log('mounted!'))
+</script>
+```
+
+> Svelte code looks more concise because it does the following at compile time:
+
+Svelte 코드는 컴파일 타임에 다음을 수행하기 때문에 더 간결해 보입니다.
+
+> - Implicitly wraps the entire `<script>` block (except import statements) into a function that is called for each component instance (instead of being executed only once)
+> - Implicitly registers reactivity on variable mutations
+> - Implicitly exposes all in-scope variables to the render context
+> - Compiles `$` statements into re-executed code
+
+- 전체 `<script>` 블록 (import 문 제외)을 한번만 실행하는 대신 각 컴포넌트 인스턴스에 대해 호출되는 함수로 암시적으로 래핑합니다.
+- 가변 뮤테이션에 대한 반응성을 암시적으로 등록
+- 모든 범위 내 변수를 렌더 컨텍스트에 암시적으로 노출
+- `$` 문을 재실행된 코드로 컴파일
+
+> Technically, we can do the same in Vue (and it's possible via userland Babel plugins). The main reason we are not doing it is **alignment with standard JavaScript**. If you extract the code from the `<script>` block of a Vue file, we want it to work exactly the same as a standard ES module. The code inside a Svelte `<script>` block, on the other hand, is technically no longer standard JavaScript. There are a number of problems we see with this compiler-based approach:
+
+기술적으로 Vue에서 동일한 작업을 수행할 수 있습니다 (userland Babel 플러그인을 통해 가능). 우리가 하지 않는 주된 이유는 **표준 JavaScript에 대한 지지** 입니다. Vue 파일의 `<script>` 블록에서 코드를 추출하면 표준 ES 모듈과 동일하게 작동하기를 원합니다. 반면 Svelte `<script>` 블록 안의 코드는 기술적으로 더 이상 표준 JavaScript가 아닙니다. 이 컴파일러 기반 접근 방식에는 여러 가지 문제점이 있습니다.
+
+> 1. Code works differently with/without compilation. As a progressive framework, many Vue users may wish/need/have to use it without a build setup, so the compiled version cannot be the default. Svelte, on the other hand, positions itself as a compiler and can *only* be used with a build step. This is a trade-off both frameworks are making consciously.
+> 2. Code works differently inside/outside components. When trying to extract logic out of a Svelte component and into standard JavaScript files, we will lose the magical concise syntax and have to fall back to a [more verbose lower-level API](https://svelte.dev/docs#svelte_store).
+> 3. Svelte's reactivity compilation only works for top-level variables - it doesn't touch variables declared inside functions, so we [cannot encapsulate reactive state in a function declared inside a component](https://svelte.dev/repl/4b000d682c0548e79697ddffaeb757a3?version=3.6.2). This places non-trivial constraints on code organization with functions - which, as we have demonstrated in this RFC, is important for keeping large components maintainable.
+> 4. [Non-standard semantics makes it problematic to integrate with TypeScript](https://github.com/sveltejs/svelte/issues/1639).
+
+1. 코드는 컴파일과 함께 / 컴파일 없이 다르게 작동합니다. 프로그레시브 프레임워크로서, 많은 Vue 사용자는 빌드 설정없이 사용하기를 원하거나 필요로 할 수 있으므로 컴파일된 버전이 기본값이 될 수 없습니다. 반면 Svelte는 자신을 컴파일러로 지정하고 빌드 단계와 함께만 사용할 수 있습니다. 이것이 두 프레임워크가 의식적으로 만들도 있는 트레이드 오프입니다.
+2. 코드는 컴포넌트 내부 / 외부에서 다르게 작동합니다. Svelte 컴포넌트에서 표준 JavaScript 파일로 조식을 추출하려고 할 때, 우리는 마법의 간결한 구문을 읽고 [더 자세한 저수준 API](https://svelte.dev/docs#svelte_store) 로 돌아 가야합니다.
+3. Svelte의 반응형 컴파일은 최상위 변수에 대해서만 작동합니다. 함수 내에 선언된 변수를 건드리지 않으므로 [컴포넌트 내에 선언된 함수에서 반응 상태를 캡슐화 할 수 없습니다](https://svelte.dev/repl/4b000d682c0548e79697ddffaeb757a3?version=3.6.2). 이 기능은 코드 구성에 사소한 제약 조건을 부여합니다. 이 RFC에서 설명했듯이 큰 컴포넌트를 유지 관리하는 데 중요합니다.
+4. [비표준 문법은 TypeScript와의 통합에 문제가 있습니다](https://github.com/sveltejs/svelte/issues/1639).
+
+> This is in no way saying that Svelte 3 is bad idea - in fact, it's a very innovative approach and we highly respect Rich's work. But based on Vue's design constraints and goals, we have to make different trade-offs.
+
+이것은 Svelte 3가 나쁜 생각이라고 결코 말하지 않습니다. 사실 이것은 매우 혁신적인 접근 방식이며 Rich의 작업을 매우 존중합니다. 그러나 Vue의 설계 제약과 목표에 따라 다른 트레이드 오프를 만들어야 합니다.
