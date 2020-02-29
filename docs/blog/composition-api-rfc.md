@@ -59,11 +59,11 @@ export default {
 
 > 1. The code of complex components become harder to reason about as features grow over time. This happens particularly when developers are reading code they did not write themselves. The root cause is that Vue's existing API forces code organization by options, but in some cases it makes more sense to organize code by logical concerns.
 
-1. 복잡한 컴포넌트의 코드는 시간이 지남에 따라 기능이 증가함에 따라 추론하기 더 어려워집니다. 이것은 특히 개발자가 코드를 읽을 때 스스로 작성하지 않은 경우에 발생합니다. 근본 원인은 Vue의 기존 API가 옵션별로 코드 구성을 강요하지만 경우에 따라 논리적 문제로 코드를 구성하는 것이 더 합리적입니다.
+1. 복잡한 컴포넌트의 코드는 시간이 지남에 따라 기능이 증가함에 따라 추론하기 더 어려워집니다. 이것은 특히 개발자가 스스로 작성하지 않은 코드를 읽을 때 경우에 발생합니다. 근본 원인은 Vue의 기존 API가 옵션별로 코드 구성을 강요하지만 경우에 따라 논리적 문제로 코드를 구성하는 것이 더 합리적입니다.
 
 > 2. Lack of a clean and cost-free mechanism for extracting and reusing logic between multiple components. (More details in Logic Extraction and Reuse)
 
-2. 여러 컴포넌트간에 논리를 추출하고 재사용하기 위한 깨끗하고 비용이 들지 않는 메커니즘이 없습니다. ([논리 추출 및 재사용](#논리-추출-및-재사용logic-extraction-and-reuse)에 대한 자세한 내용)
+2. 여러 컴포넌트간에 논리를 추출하고 재사용하기 위한 깨끗하고 비용이 들지 않는 메커니즘이 없습니다. ([논리 추출 및 재사용](#논리-추출-및-재사용-logic-extraction-and-reuse)에 대한 자세한 내용)
 
 > The APIs proposed in this RFC provide the users with more flexibility when organizing component code. Instead of being forced to always organize code by options, code can now be organized as functions each dealing with a specific feature. The APIs also make it more straightforward to extract and reuse logic between components, or even outside components. We will show how these goals are achieved in the Detailed Design section.
 
