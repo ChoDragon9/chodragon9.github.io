@@ -72,6 +72,97 @@ export {
   watch
 } from '@vue/composition-api'
 ```
+## API Reference
+```html
+<template>
+  <div>
+    <div>{{ count }} {{ plusOne }}</div>
+    <div>{{ obj.foo }}</div>
+    <div>{{ firstName }} {{ lastName }}</div>
+    <div ref="templateRef"></div>
+    <a @click.prevent="increment">INCREMENT</a>
+    
+    <my-button></my-button>
+  </div>
+</template>
+
+<script>
+import {
+  defineComponent,
+  ref,
+  reactive,
+  computed,
+  toRefs,
+  watch,
+  onMounted,
+  onBeforeMount,
+  onBeforeUpdate,
+  onUpdated,
+  onBeforeUnmount,
+  onUnmounted
+} from '@vue/composition-api'
+import MyButton from './my-button.vue'
+
+export default defineComponent({
+  components: {
+    MyButton
+  },
+  props: {
+    name: String
+  },
+  setup(props, context) {
+    console.log('[LIFECYCLE] beforeCreate, created')
+    console.log(`name is: ${props.name}`)
+
+    const count = ref(0)
+    const plusOne = computed(() => count.value + 1)
+    const obj = reactive({ foo: 'bar ' })
+    const state = reactive({
+      firstName: 'Peter',
+      lastName: 'Cho'
+    })
+    const templateRef = ref(null)
+
+    const increment = () => {
+      count.value++
+      context.emit('on-change', count.value)
+    }
+
+    watch(() => {
+      console.log(`count is ${count.value}`)
+    })
+
+    onBeforeMount(() => {
+      console.log('[LIFECYCLE] beforeMount')
+    })
+    onMounted(() => {
+      console.log('[LIFECYCLE] mounted')
+    })
+    onBeforeUpdate(() => {
+      console.log('[LIFECYCLE] beforeUpdate')
+    })
+    onUpdated(() => {
+      console.log('[LIFECYCLE] updated')
+    })
+    onBeforeUnmount(() => {
+      console.log('[LIFECYCLE] beforeDestroy')
+    })
+    onUnmounted(() => {
+      console.log('[LIFECYCLE] destroyed')
+    })
+
+    return {
+      count,
+      plusOne,
+      obj,
+      ...toRefs(state),
+      templateRef,
+      increment
+    }
+  }
+})
+</script>
+```
 
 ## 마이그레이션
 ### Props
@@ -216,3 +307,6 @@ export default defineComponent({
 
 #### state 이름 충돌
 `reactive`로 정의한 반응형 상태와 `useStore`를 통해 사용하는 스토어 상태의 명을 `state`로 사용하고 있다. `setup()` 내부에 사용할 경우 충돌이 되기 때문에 이름 변경이 필요하다.
+
+### Nuxt
+- `fetch` 라이프 사이클이 없음
