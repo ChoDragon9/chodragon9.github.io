@@ -5,8 +5,9 @@ date:   2018-12-09
 description: GoF 디자인 패턴 중 생성패턴을 정리합니다.
 tags: [pattern]
 category: 패턴
+sidebar: auto
 ---
-### 싱글턴(Singleton)
+## 싱글턴(Singleton)
 오직 한 개의 클래스 인스턴스만을 갖도록 보장하고, 이에 대한 전역적인 접근점을 제공합니다.
 
 * 클래스의 인스턴스가 오직 하나여야 함을 보장하고, 잘 정의된 접근점으로 모든 사용자가 접근 할 수 있도록 해야 할 때
@@ -37,7 +38,7 @@ const instance2 = Singleton.getInstance()
 console.log(instance1 === instance2) // true
 ```
 
-### 팩토리 메서드
+## 팩토리 메서드
 객체를 생성하기 위해 인터페이스를 정의하지만, 어떤 클래스의 인스턴스를 생성할지에 대한 결정은 서브클래스가 내리도록 합니다.
 
 (MVC에서 View가 Controller의 인스턴스 생성할 때와 동일함)
@@ -99,7 +100,7 @@ employees.push(Employee.create(Employee.TEMPORARY))
 employees.forEach(employee => console.log(employee.hourly))
 ```
 
-### 추상 팩토리
+## 추상 팩토리
 구체적인 클래스를 지정하지 않고 관련성을 갖는 객체들의 집합을 생성하거나 서로 독립적인 객체들의 집합을 생성할 수 있는 인터페이스를 제공하는 패턴
 
 ![](../img/design-pattern/38173856-7c2b4c92-35ff-11e8-813b-fc18ba9f0755.jpg)
@@ -136,7 +137,7 @@ persons.push(employeeFactory.create("Tim O'Neill"));
 persons.forEach(person=>person.say())
 ```
 
-### 원형(Prototype)
+## 원형(Prototype)
 
 원형이 되는 인스턴스를 사용하여 생성할 객체의 종류를 명시하고, 이렇게 만든 견본을 복사해서 새로운 객체를 생성합니다.
 
@@ -183,7 +184,7 @@ customer.say()
 proto.say()
 ```
 
-### 빌더(builder)
+## 빌더(builder)
 복잡한 객체를 생성하는 방법과 표현하는 방법을 정의하는 클래스를 별도로 분리하여, 서로 다른 표현이라도 이를 생성할 수 있는 동일한 절차를 제공할 수 있도록 합니다.
 
 ![](../img/design-pattern/38411406-ff14c730-39c1-11e8-9af9-c7d101717d88.jpg)

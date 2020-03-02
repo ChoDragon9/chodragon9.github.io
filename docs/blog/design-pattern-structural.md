@@ -5,9 +5,10 @@ date:   2018-12-09
 description: GoF 디자인 패턴 중 구조패턴을 정리합니다.
 tags: [pattern]
 category: 패턴
+sidebar: auto
 ---
 
-### 프록시(Proxy)
+## 프록시(Proxy)
 다른 객체에 대한 접근을 제어하기 위한 대리자(Surrogate) 또는 자리채움자 역할을 하는 객체를 둡니다.
 
 ![](../img/design-pattern/38173748-42e1e622-35fe-11e8-926e-86b5e7511c40.jpg)
@@ -81,7 +82,7 @@ geo.getLatLng("London");
 console.log("Cache size: " + geo.getCount());
 ```
   
-### 퍼사드(Facade)
+## 퍼사드(Facade)
 한 서브시스템 내의 인터페이스 집합에 대한 획일화된 하나의 인터페이스를 제공하는 패턴으로, 서브시스템을 사용하기 쉽도록 상위 수준의 인터페이스를 정의합니다.
 
 ![](../img/design-pattern/38358497-5a135164-3900-11e8-9b3e-78a23772642d.jpg)
@@ -147,7 +148,7 @@ const result = mortgage.applyFor("$100,000")
 console.log(result)
 ```
 
-### 장식자(Decorator)
+## 장식자(Decorator)
 객체에 동적으로 새로운 책임을 추가할 수 있게 합니다. 기능을 추가하려면, 서브클래스를 생성하는 것보다 융통성 있는 방법을 제공합니다.(Wrapper)
 
 ![](../img/design-pattern/38482088-ccf5a1ea-3c08-11e8-9f13-9f9406b58480.jpg)
@@ -187,7 +188,7 @@ const decorated = new DecoratedUser(user, "Broadway", "New York")
 decorated.say()
 ```
 
-### 복합체(Composite)
+## 복합체(Composite)
 부분과 전체의 계층을 표현하기 위해 객체들을 모아 트리 구조로 구성합니다. 사용자로 하여금 개별 객체와 복합 객체를 모두 동일하게 다룰 수 있도록 하는 패턴입니다.
 기본 클래스와 이들의 컨테이너를 모두 표현할 수 있는 하나의 추상화 클래스를 정의하는 것입니다.
 
@@ -259,7 +260,7 @@ right.add(rightright)
 traverse(0, tree)
 ```
 
-### 가교(Bridge)
+## 가교(Bridge)
 구현에서 추상을 분리하여, 이들이 독립적으로 다양성을 가질 수 있도록 합니다.(Handle/Body)
 
 ![](../img/design-pattern/38486883-4a89f43e-3c19-11e8-9025-ec560062fe4e.jpg)
@@ -324,7 +325,7 @@ mouse.wheel()
 mouse.down()
 ```
 
-### 적응자(Adapter)
+## 적응자(Adapter)
 클래스의 인터페이스를 사용자가 기대하는 인터페이스 형태로 적응시킵니다. 서로 일치하지 않는 인터페이스를 갖는 클래스들을 함께 동작시킵니다.(Wrapper)
 
 ![](../img/design-pattern/38487095-067ecd04-3c1a-11e8-8049-bc8b8fe88fe9.jpg)
@@ -381,7 +382,7 @@ const newCost = adapter.request('78701', '10010', '2 lbs')
 console.log(`New cost: ${newCost}`)
 ```
 
-### 플라이웨이트(Flyweight)
+## 플라이웨이트(Flyweight)
 많은 수의 객체를 효율적으로 제공하기 위해 공유개념을 이용한다.
 
 ![](../img/design-pattern/38487672-f008340a-3c1b-11e8-90ce-76d11056dae6.jpg)
