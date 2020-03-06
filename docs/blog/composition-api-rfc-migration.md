@@ -189,6 +189,21 @@ export default defineComponent({
 })
 ```
 
+#### Props의 any 타입 정의
+TypeScript로 props 타입 정의 시, `any` 또는 `unknown`이 필요할 때가 있다. 이때 props의 런타임의 타입은 `null`로 작성해야 한다.
+Vue 가이드에서는 `undefined`와 `null`로 처리 가능한 것으로 가이드한다. 하지만 TypeScript로 정의된 Declaration 파일에서는 `null`만 허용한다.
+
+```ts
+interface CommonSelectOption {
+  value: unknown;
+}
+
+export default defineComponent({
+  props: {
+    value: null,
+  },
+```
+
 ### State
 `ref`를 사용하면 값을 접근할 때 `.value`를 사용해야 한다. 권고 사항데로 `reactive`로 상태를 정의하고, `toRefs`를 통해 반환하는 게 간편하다.
 
@@ -308,5 +323,66 @@ export default defineComponent({
 #### state 이름 충돌
 `reactive`로 정의한 반응형 상태와 `useStore`를 통해 사용하는 스토어 상태의 명을 `state`로 사용하고 있다. `setup()` 내부에 사용할 경우 충돌이 되기 때문에 이름 변경이 필요하다.
 
+`store`를 네임스페이스로 가지는 것두 방법일듯하다.
+```ts
+setup(props, context) {
+  const store = useStore(context)
+}
+```
+
+#### state 접근
+모듈 형태인 state는 사용 시 깊은 접근이 필요하다. `computed`를 사용하면 기존 옵션 API 처럼 사용가능하다.
+
+```ts
+setup(props, context) {
+  const store = useStore(context)
+  const state = reactive({
+    auth: computed(() => store.state.authModule.auth)
+  })
+}
+```
+
 ### Nuxt
 - `fetch` 라이프 사이클이 없음
+- `middleware`로 사용할 것을 권고함
+  - https://github.com/nuxt/nuxt.js/issues/6517#issuecomment-564035362
+
+### Type
+#### `reactive` 필드의 필드 타입 문제
+> [#261](https://github.com/vuejs/composition-api/pull/261), [#614](https://github.com/vuejs/vue-next/pull/614) 버전 업그레이드 후 반영될 것으로 보임
+
+reactive의 필드로 지정된 타입이 객체일 때, 필드의 내부에 필드가 존재하게 된다.
+작성 의도는 해당 필드의 타입이지만 현재 타입 추론으론 `UnwrapRef`이 되버린다.
+
+```ts
+enum Axis {
+  One = 1,
+  Two = 2
+}
+interface MyInterfaceInInterface {
+  x: Axis // number or 1 | 2는 동작함
+  y: Axis
+}
+
+interface MyInterface {
+  field: MyInterfaceInInterface
+}
+
+export default defineComponent({
+  setup() {
+    const myState = reactive<MyInterface>({
+      field: {
+        x: 1,
+        y: 2
+      }
+    })
+    const add = (x: number, y: number) => x + y
+    add(myState.field.x, myState.field.y)
+    // Type Error 
+  }
+})
+```
+```
+Argument type UnwrapRef3 is not assignable to parameter type number
+Type UnwrapRef3 is not assignable to type number
+```
