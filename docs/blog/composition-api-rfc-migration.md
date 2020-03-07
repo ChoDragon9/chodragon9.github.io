@@ -205,6 +205,7 @@ export default defineComponent({
 ```
 
 ### State
+#### `ref`와 `reactive`
 `ref`를 사용하면 값을 접근할 때 `.value`를 사용해야 한다. 권고 사항데로 `reactive`로 상태를 정의하고, `toRefs`를 통해 반환하는 게 간편하다.
 
 ##### AS IS
@@ -268,6 +269,19 @@ setup(props, context) {
     onBlur
   }
 }
+```
+
+#### 타입 정의
+`reactive`의 타입 정의는 제네릭을 사용하는 게 깔끔하다고 느꼈다.
+```ts
+interface Pagination {
+  currentPage: number
+  totalPage: number
+}
+const state = reactive<Pagination>({
+  currentPage: 1,
+  totalPage: 0
+})
 ```
 
 ### Vuex
@@ -343,9 +357,41 @@ setup(props, context) {
 ```
 
 ### Nuxt
-- `fetch` 라이프 사이클이 없음
-- `middleware`로 사용할 것을 권고함
-  - https://github.com/nuxt/nuxt.js/issues/6517#issuecomment-564035362
+#### composition api에서 `fetch` 관련 라이프 사이클이 없음
+- `middleware`로 사용할 것을 권장함
+- https://github.com/nuxt/nuxt.js/issues/6517#issuecomment-564035362
+
+#### `fetch`, `layout`, `middleware` 타입 미지원
+- `defineComponent` 함수에 `fetch`, `layout`, `middleware` 미지원
+- 타입 확장을 통해 해결
+  - https://github.com/vuejs/composition-api/issues/63#issuecomment-523429896
+
+##### pages/index.ts
+- `fetch`는 항상 `Promise<void>` 타입으로 반환해야 함
+```ts
+export default defineComponent({
+  fetch(context): Promise<void> {
+  }
+})
+```
+
+##### types/vue-shim.d.ts
+```ts
+import Vue from 'vue'
+import { Context, Middleware } from '@nuxt/types'
+
+declare module '*.vue' {
+  export default Vue
+}
+
+declare module 'vue/types/options' {
+  interface ComponentOptions<V extends Vue> {
+    fetch?(ctx: Context): Promise<void> | void
+    layout?: string | ((ctx: Context) => string)
+    middleware?: Middleware | Middleware[]
+  }
+}
+```
 
 ### Type
 #### `reactive` 필드의 필드 타입 문제
