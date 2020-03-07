@@ -358,13 +358,11 @@ setup(props, context) {
 
 ### Nuxt
 #### composition api에서 `fetch` 관련 라이프 사이클이 없음
-- `middleware`로 사용할 것을 권장함
-- https://github.com/nuxt/nuxt.js/issues/6517#issuecomment-564035362
+- `middleware`로 사용할 것을 [권장](https://github.com/nuxt/nuxt.js/issues/6517#issuecomment-564035362)함
 
 #### `fetch`, `layout`, `middleware` 타입 미지원
 - `defineComponent` 함수에 `fetch`, `layout`, `middleware` 미지원
-- 타입 확장을 통해 해결
-  - https://github.com/vuejs/composition-api/issues/63#issuecomment-523429896
+- 타입 확장으로 해결할 것은 [권장](https://github.com/vuejs/composition-api/issues/63#issuecomment-523429896)함
 
 ##### pages/index.ts
 - `fetch`는 항상 `Promise<void>` 타입으로 반환해야 함
