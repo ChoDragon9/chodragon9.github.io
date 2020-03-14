@@ -285,6 +285,7 @@ const state = reactive<Pagination>({
 ```
 
 ### Vuex
+#### useStore
 Options API와 Class-based API에서는 `this` 컨텍스트가 있기 때문에 `this.$store`를 사용하여 Vuex를 사용한다. Composition API는 `this` 컨텍스트가 없기 때문에 `setup()` 함수에 두번째 인자로 전달되는 `context.root.$store`를 사용하여 Vuex를 사용해야 한다.
 
 `useXXX` 형태로 사용하면 다른 코드들과 잘 어울릴거라 생각한다.
@@ -356,7 +357,64 @@ setup(props, context) {
 }
 ```
 
+#### useActions
+사용측에서 모듈명과 액션명은 이벤트 기반이기 때문에 런타임에서만 정상동작을 확인할 수 있다. `useActions`는 컴파일타임에 모듈명과 액션명이 정상적으로 사용했는 지 확인하기 위해 만들어졌다. 
+
+`ModuleActions`에 key는 모듈명, value는 액션명으로 타입을 정의했다. 모듈명은 모듈 파일명을 동일하게 하드코딩해야 한다. 액션명은 `keyof typeof T` 형태로 타입이 정의되기 때문에 액션이 추가되면 자동으로 반영된다.
+
+모듈명을 먼저 타입 체크한 뒤, 해당 모듈의 액션명을 타입 체크한다. 하나라도 정의된 명을 사용하지 않으면 컴파일 타입 에러가 발생한다.
+```ts
+import { SetupContext } from '@vue/composition-api'
+import { actions } from '~/store/auth'
+import notice from '~/store/notice'
+
+interface ModuleActions {
+  auth: keyof typeof actions
+  notice: keyof typeof notice.actions
+}
+
+type ActionHandle<Keys extends string> = {
+  [key in Keys]: (payload: any) => Promise<any>
+}
+
+const toUseActions = (dispatch) => {
+  return function useActions<T extends keyof ModuleActions>(
+    moduleName: T,
+    actions: ModuleActions[T][]
+  ): ActionHandle<ModuleActions[T]> {
+    return Object.assign(
+      {},
+      ...actions.map((action) => {
+        return {
+          [action]: (payload) => dispatch(`${moduleName}/${action}`, payload)
+        }
+      })
+    )
+  }
+}
+
+export const useStore = ({
+  root: {
+    $store: { state, getters, commit, dispatch }
+  }
+}: SetupContext) => {
+  const useActions = toUseActions(dispatch)
+  return { state, getters, commit, dispatch, useActions }
+}
+```
+
+사용측은 `mapActions`와 유사한 형태로 사용한다. 첫번째 인자는 모듈명, 두번째 인자는 액션명을 배열로 사용한다. 반환값은 객체로 반환되기 때문에 해체 후 사용할 수 있다.
+```ts
+const { state, useActions } = useStore(context)
+const { fetchCheckLogin, fetchLogout } = useActions('auth', [
+  'fetchCheckLogin',
+  'fetchLogout'
+])
+```
+
 ### Nuxt
+> [v2.12.0](https://github.com/nuxt/nuxt.js/pull/6999)부터는 새로운 `fetch` 인터페이스가 적용된다. `fetch(context){}` 형태였다면 `fetch(){}` 형태로 바뀐다. `middleware`를 사용할 것을 권장하며, `this`를 사용하도록 바뀐다.
+
 #### composition api에서 `fetch` 관련 라이프 사이클이 없음
 - `middleware`로 사용할 것을 [권장](https://github.com/nuxt/nuxt.js/issues/6517#issuecomment-564035362)함
 
