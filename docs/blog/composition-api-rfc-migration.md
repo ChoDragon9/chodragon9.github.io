@@ -357,14 +357,16 @@ setup(props, context) {
 }
 ```
 
-#### useActions
-사용측에서 모듈명과 액션명은 이벤트 기반이기 때문에 런타임에서만 정상동작을 확인할 수 있다. `useActions`는 컴파일타임에 모듈명과 액션명이 정상적으로 사용했는 지 확인하기 위해 만들어졌다. 
+#### useAction
+사용측에서 모듈명과 액션명은 이벤트 기반이기 때문에 런타임에서만 정상동작을 확인할 수 있다. `useAction`는 컴파일타임에 모듈명과 액션명이 정상적으로 사용했는 지 확인하기 위해 만들어졌다. 
 
 `ModuleActions`에 key는 모듈명, value는 액션명으로 타입을 정의했다. 모듈명은 모듈 파일명을 동일하게 하드코딩해야 한다. 액션명은 `keyof typeof T` 형태로 타입이 정의되기 때문에 액션이 추가되면 자동으로 반영된다.
 
 모듈명을 먼저 타입 체크한 뒤, 해당 모듈의 액션명을 타입 체크한다. 하나라도 정의된 명을 사용하지 않으면 컴파일 타입 에러가 발생한다.
+
+##### /use/useStoreAction.ts
 ```ts
-import { SetupContext } from '@vue/composition-api'
+import { Dispatch } from 'vuex'
 import { actions } from '~/store/auth'
 import notice from '~/store/notice'
 
@@ -374,11 +376,11 @@ interface ModuleActions {
 }
 
 type ActionHandle<Keys extends string> = {
-  [key in Keys]: (payload: any) => Promise<any>
+  [key in Keys]: (payload?: any) => Promise<any>
 }
 
-const toUseActions = (dispatch) => {
-  return function useActions<T extends keyof ModuleActions>(
+export const useStoreAction = (dispatch: Dispatch) => {
+  function useAction<T extends keyof ModuleActions>(
     moduleName: T,
     actions: ModuleActions[T][]
   ): ActionHandle<ModuleActions[T]> {
@@ -391,25 +393,61 @@ const toUseActions = (dispatch) => {
       })
     )
   }
-}
 
-export const useStore = ({
-  root: {
-    $store: { state, getters, commit, dispatch }
-  }
-}: SetupContext) => {
-  const useActions = toUseActions(dispatch)
-  return { state, getters, commit, dispatch, useActions }
+  return { useAction }
 }
 ```
 
-사용측은 `mapActions`와 유사한 형태로 사용한다. 첫번째 인자는 모듈명, 두번째 인자는 액션명을 배열로 사용한다. 반환값은 객체로 반환되기 때문에 해체 후 사용할 수 있다.
+사용측은 [mapActions](https://vuex.vuejs.org/guide/actions.html#dispatching-actions-in-components)와 유사한 형태로 사용한다. 첫번째 인자는 모듈명, 두번째 인자는 액션명을 배열로 사용한다. 반환값은 객체로 반환되기 때문에 해체 후 사용할 수 있다.
 ```ts
-const { state, useActions } = useStore(context)
-const { fetchCheckLogin, fetchLogout } = useActions('auth', [
+const { state, dispatch } = useStore(context)
+const { useAction } = useStoreAction(dispatch)
+const { fetchCheckLogin, fetchLogout } = useAction('auth', [
   'fetchCheckLogin',
   'fetchLogout'
 ])
+```
+
+#### useGetter
+[useAction](#useAction)과 동일한 이유로 만들어진 Getter를 사용하기 위한 함수이다.
+
+##### /use/useStoreGetter.ts
+```ts
+import { getters } from '~/store/auth'
+
+interface ModuleGetters {
+  auth: keyof typeof getters
+}
+
+type Getters<Keys extends string> = {
+  [key in Keys]: () => any
+}
+
+export const useStoreGetter = (getters: object) => {
+  function useGetter<T extends keyof ModuleGetters>(
+    moduleName: T,
+    moduleGetters: ModuleGetters[T][]
+  ): Getters<ModuleGetters[T]> {
+    return Object.assign(
+      {},
+      ...moduleGetters.map((name) => {
+        return {
+          [name]: (): any => getters[`${moduleName}/${name}`]
+        }
+      })
+    )
+  }
+
+  return { useGetter }
+}
+```
+
+getter는 인자를 받지 않는 함수로 만들어진다.
+```ts
+const { isLogin } = useGetter('auth', ['isLogin'])
+const toAuthTitle = (): string => {
+  return isLogin() ? '로그아웃' : '로그인'
+}
 ```
 
 ### Nuxt
