@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "produce 구현해보기 - 불변성편"
+title:  "immer 구현해보기 - 불변성편"
 date:   2019-12-02
 description: 불변 자료 구조로 produce 인터페이스 구현한 내용이다. 
 tags: [FP]

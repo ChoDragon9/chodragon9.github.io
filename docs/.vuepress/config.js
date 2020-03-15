@@ -29,7 +29,7 @@ module.exports = {
           {
             text: '리팩토링',
             items: [
-              {text: '[리펙토링] 구조 리펙토링 정리', link: '/blog/structure-refactoring/'},
+              {text: '구조 리펙토링 정리', link: '/blog/structure-refactoring/'},
               {text: '레거시 코드에서 이해하기 쉬운코드로 리팩토링', link: '/blog/legacy-code-to-easy-code/'},
               {text: '레거시 코드에서 이해하기 쉬운코드로 리팩토링 2', link: '/blog/legacy-code-to-easy-code-2/'},
               {text: '리펙토링 정의와 결과', link: '/blog/refactoring-meaning-and-result/'},
@@ -44,7 +44,7 @@ module.exports = {
             text: '객체지향',
             items: [
               {text: '객체 정리', link: '/blog/object/'},
-              {text: 'produce 구현해보기 - OOP 버전', link: '/blog/produce-oop/'}
+              {text: 'immer 구현해보기 - OOP 버전', link: '/blog/produce-oop/'}
             ]
           },
           {
@@ -52,8 +52,8 @@ module.exports = {
             items: [
               {text: '함수형 프로그래밍 정리', link: '/blog/functional/'},
               {text: '함수형 프로그래밍 정리2', link: '/blog/functional2/'},
-              {text: 'produce 구현해보기', link: '/blog/produce/'},
-              {text: 'produce 구현해보기 - 불변성편', link: '/blog/produce-immutable/'},
+              {text: 'immer 구현해보기', link: '/blog/produce/'},
+              {text: 'immer 구현해보기 - 불변성편', link: '/blog/produce-immutable/'},
             ]
           },
         ]
@@ -70,7 +70,7 @@ module.exports = {
           {
             text: 'Javascript',
             items: [
-              {text: '[ECMAScript] ES6 Overview', link: '/blog/es6/'},
+              {text: 'ES6 Overview', link: '/blog/es6/'},
               {text: 'this, this is magic.', link: '/blog/this/'},
               {text: 'Promise 정리', link: '/blog/promise/'},
               {text: 'async await 정리', link: '/blog/async-await-case/'},
@@ -98,10 +98,10 @@ module.exports = {
           {
             text: 'Vue Composition API',
             items: [
-              {text: 'Composition API RFC 릴리즈 노트 정리', link: '/blog/composition-api-rfc-release-notes/'},
-              {text: 'Composition API RFC 요약 및 자료 정리', link: '/blog/composition-api-rfc-summary/'},
-              {text: 'Composition API RFC 번역', link: '/blog/composition-api-rfc/'},
-              {text: 'Composition API RFC Migration', link: '/blog/composition-api-rfc-migration/'},
+              {text: 'RFC 번역', link: '/blog/composition-api-rfc/'},
+              {text: 'RFC 요약 및 자료 정리', link: '/blog/composition-api-rfc-summary/'},
+              {text: 'RFC 릴리즈 노트 정리', link: '/blog/composition-api-rfc-release-notes/'},
+              {text: 'Composition API 경험 정리', link: '/blog/composition-api-rfc-migration/'},
             ]
           },
           {
