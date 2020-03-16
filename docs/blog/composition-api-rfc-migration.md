@@ -400,7 +400,7 @@ export const useStoreAction = (dispatch: Dispatch) => {
 
 사용측은 [mapActions](https://vuex.vuejs.org/guide/actions.html#dispatching-actions-in-components)와 유사한 형태로 사용한다. 첫번째 인자는 모듈명, 두번째 인자는 액션명을 배열로 사용한다. 반환값은 객체로 반환되기 때문에 해체 후 사용할 수 있다.
 ```ts
-const { state, dispatch } = useStore(context)
+const { dispatch } = useStore(context)
 const { useAction } = useStoreAction(dispatch)
 const { fetchCheckLogin, fetchLogout } = useAction('auth', [
   'fetchCheckLogin',
@@ -444,9 +444,40 @@ export const useStoreGetter = (getters: object) => {
 
 getter는 인자를 받지 않는 함수로 만들어진다.
 ```ts
+const { getters } = useStore(context)
+const { useGetter } = useStoreGetter(getters)
 const { isLogin } = useGetter('auth', ['isLogin'])
 const toAuthTitle = (): string => {
   return isLogin() ? '로그아웃' : '로그인'
+}
+```
+
+#### useAction, useGetter 이점
+##### 타입 추론
+Store 모듈에 정의된 액션과 게터를 타입 추론할 수 있다.
+
+##### IDE 지원
+기존에 Vuex를 사용하면 누리지 못했던, 정의부를 찾아주는 기능(Navigate to declaration)과 이름변경 기능(Rename 또는 Refactor)을 사용할 수 있다.
+
+##### 재사용성 향상
+두 함수는 `setup()` 함수 두번째 인자로 전달되는 Context에 의존하지 않는 다. `useStoreAction`는 `Dispatch`에 의존하고, `useStoreGetter`는 `object` 타입에 의존한다. 즉, Middleware에서도 재사용 가능하다는 의미이다.
+
+```ts
+import { useStoreGetter } from '~/use/useStoreGetter'
+import { useStoreAction } from '~/use/useStoreAction'
+
+export default ({ store: { dispatch, getters } }) => {
+  const { useAction } = useStoreAction(dispatch)
+  const { useGetter } = useStoreGetter(getters)
+  const { fetchCheckLogin, fetchLogout } = useAction('auth', [
+    'fetchCheckLogin',
+    'fetchLogout'
+  ])
+  const { isLogin } = useGetter('auth', ['isLogin'])
+
+  return Promise.all([fetchCheckLogin(), fetchLogout()]).then(() =>
+    console.log(isLogin())
+  )
 }
 ```
 
