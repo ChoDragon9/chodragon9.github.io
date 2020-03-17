@@ -481,6 +481,40 @@ export default ({ store: { dispatch, getters } }) => {
 }
 ```
 
+#### useStorePlugin
+> ActionTree를 사용하지 않고 Plugin을 사용한 케이스
+
+Store에 ActionTree 타입을 사용하면 useAction은 의도한데로 동작하지 않는다. 그 이유는 ActionTree의 타입에 영향이다. `[key: string]`의 영향인데, Action명을 항상 string 타입으로만 추론하기 때문이다.
+
+###### /vuex/types/index.d.ts
+```ts
+export interface ActionTree<S, R> {
+  [key: string]: Action<S, R>;
+}
+```
+
+만약에 ActionTree를 사용하지 않으면 Store내에서 `this`를 통해 플러그인을 접근할 수 없다. 그래서 고안해낸 방법이 useStorePlugin이다. useStorePlugin을 통해 this로 접근하던 플러그인을 접근할 수 있다.
+
+##### /use/useStorePlugin.ts
+```ts
+import { Store } from 'vuex'
+
+export const useStorePlugin = (store: any) => {
+  const { $axios } = store as Store<any>
+  return { $axios }
+}
+```
+
+##### /store/auth.ts
+```ts
+export const actions = {
+  fetchCheckLogin(context): Promise<void> {
+    const { $axios } = useStorePlugin(this)
+    return $axios.$get('/check_login')
+  },
+}
+```
+
 ### Nuxt
 > [v2.12.0](https://github.com/nuxt/nuxt.js/pull/6999)부터는 새로운 `fetch` 인터페이스가 적용된다. `fetch(context){}` 형태였다면 `fetch(){}` 형태로 바뀐다. `middleware`를 사용할 것을 권장하며, `this`를 사용하도록 바뀐다.
 
