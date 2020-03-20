@@ -105,18 +105,19 @@ module.exports = {
             ]
           },
           {
+            text: 'Vue',
+            items: [
+              {text: 'Vue ESLint 설정', link: '/blog/vue-eslint/'},
+              {text: 'Nuxt v2.11 기반 nuxt/typescript 환경 세팅', link: '/blog/nuxt-2-11-typescript/'},
+              {text: 'Nuxt v2.0에서 TypeScript로 개발하기', link: '/blog/nuxt-ts/'},
+              {text: 'Nuxt v2.0에서 v2.11로 마이그레이션', link: '/blog/nuxt-migration/'},
+            ]
+          },
+          {
             text: 'Angular',
             items: [
               {text: 'RxJs 코드리뷰 사례', link: '/blog/rxjs-codereview/'},
               {text: 'Angular의 강력함과 아쉬운점', link: '/blog/angular/'}
-            ]
-          },
-          {
-            text: 'Vue',
-            items: [
-              {text: 'Nuxt v2.11 기반 nuxt/typescript 환경 세팅', link: '/blog/nuxt-2-11-typescript/'},
-              {text: 'Nuxt v2.0에서 TypeScript로 개발하기', link: '/blog/nuxt-ts/'},
-              {text: 'Nuxt v2.0에서 v2.11로 마이그레이션', link: '/blog/nuxt-migration/'},
             ]
           },
           {
