@@ -284,6 +284,9 @@ const state = reactive<Pagination>({
 })
 ```
 
+### TemplateRef
+`<template>`내에서 `<div ref="box">`와 같이 TemplateRef를 사용할 때는 항상 `ref`로 정의한 상태를 사용해야 한다. `reactive`로 정의한 상태는 정상적으로 참조가 되지 않는다.
+
 ### Vuex
 #### useStore
 Options API와 Class-based API에서는 `this` 컨텍스트가 있기 때문에 `this.$store`를 사용하여 Vuex를 사용한다. Composition API는 `this` 컨텍스트가 없기 때문에 `setup()` 함수에 두번째 인자로 전달되는 `context.root.$store`를 사용하여 Vuex를 사용해야 한다.
@@ -590,4 +593,60 @@ export default defineComponent({
 ```
 Argument type UnwrapRef3 is not assignable to parameter type number
 Type UnwrapRef3 is not assignable to type number
+```
+
+#### reactive 타입
+`reactive`에 선언하는 타입은 의도한데로 동작되지 않는 케이스가 있다. 예를 들면 셀렉트 박스에서 아이템을 선택하고, BackEnd API로 요청하는 사례이다.
+
+##### /types/my-component.ts
+```ts
+interface Options {
+  id: number
+  value: string
+}
+interface State {
+  options: Options[]
+  selected: Options | null
+}
+interface RequestBody {
+  selectedId: number
+}
+```
+
+##### /components/my-component.ts
+```ts
+const state = reactive<State>({
+  options: [],
+  selected: null
+})
+
+const changeSelectedOption = (option) => {
+  state.selected = option
+}
+
+const onSave = () => {
+  if (state.selected === null) {
+    return
+  }
+  const body: RequestBody = {
+    selectedId: state.selected.id
+  }
+}
+```
+보기에는 정상적인 코드로 보이지만 `state.selected.id`에서 `TS2339: Property 'id' does not exist on type 'string'.` 에러가 발생한다.
+
+의도한데로 동작되게 하려면 `as` 문법으로 해결할 수 있다.
+
+```ts
+// Not Cool
+const state = reactive<State>({
+  options: [],
+  selected: null
+})
+
+// Cool
+const state = reactive({
+  options: [],
+  selected: null
+}) as State
 ```
