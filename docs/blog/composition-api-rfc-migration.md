@@ -518,6 +518,48 @@ export const actions = {
 }
 ```
 
+#### useStoreAction, useStoreGetter 간소화
+개발이 진행되면서 코드베이스가 증가하게 되었다. 기존에 사용중이던 코드를 동작은 동일하되 간소화하는 방안이 필요했다. 우선 useStoreAction 사용부분을 개선할 필요가 있다고 느꼈다. useStoreAction 사용부를 보면 무언가 많이 작성해줘야 하는 게 너무 많다. 사용부에는 1) 사용할 모듈 2) 사용할 함수 3) 사용할 함수 해체의 코드가 기술된다. useStoreAction의 목적은 타입 추론을 통한 선언부 추적이 크다. 즉, 타입 추론이 되는 목적을 그대로 두고 개선이 필요하다.
+
+개선한 방향은 단순히 1) 사용할 모듈만 기술하는 것이다.
+
+```diff
+- const { fetchCheckLogin, fetchLogout } = useAction('auth', [
+-   'fetchCheckLogin',
+-   'fetchLogout'
+- ])
++ const authActions = useAction('auth')
+```
+
+##### /use/useStoreAction.ts
+useStoreAction는 모듈명을 인자로 받고 액션을 모두 반환한다. 변경된 부분은 다음과 같다.
+
+```ts {1-4,9,11,14}
+const actionMap = new Map([
+  ['auth', Object.keys(actions)],
+  ['notice', Object.keys(notice.actions)]
+]);
+
+export const useStoreAction = (dispatch: Dispatch) => {
+  function useAction<T extends keyof ModuleActions>(
+    moduleName: T,
+    actions?: ModuleActions[T][]
+  ): ActionHandle<ModuleActions[T]> {
+    const keys = actions || actionMap.get(moduleName) || [];
+    return Object.assign(
+      {},
+      ...keys.map((action) => {
+        return {
+          [action]: (payload) => dispatch(`${moduleName}/${action}`, payload)
+        }
+      })
+    )
+  }
+
+  return { useAction }
+};
+```
+
 ### Nuxt
 > [v2.12.0](https://github.com/nuxt/nuxt.js/pull/6999)부터는 새로운 `fetch` 인터페이스가 적용된다. `fetch(context){}` 형태였다면 `fetch(){}` 형태로 바뀐다. `middleware`를 사용할 것을 권장하며, `this`를 사용하도록 바뀐다.
 
