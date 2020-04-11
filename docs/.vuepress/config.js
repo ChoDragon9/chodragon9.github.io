@@ -35,6 +35,12 @@ module.exports = {
               {text: '리펙토링 정의와 결과', link: '/blog/refactoring-meaning-and-result/'},
             ]
           },
+          {
+            text: '기타',
+            items: [
+              {text: '설계 방법론', link: '/blog/design-methodology/'},
+            ]
+          },
         ]
       },
       {
