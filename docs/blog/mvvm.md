@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "MVVM"
+title:  "MVVM 정리"
 date:   2019-07-27
 description: MVVM 정리
 tags: [pattern]

@@ -16,10 +16,20 @@ module.exports = {
             ]
           },
           {
-            text: '패턴',
+            text: 'Model-View 패턴',
             items: [
-              {text: 'MVC', link: '/blog/mvc/'},
-              {text: 'MVVM', link: '/blog/mvvm/'},
+              {text: 'MVC 용어정의 1979/12/10', link: '/blog/mvc-word-1979-12-10/'},
+              {text: 'MVC Its Past and Present', link: '/blog/mvc-its-past-and-present/'},
+              {text: 'MVC XEROX PARC', link: '/blog/mvc-xerox-parc/'},
+              {text: 'MVP The Taligent Programming Model', link: '/blog/mvp-the-taligent-programming-model/'},
+              {text: 'Introduction to MVVM for WPF', link: '/blog/introduction-to-mvvm-for-wpf/'},
+              {text: 'MVC 정리', link: '/blog/mvc/'},
+              {text: 'MVVM 정리', link: '/blog/mvvm/'},
+            ]
+          },
+          {
+            text: '디자인 패턴',
+            items: [
               {text: 'GoF 디자인 패턴 정리', link: '/blog/gof-design-pattern-summary/'},
               {text: 'GoF 디자인 패턴 | 구조패턴', link: '/blog/design-pattern-structural/'},
               {text: 'GoF 디자인 패턴 | 생성패턴', link: '/blog/design-pattern-creational/'},

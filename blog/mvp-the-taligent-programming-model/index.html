@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>MVP The Taligent Programming Model | ChoDragon9</title>
+    <meta name="description" content="">
+    <meta name="generator" content="VuePress 1.3.1">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.ec1b8bff.css" as="style"><link rel="preload" href="/assets/js/app.7b28acd1.js" as="script"><link rel="preload" href="/assets/js/2.fdfe9d07.js" as="script"><link rel="preload" href="/assets/js/44.ac14574e.js" as="script"><link rel="prefetch" href="/assets/js/10.edd956f2.js"><link rel="prefetch" href="/assets/js/11.12390f1d.js"><link rel="prefetch" href="/assets/js/12.be97d2ba.js"><link rel="prefetch" href="/assets/js/13.7e6395af.js"><link rel="prefetch" href="/assets/js/14.6b031e7d.js"><link rel="prefetch" href="/assets/js/15.80c467bc.js"><link rel="prefetch" href="/assets/js/16.9aadcb5d.js"><link rel="prefetch" href="/assets/js/17.f7b545b6.js"><link rel="prefetch" href="/assets/js/18.f2250ab7.js"><link rel="prefetch" href="/assets/js/19.7bf22a1c.js"><link rel="prefetch" href="/assets/js/20.1f178a01.js"><link rel="prefetch" href="/assets/js/21.e82b3b35.js"><link rel="prefetch" href="/assets/js/22.d683db05.js"><link rel="prefetch" href="/assets/js/23.3f31aee6.js"><link rel="prefetch" href="/assets/js/24.b324eb03.js"><link rel="prefetch" href="/assets/js/25.2851c248.js"><link rel="prefetch" href="/assets/js/26.1bc348bb.js"><link rel="prefetch" href="/assets/js/27.e02d6132.js"><link rel="prefetch" href="/assets/js/28.f44056fa.js"><link rel="prefetch" href="/assets/js/29.5e46e8ad.js"><link rel="prefetch" href="/assets/js/3.8b251c38.js"><link rel="prefetch" href="/assets/js/30.3a3e5b4a.js"><link rel="prefetch" href="/assets/js/31.4c684efa.js"><link rel="prefetch" href="/assets/js/32.d6355d0e.js"><link rel="prefetch" href="/assets/js/33.499cf8c6.js"><link rel="prefetch" href="/assets/js/34.9be93182.js"><link rel="prefetch" href="/assets/js/35.cee3f3be.js"><link rel="prefetch" href="/assets/js/36.f2af77c9.js"><link rel="prefetch" href="/assets/js/37.2811db10.js"><link rel="prefetch" href="/assets/js/38.452b0c0e.js"><link rel="prefetch" href="/assets/js/39.94262d74.js"><link rel="prefetch" href="/assets/js/4.e1f933cb.js"><link rel="prefetch" href="/assets/js/40.3eaaf785.js"><link rel="prefetch" href="/assets/js/41.c2ba21e8.js"><link rel="prefetch" href="/assets/js/42.48f35dbd.js"><link rel="prefetch" href="/assets/js/43.0fa1432e.js"><link rel="prefetch" href="/assets/js/45.098eaf42.js"><link rel="prefetch" href="/assets/js/46.da95e4af.js"><link rel="prefetch" href="/assets/js/47.d9170fe8.js"><link rel="prefetch" href="/assets/js/48.296a434f.js"><link rel="prefetch" href="/assets/js/49.5fa94623.js"><link rel="prefetch" href="/assets/js/5.57f3a624.js"><link rel="prefetch" href="/assets/js/50.a2ab127c.js"><link rel="prefetch" href="/assets/js/51.a9420ffe.js"><link rel="prefetch" href="/assets/js/52.bfdd2fd5.js"><link rel="prefetch" href="/assets/js/53.384eef40.js"><link rel="prefetch" href="/assets/js/54.21e1513c.js"><link rel="prefetch" href="/assets/js/55.81f0073f.js"><link rel="prefetch" href="/assets/js/56.80a1c396.js"><link rel="prefetch" href="/assets/js/57.edc376f5.js"><link rel="prefetch" href="/assets/js/58.b813b03d.js"><link rel="prefetch" href="/assets/js/59.5d076df9.js"><link rel="prefetch" href="/assets/js/6.2e12c27d.js"><link rel="prefetch" href="/assets/js/60.eb367983.js"><link rel="prefetch" href="/assets/js/61.26c02e24.js"><link rel="prefetch" href="/assets/js/62.5de0ae67.js"><link rel="prefetch" href="/assets/js/63.592ea12c.js"><link rel="prefetch" href="/assets/js/64.89f7b8b3.js"><link rel="prefetch" href="/assets/js/65.69eb2044.js"><link rel="prefetch" href="/assets/js/66.28d3847b.js"><link rel="prefetch" href="/assets/js/67.c3182f3c.js"><link rel="prefetch" href="/assets/js/68.c0331190.js"><link rel="prefetch" href="/assets/js/69.40d1187d.js"><link rel="prefetch" href="/assets/js/7.cf903c4b.js"><link rel="prefetch" href="/assets/js/70.0dd951e0.js"><link rel="prefetch" href="/assets/js/71.6d81d26a.js"><link rel="prefetch" href="/assets/js/72.88d45f72.js"><link rel="prefetch" href="/assets/js/73.296c8d10.js"><link rel="prefetch" href="/assets/js/74.ec329d4e.js"><link rel="prefetch" href="/assets/js/75.2be13579.js"><link rel="prefetch" href="/assets/js/8.7973851a.js"><link rel="prefetch" href="/assets/js/9.14eadd0c.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.ec1b8bff.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">ChoDragon9</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="설계" class="dropdown-title"><span class="title">설계</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          좋은코드
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/easy-code/" class="nav-link">
+  이해하기 쉬운 코드 작성방법 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/code-position/" class="nav-link">
+  코드의 위치를 정하는 기준
+</a></li><li class="dropdown-subitem"><a href="/blog/reusable-code/" class="nav-link">
+  재사용 가능한 코드 개발
+</a></li><li class="dropdown-subitem"><a href="/blog/declarative-function/" class="nav-link">
+  선언형으로 대체 가능한 문법들 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/date-helper-development/" class="nav-link">
+  강제성, 단일화 그리고 날짜 헬퍼 개발
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Model-View 패턴
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/mvc-word-1979-12-10/" class="nav-link">
+  MVC 용어정의 1979/12/10
+</a></li><li class="dropdown-subitem"><a href="/blog/mvc-its-past-and-present/" class="nav-link">
+  MVC Its Past and Present
+</a></li><li class="dropdown-subitem"><a href="/blog/mvc-xerox-parc/" class="nav-link">
+  MVC XEROX PARC
+</a></li><li class="dropdown-subitem"><a href="/blog/mvp-the-taligent-programming-model/" class="nav-link router-link-exact-active router-link-active">
+  MVP The Taligent Programming Model
+</a></li><li class="dropdown-subitem"><a href="/blog/introduction-to-mvvm-for-wpf/" class="nav-link">
+  Introduction to MVVM for WPF
+</a></li><li class="dropdown-subitem"><a href="/blog/mvc/" class="nav-link">
+  MVC 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/mvvm/" class="nav-link">
+  MVVM 정리
+</a></li></ul></li><li class="dropdown-item"><h4>
+          디자인 패턴
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/gof-design-pattern-summary/" class="nav-link">
+  GoF 디자인 패턴 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/design-pattern-structural/" class="nav-link">
+  GoF 디자인 패턴 | 구조패턴
+</a></li><li class="dropdown-subitem"><a href="/blog/design-pattern-creational/" class="nav-link">
+  GoF 디자인 패턴 | 생성패턴
+</a></li><li class="dropdown-subitem"><a href="/blog/design-pattern-behavioral/" class="nav-link">
+  GoF 디자인 패턴 | 행동패턴
+</a></li></ul></li><li class="dropdown-item"><h4>
+          리팩토링
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/structure-refactoring/" class="nav-link">
+  구조 리펙토링 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/legacy-code-to-easy-code/" class="nav-link">
+  레거시 코드에서 이해하기 쉬운코드로 리팩토링
+</a></li><li class="dropdown-subitem"><a href="/blog/legacy-code-to-easy-code-2/" class="nav-link">
+  레거시 코드에서 이해하기 쉬운코드로 리팩토링 2
+</a></li><li class="dropdown-subitem"><a href="/blog/refactoring-meaning-and-result/" class="nav-link">
+  리펙토링 정의와 결과
+</a></li></ul></li><li class="dropdown-item"><h4>
+          기타
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/design-methodology/" class="nav-link">
+  설계 방법론
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="패러다임" class="dropdown-title"><span class="title">패러다임</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          객체지향
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/object/" class="nav-link">
+  객체 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/produce-oop/" class="nav-link">
+  immer 구현해보기 - OOP 버전
+</a></li></ul></li><li class="dropdown-item"><h4>
+          함수형
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/functional/" class="nav-link">
+  함수형 프로그래밍 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/functional2/" class="nav-link">
+  함수형 프로그래밍 정리2
+</a></li><li class="dropdown-subitem"><a href="/blog/produce/" class="nav-link">
+  immer 구현해보기
+</a></li><li class="dropdown-subitem"><a href="/blog/produce-immutable/" class="nav-link">
+  immer 구현해보기 - 불변성편
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="언어" class="dropdown-title"><span class="title">언어</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          TypeScript
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/typescript-from-inhouse-service/" class="nav-link">
+  인하우스 서비스 구축하며 사용했던 TypeScript 문법 정리
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Javascript
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/es6/" class="nav-link">
+  ES6 Overview
+</a></li><li class="dropdown-subitem"><a href="/blog/this/" class="nav-link">
+  this, this is magic.
+</a></li><li class="dropdown-subitem"><a href="/blog/promise/" class="nav-link">
+  Promise 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/async-await-case/" class="nav-link">
+  async await 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/call-stack-and-coroutine/" class="nav-link">
+  코루틴을 사용한 지연 평가
+</a></li></ul></li><li class="dropdown-item"><h4>
+          SML
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/sml-basic/" class="nav-link">
+  기초
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-builtin-datatype/" class="nav-link">
+  빌트인 자료형
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-datatype/" class="nav-link">
+  자료형 정의
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-exception/" class="nav-link">
+  예외처리
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-function/" class="nav-link">
+  함수
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-higher-order-function/" class="nav-link">
+  고차함수
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-infix/" class="nav-link">
+  infix 정의
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-module/" class="nav-link">
+  모듈 시스템
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="오픈소스" class="dropdown-title"><span class="title">오픈소스</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Vue Composition API
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/composition-api-rfc/" class="nav-link">
+  RFC 번역
+</a></li><li class="dropdown-subitem"><a href="/blog/composition-api-rfc-summary/" class="nav-link">
+  RFC 요약 및 자료 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/composition-api-rfc-release-notes/" class="nav-link">
+  RFC 릴리즈 노트 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/composition-api-rfc-migration/" class="nav-link">
+  Composition API 경험 정리
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Vue
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/vue-eslint/" class="nav-link">
+  Vue ESLint 설정
+</a></li><li class="dropdown-subitem"><a href="/blog/nuxt-2-11-typescript/" class="nav-link">
+  Nuxt v2.11 기반 nuxt/typescript 환경 세팅
+</a></li><li class="dropdown-subitem"><a href="/blog/nuxt-ts/" class="nav-link">
+  Nuxt v2.0에서 TypeScript로 개발하기
+</a></li><li class="dropdown-subitem"><a href="/blog/nuxt-migration/" class="nav-link">
+  Nuxt v2.0에서 v2.11로 마이그레이션
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Angular
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/rxjs-codereview/" class="nav-link">
+  RxJs 코드리뷰 사례
+</a></li><li class="dropdown-subitem"><a href="/blog/angular/" class="nav-link">
+  Angular의 강력함과 아쉬운점
+</a></li></ul></li><li class="dropdown-item"><h4>
+          React
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/react-convention-for-codereview/" class="nav-link">
+  코드리뷰를 위한 React 컨벤션
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="정리" class="dropdown-title"><span class="title">정리</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          관리
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/estimation/" class="nav-link">
+  개발 일정산정
+</a></li><li class="dropdown-subitem"><a href="/blog/release/" class="nav-link">
+  배포 어디까지 알고 있나요?
+</a></li><li class="dropdown-subitem"><a href="/blog/facilitation-for-meeting/" class="nav-link">
+  효율적인 회의를 위한 퍼실리테이션
+</a></li><li class="dropdown-subitem"><a href="/blog/preventive-maintenance/" class="nav-link">
+  위험상황을 대비하는 위험관리
+</a></li><li class="dropdown-subitem"><a href="/blog/git-scm-experience/" class="nav-link">
+  형상관리 전략정리
+</a></li></ul></li><li class="dropdown-item"><h4>
+          도서
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/programming-standards/" class="nav-link">
+  프로그래밍의 정석 도서 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/non-functional-requirement/" class="nav-link">
+  소프트웨어의 핵심 비기능 요구사항
+</a></li><li class="dropdown-subitem"><a href="/blog/regexp-book-backref/" class="nav-link">
+  [손에 잡히는 정규표현식] 역참조/전방탐색/후방탐색
+</a></li></ul></li><li class="dropdown-item"><h4>
+          경험
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/cors-and-http-cookie/" class="nav-link">
+  CORS와 HTTP Cookie
+</a></li><li class="dropdown-subitem"><a href="/blog/how-to-catch-error/" class="nav-link">
+  에러 처리 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/abstract/" class="nav-link">
+  추상화 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/branch-n-case/" class="nav-link">
+  분기를 작성하는 방법 n가지
+</a></li><li class="dropdown-subitem"><a href="/blog/callback/" class="nav-link">
+  콜백 사용 시점
+</a></li><li class="dropdown-subitem"><a href="/blog/clone-function/" class="nav-link">
+  경우에 따른 clone 함수
+</a></li><li class="dropdown-subitem"><a href="/blog/safe-chain/" class="nav-link">
+  안전한 체이닝을 위한 safeChain
+</a></li><li class="dropdown-subitem"><a href="/blog/observation-mechanism/" class="nav-link">
+  옵져버 매커니즘
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/about.html" class="nav-link">
+  About
+</a></div><div class="nav-item"><a href="https://github.com/ChoDragon9" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="설계" class="dropdown-title"><span class="title">설계</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          좋은코드
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/easy-code/" class="nav-link">
+  이해하기 쉬운 코드 작성방법 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/code-position/" class="nav-link">
+  코드의 위치를 정하는 기준
+</a></li><li class="dropdown-subitem"><a href="/blog/reusable-code/" class="nav-link">
+  재사용 가능한 코드 개발
+</a></li><li class="dropdown-subitem"><a href="/blog/declarative-function/" class="nav-link">
+  선언형으로 대체 가능한 문법들 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/date-helper-development/" class="nav-link">
+  강제성, 단일화 그리고 날짜 헬퍼 개발
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Model-View 패턴
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/mvc-word-1979-12-10/" class="nav-link">
+  MVC 용어정의 1979/12/10
+</a></li><li class="dropdown-subitem"><a href="/blog/mvc-its-past-and-present/" class="nav-link">
+  MVC Its Past and Present
+</a></li><li class="dropdown-subitem"><a href="/blog/mvc-xerox-parc/" class="nav-link">
+  MVC XEROX PARC
+</a></li><li class="dropdown-subitem"><a href="/blog/mvp-the-taligent-programming-model/" class="nav-link router-link-exact-active router-link-active">
+  MVP The Taligent Programming Model
+</a></li><li class="dropdown-subitem"><a href="/blog/introduction-to-mvvm-for-wpf/" class="nav-link">
+  Introduction to MVVM for WPF
+</a></li><li class="dropdown-subitem"><a href="/blog/mvc/" class="nav-link">
+  MVC 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/mvvm/" class="nav-link">
+  MVVM 정리
+</a></li></ul></li><li class="dropdown-item"><h4>
+          디자인 패턴
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/gof-design-pattern-summary/" class="nav-link">
+  GoF 디자인 패턴 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/design-pattern-structural/" class="nav-link">
+  GoF 디자인 패턴 | 구조패턴
+</a></li><li class="dropdown-subitem"><a href="/blog/design-pattern-creational/" class="nav-link">
+  GoF 디자인 패턴 | 생성패턴
+</a></li><li class="dropdown-subitem"><a href="/blog/design-pattern-behavioral/" class="nav-link">
+  GoF 디자인 패턴 | 행동패턴
+</a></li></ul></li><li class="dropdown-item"><h4>
+          리팩토링
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/structure-refactoring/" class="nav-link">
+  구조 리펙토링 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/legacy-code-to-easy-code/" class="nav-link">
+  레거시 코드에서 이해하기 쉬운코드로 리팩토링
+</a></li><li class="dropdown-subitem"><a href="/blog/legacy-code-to-easy-code-2/" class="nav-link">
+  레거시 코드에서 이해하기 쉬운코드로 리팩토링 2
+</a></li><li class="dropdown-subitem"><a href="/blog/refactoring-meaning-and-result/" class="nav-link">
+  리펙토링 정의와 결과
+</a></li></ul></li><li class="dropdown-item"><h4>
+          기타
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/design-methodology/" class="nav-link">
+  설계 방법론
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="패러다임" class="dropdown-title"><span class="title">패러다임</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          객체지향
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/object/" class="nav-link">
+  객체 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/produce-oop/" class="nav-link">
+  immer 구현해보기 - OOP 버전
+</a></li></ul></li><li class="dropdown-item"><h4>
+          함수형
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/functional/" class="nav-link">
+  함수형 프로그래밍 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/functional2/" class="nav-link">
+  함수형 프로그래밍 정리2
+</a></li><li class="dropdown-subitem"><a href="/blog/produce/" class="nav-link">
+  immer 구현해보기
+</a></li><li class="dropdown-subitem"><a href="/blog/produce-immutable/" class="nav-link">
+  immer 구현해보기 - 불변성편
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="언어" class="dropdown-title"><span class="title">언어</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          TypeScript
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/typescript-from-inhouse-service/" class="nav-link">
+  인하우스 서비스 구축하며 사용했던 TypeScript 문법 정리
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Javascript
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/es6/" class="nav-link">
+  ES6 Overview
+</a></li><li class="dropdown-subitem"><a href="/blog/this/" class="nav-link">
+  this, this is magic.
+</a></li><li class="dropdown-subitem"><a href="/blog/promise/" class="nav-link">
+  Promise 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/async-await-case/" class="nav-link">
+  async await 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/call-stack-and-coroutine/" class="nav-link">
+  코루틴을 사용한 지연 평가
+</a></li></ul></li><li class="dropdown-item"><h4>
+          SML
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/sml-basic/" class="nav-link">
+  기초
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-builtin-datatype/" class="nav-link">
+  빌트인 자료형
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-datatype/" class="nav-link">
+  자료형 정의
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-exception/" class="nav-link">
+  예외처리
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-function/" class="nav-link">
+  함수
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-higher-order-function/" class="nav-link">
+  고차함수
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-infix/" class="nav-link">
+  infix 정의
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-module/" class="nav-link">
+  모듈 시스템
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="오픈소스" class="dropdown-title"><span class="title">오픈소스</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Vue Composition API
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/composition-api-rfc/" class="nav-link">
+  RFC 번역
+</a></li><li class="dropdown-subitem"><a href="/blog/composition-api-rfc-summary/" class="nav-link">
+  RFC 요약 및 자료 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/composition-api-rfc-release-notes/" class="nav-link">
+  RFC 릴리즈 노트 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/composition-api-rfc-migration/" class="nav-link">
+  Composition API 경험 정리
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Vue
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/vue-eslint/" class="nav-link">
+  Vue ESLint 설정
+</a></li><li class="dropdown-subitem"><a href="/blog/nuxt-2-11-typescript/" class="nav-link">
+  Nuxt v2.11 기반 nuxt/typescript 환경 세팅
+</a></li><li class="dropdown-subitem"><a href="/blog/nuxt-ts/" class="nav-link">
+  Nuxt v2.0에서 TypeScript로 개발하기
+</a></li><li class="dropdown-subitem"><a href="/blog/nuxt-migration/" class="nav-link">
+  Nuxt v2.0에서 v2.11로 마이그레이션
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Angular
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/rxjs-codereview/" class="nav-link">
+  RxJs 코드리뷰 사례
+</a></li><li class="dropdown-subitem"><a href="/blog/angular/" class="nav-link">
+  Angular의 강력함과 아쉬운점
+</a></li></ul></li><li class="dropdown-item"><h4>
+          React
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/react-convention-for-codereview/" class="nav-link">
+  코드리뷰를 위한 React 컨벤션
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="정리" class="dropdown-title"><span class="title">정리</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          관리
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/estimation/" class="nav-link">
+  개발 일정산정
+</a></li><li class="dropdown-subitem"><a href="/blog/release/" class="nav-link">
+  배포 어디까지 알고 있나요?
+</a></li><li class="dropdown-subitem"><a href="/blog/facilitation-for-meeting/" class="nav-link">
+  효율적인 회의를 위한 퍼실리테이션
+</a></li><li class="dropdown-subitem"><a href="/blog/preventive-maintenance/" class="nav-link">
+  위험상황을 대비하는 위험관리
+</a></li><li class="dropdown-subitem"><a href="/blog/git-scm-experience/" class="nav-link">
+  형상관리 전략정리
+</a></li></ul></li><li class="dropdown-item"><h4>
+          도서
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/programming-standards/" class="nav-link">
+  프로그래밍의 정석 도서 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/non-functional-requirement/" class="nav-link">
+  소프트웨어의 핵심 비기능 요구사항
+</a></li><li class="dropdown-subitem"><a href="/blog/regexp-book-backref/" class="nav-link">
+  [손에 잡히는 정규표현식] 역참조/전방탐색/후방탐색
+</a></li></ul></li><li class="dropdown-item"><h4>
+          경험
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/cors-and-http-cookie/" class="nav-link">
+  CORS와 HTTP Cookie
+</a></li><li class="dropdown-subitem"><a href="/blog/how-to-catch-error/" class="nav-link">
+  에러 처리 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/abstract/" class="nav-link">
+  추상화 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/branch-n-case/" class="nav-link">
+  분기를 작성하는 방법 n가지
+</a></li><li class="dropdown-subitem"><a href="/blog/callback/" class="nav-link">
+  콜백 사용 시점
+</a></li><li class="dropdown-subitem"><a href="/blog/clone-function/" class="nav-link">
+  경우에 따른 clone 함수
+</a></li><li class="dropdown-subitem"><a href="/blog/safe-chain/" class="nav-link">
+  안전한 체이닝을 위한 safeChain
+</a></li><li class="dropdown-subitem"><a href="/blog/observation-mechanism/" class="nav-link">
+  옵져버 매커니즘
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/about.html" class="nav-link">
+  About
+</a></div><div class="nav-item"><a href="https://github.com/ChoDragon9" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>MVP The Taligent Programming Model</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/mvp-the-taligent-programming-model/#본문요약" class="sidebar-link">본문요약</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/blog/mvp-the-taligent-programming-model/#abstract" class="sidebar-link">Abstract</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/blog/mvp-the-taligent-programming-model/#smalltalk-programming-model" class="sidebar-link">Smalltalk Programming Model</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/blog/mvp-the-taligent-programming-model/#building-the-taligent-open-class-programming-model" class="sidebar-link">Building the Taligent / Open Class Programming Model</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/blog/mvp-the-taligent-programming-model/#모델은-캡슐화-가능하다" class="sidebar-link">모델은 캡슐화 가능하다</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/blog/mvp-the-taligent-programming-model/#모델은-지속가능하다" class="sidebar-link">모델은 지속가능하다</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/blog/mvp-the-taligent-programming-model/#모델은-공유-가능하다" class="sidebar-link">모델은 공유 가능하다</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/blog/mvp-the-taligent-programming-model/#_3가지-데이터-관리-질문" class="sidebar-link">3가지 데이터 관리 질문</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/blog/mvp-the-taligent-programming-model/#model-view-selections-commands" class="sidebar-link">Model, View, Selections, Commands</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/blog/mvp-the-taligent-programming-model/#세-가지-사용자-인터페이스-질문" class="sidebar-link">세 가지 사용자 인터페이스 질문</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/blog/mvp-the-taligent-programming-model/#인터랙터와-프리젠터" class="sidebar-link">인터랙터와 프리젠터</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/blog/mvp-the-taligent-programming-model/#mvp-model-view-presenter" class="sidebar-link">MVP: Model-View-Presenter</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/blog/mvp-the-taligent-programming-model/#programming-model-frameworks" class="sidebar-link">Programming Model Frameworks</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/blog/mvp-the-taligent-programming-model/#programming-model-classes" class="sidebar-link">Programming Model Classes</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/blog/mvp-the-taligent-programming-model/#building-an-application" class="sidebar-link">Building An Application</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/blog/mvp-the-taligent-programming-model/#client-server" class="sidebar-link">Client/Server</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/blog/mvp-the-taligent-programming-model/#multiple-versions-of-client-server" class="sidebar-link">Multiple versions of client/server</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/blog/mvp-the-taligent-programming-model/#추상화의-이점" class="sidebar-link">추상화의 이점</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/blog/mvp-the-taligent-programming-model/#summary" class="sidebar-link">Summary</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/blog/mvp-the-taligent-programming-model/#원본" class="sidebar-link">원본</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><blockquote><p>이 문서는 MVP를 최초로 언급된 논문인 <a href="https://www.researchgate.net/publication/255616200_MVP_Model-View-Presenter_The_Taligent_Programming_Model_for_C_and_Java_Taligent_Inc" target="_blank" rel="noopener noreferrer">MVP: Model-View-Presenter The Taligent Programming Model for C++ and Java<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>를 번역한 문서입니다.</p></blockquote> <h2 id="본문요약"><a href="#본문요약" class="header-anchor">#</a> 본문요약</h2> <ul><li>스몰토크의 프로그래밍 모델인 MVC는 세 가지 핵심 추상화를 사용한다. 모델은 데이터, 뷰는 화면에 그려지는 방법, 컨트롤러는 사용자 제스처 및 이벤트</li> <li>텔리전트의 전반적인 접근 방식 모델은 모델과 뷰-컨트롤러 간의 분리를 공식화한다. 모델은 데이터 관리, 뷰-컨트롤러은 사용자 인터페이스라는 두 가지 기본 개념을 세분화합니다.</li> <li>이 두 가지 개념은 프로그래머가 다뤄야 하는 가장 기본적인 두 가지 디자인 문제를 담고 있다.
+<ul><li>데이터를 어떻게 관리하지?</li> <li>사용자가 데이터와 어떻게 상호작용하지?</li></ul></li> <li>데이터 관리를 세분화하여 Model/Selection/Command로 분리합니다.
+<ul><li>Model : 캡슐화된 데이터, 읽기 및 쓰기 액세스 방법</li> <li>Selection : 데이터 선택 방법, Model 데이터의 여러 하위 세트를 지정하기 위한 추상화</li> <li>Command : 데이터 변경 방법, Model의 Selection에서 수행할 수 있는 작업을 나타내는 추상화</li></ul></li> <li>사용자 인터페이스을 세분화하여 View/Interactor/Presenter로 분리합니다.
+<ul><li>View : 데이터 표시</li> <li>Interactor : 이벤트에 따른 데이터의 변경 사항 요청</li> <li>Presenter : Interactor에 따른 적절한 Command를 매핑하는 비즈니스 로직</li></ul></li> <li>기존의 Controller의 기능이지만 Interactor와 Command를 매핑하는 역할을 고려해서 Presenter라고 했다. 그래서 MVP의 어원이 탄생한다.</li></ul> <h2 id="abstract"><a href="#abstract" class="header-anchor">#</a> Abstract</h2> <p>IBM의 100% 소유 자회사인 Taligent는 고전적 MVC 프로그래밍 모델의 일반화를 기반으로 <code>C++ 및 Java 프로그래밍 언어 모델</code>인 <code>Model-View-Presenter</code> 또는 <code>MVP</code>를 위한 <code>차세대 프로그래밍 모델</code>을 개발하고 있습니다. MVP는 광범위한 애플리케이션 및 구성요소 개발 작업을 위한 강력하고 이해하기 쉬운 설계 방법을 제공한다. Taligent의 프레임워크 기반 개념 구현은 MVP를 고용하는 개발자 프로그램에 큰 가치를 더한다. 또한 MVP는 여러 클라이언트/서버 및 다중 계층 애플리케이션 아키텍처에 걸쳐 적응할 수 있습니다. MVP는 IBM이 모든 주요 객체 지향 언어 환경에 걸쳐 통합된 개념 프로그래밍 모델을 제공할 수 있도록 지원합니다.</p> <h2 id="smalltalk-programming-model"><a href="#smalltalk-programming-model" class="header-anchor">#</a> Smalltalk Programming Model</h2> <p>프로그래밍 모델의 가장 익숙한 예는 1970년대 후반 제록스 파크에서 개발된 소형토크 모델1 이다. MVC는 Smalltalk에서 그래픽 사용자 인터페이스(GUI) 개체를 구현하는 데 사용되는 기본 설계 패턴이며, 이후 대부분의 다른 GUI 클래스 라이브러리 및 애플리케이션 프레임워크에서 다양한 수준으로 재사용 및 채택되었습니다.</p> <p>![](/assets/img/mvp_1.png)</p> <p>Smalltalk는 MVC의 세 가지 핵심 추상화를 사용하는 체크박스 또는 텍스트 입력 필드와 같은 GUI 개체를 나타냅니다. 모델은 개체의 기본 데이터를 나타냅니다. 뷰는 모델에서 데이터에 액세스하고 모델에서 데이터가 화면에 그려지는 방법을 지정합니다. 컨트롤러는 사용자가 제스처 및 이벤트 형식의 보기와 상호 작용하여 모델의 데이터가 변경되는 방법을 결정합니다.</p> <ul><li>데이터 예: 확인란의 켜기 상태 또는 텍스트 입력 필드의 텍스트 문자열</li> <li>뷰 예: 실제 선택 또는 선택 취소됨</li> <li>컨트롤러 예: 확인란을 클릭하여 켜기 상태를 전환하거나 텍스트 입력 필드에 문자열을 입력하여 기본이 변경됨</li></ul> <p>모델은 상태가 변경되었으며 보기를 다시 그려야 함을 뷰에 통보하여 루프를 닫습니다. SmallTalk의 프로그래머는 SmallTalk 클래스 라이브러리에서 제공되는 모델, 보기 및 컨트롤러 추상화에 대한 기본 클래스를 세분화하고 사용자 지정하여 GUI 개체를 만듭니다. Smalltalk 프로그래머는 단일 GUI 개체 내에서 세 가지 핵심 MVC 개념 중 사전 정의된 긴밀한 관계를 상속함으로써 이점을 누리게 됩니다. 그런 다음 여러 요소가 있는 대화 상자와 같은 보다 복잡한 GUI 개체는 위에서 설명한 것과 같이 여러 종류의 GUI 개체 인스턴스로 구성되며 모두 MVC 클래스로 표시됩니다. 궁극적으로 전체 대화형 그래픽 애플리케이션은 MVC를 사용하여 구축됩니다.</p> <h2 id="building-the-taligent-open-class-programming-model"><a href="#building-the-taligent-open-class-programming-model" class="header-anchor">#</a> Building the Taligent / Open Class Programming Model</h2> <p>Taligent는 IBM의 VisualAge 프로그래밍 환경을 위한 Open Class 클래스 라이브러리에서 모든 인터렉티브 프로그램의 전체 구조를 나타내기 위해 Smalltalk의 MVC 프로그래밍 모델을 조정 및 일반화했습니다. 이러한 진화는 Taligent의 원래 CommonPoint 애플리케이션 시스템에서 시작되었으며, VisualAge용 Open Class의 현재 및 향후 버전을 통해 계속되었습니다.</p> <p>Taligent의 전반적인 접근 방식은 기본 MVC 개념을 구성 요소로 분해하고 더욱 세분화하여 프로그래머가 보다 복잡한 애플리케이션을 개발하는 데 도움을 주는 것이었습니다. 이 프로세스의 첫 번째 단계는 <code>모델과 View-Controller 간의 분리를 공식화</code>하는 것입니다. 이를 <code>프레젠테이션</code>이라고 합니다. 이것은 프로그램 문제를 <code>데이터 관리</code> 및 <code>사용자 인터페이스</code>라는 <code>두 가지 기본 개념으로 세분화</code>하는 것을 나타냅니다. 이 두 가지 개념은 프로그래머가 다뤄야 하는 가장 기본적인 두 가지 디자인 문제를 담고 있다.</p> <p>![](/assets/img/mvp_2.png)</p> <p>데이터 관리의 경우 프로그래머가 답하는 질문은 <code>데이터를 어떻게 관리하지?</code>입니다. 이것은 모델 내에서 단지 기본적인 데이터 표현일 뿐만 아니라 어떤 데이터 구조, 액세스 방법, 프로토콜 변경, 지속성, 공유성, 분산성 등을 채택해야 하는지 여부도 포함한다.</p> <p>사용자 인터페이스의 경우 프로그래머가 <code>사용자가 데이터와 어떻게 상호작용하지?</code>라고 대답합니다. 이는 화면상의 객체 그리기, 마우스 및 키보드 이벤트뿐만 아니라 사용할 의미 작업, 사용자 작업 인식, 사용 중인 제스처 언어 및 제공되는 피드백도 그 이상입니다.</p> <p>IBM의 VisualAge 3.0용 Open Class의 이전 릴리스에서 IBM의 ICLUI 그래픽 사용자 인터페이스 클래스 라이브러리는 프로그래머가 프로그램의 사용자 인터페이스 측면을 나타내기 위해 사용하는 도구를 제공했습니다. Taligent는 3.5 릴리즈를 통해 프로그램의 데이터 관리 측면을 나타내는 복합 문서 프레임워크의 첫 번째 버전을 Open Class에 발표했습니다. 앞으로 있을 4.0 오픈 클래스 릴리스에서 이 두 가지 측면이 어떻게 일반화되고 개선될 것인지 알아보겠습니다.</p> <h2 id="모델은-캡슐화-가능하다"><a href="#모델은-캡슐화-가능하다" class="header-anchor">#</a> 모델은 캡슐화 가능하다</h2> <p>모델 개념을 일반화하면 여러 가지 이점이 있습니다. 첫 번째는 모델과 프레젠테이션을 완전히 분리할 수 있다는 것입니다. 프로그램 내에서 전화 목록 구성 요소를 구현하고 싶다고 가정해 보십시오. 내 모델은 모든 이름과 전화 번호 쌍에 대한 데이터와 쿼리 및 변경할 수 있는 모든 방법을 캡슐화합니다. 제 프레젠테이션은 전화 목록 데이터의 대화형 전화번호부 표시일 수 있습니다.</p> <p>![](/assets/img/mvp_3.png)</p> <p>깔끔한 분리와 캡슐화를 통해 여러 가지 이점이 생깁니다. 시간이 흐르면서 나는 내 모델의 기본 데이터 구조를 변경할 수 있었다. 예를 들어, 더 빠른 삽입을 위한 링크된 목록, 더 나은 알파벳 검색을 위한 해시드 또는 색인된 표, 다른 프로그램에서 사용하기 위한 메일링 주소와 같은 추가 필드 등이 있습니다. 저는 간단한 전화번호부, 알파벳 탭이 있는 전화번호부, 검색 기능이 있는 전화번호부 등을 수정하지 않고도 여러 개의 프레젠테이션을 만들 수 있었습니다. 저는 다른 프로그래머들이 모델들과 프리젠테이션에서 병렬로 작업하도록 할 수 있습니다. 그리고 그것들이 서로 다른 구성으로 작업하게 할 수 있습니다.</p> <p>이러한 이점은 명백해 보일 수 있지만, 놀랄 만한 수의 프로그램들이 그러한 명확한 분해나 접점을 채택하지 않습니다. 대부분의 프로그램은 기본 데이터 구조를 변경할 경우 데이터를 검색, 표시, 저장, 변환하는 여러 위치에서 코드를 변경해야 합니다. 이것은 한 사람이 모든 것을 똑바로 할 수 있는 작은 프로그램과 프로그램에는 반드시 해로울 필요는 없다. 그러나 많은 프로그래머들이 프로그래밍을 배우는 방식인 이 스타일은 쉽게 스케일업하거나 수정하거나 개선할 수 있거나, 다른 프로그램의 전부 또는 일부를 재사용하거나, 또는 한번에 여러 프로그래머에 의해 작업될 수 있는 프로그램을 생산하지 않는다.</p> <h2 id="모델은-지속가능하다"><a href="#모델은-지속가능하다" class="header-anchor">#</a> 모델은 지속가능하다</h2> <p>이전 예에서 모델의 데이터는 모델 자체에 저장되었습니다. 즉, 실행 중 메모리에 데이터를 저장하기 위해 모델 클래스 내에 데이터 구조가 할당되었습니다. 항상 그런 것은 아닙니다. 모델이 실제로 데이터를 저장하는 방법은 모델에 따라 다릅니다. 첫 번째 예에서 모델은 영구 데이터 저장소에서 액세스하는 데이터의 프록시를 제외한 데이터를 포함할 수 있습니다. 또는 모델에 이름, 전화 번호 쌍을 저장하는 원격 데이터베이스로 이동하는 쿼리 엔진 코드가 포함될 수 있습니다. 모델은 액세스 제어 및 인증(로그인)을 구현하고, 회계 또는 충전 메커니즘을 구현하며, 성능을 위해 로컬 복사본을 캐시하고, 다른 공급업체의 데이터베이스를 사용하고, 데이터베이스 복제 및 이중화 등을 제공할 수 있었습니다. 이 모든 것은 프레젠테이션에 투명하게 수행되며 시간이 지남에 따라 또는 다른 설치를 위해 변경할 수 있습니다.</p> <p>![](/assets/img/mvp_4.png)</p> <h2 id="모델은-공유-가능하다"><a href="#모델은-공유-가능하다" class="header-anchor">#</a> 모델은 공유 가능하다</h2> <p>모델을 추상화하면 여러 사용자 간에 보다 유연한 사용도 가능합니다. 서로 다른 프로그램 모델이 동일한 원격 데이터를 캡슐화하면 회사 전화번호부와 마찬가지로 여러 사용자가 동일한 데이터를 공유할 수 있습니다. 공유 데이터 모델에서 새 전화번호부를 입력하면 모두가 항상 최신 상태이며, 모델이 자체 데이터를 저장하는 경우에는 모든 항목을 개별적으로 업데이트해야 합니다. 또한 이 접근 방식을 통해 서로 다른 사용자가 동시에 데이터를 협업하고 동일한 정보를 볼 수 있습니다. 읽기 전용 전화번호부를 사용하는 사용자, 전화 번호를 변경할 수 있는 관리자, 개인 정보에 액세스할 수 있는 인사 관리자 등 사용자마다 다른 프레젠테이션을 사용할 수 있습니다.</p> <p>![](/assets/img/mvp_5.png)</p> <h2 id="_3가지-데이터-관리-질문"><a href="#_3가지-데이터-관리-질문" class="header-anchor">#</a> 3가지 데이터 관리 질문</h2> <p>Taligent는 데이터 관리 및 사용자 인터페이스(모델-프레젠테이션) 분리를 통한 광범위한 개발 경험을 바탕으로 데이터 관리의 절반에 대한 핵심 추가 개선 사항을 파악했습니다. 이러한 개선은 데이터 관리 문제를 세 가지 하위 평가로 분해합니다.</p> <p>![](/assets/img/mvp_6.png)</p> <p>첫 번째 질문은 <code>내 데이터가 뭐지?</code>입니다. 이것은 기본 소형 토크 모델에 해당하는 적절한 <code>Model</code>이며, 캡슐화된 데이터, 읽기 및 쓰기 액세스 방법 등이 있습니다.</p> <p>두 번째 질문은 <code>데이터를 선택하려면 어떻게 해야 하지?</code>입니다. <code>Selection</code>이라고 하는 <code>Model</code> 데이터의 여러 하위 세트를 지정하기 위한 추상화입니다.</p> <p>세 번째 질문은 <code>데이터를 어떻게 변경하지?</code>입니다. <code>Model</code>의 <code>Selection</code>에서 수행할 수 있는 작업을 나타내는 추상화입니다. <code>Command</code>라고 합니다.</p> <h2 id="model-view-selections-commands"><a href="#model-view-selections-commands" class="header-anchor">#</a> Model, View, Selections, Commands</h2> <p>이 개념들을 보여주는 간단한 예를 살펴봅시다. 우리의 모델이 2차원 정수의 배열이라고 가정합니다. 이 Model의 View는 누적 막대 차트일 수 있습니다. 같은 Model에 대한 보기가 두 개 이상 있을 수 있습니다. 예를 들어 다중 선 그래프 또는 스프레드시트 테이블은 이 Model의 다른 종류의 View입니다. View는 그래픽일 필요가 없습니다. 예를 들어, 다른 종류의 View는 피아노 키보드에 메모를 할 수도 있고 공장에서 밸브 설정을 지정할 수도 있습니다. 예를 들어 서버가 기본적으로 View 없는 Model을 제공하는 것과 같은 View가 없을 수 있습니다.</p> <p>![](/assets/img/mvp_7.png)</p> <p>Model에서 선택한 것은 데이터에서 요소 열을 선택하는 것일 수 있습니다. 일련의 데이터, 단일 요소 또는 모든 데이터를 선택하는 것은 각각 다른 종류의 Selection입니다. 텍스트 Model에서는 일부 텍스트 위에 마우스를 놓으면 선택 항목이 나타납니다. 그것은 단일 문자, 단어, 문장 또는 전체 텍스트일 수 있다. 선택 항목은 여러 개의 불연속 세그먼트로 구성될 수도 있습니다. 우리는 심지어 삽입점을 0 길이 선택이라고 생각한다. 그런 다음 <code>Command</code>은 내 <code>Model</code>에서 <code>Selection</code>에 대한 <code>작업을 정의</code>합니다.</p> <p>예를 들어 막대 차트 선택의 색상, 패턴 또는 기타 모양을 변경할 수 있습니다. 다른 명령은 선택 항목을 삭제, 이동, 복사, 변경, 저장 또는 인쇄하는 것일 수 있습니다. 텍스트 Model에는 글꼴, 스타일 및 크기를 변경하거나 잘라내기, 복사 및 붙여넣기 또는 철자를 확인하는 명령 등이 있습니다. 다양한 버튼, 제스처 및 키보드 등가물 뒤에 있는 메뉴 항목 및 작업은 각각 다른 명령어로 되어 있으며, Model 내 선택 항목(또는 특정 유형의 선택)에서 작동할 수 있습니다. 직관적으로, 이러한 추상화는 우리가 매일 사용하는 매우 다양한 인터렉티브 애플리케이션을 쉽게 나타낼 수 있다.</p> <h2 id="세-가지-사용자-인터페이스-질문"><a href="#세-가지-사용자-인터페이스-질문" class="header-anchor">#</a> 세 가지 사용자 인터페이스 질문</h2> <p>이제 애플리케이션의 대화형 측면에 초점을 맞추겠습니다. 응용프로그램에서 대화형 사용자 인터페이스를 어떻게 설계합니까? 이를 세 가지 질문으로 나눕니다.</p> <p>![](/assets/img/mvp_8.png)</p> <p>첫 번째 질문은 <code>데이터를 어떻게 표시하지?</code>입니다. 위에서 설명한 대로입니다. 여러 개의 View가 있을 수 있으며 View가 비주얼하지 않아도 됩니다.</p> <p>두 번째 질문은 <code>이벤트가 데이터의 변경 사항에 어떻게 매핑되지?</code>우리는 이러한 <code>Interactor</code>으로 부릅니다. <code>Interactor</code> 이벤트란 마우스 이동 및 클릭, 키보드 키 입력 또는 스위치 뒤집기, 다이얼 변경 또는 디스크 삽입과 같은 사용자 시작 동작을 말합니다. 대부분의 인터렉티브 컴퓨터에는 메뉴 선택, 끌어서 놓기, 단추 및 확인란 클릭, 그리기 작업, 펜, 필기 및 음성 입력으로 확장 등의 다양한 마우스 인터렉터 세트가 있습니다.</p> <p>세 번째 질문은 <code>어떻게 하면 다 합칠 수 있지?</code>입니다. 이는 기존의 Smalltalk Controller의 기능을 나타내지만 애플리케이션 레벨로 상승하여 <code>Selection</code>, <code>Command</code> 및 <code>Interactor</code> 개념을 고려합니다. 이러한 특징을 포착하기 위해 우리는 이러한 종류의 <code>Controller</code>를 <code>Presenter</code>라 부른다. 결과적으로, 우리는 전체적인 결과 프로그래밍 모델을 <code>Model View-Presenter</code> 또는 MVC의 일반화된 형태로서 그것의 기원을 인정하면서 언급한다. MVP에서 <code>프리젠터의 역할</code>은 <code>사용자가 시작한 이벤트와 동작을 해석하고 Model을 의도된 방식으로 조작하기 위한 적절한 Command에 이들을 매핑</code>하는 <code>비즈니스 로직</code>을 제공하는 것이다.</p> <h2 id="인터랙터와-프리젠터"><a href="#인터랙터와-프리젠터" class="header-anchor">#</a> 인터랙터와 프리젠터</h2> <p>이전 막대 차트 예제를 완료하면 대화 상자가 마우스 추적 및 이벤트, 선택 사양, 메뉴 선택 및 키보드 등가물을 설명합니다.</p> <p>![](/assets/img/mvp_9.png)</p> <p>그런 다음, 프리젠터는 응용 프로그램의 기존 &quot;메인&quot; 또는 &quot;이벤트 루프&quot; 부분을 나타내며, 적절한 모델, 선택, 명령, 보기 및 인터랙터를 만들고, 트래픽처럼 어떤 일이 일어나는지 또는 어떤 일이 일어나는지 지시하는 비즈니스 로직을 제공합니다.</p> <h2 id="mvp-model-view-presenter"><a href="#mvp-model-view-presenter" class="header-anchor">#</a> MVP: Model-View-Presenter</h2> <p>요약하자면, 세 가지 데이터 관리 질문</p> <ol><li>내 데이터가 뭐지? (Model)</li> <li>데이터를 선택하려면 어떻게 해야 하지?(Selection)</li> <li>데이터를 어떻게 변경하지?(Command)</li></ol> <p>![](/assets/img/mvp_10.png)</p> <p>사용자 인터페이스 질문 세 가지
+4) 데이터를 어떻게 표시하지?(View)
+5) 이벤트가 데이터의 변경 사항에 어떻게 매핑되지?(Interactor)
+6) 어떻게 하면 다 합칠 수 있지?(Presenter)
+개발자가 전체 MVP 기반 프로그램을 만들 때 답변하는 6가지 질문을 구성한다.</p> <h2 id="programming-model-frameworks"><a href="#programming-model-frameworks" class="header-anchor">#</a> Programming Model Frameworks</h2> <p>MVP 프로그래밍 모델의 진화하는 Taligent의 개발에서, 이러한 추상화의 설계와 구현은 객체 지향 프레임워크로 제공되어 개발자들이 자신의 애플리케이션을 위한 특정 버전의 요소를 만들 때 하위 분류하고 커스터마이징할 수 있습니다. Taligent 프레임워크는 별도로 사용될 수 있지만, 개발자가 설계와 구현을 재사용할 수 있는 전체적인 애플리케이션 프로그래밍 모델을 제공하기 위해 함께 제작됩니다.</p> <p>![](/assets/img/mvp_11.png)</p> <p>Taligent는 IBM VisualAge 4.0용 Open Class의 다음 릴리스에서 개발자들이 모델을 만드는 데 도움이 되는 모델 프레임워크를 제공할 예정입니다. 또한 Taligent는 개발자가 선택 항목 및 명령을 작성하는 데 도움이 되는 데이터 관리 프레임워크를 제공합니다. 선택과 명령은 흔히 함께 설계되며, 현재 이러한 추상화를 구현하는 데 도움이 되는 단일 프레임워크가 적절한 설계 선택으로 보인다.</p> <p>MVP 프로그래밍 모델을 사용하여 독립형 애플리케이션을 만들 수 있지만, 점점 더 많은 오늘날의 소프트웨어에는 전체 애플리케이션을 생성하기 위해 함께 작동할 수 있는 구성 요소 또는 더 작은 프로그램 단위가 포함됩니다. 이 경우 MVP 모델은 구성요소 아키텍처의 맨 위에 있으므로 모델, 보기 및 이벤트는 기본 구성요소 런타임에 매핑됩니다.</p> <p>Taligent는 OS/2 또는 AIX와 같은 OpenDoc 플랫폼에서 OpenDoc에 매핑되는 구현과 함께 단일 구성요소 프레임워크 API를 제공하며, Windows와 같은 OLE 플랫폼에서 OLE로 매핑되는 구현은 가까운 장래에 Java로 제공됩니다. 이 API가 매핑된 구성 요소 모델 n개. 그러나 CommonPoint 구성요소 런타임이 취소되었으며 Open Class의 모든 버전의 Taligent 기술이 이제 OpenDoc 또는 OLE과 같은 기본 구성요소 런타임에 요구되고 매핑됩니다.)
+CommonPoint에 나타난 Taligent Compound Document Framework에는 데이터 관리 프레임워크, 모델 프레임워크 및 구성요소 프레임워크의 결합된 기능이 있습니다. VisualAge 3.5용 Open Class에 나타난 Compound Document Framework에는 Model Framework와 Component Framework 기능이 있지만 VisualAge 4.0용 Open Class에서 다시 소개될 데이터 관리 프레임워크는 없습니다.</p> <p>CommonPoint에 나타난 Taligent Presentation Framework는 CommonPoint의 자체 사용자 인터페이스 라이브러리를 기반으로 프리젠터 및 대화자 및 뷰 추상화의 조합을 나타냅니다. VisualAge 4.0용 Open Class는 IBM의 ICLUI 사용자 인터페이스 클래스 라이브러리를 대화형 사용자 및 추상화를 보기 위해 사용하므로 VisualAge 4.0용 Open Class에서 프레젠테이션 프레임워크는 프리젠터 추상화로만 추상화됩니다. 마지막으로, MVP 프로그래밍 모델에 기초하는 이벤트 처리 시스템은 이벤트, 이벤트 송신자 및 수신기, 이벤트 유형 검사, 모든 모델 상호 작용을 중재하기 위한 이벤트 유형 검사 등을 제공하는 알림 프레임워크에 구현된다.</p> <h2 id="programming-model-classes"><a href="#programming-model-classes" class="header-anchor">#</a> Programming Model Classes</h2> <p>MVP 프로그래밍 모델에 대한 클래스 다이어그램은 우리가 논의해온 클래스 구조와 개념의 직접적인 일치성을 보여준다. 이 다이어그램은 이러한 관계의 단순하지만 실례가 되는 개요를 나타냅니다.</p> <p>![](/assets/img/mvp_12.png)</p> <p>각 MVP 개념에는 IModel, IView, ISelection, ICommand, IInteractor 및 IPresenter의 기본 클래스가 있습니다. 개발자는 이러한 기본 클래스를 하위 분류하고 원하는 기능을 구현하는 데 적합한 방법을 재정의하여 이러한 추상화의 특정 버전을 만듭니다.
+가장 간단한 형식에서 IMyModel은 myData를 개인 데이터 구성원으로 정의하고 IModel의 getData를 재정의하고 myData를 읽고 쓰기 위해 데이터 방법을 설정합니다. IMyView는 IView의 drawContents 메서드를 재정의하여 화면에 myData 메서드 호출을 사용하여 myData 도면을 구현합니다. IMySelection은 myData의 간단한 선택을 정의하고 하이라이트선택을 구현하여 화면에서 선택을 명확히 합니다. 원하는 명령어(예: 각 명령어/복사본)와 명령어별로 ICommand의 별도 하위 클래스가 생성됩니다. 보다 완벽한 구현의 경우 각 명령에는 doCommand, unchCommand 및 redoCommand의 방법이 있어 시스템이 명령어 실행 취소 및 재실행 등의 여러 수준을 제공할 수 있습니다. 대부분의 일반적인 어플리케이션들은 그들 자신의 상호작용기를 만들 필요가 없다. 개방형 클래스 라이브러리에는 IMenu Interactor 또는 IButton Interactor와 같은 일반적인 사용자 인터페이스 요소를 위한 다양한 미리 정의된 IInteractor 하위 클래스가 함께 제공됩니다. 대부분의 애플리케이션은 IMenuInteractor와 같은 기존 하위 클래스를 인스턴스화하고, 특정 레이블로 IMenuItem 개체를 특정 순서로 인스턴스화하고, 현재 선택 시 해당 명령을 호출하도록 요청합니다. 이러한 관계의 대부분은 프로그래밍 방식으로 설정되는 것이 아니라 적절한 개체를 인스턴스화하고 정의하는 그래픽 사용자 인터페이스 구축 도구를 사용하여 설정됩니다. 마지막으로, 개발자들은 IPresenter에서 그들의 IMyPresenter를 하위 분류한다. IPresenter는 MFC, OWL 또는 MacApp과 유사한 애플리케이션 프레임워크의 최상위 수준을 나타낸다. IMyPresenter는 특정 모델, 보기, 선택, 명령 및 인터랙터를 만들어 이들을 모두 하나로 묶어 기능성 응용 프로그램을 만듭니다.</p> <h2 id="building-an-application"><a href="#building-an-application" class="header-anchor">#</a> Building An Application</h2> <p>MVP 프로그래밍 모델의 장점은 직관적인 추상화 세트를 제공할 뿐만 아니라 개발자의 코드와 관련된 기능이 추가된 풍부한 기본 구현을 제공하는 것입니다. 이러한 이점을 설명하기 위해 계산기 응용 프로그램의 간단한 예를 들어 보겠습니다. 또한 이 예는 MVP 개념이 모두 동시에 학습될 필요는 없다는 것을 보여줍니다. 그보다는 기존의 프로그래밍 방식에서 시작하여 애플리케이션이 발전함에 따라 MVP 추상화를 단계적으로 도입할 수 있습니다.</p> <p>첫째, 프리젠터 추상화를 전혀 사용하지 않고 계산기 애플리케이션을 작성할 수 있지만, 기존의 메인 루틴과 이벤트 루프에 손으로 코딩할 수 있습니다. 일부 하드코어 프로그래머들은 이런 방식으로 &quot;자신들만의 것을&quot; 선호합니다. 그러나 MFC와 같은 OO 툴에 익숙한 개발자들은 프리젠터와 같은 프레임워크를 하위 분류하고 그것으로부터 메인 및 이벤트 루프를 상속받는 것이 더 쉽다는 것을 알게 됩니다. <code>좋은 프리젠터 프레임워크</code>는 개발자를 위해 애플리케이션 시작 및 종료 기능, 기본 메뉴 모음 및 겹치는 창, 도움말 기능, 기본 마우스 및 키보드 이벤트를 구현합니다. 전체 계산기 응용 프로그램을 Presenter의 방법 내에 쓸 수 있고, 원시 그래픽 호출로 버튼을 누르고, 버튼을 누르는 것을 구현하기 위한 낮은 수준의 마우스 추적, 계산기 업데이트를 구현하기 위해 다시 그리기를 할 수 있습니다. 다른 모든 MVP 추상화는 무시될 수 있었다.
+그러나, 개발자가 계산기 재작성을 요구하는 그래픽 호출을 기록하기 위해 IView를 사용하는 경우, IView는 창의 크기 조정과 노출에 대한 재작성 관리, 기본 인쇄, 그래픽 사용자 인터페이스 작성기와 협력하여 특정 계산기 레이아웃을 구성 또는 변경합니다.</p> <p>Presenter와 View만 있으면 개발자는 원시 계산기 레지스터를 View 내의 데이터 구성원으로 저장합니다. 이것들은 그 계산기의 실행의 일생 동안 있을 것이고 계산기가 멈추면 결과는 사라질 것입니다. 그러나 개발자가 계산기 데이터를 보관하기 위해 IModel을 하위 클래스인 경우, 모델을 사용하여 계산기 종이 테이프와 유사한 계산기 &quot;문서&quot;를 나타낼 수 있습니다. 이 문서는 새로 작성되어 계산된 값을 기록하고 파일에 저장한 후 닫은 다음 다시 열어서 읽을 수 있습니다. 또한 모델 프레임워크와 구성요소 프레임워크 사이의 Taligent의 연결로 인해 전체 계산기는 OpenDoc 또는 OLE 구성요소가 될 수 있으며 각각 다른 OpenDoc 또는 OLE 문서에 포함될 수 있습니다.</p> <p>지금까지 모델에 대한 작업은 세트와 가져오기 방법에 대한 직접연결입니다. 이제 Selection을 구현한다고 가정해 보겠습니다. 이를 통해 종이 테이프에서 개별 데이터 요소를 강조 표시할 수 있습니다. 이제 데이터 관리 프레임워크에서 선택한 데이터에 대한 기본 잘라내기, 복사 및 붙여넣기 명령을 제공할 수 있습니다. Selection(전체 문서뿐만 아니라)은 OpenDoc 또는 양식 필드를 이동하기 위한 값을 제공하는 다른 문서로 이동합니다. 또한 이제 삽입 지점이 OpenDoc 또는 OLE 구성요소를 종이 테이프에 내장할 수 있게 되었습니다.</p> <p>이 시점까지, 키잉의 실제 운영은 개발자가 전적으로 제공합니다. 이러한 기능이 명령과 함께 구현되면 계산기 작업이 실행 취소 및 다시 실행되므로 종이 테이프가 뒤로 실행될 수 있습니다. 이 명령은 나중에 다시 재생할 수 있도록 스크립트로 작성될 수 있으며, 사용자 입력을 허용하는 일시 중단이 있을 수 있습니다. 또한 명령을 네트워크를 통해 동일한 계산기 프로그램을 실행하는 다른 시스템으로 분산하여 두 명 이상의 사용자가 실시간으로 공동 작업을 수행할 수 있습니다. 누구나 키를 누를 수 있고 모두가 같은 결과를 볼 수 있습니다.</p> <p>마지막으로, 개발자가 더 많은 Interactor를 인스턴스화하거나 심지어 만들기 시작했다면, 더 많은 기능을 추가할 수 있습니다. 키보드 등가물은 키보드의 숫자 키패드를 사용할 수 있습니다. 추가 버튼과 기능은 과학 또는 재무 계산기를 구현할 수 있습니다. 메뉴 항목은 계산기 베이스를 10진수에서 16진수 또는 8진수로 변환할 수 있습니다. 다른 메뉴 항목은 계산기의 로케일을 변경하여 다른 숫자 또는 통화 시스템을 활성화할 수 있습니다(Taligent의 International Frameworks 사용). 이는 숫자 또는 통화 입력 또는 표시에 대한 추가 코드 없이 수행할 수 있습니다. 마지막으로, 더 전문적인 상호작용자를 만들어 야심찬 개발자들은 펜 입력과 손으로 쓴 숫자 입력을 지원할 수 있습니다.</p> <p>이 모든 것이 단순한 계산기에 비해 지나친 것처럼 보일 수도 있지만, 이러한 종류의 기능이 매우 상호 작용적이고 문서 중심적이며, 연결 가능하고, 연결 가능하고, 스크립팅이 가능하고, 협업이 가능한 애플리케이션 버전을 만들 때 얼마나 강력한지 상상해 보십시오. MVP 프로그래밍 모델 추상화를 통해 이러한 모든 기능과 더 많은 기능을 이용할 수 있습니다.</p> <h2 id="client-server"><a href="#client-server" class="header-anchor">#</a> Client/Server</h2> <p>한 가지 더 논의할 주제가 있습니다. 즉, MVP 모델을 사용하여 클라이언트/서버 애플리케이션을 생성하는 방법에 대해 설명합니다. 애플리케이션의 클라이언트/서버 버전은 클라이언트 또는 서버에서 구현되는 MVP 추상화 중 전체 또는 일부를 결정하는 것을 포함한다. 가장 전통적인 클라이언트/서버 분할은 Presenter를 감안하여 이루어집니다. 모델, 선택 및 명령은 일반적인 서버측 기능을 나타냅니다. 보기 및 상호 작용기는 일반적인 클라이언트 측 기능을 나타냅니다. 그런 다음 Presenter는 클라이언트와 서버 간의 경계를 &quot;스트래딩&quot;합니다. 즉, 코드가 양쪽 측면에 모두 나타나 하나의 개념적 Presenter를 나타냅니다. 대부분의 Presenter 코드는 &quot;fat client&quot;에서 클라이언트 측에 있을 수 있으며, 간단한 서버측 Presenter에게 SQL을 전달한다. 반대로, 대부분의 Presenter 코드는 클라이언트측에서 &quot;씬&quot; GUI 애플리케이션만 사용하여 서버 측에 있을 수 있습니다. 분할의 특성은 부분적으로 개발자가 경계를 가로질러 어떤 프로토콜을 사용하기로 선택했는지에 따라 결정됩니다. 예를 들면 RPC, DCE, SQL, CORBA 등이 있습니다.</p> <p>![](/assets/img/mvp_13.png)</p> <p>보다 정교한 애플리케이션에서는 양쪽에서 MVP 추상화 중 일부 또는 전부를 사용할 수 있습니다. 클라이언트 응용 프로그램에는 &quot;모델 사용 가능&quot; 예와 같이 원격 데이터 서버와 통신하는 &quot;대용&quot; 또는 &quot;프록시&quot; 모델이 있을 수 있습니다. 또한 MVP와 함께 구현되는 원격 데이터 서버는 실제 데이터를 저장하거나, 직접 타사 계층으로 이동합니다. 마찬가지로 서버 응용프로그램은 클라이언트측 실제 보기에 업데이트 이벤트를 게시하는 보기 없는 응용프로그램일 수 있습니다. 핵심 아이디어는 원하는 클라이언트/서버 아키텍처를 구현하기 위해 클라이언트와 서버 모두에서 MVP의 일부 또는 전부를 사용할 수 있다는 것이다.</p> <h2 id="multiple-versions-of-client-server"><a href="#multiple-versions-of-client-server" class="header-anchor">#</a> Multiple versions of client/server</h2> <p>실제로 MVP 추상화를 여러 위치에 고려하고 클라이언트 측, 서버 측 또는 분할에 주요 기능을 배치하는 것은 광범위한 인기 있는 클라이언트/서버 솔루션에 해당됩니다. 모델만 서버에 있고 다른 모든 것은 &quot;fat client&quot;라고 가정합니다. 이는 원격 데이터 저장소 또는 파일 서버 또는 마찬가지로 데이터 읽기 및 쓰기(모델)만 추상화하는 OODB에 해당합니다. Model 및 Selection이 서버에 있다고 가정합니다. 이는 기본 관계형 데이터 베이스가 수행하는 작업과 일치합니다. SQL의 &quot;SELECT&quot; 명령은 실제로 처리를 위해 선택할 데이터를 지정하는 관계형 데이터 베이스의 중앙 시초이며, 일반적으로 수행되는 처리(명령)를 사용합니다.
+클라이언트 쪽에 모델, 선택 및 명령이 서버에 있다고 가정합니다. 명령 처리를 서버로 이동하여 기본적으로 저장된 프로그램 데이터 베이스 또는 다른 레벨의 트랜잭션 서버를 모델링했습니다. 이제 클라이언트는 서버에서 실행되는 데이터를 처리하기 위한 명령을 요청하기만 하면 됩니다. 극단으로 치죠. 보기만 클라이언트에 있다고 가정합니다. 간단히 말해, 이것은 기본적으로 멍청한 터미널이 하는 일이나 원격 보기를 허용하기 위해 X Window 서버가 수행하는 일 또는 간단한 화면 공유입니다. 클라이언트는 보기일 뿐이고 다른 모든 작업은 서버에서 수행됩니다. 보기와 인터렉터가 클라이언트에 있지만 모든 데이터 관리 및 비즈니스 논리(프레젠터)가 서버에 있다고 가정합니다. 이것이 본질적으로 오늘날의 일반적인 웹 어플리케이션들이 하는 일입니다. 보기는 브라우저에서 렌더링되는 HTML 페이지이며 대화자는 마우스를 사용하여 HTML 링크 또는 양식 기반 입력 필드 및 버튼을 클릭합니다. 그러나 모든 실행, 비즈니스 로직, 명령 및 데이터는 웹(HTTP) 서버에 있습니다.</p> <p>![](/assets/img/mvp_14.png)</p> <p>Java 지원 웹 응용 프로그램은 클라이언트에서 실행하기 위해 일부 코드를 다운로드할 수 있는 비즈니스 논리의 시작이며, 따라서 Presenter 중 일부는 클라이언트 측으로 마이그레이션됩니다. 모든 논리가 서버 측에 남아있다면, 우리는 기존의 서버 기반 애플리케이션을 가지고 있다. 모든 논리가 클라이언트 쪽에서 진행된다면, 우리는 전통적인 PC 애플리케이션을 가지고 있다. 분할된 경우, 기존의 분산형 애플리케이션이 있습니다. 적절한 장소에서 두 번 분할하면 기존의 3계층 애플리케이션인 씬 GUI 클라이언트, 중간 계층 애플리케이션 로직, 백엔드 데이터베이스가 있습니다. 분산 애플리케이션 프로그래밍의 경우 일곱 번째이자 마지막 설계 질문은 &quot;클라이언트와 서버 간에 애플리케이션을 분할하려면 어떻게 해야 합니까?&quot;입니다. 위에서 설명한 것처럼 모든 유사성은 상대적으로 피상적이며, 심각한 클라이언트/서버 및 다중 계층 애플리케이션은 일반적으로 서로 다른 수준의 추상화 간의 훨씬 더 정교한 관계를 가지고 있습니다. 그러나 널리 사용되고 친숙한 광범위한 클라이언트/서버 아키텍처가 MVP 모델 내에서 간단한 변형으로 모델링될 수 있음은 분명하다. 이는 MVP 모델이 가장 널리 사용되는 애플리케이션 아키텍처에 공통적인 기본적이고 표현적인 추상화를 캡처한다는 높은 신뢰도를 제공한다. 이러한 이유로, 우리는 MVP 프로그래밍 모델이 애플리케이션 개발을 위한 기본 설계 패턴이라고 믿는다.</p> <h2 id="추상화의-이점"><a href="#추상화의-이점" class="header-anchor">#</a> 추상화의 이점</h2> <p>우리는 MVP 개념이 많은 종류의 애플리케이션을 모델링하기에 충분하다는 것을 입증했습니다. 그것은 또한 가치가 있습니다.
+모든 구별이 그들이 가져오는 이익에 의해 필요하고 정당화되는지 검토하는 것. 이를 위해 MVP 삼각망 내의 인접한 각 추상화 쌍에 대해 <code>이 차이를 구분하는 데 가치가 있는가?</code>라고 물을 수 있습니다.</p> <p>Model/View 구분은 View 독립성의 이점을 제공합니다. 예를 들어 서로 다른 계산기 레이아웃(다른 수준의 기능, 배열, 계산기의 다른 &quot;브랜드&quot;)은 모두 동일한 기초 계산기 엔진 및 데이터 표현에 대해 서로 다른 보기로 프로그래밍할 수 있습니다.</p> <p>Selection/Model 구분은 모델 독립성의 이점을 제공합니다. 모델 독립성을 통해 개발자는 나머지 프로그램에서 데이터가 표시되거나 처리되는 방법을 변경하지 않고도 데이터 구조 또는 파일 형식을 변경하고 발전시킬 수 있으며 지속성, 원격 데이터 베이스 및 공유를 도입할 수 있습니다.</p> <p>Command/Selection 구분은 명령 재사용의 이점을 제공합니다. 프로그래머 코드에서 각 데이터 요소에 대한 특별한 경우를 제외하고, 단일 명령을 모델에 있는 하나, 여러 개 또는 모든 데이터 요소의 선택에 적용할 수 있습니다. 일단 구현되면, 명령은 다른 Presenter가 여러 응용프로그램에서 재사용할 수 있습니다. 예를 들어, 기본 또는 통화 변환 명령을 문서의 번호에 적용할 수 있습니다. 이러한 방식으로 CommonPoint 시스템은 모든 문서에 펜이 작성되고, 글꼴 선택 도구가 텍스트를 변경할 수 있으며, 색 선택기가 색을 변경할 수 있으며, 철자 검사기가 텍스트를 검사할 수 있는 등의 글로벌 도구를 지원합니다.</p> <p>Interactor/View 구분은 입력 일반성의 이점을 제공합니다. 응용프로그램 로직이나 데이터 렌더링을 변경하지 않고도 다양한 메뉴, 대화 상자, 키보드 등가물, 제스처 또는 필기/펜 입력을 지원할 수 있습니다. Commands 및 Interactors에서 Presenter를 구별하면 재사용 가능한 Logic의 이점을 얻을 수 있습니다. 특정 디스플레이 또는 데이터 관리 세부 정보에서 추상화하면 프로그램 로직과 알고리즘을 다른 애플리케이션에서 재사용할 수 있다. 예를 들어, 단위 변환이나 복합적 지분과 같은 재무적 계산과 같은 과학적 계산을 다른 맥락에서 재사용할 수 있다. 마지막으로, 프레임워크를 사용하여 다양한 MVP 추상화를 구현하면 플랫폼 간 이동성, 다중 표준(예: OpenDoc, OLE, ...), 배포 및 다중 계층 파티셔닝이 용이해집니다.</p> <h2 id="summary"><a href="#summary" class="header-anchor">#</a> Summary</h2> <p>Taligent와 IBM은 MVP(Model-View-Presenter)를 개발하고 있습니다.
+여러 개발 환경에서 모델을 프로그래밍할 수 있습니다. Taligent의 VisualAge 4.0용 Open Class 구현은 여러 OS 플랫폼에서 C++용 MVP를 지원할 것입니다. Taligent는 또한 표준 Java 환경에서 실행될 매우 경량 버전의 MVP를 구현하고 있다. MVP는 기본적으로 Smalltalk의 MVC 프로그래밍 모델을 일반화한다. 그러므로, IBM의 주요 개발 환경을 위한 MVP의 개발은 오늘날 가장 인기 있는 객체 지향 프로그래밍 언어에 걸쳐 통합된 개념 프로그래밍 모델을 제공합니다.</p> <h2 id="원본"><a href="#원본" class="header-anchor">#</a> 원본</h2> <p><a href="https://www.researchgate.net/publication/255616200_MVP_Model-View-Presenter_The_Taligent_Programming_Model_for_C_and_Java_Taligent_Inc" target="_blank" rel="noopener noreferrer">MVP: Model-View-Presenter The Taligent Programming Model for C++ and Java<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.7b28acd1.js" defer></script><script src="/assets/js/2.fdfe9d07.js" defer></script><script src="/assets/js/44.ac14574e.js" defer></script>
+  </body>
+</html>
