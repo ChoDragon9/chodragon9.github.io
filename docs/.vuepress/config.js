@@ -25,8 +25,8 @@ module.exports = {
               {text: 'Introduction to MVVM for WPF', link: '/blog/introduction-to-mvvm-for-wpf/'},
               {text: 'Flux', link: '/blog/flux/'},
               {text: 'Vuex', link: '/blog/vuex/'},
-              // {text: 'MVC 정리', link: '/blog/mvc/'},
-              // {text: 'MVVM 정리', link: '/blog/mvvm/'},
+              {text: 'MVC 정리', link: '/blog/mvc/'},
+              {text: 'MVVM 정리', link: '/blog/mvvm/'},
             ]
           },
           {
