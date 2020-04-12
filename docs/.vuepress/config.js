@@ -23,8 +23,10 @@ module.exports = {
               {text: 'MVC XEROX PARC', link: '/blog/mvc-xerox-parc/'},
               {text: 'MVP The Taligent Programming Model', link: '/blog/mvp-the-taligent-programming-model/'},
               {text: 'Introduction to MVVM for WPF', link: '/blog/introduction-to-mvvm-for-wpf/'},
-              {text: 'MVC 정리', link: '/blog/mvc/'},
-              {text: 'MVVM 정리', link: '/blog/mvvm/'},
+              {text: 'Flux', link: '/blog/flux/'},
+              {text: 'Vuex', link: '/blog/vuex/'},
+              // {text: 'MVC 정리', link: '/blog/mvc/'},
+              // {text: 'MVVM 정리', link: '/blog/mvvm/'},
             ]
           },
           {

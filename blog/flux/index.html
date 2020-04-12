@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Flux | ChoDragon9</title>
+    <meta name="description" content="">
+    <meta name="generator" content="VuePress 1.3.1">
+    <meta name="google-site-verification" content="yX6dHIw5DyDCd9iNbZSo2w8VjnED68OLdw6zu_Rm554">
+    
+    <link rel="preload" href="/assets/css/0.styles.ec1b8bff.css" as="style"><link rel="preload" href="/assets/js/app.2598873a.js" as="script"><link rel="preload" href="/assets/js/2.554774e4.js" as="script"><link rel="preload" href="/assets/js/37.445c6fbb.js" as="script"><link rel="prefetch" href="/assets/js/10.3f58bc92.js"><link rel="prefetch" href="/assets/js/11.b2f7e849.js"><link rel="prefetch" href="/assets/js/12.4bcd582e.js"><link rel="prefetch" href="/assets/js/13.ad4715e7.js"><link rel="prefetch" href="/assets/js/14.70a681f8.js"><link rel="prefetch" href="/assets/js/15.2d85b677.js"><link rel="prefetch" href="/assets/js/16.cf24bf82.js"><link rel="prefetch" href="/assets/js/17.fb24de3e.js"><link rel="prefetch" href="/assets/js/18.b871ce60.js"><link rel="prefetch" href="/assets/js/19.c8542a81.js"><link rel="prefetch" href="/assets/js/20.f315693c.js"><link rel="prefetch" href="/assets/js/21.a60e1ea2.js"><link rel="prefetch" href="/assets/js/22.b8c887f6.js"><link rel="prefetch" href="/assets/js/23.f87981fb.js"><link rel="prefetch" href="/assets/js/24.b778b4c7.js"><link rel="prefetch" href="/assets/js/25.d951502c.js"><link rel="prefetch" href="/assets/js/26.85b9db70.js"><link rel="prefetch" href="/assets/js/27.ef4226f8.js"><link rel="prefetch" href="/assets/js/28.c70f2bd8.js"><link rel="prefetch" href="/assets/js/29.b3ead3b3.js"><link rel="prefetch" href="/assets/js/3.99436bf7.js"><link rel="prefetch" href="/assets/js/30.e73e8033.js"><link rel="prefetch" href="/assets/js/31.cc16609f.js"><link rel="prefetch" href="/assets/js/32.008fe9dd.js"><link rel="prefetch" href="/assets/js/33.f2d90673.js"><link rel="prefetch" href="/assets/js/34.0e589753.js"><link rel="prefetch" href="/assets/js/35.66f55361.js"><link rel="prefetch" href="/assets/js/36.caf783c5.js"><link rel="prefetch" href="/assets/js/38.12bb3f1d.js"><link rel="prefetch" href="/assets/js/39.ff7932f5.js"><link rel="prefetch" href="/assets/js/4.9b44b527.js"><link rel="prefetch" href="/assets/js/40.fb5bfc4d.js"><link rel="prefetch" href="/assets/js/41.6d48b920.js"><link rel="prefetch" href="/assets/js/42.c1742473.js"><link rel="prefetch" href="/assets/js/43.893ab905.js"><link rel="prefetch" href="/assets/js/44.514f4874.js"><link rel="prefetch" href="/assets/js/45.96353e26.js"><link rel="prefetch" href="/assets/js/46.dc393489.js"><link rel="prefetch" href="/assets/js/47.b3854266.js"><link rel="prefetch" href="/assets/js/48.ed215caf.js"><link rel="prefetch" href="/assets/js/49.f507ccd9.js"><link rel="prefetch" href="/assets/js/5.8d4e74fe.js"><link rel="prefetch" href="/assets/js/50.8d02d992.js"><link rel="prefetch" href="/assets/js/51.a4b4296a.js"><link rel="prefetch" href="/assets/js/52.f0b5f1f0.js"><link rel="prefetch" href="/assets/js/53.805ee573.js"><link rel="prefetch" href="/assets/js/54.9b71c77b.js"><link rel="prefetch" href="/assets/js/55.321867b9.js"><link rel="prefetch" href="/assets/js/56.e9ee9cbf.js"><link rel="prefetch" href="/assets/js/57.9fe379c3.js"><link rel="prefetch" href="/assets/js/58.1a3d3889.js"><link rel="prefetch" href="/assets/js/59.44db0f5f.js"><link rel="prefetch" href="/assets/js/6.083a63a2.js"><link rel="prefetch" href="/assets/js/60.6f8cb7e4.js"><link rel="prefetch" href="/assets/js/61.18165aa1.js"><link rel="prefetch" href="/assets/js/62.2535981c.js"><link rel="prefetch" href="/assets/js/63.f5e87fb0.js"><link rel="prefetch" href="/assets/js/64.99b08767.js"><link rel="prefetch" href="/assets/js/65.f292a576.js"><link rel="prefetch" href="/assets/js/66.35472bd4.js"><link rel="prefetch" href="/assets/js/67.273ced67.js"><link rel="prefetch" href="/assets/js/68.36643d11.js"><link rel="prefetch" href="/assets/js/69.06332d27.js"><link rel="prefetch" href="/assets/js/7.2cf80751.js"><link rel="prefetch" href="/assets/js/70.c0f26cb2.js"><link rel="prefetch" href="/assets/js/71.30a81db4.js"><link rel="prefetch" href="/assets/js/72.8cee9865.js"><link rel="prefetch" href="/assets/js/73.4cd18f2a.js"><link rel="prefetch" href="/assets/js/74.79ff4976.js"><link rel="prefetch" href="/assets/js/75.a4e74d2c.js"><link rel="prefetch" href="/assets/js/76.b6273a4a.js"><link rel="prefetch" href="/assets/js/77.81ea3acf.js"><link rel="prefetch" href="/assets/js/8.94ce3154.js"><link rel="prefetch" href="/assets/js/9.1021330f.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.ec1b8bff.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">ChoDragon9</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="설계" class="dropdown-title"><span class="title">설계</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          좋은코드
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/easy-code/" class="nav-link">
+  이해하기 쉬운 코드 작성방법 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/code-position/" class="nav-link">
+  코드의 위치를 정하는 기준
+</a></li><li class="dropdown-subitem"><a href="/blog/reusable-code/" class="nav-link">
+  재사용 가능한 코드 개발
+</a></li><li class="dropdown-subitem"><a href="/blog/declarative-function/" class="nav-link">
+  선언형으로 대체 가능한 문법들 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/date-helper-development/" class="nav-link">
+  강제성, 단일화 그리고 날짜 헬퍼 개발
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Model-View 패턴
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/mvc-word-1979-12-10/" class="nav-link">
+  MVC 용어정의 1979/12/10
+</a></li><li class="dropdown-subitem"><a href="/blog/mvc-xerox-parc/" class="nav-link">
+  MVC XEROX PARC
+</a></li><li class="dropdown-subitem"><a href="/blog/mvp-the-taligent-programming-model/" class="nav-link">
+  MVP The Taligent Programming Model
+</a></li><li class="dropdown-subitem"><a href="/blog/introduction-to-mvvm-for-wpf/" class="nav-link">
+  Introduction to MVVM for WPF
+</a></li><li class="dropdown-subitem"><a href="/blog/flux/" class="nav-link router-link-exact-active router-link-active">
+  Flux
+</a></li><li class="dropdown-subitem"><a href="/blog/vuex/" class="nav-link">
+  Vuex
+</a></li></ul></li><li class="dropdown-item"><h4>
+          디자인 패턴
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/gof-design-pattern-summary/" class="nav-link">
+  GoF 디자인 패턴 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/design-pattern-structural/" class="nav-link">
+  GoF 디자인 패턴 | 구조패턴
+</a></li><li class="dropdown-subitem"><a href="/blog/design-pattern-creational/" class="nav-link">
+  GoF 디자인 패턴 | 생성패턴
+</a></li><li class="dropdown-subitem"><a href="/blog/design-pattern-behavioral/" class="nav-link">
+  GoF 디자인 패턴 | 행동패턴
+</a></li></ul></li><li class="dropdown-item"><h4>
+          리팩토링
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/structure-refactoring/" class="nav-link">
+  구조 리펙토링 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/legacy-code-to-easy-code/" class="nav-link">
+  레거시 코드에서 이해하기 쉬운코드로 리팩토링
+</a></li><li class="dropdown-subitem"><a href="/blog/legacy-code-to-easy-code-2/" class="nav-link">
+  레거시 코드에서 이해하기 쉬운코드로 리팩토링 2
+</a></li><li class="dropdown-subitem"><a href="/blog/refactoring-meaning-and-result/" class="nav-link">
+  리펙토링 정의와 결과
+</a></li></ul></li><li class="dropdown-item"><h4>
+          기타
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/design-methodology/" class="nav-link">
+  설계 방법론
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="패러다임" class="dropdown-title"><span class="title">패러다임</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          객체지향
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/object/" class="nav-link">
+  객체 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/produce-oop/" class="nav-link">
+  immer 구현해보기 - OOP 버전
+</a></li></ul></li><li class="dropdown-item"><h4>
+          함수형
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/functional/" class="nav-link">
+  함수형 프로그래밍 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/functional2/" class="nav-link">
+  함수형 프로그래밍 정리2
+</a></li><li class="dropdown-subitem"><a href="/blog/produce/" class="nav-link">
+  immer 구현해보기
+</a></li><li class="dropdown-subitem"><a href="/blog/produce-immutable/" class="nav-link">
+  immer 구현해보기 - 불변성편
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="언어" class="dropdown-title"><span class="title">언어</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          TypeScript
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/typescript-from-inhouse-service/" class="nav-link">
+  인하우스 서비스 구축하며 사용했던 TypeScript 문법 정리
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Javascript
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/es6/" class="nav-link">
+  ES6 Overview
+</a></li><li class="dropdown-subitem"><a href="/blog/this/" class="nav-link">
+  this, this is magic.
+</a></li><li class="dropdown-subitem"><a href="/blog/promise/" class="nav-link">
+  Promise 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/async-await-case/" class="nav-link">
+  async await 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/call-stack-and-coroutine/" class="nav-link">
+  코루틴을 사용한 지연 평가
+</a></li></ul></li><li class="dropdown-item"><h4>
+          SML
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/sml-basic/" class="nav-link">
+  기초
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-builtin-datatype/" class="nav-link">
+  빌트인 자료형
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-datatype/" class="nav-link">
+  자료형 정의
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-exception/" class="nav-link">
+  예외처리
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-function/" class="nav-link">
+  함수
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-higher-order-function/" class="nav-link">
+  고차함수
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-infix/" class="nav-link">
+  infix 정의
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-module/" class="nav-link">
+  모듈 시스템
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="오픈소스" class="dropdown-title"><span class="title">오픈소스</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Vue Composition API
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/composition-api-rfc/" class="nav-link">
+  RFC 번역
+</a></li><li class="dropdown-subitem"><a href="/blog/composition-api-rfc-summary/" class="nav-link">
+  RFC 요약 및 자료 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/composition-api-rfc-release-notes/" class="nav-link">
+  RFC 릴리즈 노트 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/composition-api-rfc-migration/" class="nav-link">
+  Composition API 경험 정리
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Vue
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/vue-eslint/" class="nav-link">
+  Vue ESLint 설정
+</a></li><li class="dropdown-subitem"><a href="/blog/nuxt-2-11-typescript/" class="nav-link">
+  Nuxt v2.11 기반 nuxt/typescript 환경 세팅
+</a></li><li class="dropdown-subitem"><a href="/blog/nuxt-ts/" class="nav-link">
+  Nuxt v2.0에서 TypeScript로 개발하기
+</a></li><li class="dropdown-subitem"><a href="/blog/nuxt-migration/" class="nav-link">
+  Nuxt v2.0에서 v2.11로 마이그레이션
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Angular
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/rxjs-codereview/" class="nav-link">
+  RxJs 코드리뷰 사례
+</a></li><li class="dropdown-subitem"><a href="/blog/angular/" class="nav-link">
+  Angular의 강력함과 아쉬운점
+</a></li></ul></li><li class="dropdown-item"><h4>
+          React
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/react-convention-for-codereview/" class="nav-link">
+  코드리뷰를 위한 React 컨벤션
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="정리" class="dropdown-title"><span class="title">정리</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          관리
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/estimation/" class="nav-link">
+  개발 일정산정
+</a></li><li class="dropdown-subitem"><a href="/blog/release/" class="nav-link">
+  배포 어디까지 알고 있나요?
+</a></li><li class="dropdown-subitem"><a href="/blog/facilitation-for-meeting/" class="nav-link">
+  효율적인 회의를 위한 퍼실리테이션
+</a></li><li class="dropdown-subitem"><a href="/blog/preventive-maintenance/" class="nav-link">
+  위험상황을 대비하는 위험관리
+</a></li><li class="dropdown-subitem"><a href="/blog/git-scm-experience/" class="nav-link">
+  형상관리 전략정리
+</a></li></ul></li><li class="dropdown-item"><h4>
+          도서
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/programming-standards/" class="nav-link">
+  프로그래밍의 정석 도서 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/non-functional-requirement/" class="nav-link">
+  소프트웨어의 핵심 비기능 요구사항
+</a></li><li class="dropdown-subitem"><a href="/blog/regexp-book-backref/" class="nav-link">
+  [손에 잡히는 정규표현식] 역참조/전방탐색/후방탐색
+</a></li></ul></li><li class="dropdown-item"><h4>
+          경험
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/cors-and-http-cookie/" class="nav-link">
+  CORS와 HTTP Cookie
+</a></li><li class="dropdown-subitem"><a href="/blog/how-to-catch-error/" class="nav-link">
+  에러 처리 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/abstract/" class="nav-link">
+  추상화 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/branch-n-case/" class="nav-link">
+  분기를 작성하는 방법 n가지
+</a></li><li class="dropdown-subitem"><a href="/blog/callback/" class="nav-link">
+  콜백 사용 시점
+</a></li><li class="dropdown-subitem"><a href="/blog/clone-function/" class="nav-link">
+  경우에 따른 clone 함수
+</a></li><li class="dropdown-subitem"><a href="/blog/safe-chain/" class="nav-link">
+  안전한 체이닝을 위한 safeChain
+</a></li><li class="dropdown-subitem"><a href="/blog/observation-mechanism/" class="nav-link">
+  옵져버 매커니즘
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/about.html" class="nav-link">
+  About
+</a></div><div class="nav-item"><a href="https://github.com/ChoDragon9" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="설계" class="dropdown-title"><span class="title">설계</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          좋은코드
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/easy-code/" class="nav-link">
+  이해하기 쉬운 코드 작성방법 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/code-position/" class="nav-link">
+  코드의 위치를 정하는 기준
+</a></li><li class="dropdown-subitem"><a href="/blog/reusable-code/" class="nav-link">
+  재사용 가능한 코드 개발
+</a></li><li class="dropdown-subitem"><a href="/blog/declarative-function/" class="nav-link">
+  선언형으로 대체 가능한 문법들 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/date-helper-development/" class="nav-link">
+  강제성, 단일화 그리고 날짜 헬퍼 개발
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Model-View 패턴
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/mvc-word-1979-12-10/" class="nav-link">
+  MVC 용어정의 1979/12/10
+</a></li><li class="dropdown-subitem"><a href="/blog/mvc-xerox-parc/" class="nav-link">
+  MVC XEROX PARC
+</a></li><li class="dropdown-subitem"><a href="/blog/mvp-the-taligent-programming-model/" class="nav-link">
+  MVP The Taligent Programming Model
+</a></li><li class="dropdown-subitem"><a href="/blog/introduction-to-mvvm-for-wpf/" class="nav-link">
+  Introduction to MVVM for WPF
+</a></li><li class="dropdown-subitem"><a href="/blog/flux/" class="nav-link router-link-exact-active router-link-active">
+  Flux
+</a></li><li class="dropdown-subitem"><a href="/blog/vuex/" class="nav-link">
+  Vuex
+</a></li></ul></li><li class="dropdown-item"><h4>
+          디자인 패턴
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/gof-design-pattern-summary/" class="nav-link">
+  GoF 디자인 패턴 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/design-pattern-structural/" class="nav-link">
+  GoF 디자인 패턴 | 구조패턴
+</a></li><li class="dropdown-subitem"><a href="/blog/design-pattern-creational/" class="nav-link">
+  GoF 디자인 패턴 | 생성패턴
+</a></li><li class="dropdown-subitem"><a href="/blog/design-pattern-behavioral/" class="nav-link">
+  GoF 디자인 패턴 | 행동패턴
+</a></li></ul></li><li class="dropdown-item"><h4>
+          리팩토링
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/structure-refactoring/" class="nav-link">
+  구조 리펙토링 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/legacy-code-to-easy-code/" class="nav-link">
+  레거시 코드에서 이해하기 쉬운코드로 리팩토링
+</a></li><li class="dropdown-subitem"><a href="/blog/legacy-code-to-easy-code-2/" class="nav-link">
+  레거시 코드에서 이해하기 쉬운코드로 리팩토링 2
+</a></li><li class="dropdown-subitem"><a href="/blog/refactoring-meaning-and-result/" class="nav-link">
+  리펙토링 정의와 결과
+</a></li></ul></li><li class="dropdown-item"><h4>
+          기타
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/design-methodology/" class="nav-link">
+  설계 방법론
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="패러다임" class="dropdown-title"><span class="title">패러다임</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          객체지향
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/object/" class="nav-link">
+  객체 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/produce-oop/" class="nav-link">
+  immer 구현해보기 - OOP 버전
+</a></li></ul></li><li class="dropdown-item"><h4>
+          함수형
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/functional/" class="nav-link">
+  함수형 프로그래밍 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/functional2/" class="nav-link">
+  함수형 프로그래밍 정리2
+</a></li><li class="dropdown-subitem"><a href="/blog/produce/" class="nav-link">
+  immer 구현해보기
+</a></li><li class="dropdown-subitem"><a href="/blog/produce-immutable/" class="nav-link">
+  immer 구현해보기 - 불변성편
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="언어" class="dropdown-title"><span class="title">언어</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          TypeScript
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/typescript-from-inhouse-service/" class="nav-link">
+  인하우스 서비스 구축하며 사용했던 TypeScript 문법 정리
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Javascript
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/es6/" class="nav-link">
+  ES6 Overview
+</a></li><li class="dropdown-subitem"><a href="/blog/this/" class="nav-link">
+  this, this is magic.
+</a></li><li class="dropdown-subitem"><a href="/blog/promise/" class="nav-link">
+  Promise 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/async-await-case/" class="nav-link">
+  async await 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/call-stack-and-coroutine/" class="nav-link">
+  코루틴을 사용한 지연 평가
+</a></li></ul></li><li class="dropdown-item"><h4>
+          SML
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/sml-basic/" class="nav-link">
+  기초
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-builtin-datatype/" class="nav-link">
+  빌트인 자료형
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-datatype/" class="nav-link">
+  자료형 정의
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-exception/" class="nav-link">
+  예외처리
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-function/" class="nav-link">
+  함수
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-higher-order-function/" class="nav-link">
+  고차함수
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-infix/" class="nav-link">
+  infix 정의
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-module/" class="nav-link">
+  모듈 시스템
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="오픈소스" class="dropdown-title"><span class="title">오픈소스</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Vue Composition API
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/composition-api-rfc/" class="nav-link">
+  RFC 번역
+</a></li><li class="dropdown-subitem"><a href="/blog/composition-api-rfc-summary/" class="nav-link">
+  RFC 요약 및 자료 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/composition-api-rfc-release-notes/" class="nav-link">
+  RFC 릴리즈 노트 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/composition-api-rfc-migration/" class="nav-link">
+  Composition API 경험 정리
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Vue
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/vue-eslint/" class="nav-link">
+  Vue ESLint 설정
+</a></li><li class="dropdown-subitem"><a href="/blog/nuxt-2-11-typescript/" class="nav-link">
+  Nuxt v2.11 기반 nuxt/typescript 환경 세팅
+</a></li><li class="dropdown-subitem"><a href="/blog/nuxt-ts/" class="nav-link">
+  Nuxt v2.0에서 TypeScript로 개발하기
+</a></li><li class="dropdown-subitem"><a href="/blog/nuxt-migration/" class="nav-link">
+  Nuxt v2.0에서 v2.11로 마이그레이션
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Angular
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/rxjs-codereview/" class="nav-link">
+  RxJs 코드리뷰 사례
+</a></li><li class="dropdown-subitem"><a href="/blog/angular/" class="nav-link">
+  Angular의 강력함과 아쉬운점
+</a></li></ul></li><li class="dropdown-item"><h4>
+          React
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/react-convention-for-codereview/" class="nav-link">
+  코드리뷰를 위한 React 컨벤션
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="정리" class="dropdown-title"><span class="title">정리</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          관리
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/estimation/" class="nav-link">
+  개발 일정산정
+</a></li><li class="dropdown-subitem"><a href="/blog/release/" class="nav-link">
+  배포 어디까지 알고 있나요?
+</a></li><li class="dropdown-subitem"><a href="/blog/facilitation-for-meeting/" class="nav-link">
+  효율적인 회의를 위한 퍼실리테이션
+</a></li><li class="dropdown-subitem"><a href="/blog/preventive-maintenance/" class="nav-link">
+  위험상황을 대비하는 위험관리
+</a></li><li class="dropdown-subitem"><a href="/blog/git-scm-experience/" class="nav-link">
+  형상관리 전략정리
+</a></li></ul></li><li class="dropdown-item"><h4>
+          도서
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/programming-standards/" class="nav-link">
+  프로그래밍의 정석 도서 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/non-functional-requirement/" class="nav-link">
+  소프트웨어의 핵심 비기능 요구사항
+</a></li><li class="dropdown-subitem"><a href="/blog/regexp-book-backref/" class="nav-link">
+  [손에 잡히는 정규표현식] 역참조/전방탐색/후방탐색
+</a></li></ul></li><li class="dropdown-item"><h4>
+          경험
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/cors-and-http-cookie/" class="nav-link">
+  CORS와 HTTP Cookie
+</a></li><li class="dropdown-subitem"><a href="/blog/how-to-catch-error/" class="nav-link">
+  에러 처리 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/abstract/" class="nav-link">
+  추상화 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/branch-n-case/" class="nav-link">
+  분기를 작성하는 방법 n가지
+</a></li><li class="dropdown-subitem"><a href="/blog/callback/" class="nav-link">
+  콜백 사용 시점
+</a></li><li class="dropdown-subitem"><a href="/blog/clone-function/" class="nav-link">
+  경우에 따른 clone 함수
+</a></li><li class="dropdown-subitem"><a href="/blog/safe-chain/" class="nav-link">
+  안전한 체이닝을 위한 safeChain
+</a></li><li class="dropdown-subitem"><a href="/blog/observation-mechanism/" class="nav-link">
+  옵져버 매커니즘
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/about.html" class="nav-link">
+  About
+</a></div><div class="nav-item"><a href="https://github.com/ChoDragon9" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Flux</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/flux/#소개" class="sidebar-link">소개</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/blog/flux/#dispatcher" class="sidebar-link">Dispatcher</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/blog/flux/#stores" class="sidebar-link">Stores</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/blog/flux/#views" class="sidebar-link">Views</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/blog/flux/#actions" class="sidebar-link">Actions</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/blog/flux/#참고" class="sidebar-link">참고</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="소개"><a href="#소개" class="header-anchor">#</a> 소개</h2> <p>Flux는 클라이언트 사이드 어플리케이션 아키텍쳐이다. Flux는 대형 MVC 어플리케이션에서 나타나는 데이터 간의 의존성과 연쇄적인 갱신에서 발생되는 예측하기 힘든 데이터 흐름을 올바르게 다루기 위해 만들어 졌다.</p> <p>양방향 데이터 바인딩은 연속적인 갱신이 발생하고 객체 하나의 변경이 다른 객체를 변경하게 되어 실제 필요한 업데이트보다 더 많은 분량을 실행하게 된다. 어플리케이션의 규모가 커지면 데이터의 연속적인 갱신이 되는 상황에서는 사용자 상호작용의 결과가 어떤 변화를 만드는지 예측하는데 어려워진다. 갱신으로 인한 데이터 변경이 한 차례만 이뤄진다면 전체 어플리케이션은 좀 더 예측하기 쉽게 된다.</p> <p>Flux는 MVC와는 다르게 단방향으로 데이터가 흐른다.
+Flux는 Actions, Dispatcher, Stores, Views로 구성되며 각 부분들은 단방향으로만 데이터가 흐르게 되어 있다.</p> <p>각 구성의 역할은 이렇다. Action은 사용자의 상호작용와 서버 상호작용 등이 될 수 있으며 type 프로퍼티에 역할을 지정한다. Dispatcher는 모든 Action을 받으며, Stores가 콜백들 등록할 수 있다. Stores는 데이터와 비즈니스 로직을 담당하고 Views가 변경감시를 할 수 있도록 제공한다. Views는 Controller-Views-Views 형태를 이루고, Store에게 데이터를 가져와 View를 갱신한다.</p> <p>데이터가 흐르게 되면 이렇게 흐르게 된다. 사용자의 상호작용이 발생되면 View는 Action에게 전달한다. Action은 서버에서 데이터를 요청하고 응답이 오면 Dispatcher에게 type과 데이터를 전파한다. Dispatcher는 모든 Stores에게 type과 데이터를 전파한다. Stores는 전달된 type이 상태와 의존이 있으면 Views 변경 이벤트를 전파한다. Views는 변화를 감지하고 Store에게 새로운 데이터를 가져온 뒤 모든 Views에게 새로운 데이터를 제공한다.</p> <h2 id="dispatcher"><a href="#dispatcher" class="header-anchor">#</a> Dispatcher</h2> <p>Dispatcher는 Flux 아키텍쳐에서 단일로 구성되며 중앙 허브로 모든 데이터 흐름을 관리한다.
+Store의 콜백을 등록받고 Action을 Store에게 배분해주는 동작을 한다.
+어플리케이션의 규모가 커지면 Dispatcher의 역할은 더욱 필수적이다. Store 간의 의존성을 특정 순서로 콜백을 실행하는 과정을 관리한다.</p> <h2 id="stores"><a href="#stores" class="header-anchor">#</a> Stores</h2> <p>Store는 상태와 로직을 담당한다. Store는 어플리케이션 내의 개별적인 도메인에서 어플리케이션의 상태를 관리한다.
+하나의 어플리케이션이라도 각 기능별로 Store를 가질 수 있다. Store는 Dispatcher에 콜백을 등록한다. 콜백은 Action의 type을 인자로 전달 받고 상태를 변경한다. 상태가 변경되면 Views에게 변경 이벤트를 전파한다. Store는View에 상태를 요청할 수 있도록 getter를 제공한다.</p> <h2 id="views"><a href="#views" class="header-anchor">#</a> Views</h2> <p>Flux의 View는 Controller-View라고 부른다. Store를 통해 변경 이벤트를 전파받으면 Store에게 상태를 요청한다. View는 부모-자식 관계를 가질 수 있으며 부모가 자식 View에게 상태를 전달한다. 그래서 Flux의 Views는 Controller-Views-Views를 가질 수 있다.</p> <h2 id="actions"><a href="#actions" class="header-anchor">#</a> Actions</h2> <p>Action은 사용자 상호작용와 서버 상호작용을 담당한다. 사용자 상호작용은 View를 통해 실행된다.
+서버 상호작용은 웹사이트 초기화 시 서버에서 제공하는 초기 상태를 전달할 때 실행된다.</p> <h2 id="참고"><a href="#참고" class="header-anchor">#</a> 참고</h2> <p>https://haruair.github.io/flux/docs/overview.html</p></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.2598873a.js" defer></script><script src="/assets/js/2.554774e4.js" defer></script><script src="/assets/js/37.445c6fbb.js" defer></script>
+  </body>
+</html>
