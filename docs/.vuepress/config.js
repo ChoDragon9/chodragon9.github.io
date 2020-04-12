@@ -184,6 +184,9 @@ module.exports = {
       {text: 'Github', link: 'https://github.com/ChoDragon9', target: '_blank'}
     ]
   },
+  head: [
+    ['meta', {name: 'google-site-verification', content: 'yX6dHIw5DyDCd9iNbZSo2w8VjnED68OLdw6zu_Rm554'}]
+  ],
   plugins: [
     [
       '@vuepress/google-analytics',
