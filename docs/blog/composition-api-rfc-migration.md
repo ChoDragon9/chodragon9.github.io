@@ -30,7 +30,7 @@ Vue.use(VueCompositionApi)
 :::
 
 그럼에도 불구하고 Composition API는 충분히 적용할 만한 가치가 있다.
-그래서 앞서 언급한 위험 부담(외부 의존성에 의한 부담)을 최소화 하면서 CompositionAPI를 적용하기 위해 어댑터 패턴을 사용해야 한다.   
+그래서 앞서 언급한 위험 부담(외부 의존성에 의한 부담)을 최소화 하면서 Composition API를 안전하게 적용하기 위한 대안으로 어댑터 패턴을 사용할 수 있다.
 
 일반적으로 `[Custom Component] => [Vue]` 이런 형태로 라이브러리를 직접 사용하게 된다.
 만약에 100개 이상의 `[Custom Component]`가 있다면 `[Vue]` 업그레이드 시 모든 `[Custom Component]`에 대한 **수동 변경**이 필요하다.
