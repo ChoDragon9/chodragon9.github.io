@@ -29,7 +29,7 @@ Vue.use(VueCompositionApi)
 이를 약하게 만드는 가장 쉬운 방법은 중간에 무언가(예를 들자면 어댑터)를 껴넣는 것이다.
 :::
 
-그럼에도 불구하고 CompositionAPI는 충분히 적용할 만한 가치가 있다.
+그럼에도 불구하고 Composition API는 충분히 적용할 만한 가치가 있다.
 그래서 앞서 언급한 위험 부담(외부 의존성에 의한 부담)을 최소화 하면서 CompositionAPI를 적용하기 위해 어댑터 패턴을 사용해야 한다.   
 
 일반적으로 `[Custom Component] => [Vue]` 이런 형태로 라이브러리를 직접 사용하게 된다.
