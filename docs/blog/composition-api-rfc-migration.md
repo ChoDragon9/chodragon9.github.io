@@ -91,7 +91,7 @@ export {
 
 ## API Reference
 
-CompositionAPI는 다음과 같이 사용할 수 있다.
+Composition API는 다음과 같이 사용할 수 있다.
 
 ```html
 <template>
