@@ -302,7 +302,7 @@ setup(props, context) {
 ```
 
 #### 타입 정의
-필자는 `reactive`에 `Generic`을 사용하는 것이 깔끔하다고 느꼈다.
+필자는 `reactive`에 [Generic](https://www.typescriptlang.org/docs/handbook/generics.html)을 사용하는 것이 깔끔하다고 느꼈다.
  
 ```ts
 interface Pagination {
