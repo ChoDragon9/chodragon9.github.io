@@ -295,7 +295,7 @@ setup(props, context) {
   })
 
   return {
-    ...toRefs(state), // toRefs를 통해 반환한다.
+    ...toRefs(state), // toRefs를 사용하여 ref로 변환한다.
     onChange,
     onFocus,
     onBlur
