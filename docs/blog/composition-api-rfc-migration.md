@@ -248,7 +248,7 @@ setup(props, context) {
     context.emit('on-change', inputText.value)
   }
   const onFocus = (): void => {
-    isFocused.value = true // value를 통해 접근한다.
+    isFocused.value = true // value에 할당
   }
 
   const onBlur = (): void => {
