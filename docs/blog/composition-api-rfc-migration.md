@@ -87,7 +87,7 @@ export {
 ```
 
 이렇게 했을 때, `@vue/composition-api` 에서 사용하고 싶은 것들만 어댑터에 담을 수 있으며,
-그뿐만 아니라 API에서 사용하는 Method(혹은 Function)의 이름이 변경되어도 IDE의 Refactor 기능을 이용하여 한 번에 변경할 수 있다.
+그뿐만 아니라 API에서 사용하는 Function의 이름이 변경되어도 IDE의 Refactor 기능을 이용하여 한 번에 변경할 수 있다.
 
 ## API Reference
 
