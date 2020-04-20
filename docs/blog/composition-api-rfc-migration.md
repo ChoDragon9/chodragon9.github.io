@@ -570,7 +570,7 @@ useStoreAction 사용부를 보면 무언가 많이 작성해줘야 하는 게 �
 
 useStoreAction의 목적은 `타입 추론을 통한 선언부 추적`에 대한 비중이 크기 때문에 타입 추론 부분 이외에 대한 개선이 필요하다.
 
-개선한 방향은 단순히 `1) 사용할 모듈만 기술`하는 것이다.
+개선한 방향은 단순히 `1) 사용할 모듈`만 기술하는 것이다.
 
 ```diff
 - const { fetchCheckLogin, fetchLogout } = useAction('auth', [
