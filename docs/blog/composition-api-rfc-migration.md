@@ -528,7 +528,7 @@ export default ({ store: { dispatch, getters } }) => {
 > ActionTree를 사용하지 않고 Plugin을 사용한 케이스
 
 Store에 ActionTree 타입을 사용하면 `Action명([key: string])`을 오직 `string` 으로 추론한다.
-이에 대한 영향으로 useAction은 의도와 다르게 동작할 수 있다.
+이에 대한 영향으로 useAction은 의도와 다르게 동작한다.
 
 ###### /vuex/types/index.d.ts
 ```ts
