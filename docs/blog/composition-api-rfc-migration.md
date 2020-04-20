@@ -289,7 +289,7 @@ setup(props, context) {
   }
 
   onBeforeMount(() => {
-    state.inputText = props.value // state의 property를 통해 value 에 접근한다.
+    state.inputText = props.value // state의 property에 값을 할당한다.
   })
 
   return {
