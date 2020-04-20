@@ -234,7 +234,7 @@ export default defineComponent({
 ### State
 #### `ref`와 `reactive`
 `ref`를 사용할 경우 값에 접근할 때 `.value`를 사용해야 한다.
-그런데 이렇게 사용했을 때 적지 않게 불편할 수 있다.
+그런데 필자는 ref를 사용했을 때 불편함을 느꼈다.
 
 그래서 특별한 경우가 아닌 이상 `ref` 대신에 `reactive`로 상태를 정의하고, `reactive`로 정의한 변수를 return할 때는`toRefs`를 사용하는 것이 경험적으로 좋았다.
 
