@@ -238,7 +238,7 @@ export default defineComponent({
 
 그래서 특별한 경우가 아닌 이상 `ref` 대신에 `reactive`로 상태를 정의하고, `reactive`로 정의한 변수를 return할 때는`toRefs`를 사용하는 것이 경험적으로 좋았다.
 
-##### AS IS (with ref)
+##### AS IS (ref)
 ```ts
 setup(props, context) {
   const inputText = ref('')
