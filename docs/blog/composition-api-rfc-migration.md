@@ -38,7 +38,7 @@ Vue.use(VueCompositionApi)
 어댑터 패턴을 적용하면 앞서 언급한 형태는 `[Custom Component] => [Vue Adaptor] => [Vue]` 이렇게 변경된다.
 그래서 `[Vue]`에 업데이트(변경)이 발생했을 때 `[Custom Component]`가 아닌 `[Vue Adaptor]`만 수정하면 된다.
 
-예를 들어 `[Vue Adaptor]`를 사용하면 `[Vue]`에서 API의 이름이 변경되었을 때 IDE의 Refactor 기능을 통해 **자동 변경**이 가능하다.
+특히 `[Vue Adaptor]`를 적용했을 때, `[Vue]`에서 API의 이름이 변경 되었을 때 IDE의 Refactor 기능을 통해 Function 이름을 **자동으로 변경** 할 수 있기 때문에 매우 편리하다.
 
 실재로 코드로 보면 다음과 같다.
 
