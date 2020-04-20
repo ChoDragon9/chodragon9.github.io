@@ -333,7 +333,7 @@ export const useStore = ({ root }: SetupContext) => ({ ...root.$store })
 export const useStore = ({ root: { $store: { state, getters, commit, dispatch } } }: SetupContext) => ({ state, getters, commit, dispatch })
 ```
 
-`state`는 `reactive`와 `ref`를 통해 반응형 상태를 만들어도 `mutation(commit)`을 감지하지 못하기 때문에 `state`를 직접 사용해야 한다.
+`state`는 `reactive`와 `ref`를 통해 반응형 상태를 만들어도 `mutation`을 감지하지 못하기 때문에 `state`를 직접 사용해야 한다.
 
 코드로 확인해보자.
 ```js
