@@ -281,7 +281,7 @@ setup(props, context) {
     context.emit('on-change', state.inputText)
   }
   const onFocus = (): void => {
-    state.isFocused = true // state의 property를 통해 value 에 접근한다.
+    state.isFocused = true // state의 property를 통해 값을 할당한다.
   }
 
   const onBlur = (): void => {
