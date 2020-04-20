@@ -322,7 +322,7 @@ const state = reactive<Pagination>({
 ### Vuex
 #### useStore
 Options API와 Class-based API에서는 `this` 컨텍스트가 존재 하므로 `this.$store`를 사용한다.
-그러나 Composition API는 `this` 컨텍스트가 없기 때문에 `setup()` Method의 두 번째 인자로 전달되는 `context.root.$store`를 사용하여 Vuex를 사용해야 한다.
+그러나 Composition API는 `this` 컨텍스트가 없기 때문에 `setup()` Method의 두 번째 인자로 전달되는 `context.root.$store`를 통하여 Vuex를 사용한다.
 
 `useXXX` 형태로 사용하면 다른 코드들과 잘 어울리리라 생각한다.
 ```js
