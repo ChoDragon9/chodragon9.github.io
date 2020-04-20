@@ -19,7 +19,9 @@ Vue.use(VueCompositionApi)
 
 ### 어댑터
 
-`@vue/composition-api`는 아직 프로덕션에 적용하지 않을 것을 권고하고 있으며 꾸준히 릴리즈 되고 있기 때문에 변경 가능성 또한 존재한다.
+`@vue/composition-api`는 아직 프로덕션에 적용하지 않을 것을 권고하고 있으며, 릴리즈 노트를 통해서 변경 가능성을 확인했다.
+
+> 문서를 수정 중인 2020.04.20을 기준으로 Composition API RFC는 완료된 상태이며, Vue 3는 Beta 단계라 API 자체의 변경 가능성이 확연히 줄어든 상태이다.
 
 ::: tip 외부 의존성
 `@vue/composition-api`가 업데이트(릴리즈) 되었을 때 이를 사용하는 개발자는 API 변경/삭제에 대한 권한이 없다.
