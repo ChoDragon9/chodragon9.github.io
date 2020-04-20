@@ -187,7 +187,7 @@ export default defineComponent({
 ## 마이그레이션
 ### Props
 #### 런타임과 컴파일타임의 타입 일치
-props를 required로 지정하지 않으면 Optional(undefined가 될 수 있음)로 처리된다.
+props를 required로 지정하지 않으면 [Optional](https://www.typescriptlang.org/docs/handbook/functions.html#optional-and-default-parameters)로 처리된다.
 ```ts
 export default defineComponent({
   props: {
