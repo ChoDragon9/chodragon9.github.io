@@ -256,7 +256,7 @@ setup(props, context) {
   }
 
   onBeforeMount(() => {
-    inputText.value = props.value // value를 통해 접근한다.
+    inputText.value = props.value // value에 할당
   })
 
   return {
