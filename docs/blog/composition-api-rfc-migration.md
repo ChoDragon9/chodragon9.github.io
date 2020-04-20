@@ -252,7 +252,7 @@ setup(props, context) {
   }
 
   const onBlur = (): void => {
-    isFocused.value = false // value를 통해 접근한다.
+    isFocused.value = false // value에 할당
   }
 
   onBeforeMount(() => {
