@@ -746,3 +746,52 @@ const state = reactive({
   selected: null
 }) as State
 ```
+
+## 컨벤션
+### 컴포넌트 Input/Output 정의
+#### 용어정의
+- Input: 컴포넌트 사용측에서 대상 컴포넌트에 주입할 값
+- Output: 대상 컴포넌트에서 컴포넌트 사용측에 전달할 값
+
+Vue 컴포넌트는 Input 역할을 하는 Props는 설정 레벨로 정의한다.
+하지만 Emit는 설정 레벨로 정의되지 않고, 필요할 때 함수를 호출하는 형태로 구성된다.
+컴포넌트의 스팩을 쉽게 파악하기 위해서는 해당 기능이 필요하다고 생각한다.
+
+Composition API의 경우 최상단에 추가되면 쉽게 파악 가능할거라 생각한다.
+```ts
+setup (props: Props, context) {
+  const emit = {
+    change: state => context.emit('change', {...state.surveyForm}),
+    changeImage: file => context.emit('change-image', file),
+  };
+```
+
+### 컴포넌트 함수별 역할 분리
+컴포넌트에 정의되는 함수의 역할은 상태변경, 이벤트 리스너, 헬퍼 함수가 있다.
+각 함수는 같은 레벨로 정의하기 때문에 시각적 구분이 잘안된다고 생각한다.
+
+또한 `setup` 함수 내부에 함수 추가 후 `<template>`에 사용하려면 할당 반환값에 추가가 필요하다.
+객체에 담아 전달하면 번거로움과 반환값을 간소화 가능하다고 생각한다.
+
+결론적으로 Vuex의 네이밍을 따라서 상태변경은 `mutation`,
+이벤트 리스너는 `action`으로 정의되면 어떨가 생각해봤다.
+
+```ts
+// AS IS
+setup() {
+  const state = {}
+  const onChange = () => {}
+  const onClick = () => {}
+  return {state, onChange, onClick}
+}
+
+// TO BE
+setup() {
+  const state = {}
+  const actions = {
+    onChange: () => {},
+    onClick: () => {}
+  }
+  return {state, actions}
+}
+```
