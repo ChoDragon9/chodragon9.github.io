@@ -117,9 +117,11 @@ const fromEntries = arr => arr
 객체의 값만 추출하여 배열에 담는 로직이다.
 ```js
 const values = []
-for (const val in {name: 'AA', age: 20}) {
-  values.push(val)
+const obj = {name: 'AA', age: 20}
+for (const key in obj) {
+  values.push(obj[key])
 }
+
 // ['AA', 20]
 ```
 Object.values를 사용하면 객체의 값만 추출해 배열로 만들어준다. 
