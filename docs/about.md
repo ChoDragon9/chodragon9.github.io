@@ -18,14 +18,18 @@ title: 소개
 ### 주요 프로젝트
 - 카카오
     - [kakao for business](https://business.kakao.com/)
+        - TS, Vue Composition API
     - [kakao i open builder](https://i.kakao.com/)
+        - TS, Angular, RxJs
     - 카카오톡 영화예매 서비스
+        - ES6, Vue, Vuex, Vue SSR, Mocha
 - 한화테크윈
     - B2B CCTV 웹뷰어 플랫폼 구축
+        - AngularJs, less
         - WN5 관련 UI 개편
         - 셋업/VA 기능 프런트 담당
         - WebViewer UI 개발 리더
-        - 프런트 엔드 테크니 리더
+        - 프런트 엔드 테크니컬 리더
 - 삼성테크윈
     - 전사 웹 프레임워크 개발
         - AngularJs, nodeJs 기반
