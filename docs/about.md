@@ -25,7 +25,7 @@ title: 소개
         - WN5 관련 UI 개편
         - 셋업/VA 기능 프런트 담당
         - WebViewer UI 개발 리더
-        - 프런트 엔드 테크 리더
+        - 프런트 엔드 테크니 리더
 - 삼성테크윈
     - 전사 웹 프레임워크 개발
         - AngularJs, nodeJs 기반
