@@ -7,7 +7,7 @@ tags: [pattern]
 category: 패턴
 sidebar: auto
 ---
-## 반복자(Iterator)
+## 이터레이터(Iterator)
 내부 표현부를 노출하지 않고 어떤 객체 집합에 속한 원소들을 순차적으로 접근할 수 있는 방법을 제공하는 패턴이다.
 
 * 객체 내부 표현 방식을 모르고도 집합 객체의 각 원소들에 접근하고 싶을 때
@@ -33,14 +33,12 @@ class Iterator {
     if (!this.hasNext()) {
       throw new Error(`Index is last item. use hasNext method.`)
     }
-
     this.index++
   }
   previous () {
     if (!this.hasPrevious()) {
       throw new Error(`Index is first item. use hasPrevious method.`)
     }
-
     this.index--
   }
   hasNext () {
@@ -65,14 +63,26 @@ class Iterator {
 }
 ```
 ```js
-const items = ["one", 2, "circle", true, "Applepie"];
+const items = ['one', 2, 'circle', true, "Applepie"];
 const iter = new Iterator(items);
 
 iter.forEach(item => console.log(item))
 iter.forEachRight(item => console.log(item))
 ```
+```
+one
+2
+circle
+true
+Applepie
+Applepie
+true
+circle
+2
+one
+```
 
-## 감시자(Observer)
+## 옵져버(Observer)
 객체 사이에 일 대 다의 의존 관계를 정의해 두어, 어떤 객체의 상태가 변할 때 그 객체의 의존성을 가진 다른 객체들이 그 변화를 통지받고 자동으로 갱신될 수 있게 만드는 패턴이다. (Publish-Subscribe 관계)
 
 ![](../img/design-pattern/38173909-3a7ffcba-3600-11e8-9db0-cc2f935acd9f.jpg)
@@ -84,17 +94,13 @@ iter.forEachRight(item => console.log(item))
 ```js
 class Click {
   constructor () {
-    this.handlers = [];  // observers
+    this.handlers = new Set();  // observers
   }
   subscribe (fn) {
-    this.handlers.push(fn);
+    this.handlers.add(fn);
   }
   unsubscribe (fn) {
-    this.handlers = this.handlers.filter((item) => {
-      if (item !== fn) {
-        return item;
-      }
-    })
+    this.handlers.delete(fn)
   }
   fire (str) {
     this.handlers.forEach(fn => fn(str))
@@ -102,8 +108,8 @@ class Click {
 }
 ```
 ```js
-const clickHandler = (item) => console.log("1 fired: " + item)
-const clickHandler2 = (item) => console.log("2 fired: " + item)
+const clickHandler = (item) => console.log(`1 fired: ${item}`)
+const clickHandler2 = (item) => console.log(`2 fired: ${item}`)
 
 const click = new Click();
 
@@ -113,6 +119,11 @@ click.fire('event #1');
 
 click.unsubscribe(clickHandler);
 click.fire('event #2');
+```
+```
+1 fired: event #1
+2 fired: event #1
+2 fired: event #2
 ```
 
 ## 상태(State)
@@ -127,7 +138,7 @@ click.fire('event #2');
 class Red {
   constructor () {}
   go(context) {
-    console.log("Red --> for 1 minute")
+    console.log('Red --> for 1 minute')
     context.setState(new Green())
   }
 }
@@ -135,7 +146,7 @@ class Red {
 class Green {
   constructor () {}
   go(context) {
-    console.log("Green --> for 1 minute")
+    console.log('Green --> for 1 minute')
     context.setState(new Yellow())
   }
 }
@@ -143,7 +154,7 @@ class Green {
 class Yellow {
   constructor () {}
   go(context) {
-    console.log("Yellow --> for 10 seconds")
+    console.log('Yellow --> for 10 seconds')
     context.setState(new Red())
   }
 }
@@ -230,7 +241,7 @@ shipping.setStrategy(fedex)
 console.log(`Fedex Strategy: ${shipping.calculate(baggage)}`)
 ```
 
-## 책임 연쇄(Chain of responsibility)
+## 책임연쇄(Chain of responsibility)
 메시지를 보내는 객체와 이를 받아 처리하는 객체들 간의 결합도를 없애기 위한 패턴입니다. 하나의 요청에 대한 처리가 반드시 
 한 객체에서만 되지 않고, 여러 객체에서 그 처리 기회를 주려는 것입니다.
 
@@ -240,8 +251,8 @@ console.log(`Fedex Strategy: ${shipping.calculate(baggage)}`)
 - 메시지를 받을 객체를 명시하지 않은 채 여러 객체 중 하나에게 처리를 요청하고 싶을 때
 - 요청을 처리할 수 있는 객체 집합이 동적으로 정의되어야 할 때
 
+### Switch
 ```js
-// Switch
 switch (true) {
   case network() === 'online': break
   case network() === 'wifi': break
@@ -250,8 +261,9 @@ switch (true) {
   default: break
 }
 ```
+
+### Class
 ```js
-// Class
 class Calculator {
   constructor () {
     this.num = 0
@@ -276,7 +288,7 @@ const calculator = new Calculator()
 calculator.add(100).sub(50).sub(20).print() //30
 ```
 
-## 명령(Command)
+## 커멘드(Command)
 요청 자체를 캡슐화하는 것입니다. 이를 통해 요청이 서로 다른 사용자를 매개변수로 만들고, 요청을 대기시키거나 로깅하며, 되돌릴 수 있는 연산을 지원합니다.(Action, Transaction)
 
 ![](../img/design-pattern/38409379-2dedec9a-39bc-11e8-9d7d-51be93c63472.jpg)
@@ -309,25 +321,25 @@ class Command {
 
 class AddCommand {
   constructor (value) {
-    return new Command(add, sub, value, "Add")
+    return new Command(add, sub, value, 'Add')
   }
 }
 
 class SubCommand {
   constructor (value) {
-    return new Command(sub, add, value, "Sub")
+    return new Command(sub, add, value, 'Sub')
   }
 }
 
 class MulCommand {
   constructor (value) {
-    return new Command(mul, div, value, "Mul")
+    return new Command(mul, div, value, 'Mul')
   }
 }
 
 class DivCommand {
   constructor (value) {
-    return new Command(div, mul, value, "Div")
+    return new Command(div, mul, value, 'Div')
   }
 }
 
@@ -367,6 +379,15 @@ calculator.undo()
 calculator.undo()
 
 console.log(`Value: ${calculator.getCurrentValue()}`)
+```
+```
+Add: 100
+Sub: 24
+Mul: 6
+Div: 2
+Undo Div: 2
+Undo Mul: 6
+Value: 76
 ```
 
 ## 탬플릿 메소드(Template Method)
@@ -451,9 +472,9 @@ class ExtraVacation {
 ```
 ```js
 const employees = [
-  new Employee("John", 10000, 10),
-  new Employee("Mary", 20000, 21),
-  new Employee("Boss", 250000, 51)
+  new Employee('John', 10000, 10),
+  new Employee('Mary', 20000, 21),
+  new Employee('Boss', 250000, 51)
 ]
 
 const visitorSalary = new ExtraSalary()
@@ -462,11 +483,16 @@ const visitorVacation = new ExtraVacation()
 employees.forEach((emp) => {
   emp.accept(visitorSalary)
   emp.accept(visitorVacation)
-  console.log(`${emp.getName()}: $${emp.getSalary()} and ${emp.getVacation()} vacation days`)  
+  console.log(`${emp.getName()}: $${emp.getSalary()} and ${emp.getVacation()} vacation days`)
 })
 ```
+```
+John: $11000 and 12 vacation days
+Mary: $22000 and 23 vacation days
+Boss: $275000 and 53 vacation days
+```
 
-## 중재자(Mediator)
+## 미디에이터(Mediator)
 한 집합에 속해있는 객체들의 상호작용을 캡슐화하는 객체를 정의하는 패턴이다. 객체들이 직접 서로를 참조하지 않도록 함으로써
 객체들 사이의 소결합(loose coupling)을 촉진시키며, 개발자가 객체들의 상호작용을 독립적으로 다양화시킬 수 있게 만든다.
 
@@ -488,30 +514,30 @@ class Participant {
 
 class Chatroom {
   constructor () {
-    this.participants = {}
+    this.participants = new Set()
   }
   register (participant) {
-    this.participants[participant.name] = participant
     participant.chatroom = this
+    this.participants.add(participant)
   }
   send (message, from, to) {
     if (to) {                      // single message
       to.receive(message, from)
     } else {                       // broadcast message
-      for (const key in this.participants) {
-        if (this.participants[key] !== from) {
-          this.participants[key].receive(message, from)
+      this.participants.forEach((participant) => {
+        if (participant !== from) {
+          participant.receive(message, from)
         }
-      }
+      })
     }
   }
 }
 ```
 ```js
-const yoko = new Participant("Yoko")
-const john = new Participant("John")
-const paul = new Participant("Paul")
-const ringo = new Participant("Ringo")
+const yoko = new Participant('Yoko')
+const john = new Participant('John')
+const paul = new Participant('Paul')
+const ringo = new Participant('Ringo')
 
 const chatroom = new Chatroom()
 
@@ -520,11 +546,11 @@ chatroom.register(john)
 chatroom.register(paul)
 chatroom.register(ringo)
 
-yoko.send("All you need is love.")
-yoko.send("I love you John.")
-john.send("Hey, no need to broadcast", yoko)
-paul.send("Ha, I heard that!")
-ringo.send("Paul, what do you think?", paul)
+yoko.send('All you need is love.')
+yoko.send('I love you John.')
+john.send('Hey, no need to broadcast', yoko)
+paul.send('Ha, I heard that!')
+ringo.send('Paul, what do you think?', paul)
 ```
 
 ## 메멘토(Memento)
@@ -535,33 +561,26 @@ ringo.send("Paul, what do you think?", paul)
 ```js
 class Person {
   constructor (name, street, city, state) {
-    this.name = name
-    this.street = street
-    this.city = city
-    this.state = state
+    Object.assign(this, {name, street, city, state})
   }
   hydrate () {
-    const memento = JSON.stringify(this)
-    return memento
+    return JSON.stringify(this)
   }
   dehydrate (memento) {
-    const m = JSON.parse(memento)
-    this.name = m.name
-    this.street = m.street
-    this.city = m.city
-    this.state = m.state
+    const {name, street, city, state} = JSON.parse(memento)
+    Object.assign(this, {name, street, city, state})
   }
 }
 
 class CareTaker {
   constructor () {
-    this.mementos = {} 
+    this.mementos = new Map()
   }
   add (key, memento) {
-    this.mementos[key] = memento
+    this.mementos.set(key, memento)
   }
   get (key) {
-    return this.mementos[key]
+    return this.mementos.get(key)
   }
 }
 ```
@@ -571,25 +590,22 @@ const john = new Person('John Wang', '48th Street', 'San Jose', 'CA')
 const caretaker = new CareTaker()
 
 // save state
-
 caretaker.add(1, mike.hydrate())
 caretaker.add(2, john.hydrate())
 
 // mess up their names
-
 mike.name = 'King Kong'
 john.name = 'Superman'
 
 // restore original state
-
 mike.dehydrate(caretaker.get(1))
 john.dehydrate(caretaker.get(2))
 
-console.log(mike.name)
-console.log(john.name)
+console.log(mike.name) // Mike Foley
+console.log(john.name) // John Wang
 ```
 
-## 해석자(Interpreter)
+## 인터프리터(Interpreter)
 주어진 언어에 대해, 그 언어의 문법을 위한 표현 수단을 정의하고, 이와 어울러 그 표현 수단을 사용하여 해당 언어로 작성된 문장을 해석하는 해석기를 정의하는 패턴이다.
 
 ![](../img/design-pattern/38486084-f12efd6e-3c16-11e8-84d1-1b3165d76704.jpg)
@@ -600,7 +616,6 @@ class Context {
     this.input = input
     this.output = 0
   }
-
   startsWith(str) {
     return this.input.startsWith(str)
   }
@@ -616,39 +631,38 @@ class Expression {
     this.multiplier = multiplier
   }
   interpret(context) {
-    if (context.input.length == 0) {
+    if (context.input.length === 0) {
       return
     }
-    else if (context.startsWith(this.nine)) {
-      context.output += (9 * this.multiplier)
-      context.input = context.input.substr(this.nine.length)
-    }
-    else if (context.startsWith(this.four)) {
-      context.output += (4 * this.multiplier)
-      context.input = context.input.substr(this.four.length)
-    }
-    else if (context.startsWith(this.five)) {
-      context.output += (5 * this.multiplier)
-      context.input = context.input.substr(this.five.length)
+    if (context.startsWith(this.nine)) {
+      this.calculate(9, this.nine);
+    } else if (context.startsWith(this.four)) {
+      this.calculate(4, this.four);
+    } else if (context.startsWith(this.five)) {
+      this.calculate(5, this.five);
     }
     while (context.startsWith(this.one)) {
-      context.output += (1 * this.multiplier)
-      context.input = context.input.substr(this.one.length)
+      this.calculate(1, this.one);
     }
+  }
+  calculate(num, str) {
+    context.output += (num * this.multiplier)
+    context.input = context.input.substr(str.length)
   }
 }
 ```
 ```js
+const interpreter = [
+  new Expression('thousand', 'M', ' ', ' ', ' ', 1000),
+  new Expression('hundred', 'C', 'CD', 'D', 'CM', 100),
+  new Expression('ten', 'X', 'XL', 'L', 'XC', 10),
+  new Expression('one', 'I', 'IV', 'V', 'IX', 1)
+];
+
 const roman = 'MCMXXVIII'
 const context = new Context(roman)
-const tree = []
-
-tree.push(new Expression('thousand', 'M', ' ', ' ', ' ', 1000)) // 1000
-tree.push(new Expression('hundred', 'C', 'CD', 'D', 'CM', 100)) //100 400 500 900
-tree.push(new Expression('ten', 'X', 'XL', 'L', 'XC', 10)) //10 40 50 90
-tree.push(new Expression('one', 'I', 'IV', 'V', 'IX', 1)) // 1 4 5 9
-
-tree.forEach(leaf => leaf.interpret(context))
+interpreter.forEach(leaf => leaf.interpret(context))
 
 console.log(`${roman} = ${context.output}`)
+// MCMXXVIII = 1928
 ```
