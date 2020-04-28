@@ -17,7 +17,7 @@ title: 소개
 
 ### 주요 프로젝트
 - 카카오
-    - [kakao for business](https://business.kakao.com/)
+    - [카카오톡 비즈니스폼](https://business.kakao.com/talkbizform/)
         - TS, Vue Composition API
     - [kakao i open builder](https://i.kakao.com/)
         - TS, Angular, RxJs
