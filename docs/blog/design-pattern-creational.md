@@ -13,6 +13,26 @@ sidebar: auto
 * 클래스의 인스턴스가 오직 하나여야 함을 보장하고, 잘 정의된 접근점으로 모든 사용자가 접근 할 수 있도록 해야 할 때
 * 유일한 인스턴스가 서브클래싱으로 확장되어야 하며, 사용자는 코드의 수정없이 확장된 서브클래스의 인스턴스를 사용할 수 있어야 할 때
 
+### TypeScript
+```ts
+class Person {
+  private constructor () {}
+  private static instance: Person
+  static create() {
+    if (!this.instance) {
+      this.instance = new Person()
+    }
+    return this.instance;
+  }
+}
+
+const instance1 = Person.create();
+const instance2 = Person.create();
+
+console.log(instance1 === instance2); // true
+```
+
+### ES6 Class
 ```js
 class Person {
   constructor () {}
@@ -38,6 +58,21 @@ const instance2 = Singleton.getInstance()
 console.log(instance1 === instance2) // true
 ```
 
+### ES6 Module
+```js
+class Person {
+  constructor () {}
+}
+
+export default new Person();
+```
+```js
+import instance1 from './singleton-module'
+import instance2 from './singleton-module'
+
+console.log(instance1 === instance2); // true
+```
+
 ## 팩토리 메서드
 객체를 생성하기 위해 인터페이스를 정의하지만, 어떤 클래스의 인스턴스를 생성할지에 대한 결정은 서브클래스가 내리도록 합니다.
 
@@ -49,6 +84,66 @@ console.log(instance1 === instance2) // true
 - 생성할 객체를 기술하는 책임을 자신의 서브클래스가 지정했으면 할 때
 - 객체 생성의 책임을 몇 개의 보조 서브클래스 가운데 하나에게 위임하고, 어떤 서브클래서가 위임자인지에 대한 정보를 국소화시키고 싶을 때
 
+### TypeScript
+```ts
+enum EmployeeEnum {
+  FULL_TIME = 'FULL_TIME',
+  PART_TIME = 'PART_TIME',
+  TEMPORARY = 'TEMPORARY',
+}
+
+interface EmployeeInterface {
+  hourly: string
+}
+
+class FullTime implements EmployeeInterface {
+  hourly: string;
+  constructor () {
+    this.hourly = '$12';
+  }
+}
+
+class PartTime implements EmployeeInterface {
+  hourly: string;
+  constructor () {
+    this.hourly = '$11';
+  }
+}
+
+class Temporary implements EmployeeInterface {
+  hourly: string;
+  constructor () {
+    this.hourly = '$10';
+  }
+}
+
+class Employee {
+  static create (type: EmployeeEnum): EmployeeInterface {
+    switch (type) {
+      case EmployeeEnum.FULL_TIME:
+        return new FullTime()
+      case EmployeeEnum.PART_TIME:
+        return new PartTime()
+      case EmployeeEnum.TEMPORARY:
+        return new Temporary()
+    }
+  }
+}
+```
+```ts
+const employees: EmployeeInterface[] = [];
+
+employees.push(Employee.create(EmployeeEnum.FULL_TIME))
+employees.push(Employee.create(EmployeeEnum.PART_TIME))
+employees.push(Employee.create(EmployeeEnum.TEMPORARY))
+
+employees.forEach(employee => console.log(employee.hourly))
+// $12
+// $11
+// $10
+```
+
+### ES6 Class
 ```js
 class FullTime {
   constructor () {
@@ -98,6 +193,9 @@ employees.push(Employee.create(Employee.PART_TIME))
 employees.push(Employee.create(Employee.TEMPORARY))
 
 employees.forEach(employee => console.log(employee.hourly))
+// $12
+// $11
+// $10
 ```
 
 ## 추상 팩토리
@@ -116,7 +214,7 @@ class Employee {
     this.name = name;
   }
   say () {
-    console.log("I am employee " + this.name);
+    console.log(`I am employee ${this.name}`);
   }
 }
 
@@ -131,10 +229,12 @@ class EmployeeFactory {
 const persons = [];
 const employeeFactory = new EmployeeFactory();
 
-persons.push(employeeFactory.create("Joan DiSilva"));
-persons.push(employeeFactory.create("Tim O'Neill"));
+persons.push(employeeFactory.create('Joan DiSilva'));
+persons.push(employeeFactory.create('Tim O\'Neill'));
 
-persons.forEach(person=>person.say())
+persons.forEach(person => person.say())
+// I am employee Joan DiSilva
+// I am employee Tim O'Neill
 ```
 
 ## 원형(Prototype)
@@ -162,26 +262,27 @@ class CustomerPrototype {
 
 class Customer {
   constructor (first, last, status) {
-    this.first = first
-    this.last = last
-    this.status = status
+    Object.assign(this, {first, last, status})
   }
   say () {
-    console.log(`name: ${this.first} ${this.last}, status: ${this.status}`)
+    const {first, last, status} = this
+    console.log(`name: ${first} ${last}, status: ${status}`)
   }
 }
 ```
 ```js
-const proto = new Customer("n/a", "n/a", "pending")
-const prototype = new CustomerPrototype(proto)
+const customer = new Customer('n/a', 'n/a', 'pending')
+const prototype = new CustomerPrototype(customer)
 
-const customer = prototype.clone()
-customer.first = "Peter"
-customer.last = "Cho"
-customer.status = "closed"
+const clonedCustomer = prototype.clone()
+clonedCustomer.first = 'Peter'
+clonedCustomer.last = 'Cho'
+clonedCustomer.status = 'closed'
+
 customer.say()
-
-proto.say()
+clonedCustomer.say()
+// name: n/a n/a, status: pending
+// name: Peter Cho, status: closed
 ```
 
 ## 빌더(builder)
@@ -193,15 +294,6 @@ proto.say()
 - 합성할 객체들의 표현이 서로 다르더라도 생성 절차에서 이를 지원해야 할 때
 
 ```js
-class Shop {
-  constructor () {}
-  construct (builder) {
-    builder.step1()
-    builder.step2()
-    return builder.get()
-  }
-}
-
 class Car {
   constructor () {
     this.doors = 0
@@ -213,19 +305,6 @@ class Car {
     console.log(`I am a ${this.doors}-door car`)
   }
 }
-
-class Truck {
-  constructor () {
-    this.doors = 0
-  }
-  addParts () {
-    this.doors = 2
-  }
-  say () {
-    console.log(`I am a ${this.doors}-door truck`)
-  }
-}
-
 class CarBuilder {
   constructor () {
     this.car = null
@@ -241,6 +320,17 @@ class CarBuilder {
   }
 }
 
+class Truck {
+  constructor () {
+    this.doors = 0
+  }
+  addParts () {
+    this.doors = 2
+  }
+  say () {
+    console.log(`I am a ${this.doors}-door truck`)
+  }
+}
 class TruckBuilder {
   constructor () {
     this.truck = null
@@ -255,6 +345,15 @@ class TruckBuilder {
     return this.truck
   }
 }
+
+class Shop {
+  constructor () {}
+  construct (builder) {
+    builder.step1()
+    builder.step2()
+    return builder.get()
+  }
+}
 ```
 ```js
 const shop = new Shop()
@@ -266,4 +365,6 @@ const truck = shop.construct(truckBuilder)
 
 car.say()
 truck.say()
+// I am a 4-door car
+// I am a 2-door truck
 ```
