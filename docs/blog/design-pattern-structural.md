@@ -22,64 +22,152 @@ sidebar: auto
   2) 맨 처음 참조되는 시점에 영속적 저장소의 객체를 메모리로 옮깁니다.
   3) 실제 객체에 접근하기 전에, 다른 객체가 그것을 변경하지 못하도록 실제 객체에 대해 잠금(lock)을 겁니다.
   
+### ES6 Class
 ```js
 class GeoCoder {
-  constructor () {}
-  getLatLng (address) {
+  getLatLng(address) {
     switch (address) {
-      case "Amsterdam" :
-        return "52.3700° N, 4.8900° E"
-      case "London" :
-        return "51.5171° N, 0.1062° W"
-      case "Paris" :
-        return "48.8742° N, 2.3470° E"
-      case "Berlin" :
-        return "52.5233° N, 13.4127° E"
+      case 'Amsterdam' :
+        return '52.3700° N, 4.8900° E';
+      case 'London' :
+        return '51.5171° N, 0.1062° W';
+      case 'Paris' :
+        return '48.8742° N, 2.3470° E';
+      case 'Berlin' :
+        return '52.5233° N, 13.4127° E';
       default :
-        return ""
+        return ''
     }
   }
- }
-  
- class GeoProxy {
-  constructor () {
-    this.geocoder = new GeoCoder()
-    this.geocache = {}
+}
+
+class GeoProxy {
+  constructor() {
+    this.geoCoder = new GeoCoder();
+    this.geoCache = new Map();
   }
-  getLatLng (address) {
-    if (!this.geocache[address]) {
-        this.geocache[address] = this.geocoder.getLatLng(address);
+
+  getLatLng(address) {
+    if (!this.geoCache.has(address)) {
+      this.geoCache.set(address, this.geoCoder.getLatLng(address));
     }
-    console.log(address + ": " + this.geocache[address]);
-    return this.geocache[address];
+    console.log(`${address}: ${this.geoCache.get(address)}`);
+    return this.geoCache.get(address);
   }
-  getCount () {
-    let count = 0;
-    for (let code in this.geocache) {
-      count++;
-    }
-    return count;
+
+  getCount() {
+    return this.geoCache.size;
   }
- }
+}
 ```
 ```js
 const geo = new GeoProxy();
 
-// geolocation requests
+geo.getLatLng('Paris');
+geo.getLatLng('London');
+geo.getLatLng('London');
+geo.getLatLng('London');
+geo.getLatLng('London');
+geo.getLatLng('Amsterdam');
+geo.getLatLng('Amsterdam');
+geo.getLatLng('Amsterdam');
+geo.getLatLng('Amsterdam');
+geo.getLatLng('London');
+geo.getLatLng('London');
 
-geo.getLatLng("Paris");
-geo.getLatLng("London");
-geo.getLatLng("London");
-geo.getLatLng("London");
-geo.getLatLng("London");
-geo.getLatLng("Amsterdam");
-geo.getLatLng("Amsterdam");
-geo.getLatLng("Amsterdam");
-geo.getLatLng("Amsterdam");
-geo.getLatLng("London");
-geo.getLatLng("London");
+console.log(`Cache size: ${geo.getCount()}`);
+```
+```
+Paris: 48.8742° N, 2.3470° E
+London: 51.5171° N, 0.1062° W
+London: 51.5171° N, 0.1062° W
+London: 51.5171° N, 0.1062° W
+London: 51.5171° N, 0.1062° W
+Amsterdam: 52.3700° N, 4.8900° E
+Amsterdam: 52.3700° N, 4.8900° E
+Amsterdam: 52.3700° N, 4.8900° E
+Amsterdam: 52.3700° N, 4.8900° E
+London: 51.5171° N, 0.1062° W
+London: 51.5171° N, 0.1062° W
+Cache size: 3
+```
 
-console.log("Cache size: " + geo.getCount());
+### ES6 Function
+```js
+const fetchGeo = (address) => new Promise((resolve) => {
+  setTimeout(() => {
+    switch (address) {
+      case 'Amsterdam' :
+        resolve('52.3700° N, 4.8900° E');
+      break;
+      case 'London' :
+        resolve('51.5171° N, 0.1062° W');
+      break;
+      case 'Paris' :
+        resolve('48.8742° N, 2.3470° E');
+      break;
+      case 'Berlin' :
+        resolve('52.5233° N, 13.4127° E');
+      break;
+    }
+  }, 100);
+});
+
+const fetchGeoProxy = new Proxy(fetchGeo, (() => {
+  const geoCache = new Map();
+
+  return {
+    apply(target, thisArgs, [address]) {
+      return new Promise((resolve) => {
+        if (geoCache.has(address)) {
+          resolve(geoCache.get(address));
+        } else {
+          fetchGeo(address).then((geo) => {
+            geoCache.set(address, geo);
+            resolve(geo);
+          })
+        }
+      })
+    }
+  }
+})());
+```
+```js
+(async () => {
+  console.time('getCoder');
+  await fetchGeo('Paris');
+  await fetchGeo('London');
+  await fetchGeo('London');
+  await fetchGeo('London');
+  await fetchGeo('London');
+  await fetchGeo('Amsterdam');
+  await fetchGeo('Amsterdam');
+  await fetchGeo('Amsterdam');
+  await fetchGeo('Amsterdam');
+  await fetchGeo('London');
+  await fetchGeo('London');
+  console.timeEnd('getCoder')
+})();
+
+(async () => {
+  console.time('fetchGeoProxy');
+  await fetchGeoProxy('Paris');
+  await fetchGeoProxy('London');
+  await fetchGeoProxy('London');
+  await fetchGeoProxy('London');
+  await fetchGeoProxy('London');
+  await fetchGeoProxy('Amsterdam');
+  await fetchGeoProxy('Amsterdam');
+  await fetchGeoProxy('Amsterdam');
+  await fetchGeoProxy('Amsterdam');
+  await fetchGeoProxy('London');
+  await fetchGeoProxy('London');
+  console.timeEnd('fetchGeoProxy')
+})();
+```
+```
+fetchGeoProxy: 304.528ms
+getCoder: 1121.958ms
 ```
   
 ## 퍼사드(Facade)
@@ -105,13 +193,13 @@ class Mortgage {
     this.name = name
   }
   applyFor (amount) {
-    let result = "approved"
+    let result = 'approved';
     if (!new Bank().verify(this.name, amount)) {
-      result = "denied"
+      result = 'denied'
     } else if (!new Credit().get(this.name)) {
-      result = "denied"
+      result = 'denied'
     } else if (!new Background().check(this.name)) {
-      result = "denied"
+      result = 'denied'
     }
     return `${this.name} has been ${result} for a ${amount} mortgage`
   }
@@ -142,13 +230,14 @@ class Background {
 }
 ```
 ```js
-const mortgage = new Mortgage("Joan Templeton")
-const result = mortgage.applyFor("$100,000")
+const mortgage = new Mortgage('Joan Templeton');
+const result = mortgage.applyFor('$100,000');
 
 console.log(result)
+// Joan Templeton has been approved for a $100,000 mortgage
 ```
 
-## 장식자(Decorator)
+## 데코레이터(Decorator)
 객체에 동적으로 새로운 책임을 추가할 수 있게 합니다. 기능을 추가하려면, 서브클래스를 생성하는 것보다 융통성 있는 방법을 제공합니다.(Wrapper)
 
 ![](../img/design-pattern/38482088-ccf5a1ea-3c08-11e8-9f13-9f9406b58480.jpg)
@@ -164,31 +253,31 @@ class User {
     this.name = name
   }
   say () {
-    console.log("User: " + this.name)
+    console.log(`User: ${this.name}`)
   }
 }
 
 class DecoratedUser {
   constructor (user, street, city) {
-    this.user = user
-    this.name = user.name  // ensures interface stays the same
-    this.street = street
-    this.city = city
+    Object.assign(this, {user, street, city})
   }
   say () {
-    console.log(`Decorated User: ${this.name}, ${this.street}, ${this.city}`)
+    const {user: {name}, street, city} = this;
+    console.log(`Decorated User: ${name}, ${street}, ${city}`)
   }
 }
 ```
 ```js
-const user = new User("Kelly")
-user.say()
+const user = new User('Kelly');
+user.say();
+// User: Kelly
 
-const decorated = new DecoratedUser(user, "Broadway", "New York")
-decorated.say()
+const decorated = new DecoratedUser(user, 'Broadway', 'New York');
+decorated.say();
+// Decorated User: Kelly, Broadway, New York
 ```
 
-## 복합체(Composite)
+## 컴포지트(Composite)
 부분과 전체의 계층을 표현하기 위해 객체들을 모아 트리 구조로 구성합니다. 사용자로 하여금 개별 객체와 복합 객체를 모두 동일하게 다룰 수 있도록 하는 패턴입니다.
 기본 클래스와 이들의 컨테이너를 모두 표현할 수 있는 하나의 추상화 클래스를 정의하는 것입니다.
 
@@ -200,17 +289,17 @@ decorated.say()
 ```js
 class Node {
   constructor (name) {
-    this.children = []
-    this.name = name 
+    this.children = [];
+    this.name = name
   }
   add (child) {
     this.children.push(child)
   }
   remove (child) {
-    const length = this.children.length
+    const length = this.children.length;
     for (let i = 0; i < length; i++) {
       if (this.children[i] === child) {
-        this.children.splice(i, 1)
+        this.children.splice(i, 1);
         return
       }
     }
@@ -223,44 +312,41 @@ class Node {
   }
 }
 
-
-// recursively traverse a (sub)tree
-
-function traverse(indent, node) {
-  console.log(`${'--'.repeat(indent)} ${node.name}`)
-  indent++
+const traverse = (indent, node) => {
+  console.log(`${'--'.repeat(indent)} ${node.name}`);
+  indent++;
 
   for (let i = 0, len = node.children.length; i < len; i++) {
     traverse(indent, node.getChild(i))
   }
-}
+};
 ```
 ```js
-const tree = new Node('root')
+const tree = new Node('root');
 
-const left = new Node('left')
-const leftleft = new Node('leftleft')
-const leftright = new Node('leftright')
+const left = new Node('left');
+const leftleft = new Node('leftleft');
+const leftright = new Node('leftright');
 
-const right = new Node('right')
-const rightleft = new Node('rightleft')
-const rightright = new Node('rightright')
+const right = new Node('right');
+const rightleft = new Node('rightleft');
+const rightright = new Node('rightright');
 
-tree.add(left)
-tree.add(right)
-tree.remove(right)  // note: remove
-tree.add(right)
+tree.add(left);
+tree.add(right);
+tree.remove(right);
+tree.add(right);
 
-left.add(leftleft)
-left.add(leftright)
+left.add(leftleft);
+left.add(leftright);
 
-right.add(rightleft)
-right.add(rightright)
+right.add(rightleft);
+right.add(rightright);
 
-traverse(0, tree)
+traverse(0, tree);
 ```
 
-## 가교(Bridge)
+## 브릿지(Bridge)
 구현에서 추상을 분리하여, 이들이 독립적으로 다양성을 가질 수 있도록 합니다.(Handle/Body)
 
 ![](../img/design-pattern/38486883-4a89f43e-3c19-11e8-9025-ec560062fe4e.jpg)
@@ -268,64 +354,85 @@ traverse(0, tree)
 - 추상적인 개념과 이에 대한 구현 사이의 지속적인 종속 관계를 피하고 싶을 때, 이를테면 런타임에 구현 방법을 선택하거나 구현 내용을 변경하고 싶을 때가 여기에 해당합니다.
 - 추상적 개념과 구현 모두가 독립적으로 서브클래싱을 통해 확장되어야 할 때. 이때, 가교 패턴은 개발자가 구현을 또 다른 추상적 개념과 연결할 수 있게 할 뿐 아니라, 각각을 독립적으로 확장가능하게 합니다.
 
-```js
-// input devices
+```ts
+namespace InputDevices {
+  export class Gestures {
+    output: OutputDevices.OutputInterface;
 
-class Gestures {
-  constructor (output) {
-    this.output = output 
+    constructor (output) {
+      this.output = output
+    }
+    tap () { this.output.click() }
+    swipe () { this.output.move() }
+    pan () { this.output.drag() }
+    pinch () { this.output.zoom() }
   }
-  tap () { this.output.click() }
-  swipe () { this.output.move() }
-  pan () { this.output.drag() }
-  pinch () { this.output.zoom() }
-}
 
-class Mouse {
-  constructor (output) {
-    this.output = output
+  export class Mouse {
+    output: OutputDevices.OutputInterface;
+
+    constructor (output) {
+      this.output = output
+    }
+    click () { this.output.click() }
+    move () { this.output.move() }
+    down () { this.output.drag() }
+    wheel () { this.output.zoom() }
   }
-  click () { this.output.click() }
-  move () { this.output.move() }
-  down () { this.output.drag() }
-  wheel () { this.output.zoom() }
 }
 
-// output devices
+namespace OutputDevices {
+  export interface OutputInterface {
+    click: () => void
+    move: () => void
+    drag: () => void
+    zoom: () => void
+  }
 
-class Screen {
-  click () { console.log("Screen select") }
-  move () { console.log("Screen move") }
-  drag () { console.log("Screen drag") }
-  zoom () { console.log("Screen zoom in") }
-}
+  export class Screen implements OutputInterface {
+    click () { console.log('Screen select') }
+    move () { console.log('Screen move') }
+    drag () { console.log('Screen drag') }
+    zoom () { console.log('Screen zoom in') }
+  }
 
-class Audio {
-  click () { console.log("Sound oink") }
-  move () { console.log("Sound waves") }
-  drag () { console.log("Sound screetch") }
-  zoom () { console.log("Sound volume up") }
+  export class Audio implements OutputInterface {
+    click () { console.log('Sound oink') }
+    move () { console.log('Sound waves') }
+    drag () { console.log('Sound screetch') }
+    zoom () { console.log('Sound volume up') }
+  }
 }
 ```
 ```js
-const screen = new Screen()
-const audio = new Audio()
+const outputScreen = new OutputDevices.Screen();
+const outputAudio = new OutputDevices.Audio();
 
-const hand = new Gestures(screen)
-const mouse = new Mouse(audio)
+const hand = new InputDevices.Gestures(outputScreen);
+const mouse = new InputDevices.Mouse(outputAudio);
 
-hand.tap()
-hand.swipe()
-hand.pinch()
-hand.pan()
+hand.tap();
+hand.swipe();
+hand.pinch();
+hand.pan();
 
-mouse.click()
-mouse.move()
-mouse.wheel()
-mouse.down()
+mouse.click();
+mouse.move();
+mouse.wheel();
+mouse.down();
+```
+```
+Screen select
+Screen move
+Screen zoom in
+Screen drag
+Sound oink
+Sound waves
+Sound volume up
+Sound screetch
 ```
 
-## 적응자(Adapter)
+## 어뎁터(Adapter)
 클래스의 인터페이스를 사용자가 기대하는 인터페이스 형태로 적응시킵니다. 서로 일치하지 않는 인터페이스를 갖는 클래스들을 함께 동작시킵니다.(Wrapper)
 
 ![](../img/design-pattern/38487095-067ecd04-3c1a-11e8-8049-bc8b8fe88fe9.jpg)
@@ -394,49 +501,47 @@ console.log(`New cost: ${newCost}`)
 - 어플리케이션이 객체의 identity에 의존적이지 않을 때
 
 ```js
-class Flyweight {
+class FlyWeight {
   constructor (make, model, processor) {
-    this.make = make
-    this.model = model
-    this.processor = processor 
+    this.make = make;
+    this.model = model;
+    this.processor = processor
   }
 }
 
 const FlyWeightFactory = {
-  flyweights: {},
+  flyweights: new Map(),
   get (make, model, processor) {
-    const objId = `${make} ${model} ${processor}`
-    if (!this.flyweights[objId]) {
-      this.flyweights[objId] = new Flyweight(make, model, processor)
+    const objId = `${make} ${model} ${processor}`;
+    if (!this.flyweights.has(objId)) {
+      this.flyweights.set(objId, new FlyWeight(make, model, processor));
     }
-    return this.flyweights[objId]
+    return this.flyweights.get(objId)
   },
   getCount () {
-    return Object.keys(this.flyweights).length
+    return this.flyweights.size
   }
-}
+};
 
 class ComputerCollection {
   constructor () {
-    this.computers = {}
-    this.count = 0 
+    this.computers = new Map();
   }
   add (make, model, processor, memory, tag) {
-    this.computers[tag] = new Computer(make, model, processor, memory, tag)
-    this.count++
+    this.computers.set(tag, new Computer(make, model, processor, memory, tag));
   }
   get (tag) {
-    return this.computers[tag]
+    return this.computers.get(tag)
   }
   getCount () {
-    return this.count
+    return this.computers.size
   }
 }
 
 class Computer {
   constructor (make, model, processor, memory, tag) {
-    this.flyweight = FlyWeightFactory.get(make, model, processor)
-    this.memory = memory
+    this.flyweight = FlyWeightFactory.get(make, model, processor);
+    this.memory = memory;
     this.tag = tag
   }
   getMake () {
@@ -446,16 +551,16 @@ class Computer {
 }
 ```
 ```js
-const computers = new ComputerCollection()
+const computers = new ComputerCollection();
 
-computers.add("Dell", "Studio XPS", "Intel", "5G", "Y755P")
-computers.add("Dell", "Studio XPS", "Intel", "6G", "X997T")
-computers.add("Dell", "Studio XPS", "Intel", "2G", "U8U80")
-computers.add("Dell", "Studio XPS", "Intel", "2G", "NT777")
-computers.add("Dell", "Studio XPS", "Intel", "2G", "0J88A")
-computers.add("HP", "Envy", "Intel", "4G", "CNU883701")
-computers.add("HP", "Envy", "Intel", "2G", "TXU003283")
+computers.add('Dell', 'Studio XPS', 'Intel', '5G', 'Y755P');
+computers.add('Dell', 'Studio XPS', 'Intel', '6G', 'X997T');
+computers.add('Dell', 'Studio XPS', 'Intel', '2G', 'U8U80');
+computers.add('Dell', 'Studio XPS', 'Intel', '2G', 'NT777');
+computers.add('Dell', 'Studio XPS', 'Intel', '2G', '0J88A');
+computers.add('HP', 'Envy', 'Intel', '4G', 'CNU883701');
+computers.add('HP', 'Envy', 'Intel', '2G', 'TXU003283');
 
-console.log("Computers: " + computers.getCount())
-console.log("Flyweights: " + FlyWeightFactory.getCount())
+console.log(`Computers: ${computers.getCount()}`);
+console.log(`Flyweights: ${FlyWeightFactory.getCount()}`);
 ```
