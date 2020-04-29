@@ -172,7 +172,7 @@ class TrafficLight {
 }
 ```
 ```js
-var trafficLight = new TrafficLight()
+const trafficLight = new TrafficLight()
 trafficLight.go() // Red
 trafficLight.go() // Green
 trafficLight.go() // Yellow
