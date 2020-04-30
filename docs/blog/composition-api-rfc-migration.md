@@ -17,40 +17,38 @@ import VueCompositionApi from '@vue/composition-api'
 Vue.use(VueCompositionApi)
 ```
 
-### 어댑터
-
-`@vue/composition-api`는 아직 프로덕션에 적용하지 않을 것을 권고하고 있으며, 릴리즈 노트를 통해서 변경 가능성을 확인했다.
-
-> 문서를 수정 중인 2020.04.20을 기준으로 Composition API RFC는 완료된 상태이며, Vue 3는 Beta 단계라 API 자체의 변경 가능성이 확연히 줄어든 상태이다.
-
-::: tip 외부 의존성
-`@vue/composition-api`가 업데이트(릴리즈) 되었을 때 이를 사용하는 개발자는 API 변경/삭제에 대한 권한이 없다.
-그래서 업데이트가 되는 순간 프로젝트에 직접적인 영향을 전파하게 된다. 이런 부분을 필자는 `외부 의존성`이라고 부른다.
+### 의존성
+`@vue/composition-api`가 변경 되었을 때 이를 사용하는 개발자는 API 변경/삭제에 대한 권한이 없다.
+그래서 업데이트가 되는 순간 프로젝트에 직접적인 영향을 전파하게 된다. 이런 부분을 나는 `외부 의존성`이라고 부른다.
 
 외부 의존성은 직접적으로 조작할 수 있는 권한이 없음으로 의존성이 강하다.
-이를 약하게 만드는 가장 쉬운 방법은 중간에 무언가(예를 들자면 어댑터)를 껴넣는 것이다.
-:::
+이를 약하게 만드는 가장 쉬운 방법은 중간에 무언가를 껴넣는 것이다.
 
-그럼에도 불구하고 Composition API는 충분히 적용할 만한 가치가 있다.
-그래서 앞서 언급한 위험 부담(외부 의존성에 의한 부담)을 최소화 하면서 Composition API를 안전하게 적용하기 위한 대안으로 어댑터 패턴을 사용할 수 있다.
+#### 해결방안
+외부 의존성을 최소화 하면서 Composition API를 안전하게 적용하기 위한 대안으로 Wrapper 패턴을 사용할 수 있다.
 
-일반적으로 `[Custom Component] => [Vue]` 이런 형태로 라이브러리를 직접 사용하게 된다.
-만약에 100개 이상의 `[Custom Component]`가 있다면 `[Vue]` 업그레이드 시 모든 `[Custom Component]`에 대한 **수동 변경**이 필요하다.
+##### Vue Wrapper
+다음과 같이 `@vue/composition-api`에서 사용할 기능만 추출하고 `export`한다.
+```js
+export {
+  defineComponent,
+  onMounted,
+  onBeforeMount,
+  ref,
+  reactive,
+  toRefs,
+  computed,
+  watch
+} from '@vue/composition-api'
+```
 
-어댑터 패턴을 적용하면 앞서 언급한 형태는 `[Custom Component] => [Vue Adaptor] => [Vue]` 이렇게 변경된다.
-그래서 `[Vue]`에 업데이트(변경)이 발생했을 때 `[Custom Component]`가 아닌 `[Vue Adaptor]`만 수정하면 된다.
-
-특히 `[Vue Adaptor]`를 적용했을 때, `[Vue]`에서 API의 이름이 변경 되었을 때 IDE의 Refactor 기능을 통해 Function 이름을 **자동으로 변경** 할 수 있기 때문에 매우 편리하다.
-
-실재로 코드로 보면 다음과 같다.
-
-##### Custom Component
+##### Vue Wrapper Consumer
 ```html
 <template>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from '~/vue-adaptor'
+import { defineComponent, ref } from '~/vue-wrapper'
 
 export default defineComponent({
   props: {
@@ -70,26 +68,15 @@ export default defineComponent({
   }
 })
 </script>
-
 ```
 
-##### Vue Adaptor
-다음과 같이 `@vue/composition-api`에서 사용할 기능만 추출하고 `export`한다.
-```js
-export {
-  defineComponent,
-  onMounted,
-  onBeforeMount,
-  ref,
-  reactive,
-  toRefs,
-  computed,
-  watch
-} from '@vue/composition-api'
-```
+일반적으로 `Custom Component => Vue` 이런 형태로 라이브러리를 직접 사용하게 된다.
+만약에 100개 이상의 `Custom Component`가 있다면 `Vue` 업그레이드 시 모든 `Custom Component`에 대한 **수동 변경**이 필요하다.
 
-이렇게 했을 때, `@vue/composition-api` 에서 사용하고 싶은 것들만 어댑터에 담을 수 있으며,
-그뿐만 아니라 API에서 사용하는 Function의 이름이 변경되어도 IDE의 Refactor 기능을 이용하여 한 번에 변경할 수 있다.
+Wrapper 패턴을 적용하면 앞서 언급한 형태는 `Custom Component => Vue Wrapper => Vue` 이렇게 변경된다.
+그래서 `Vue`에 변경이 발생했을 때 `Custom Component`가 아닌 `Vue Wrapper`만 수정하면 된다.
+
+특히 Wrapper 패턴를 적용했을 때, `Vue`에서 API의 이름이 변경 되었을 때 IDE의 Refactor 기능을 통해 Function 이름을 **자동으로 변경** 할 수 있기 때문에 매우 편리하다.
 
 ## API Reference
 
@@ -186,6 +173,9 @@ export default defineComponent({
 </script>
 ```
 
+### 플러그인
+Vue Options API에서 플러그인 사용 시, `this.$router` 형태로 사용했다. Composition API에서는 `setup(props, context)`의 두번째 인자로 전달되는 `context`를 사용한다. `context.root.$router` 형태로 플러그인을 사용할 수 있다.
+
 ## 마이그레이션
 ### Props
 #### 런타임과 컴파일타임의 타입 일치
@@ -236,7 +226,7 @@ export default defineComponent({
 ### State
 #### `ref`와 `reactive`
 `ref`를 사용할 경우 값에 접근할 때 `.value`를 사용해야 한다.
-그런데 필자는 ref를 사용했을 때 불편함을 느꼈다.
+그런데 나는 ref를 사용했을 때 불편함을 느꼈다.
 
 그래서 특별한 경우가 아닌 이상 `ref` 대신에 `reactive`로 상태를 정의하고, `reactive`로 정의한 변수를 return할 때는`toRefs`를 사용하는 것이 경험적으로 좋았다.
 
@@ -304,7 +294,7 @@ setup(props, context) {
 ```
 
 #### 타입 정의
-필자는 `reactive`에 [Generic](https://www.typescriptlang.org/docs/handbook/generics.html)을 사용하는 것이 깔끔하다고 느꼈다.
+나는 `reactive`에 [Generic](https://www.typescriptlang.org/docs/handbook/generics.html)을 사용하는 것이 깔끔하다고 느꼈다.
  
 ```ts
 interface Pagination {
@@ -324,20 +314,34 @@ const state = reactive<Pagination>({
 ### Vuex
 #### useStore
 Options API와 Class-based API에서는 `this` 컨텍스트가 존재 하므로 `this.$store`를 사용한다.
-그러나 Composition API는 `this` 컨텍스트가 없기 때문에 `setup()` Method의 두 번째 인자로 전달되는 `context.root.$store`를 통하여 Vuex를 사용한다.
+그러나 Composition API는 `this` 컨텍스트가 없기 때문에 `setup(props, context)`의 두 번째 인자로 전달되는 `context.root.$store`를 통하여 Vuex를 사용한다.
 
 `useXXX` 형태로 사용하면 다른 코드들과 잘 어울리리라 생각한다.
 ```js
-import { SetupContext } from '@vue/composition-api'
+import {SetupContext} from '@vue/composition-api';
 
-export const useStore = (context: SetupContext) => ({ ...context.root.$store })
-export const useStore = ({ root }: SetupContext) => ({ ...root.$store })
-export const useStore = ({ root: { $store: { state, getters, commit, dispatch } } }: SetupContext) => ({ state, getters, commit, dispatch })
+export const useStore = (context: SetupContext) => {
+  const {
+    root: {
+      $store: {
+        state,
+        getters,
+        commit,
+        dispatch,
+      },
+    },
+  } = context;
+  return {
+    state,
+    getters,
+    commit,
+    dispatch,
+  };
+};
 ```
 
 `state`는 `reactive`와 `ref`를 통해 반응형 상태를 만들어도 `mutation`을 감지하지 못하기 때문에 `state`를 직접 사용해야 한다.
 
-코드로 확인해보자.
 ```js
 export default defineComponent({
   setup(props, context) {
