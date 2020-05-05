@@ -731,7 +731,3 @@ Object.is('y', 'y') //true
 Object.is({x: 1}, {x: 1}) //false
 Object.is(NaN, NaN) //true
 ```
-
-#### 참고문서
-- http://es6-features.org/
-- https://github.com/ES678/Exploring-ES6
