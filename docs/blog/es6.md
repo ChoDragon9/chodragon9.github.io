@@ -378,6 +378,18 @@ console.log(txt) //ReferenceError
 const txt = `Hello \$\{\}`
 console.log(txt) //Hello ${}
 ```
+#### Function Body
+> 사례: [Vue 컴파일러 결과 실행](https://github.com/vuejs/vue-next/blob/e954ba21f04f0ef848c687233fcb849d75e4153f/packages/vue/src/index.ts#L67)
+
+```js
+const body = `
+const a = 10;
+const b = 20;
+return a + b;
+`;
+const result = new Function(body)();
+console.log(result); // 30
+```
 
 ### Export & Import
 ES5 이전 모듈은 라이브러리를 통해서만 구현이 되었고 내장되있지 않았습니다. ES6에서는 내장된 모듈을 가지고 각 파일에 하나의 모듈을 사용하고 있습니다.
