@@ -80,6 +80,12 @@ module.exports = {
         text: '언어',
         items: [
           {
+            text: '컴파일러',
+            items: [
+              {text: '컴파일러 이론 정리', link: '/blog/compiler-theory/'},
+            ]
+          },
+          {
             text: 'TypeScript',
             items: [
               {text: '인하우스 서비스 구축하며 사용했던 TypeScript 문법 정리', link: '/blog/typescript-from-inhouse-service/'},
