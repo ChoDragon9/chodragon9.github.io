@@ -3,42 +3,38 @@ title: 컴파일러 이론 정리
 sidebar: auto
 ---
 
-컴파일러 개념과 문법이 어떻게 만들어지는 학습하고자 정리한 자료이다.
+이 포스트는 컴파일러 개념과 문법이 어떻게 만들어지는 학습하고자 정리한 자료다.
 
 ::: warning
-우선 컴파일러는 밑바닥부터 구현하는 경우는 드물다. 보통 LEX(어휘 분석 도구)와 YACC(Yet Another Compiler Compiler)같은 '컴파일러 생성기' 도구들을 이용해서 토큰화 모듈이나 문법 분석기를 만든다. 이 도구들은 문맥 자유 문법를 입력하면, 그 문법으로 작성된 프로그램을 토큰화하고 분석하는 문법 분석 코드를 출력한다. 그리고 컴파일 조건에 맞춰 생성 코드를 수정할 수 있다.
+우선 컴파일러는 밑바닥부터 구현하는 경우는 드물다. 보통 토큰화 모듈이나 문법 분석기를 만들 때, [Flex(어휘분석기)](https://ko.wikipedia.org/wiki/Flex_(%EC%96%B4%ED%9C%98%EB%B6%84%EC%84%9D%EA%B8%B0))와 [bison(파서 생성기)](https://ko.wikipedia.org/wiki/GNU_bison)같은 **컴파일러 생성기** 도구들을 이용해서 만든다. 이 도구들은 [문맥 자유 문법](https://ko.wikipedia.org/wiki/%EB%AC%B8%EB%A7%A5_%EC%9E%90%EC%9C%A0_%EB%AC%B8%EB%B2%95)를 입력하면, 그 문법으로 작성된 프로그램을 토큰화하고 분석하는 문법 분석 코드를 출력한다. 그리고 컴파일 조건에 맞춰 생성 코드를 수정할 수 있다.
 :::
 
 ## 컴파일러 개념
-컴파일러는 원본 언어에서 대상 언어로 번역하는 프로그램이다. 컴파일러는 번역 과정을 개념적으로 두개로 나뉜다.
+컴파일러는 원본 언어에서 대상 언어로 번역하는 프로그램이다. 컴파일러는 번역 과정을 개념적으로 문법 분석과 코드 생성이라는 두 단계로 나뉜다.
 
-- 문법 분석(Syntax Analysis): 원본 언어의 문법을 이해
-- 코드 생성(Code Generation): 문법을 통해 프로그램의 의미(semantics)를 찾음
+- 문법 분석(Syntax Analysis): 원본 언어의 문법을 이해하고, 원본 언어를 [추상 구문 트리](https://ko.wikipedia.org/wiki/%EC%B6%94%EC%83%81_%EA%B5%AC%EB%AC%B8_%ED%8A%B8%EB%A6%AC)를 만듬
+- 코드 생성(Code Generation): 문법을 통해 프로그램의 의미(semantics)를 찾고, 추상 구문 트리를 대상 언어로 번역함
 
 ##### 📄 컴파일러 의사 코드
 ```js
-const compiler = (originCode) => {
-  const targetCode = pipe(
-    syntaxAnalyzer,
-    codeGenerator
-  )(originCode)
+function compiler (originCode) {
+  var ast = syntaxAnalyzer(originCode)
+  var targetCode = codeGenerator(ast)
   return targetCode
 }
 ```
 
 ### Step 1. 문법 분석기(Syntax Analyzer)
-문법 분석 작업은 대게 두 모듈로 더 나뉘어 진다.
-- 토큰화(Tokenizing) 모듈: 입력 문자들을 언어 기본 요소들로 분류하는 모듈
+컴파일러의 첫번째 단계인 문법 분석 단계다. 문법 분석 단계에서도 토큰화와 파싱이라는 두 단계로 나뉘어 진다.
+- 토큰화(Tokenizing) 모듈: 원본 언어를 언어 기본 요소들로 분류하는 모듈
 - 파싱(Parsing) 모듈: 토큰화 결과로 나온 언어 기본 요소 스트림을 언어의 문법 규칙에 맞추는 모듈
 
 ##### 📄 문법 분석기 의사 코드
 ```js
-const syntaxAnalyzer = (originCode) => {
-  // ast: Abstract Syntax Tree
-  const ast = pipe(
-    tokenizer,
-    parser
-  )(originCode)
+// ast: Abstract Syntax Tree
+function syntaxAnalyzer(originCode) {
+  var tokens = tokenizer(originCode)
+  var ast = parser(tokens)
   return ast
 }
 ```
@@ -46,13 +42,13 @@ const syntaxAnalyzer = (originCode) => {
 #### Step 1_1. 토큰화(Tokenizer)
 > 이 단계는 보통 토큰화(tokenizing) 또는 어휘 분석(lexical analysis), 스캐닝(scanning)로 불린다.
 
-문법 분석의 첫 단계는 공백이나 주석은 무시하고, 문자들을 언어의 문법에 정의된 토큰들로 분류하는 것이다.
+문법 분석의 첫 단계는 토큰화 단계다. 토큰화는 공백이나 주석은 무시하고, 문자들을 언어의 문법에 정의된 토큰들로 분류하는 것이다.
 토큰화 되면, 토큰들은 프로그램의 기본 원소가 되며, 컴파일러의 입력도 토큰 스트림이 된다.
 
 ##### 📄 토큰화 의사 코드
 ```js
-const tokenizer = (originCode) => {
-  const tokens = []
+function tokenizer(originCode) {
+  var tokens = [] // logic
   return tokens
 }
 ```
@@ -83,14 +79,14 @@ count
 ```
 
 #### Step 1_2. 파서(Parser)
-파서에서는 텍스트와 문법 규칙 사이의 정확한 대응 관계를 결정하는 단계다.
+문법 분석의 마지막 단계는 파서 단계다. 파서는 텍스트와 문법 규칙 사이의 정확한 대응 관계를 결정하는 단계다.
 문법 규칙이 계층적이기 때문에 파서가 생성하는 출력은 추상 구문 트리(AST: Abstract Syntax Tree)라고 불리는 트리 기반 데이터 구조로 기술된다.
 
 ##### 📄 파서 의사 코드
 ```js
-const parser = (tokens) => {
-  // ast: Abstract Syntax Tree
-  const ast = {}
+// ast: Abstract Syntax Tree
+function parser(tokens) {
+  var ast = {} // logic
   return ast
 }
 ```
@@ -116,33 +112,30 @@ statement
 > 사례: Vue의 파서 함수 [baseParse](https://github.com/vuejs/vue-next/blob/f0d52d5428fca7c9b4b46be9c093b96f436c8b44/packages/compiler-core/src/parse.ts#L77)의 반환값 AST는 [RootNode](https://github.com/vuejs/vue-next/blob/f0d52d5428fca7c9b4b46be9c093b96f436c8b44/packages/compiler-core/src/ast.ts#L100)다.
 
 ### Step 2. 코드 생성기(Code Generator)
-코드 생성기는 AST를 통해 프로그램의 의미를 찾아 코드를 생성하게 된다.
+컴파일러의 마지막 단계는 코드 생성 단계다. 코드 생성기는 AST를 통해 프로그램의 의미를 찾아 코드를 생성하게 된다.
 
 ##### 📄 코드 생성기 의사 코드
 ```js
-const codeGenerator = (ast) => {
-  const targetCode = pipe(
-    virtualCodeGenerator,
-    targetCodeGenerator,
-  )(ast)
+function codeGenerator(ast) {
+  var virtualCode = virtualCodeGenerator(ast)
+  var targetCode = targetCodeGenerator(virtualCode)
   return targetCode
 }
 ```
 
 #### Step 2_1. 가상 코드 생성기(Virtual Code Generator)
-코드 생성을 할 때는 데이터 번역과 명령 번역이라는 두 단계에 집중한다.
-명령 번역을 위해 우선적으로 가상 코드를 생성하게 된다.
+코드 생성의 첫 단계는 가상 코드 생성 단계다. 코드 생성을 할 때는 데이터 번역과 명령 번역이라는 두 단계에 집중하는 데, 명령 번역을 위해 우선적으로 가상 코드를 생성하게 된다.
 
 ##### 📄 가상 코드 생성기 의사 코드
 ```js
-const virtualCodeGenerator = (ast) => {
-  const virtualCode = {}
+function virtualCodeGenerator(ast) {
+  var virtualCode = {} // logic
   return virtualCode
 }
 ```
 
 ##### 📄 가상 코드 생성 예제
-`x + g(2, y-z) * 5` AST
+`x + g(2, y, -z) * 5` AST
 ```
 +
 ├─ x
@@ -154,7 +147,7 @@ const virtualCodeGenerator = (ast) => {
    │     └─ z
    └─ 5
 ```
-`x + g(2, y-z) * 5` 가상 코드
+`x + g(2, y, -z) * 5` 가상 코드
 ```
 push x
 push 2
@@ -168,26 +161,24 @@ add
 ```
 
 #### Step 2_2. 대상 코드 생성기(Target Code Generator)
-마지막으로 가상 코드를 기반으로 대상 코드를 생성하게 된다.
+코드 생성의 마지막 단계는 대상 코드 생성 단계다. 대상 코드 생성기는 가상 코드를 기반으로 대상 코드를 생성하게 된다.
 
 ##### 📄 대상 코드 생성기 의사 코드
 ```js
-const targetCodeGenerator = (virtualCode) => {
-  const targetCode = ''
+function targetCodeGenerator(virtualCode) {
+  var targetCode = '' // logic
   return targetCode
 }
 ```
 
+컴파일러는 만들기 위해서는 문법을 우선 정의해야 한다. 프로그래밍 문법은 어떻게 정의하는 지 정리해봤다.
+
 ## 문법 정의
 ### 문법은 어떻게 정의될까?
-대부분의 프로그래밍 언어들이나 복잡한 파일 포맷 문법을 정의하는 형식 언어들은 문맥 자유 문법(context-free grammar)이라는 규칙들로 기술된다. 문맥 자유 문법이란 형식주의(formalism)이고, 언어의 문법 요소들을 단순한 요소들을 이용해 구성하는 규칙을 뜻한다. 따라서 주어진 프로그램을 이해(또는 분석) 한다는 것은 프로그램의 텍스트와 문법 규칙 사이에 정확한 대응 관계를 결정한다는 뜻이 된다.
-
-여기서 문법은 두 가지 관점으로 볼 수 있다.
-- 선언적 관점에서 문법, 토큰(단말)들을 더 높은 수준의 문법 요소들(비단말)로 결합하는 방법들을 정의한 것이다.
-- 분석적 관점에서 문법, 주어진 입력(토큰들)을 받아 비단말, 더 낮은 수준의 비단말, 그리고 최종적으로 더 이상 분해되지 않는 단말까지로 분해하는 방법에 대한 규칙이라고 할 수 있다.
+대부분의 프로그래밍 언어들이나 복잡한 파일 포맷 문법을 정의하는 형식 언어들은 문맥 자유 문법(context-free grammar)이라는 규칙들로 기술된다. 문맥 자유 문법은 언어의 문법 요소들을 단순한 요소들을 이용해 구성하는 규칙이다. 결국 프로그램을 이해(또는 분석) 한다는 것은 프로그램의 텍스트와 문법 규칙 사이에 정확한 대응 관계를 결정한다는 뜻이 된다.
 
 ### 문법 명세 작성
-[참고 도서](#참고-도서)에 소개된 문법 명세 작성 방법이다.
+문법 요소들을 정의할 때 사용하는 문법 명세 작성 방법이다. [참고 도서](#참고-도서)에 소개된 작성 방법을 발췌했다.
 
 - 'xxx': 홑따옴표 볼드체는 글자 그대로 토큰에 사용된다.(단말)
 - xxx: 일반 글꼴은 언어 구조 이름에 사용된다.(비단말)
@@ -196,10 +187,15 @@ const targetCodeGenerator = (virtualCode) => {
 - x?: x가 0번 또는 1번 나타내는 경우를 가리킨다.
 - x*: x가 0번 이상 나타내는 경우를 가리킨다.
 
-[참고 도서](#참고-도서)에 소개된 잭 언어 문법이라는 가상의 언어에 대한 문법이다.
+여기서 문법은 두 가지 관점으로 볼 수 있다.
+- 선언적 관점에서 문법: 토큰들을 더 높은 수준의 문법 요소들로 결합하는 방법들을 정의한 것이다.
+- 분석적 관점에서 문법: 주어진 토큰들을 받아 비단말, 더 낮은 수준의 비단말, 그리고 최종적으로 더 이상 분해되지 않는 단말까지로 분해하는 방법에 대한 규칙이라고 할 수 있다.
 
-##### 잭 언어 문법
-어휘 요소: 잭 언어에는 다섯 가지 종류의 단말 요소(토큰)가 있다.
+아래 잭 언어 문법은 [참고 도서](#참고-도서)에 소개된 가상의 언어에 대한 문법이다.
+
+#### 잭 언어 문법
+##### 📄 어휘 요소
+잭 언어에는 다섯 가지 종류의 단말 요소(토큰)가 있다.
 ```
 keyword:         'class' | 'constructor' | 'function' |
                  'method' | 'field' | 'static' | 'var'
@@ -209,7 +205,8 @@ stringConstant:  '"' 따옴표와 줄바꿈 문자를 제외한 유니코드 문
 identifier:      숫자로 시작하지 않는, 영문자, 숫자, 밑줄('_')로 이루어진 문자열
 ```
 
-프로그램 구조: 잭 프로그램은 클래스로 이루어져 있으며, 클래스들은 각각 다른 파일에 있다. 컴파일 단위는 클래스 하나다. 클래스는 다음 문맥 자유 구문을 따라 구조화된, 토큰의 연속열이 된다.
+##### 📄 프로그램 구조
+잭 프로그램은 클래스로 이루어져 있으며, 클래스들은 각각 다른 파일에 있다. 컴파일 단위는 클래스 하나다. 클래스는 다음 문맥 자유 구문을 따라 구조화된, 토큰의 연속열이 된다.
 ```
 class:          'class' className '{' classVarDec* subroutineDec* '}'
 classVarDec:    ('static' | 'field') type varName (',' varName)* ';'
@@ -225,7 +222,7 @@ subroutineName: identifier
 varName:        identifier
 ```
 
-명령문
+##### 📄 명령문
 ```
 statements:      statement*
 statement:       letStatement | ifStatement | whileStatement
@@ -238,7 +235,7 @@ doStatement:     'do' subroutineCall ';'
 returnStatement: 'return' expression? ';'
 ```
 
-표현식
+##### 📄 표현식
 ```
 expression:      term (op term)*
 term:            integerConstant | stringConstant | keywordConstant |
