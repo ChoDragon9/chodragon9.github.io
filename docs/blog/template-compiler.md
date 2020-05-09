@@ -152,7 +152,7 @@ console.log(render(state));
 ```
 
 ## 컴파일러 만들기
-아래에 정의된 코드들은 [여기](https://github.com/ChoDragon9/dragonjs/tree/master/src/template-compiler)에서 확인할 수 있다.
+아래에 정의된 코드들은 [여기](https://github.com/ChoDragon9/ChoDragon9.github.io/tree/master/docs/blog/template-compiler)에서 확인할 수 있다.
 
 ### 1. 문법 및 공통 코드
 ##### 📄 helper.js
