@@ -83,6 +83,7 @@ module.exports = {
             text: '컴파일러',
             items: [
               {text: '컴파일러 이론 정리', link: '/blog/compiler-theory/'},
+              {text: '탬플릿 컴파일러', link: '/blog/template-compiler/'},
               {text: 'Vue 컴파일러', link: '/blog/vue-compiler/'},
             ]
           },
