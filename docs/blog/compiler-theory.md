@@ -322,7 +322,7 @@ statement
 ```
 
 ## 컴파일러 구현
-여기에 작성된 컴파일러 이론을 기반으로 구현된 코드는 [여기](https://chodragon9.github.io/blog/compiler-theory/)에서 참고 할 수 있다.
+여기에 작성된 컴파일러 이론을 기반으로 구현된 코드는 [여기](https://chodragon9.github.io/blog/template-compiler/)에서 참고 할 수 있다.
 
 ## 참고 도서
 - 노암 니산, 시몬 쇼켄. 『밑바닥부터 만드는 컴퓨팅 시스템』. 김진홍(역). 인사이트, 2019.
