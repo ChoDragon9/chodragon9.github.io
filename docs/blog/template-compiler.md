@@ -13,6 +13,12 @@ Vue의 탬플릿 바인딩, 디렉티브는 컴파일러를 통해 구현된다.
 
 <<< @/docs/blog/template-compiler/syntax.txt
 
+::: warning
+실제로 HTML은 여기서 정의한 문맥 자유 문법으로 정의되지 않는 다.
+문법은 [DTD(문서 형식 정의)](https://ko.wikipedia.org/wiki/%EB%AC%B8%EC%84%9C_%ED%98%95%EC%8B%9D_%EC%84%A0%EC%96%B8)를 통해 정의된다.
+그리고 파싱 트리는 [DOM](https://www.w3.org/TR/dom41/#introduction-to-the-dom)이다.
+:::
+
 ### 컴파일러 동작 과정
 코드로 설명하기 전 컴파일러 동작 과정에 대한 설명이다.
 
