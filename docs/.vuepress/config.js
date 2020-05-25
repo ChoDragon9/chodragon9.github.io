@@ -158,6 +158,20 @@ module.exports = {
         text: '정리',
         items: [
           {
+            text: '경험',
+            items: [
+              {text: '사내 신규 서비스 경험기', link: '/blog/2019-new-service-building/'},
+              {text: 'CORS와 HTTP Cookie', link: '/blog/cors-and-http-cookie/'},
+              {text: '에러 처리 정리', link: '/blog/how-to-catch-error/'},
+              {text: '추상화 정리', link: '/blog/abstract/'},
+              {text: '분기를 작성하는 방법 n가지', link: '/blog/branch-n-case/'},
+              {text: '콜백 사용 시점', link: '/blog/callback/'},
+              {text: '경우에 따른 clone 함수', link: '/blog/clone-function/'},
+              {text: '안전한 체이닝을 위한 safeChain', link: '/blog/safe-chain/'},
+              {text: '옵져버 매커니즘', link: '/blog/observation-mechanism/'},
+            ]
+          },
+          {
             text: '관리',
             items: [
               {text: '개발 일정산정', link: '/blog/estimation/'},
@@ -173,19 +187,6 @@ module.exports = {
               {text: '프로그래밍의 정석 도서 정리', link: '/blog/programming-standards/'},
               {text: '소프트웨어의 핵심 비기능 요구사항', link: '/blog/non-functional-requirement/'},
               {text: '[손에 잡히는 정규표현식] 역참조/전방탐색/후방탐색', link: '/blog/regexp-book-backref/'},
-            ]
-          },
-          {
-            text: '경험',
-            items: [
-              {text: 'CORS와 HTTP Cookie', link: '/blog/cors-and-http-cookie/'},
-              {text: '에러 처리 정리', link: '/blog/how-to-catch-error/'},
-              {text: '추상화 정리', link: '/blog/abstract/'},
-              {text: '분기를 작성하는 방법 n가지', link: '/blog/branch-n-case/'},
-              {text: '콜백 사용 시점', link: '/blog/callback/'},
-              {text: '경우에 따른 clone 함수', link: '/blog/clone-function/'},
-              {text: '안전한 체이닝을 위한 safeChain', link: '/blog/safe-chain/'},
-              {text: '옵져버 매커니즘', link: '/blog/observation-mechanism/'},
             ]
           },
         ]
