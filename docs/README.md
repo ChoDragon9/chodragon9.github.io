@@ -2,6 +2,10 @@
 이 블로그는 프로젝트를 하며 필요했던 경험과 기술 리서치를 기록하는 기술 블로그입니다. 일반적인 내용보다는 특정 상황이나 특정 기술에 관한 내용을 정리했습니다.
 :::
 
+::: tip 이슈 제보
+블로그의 오류나 개선점은 언제든 환영입니다. 이슈 제보는 [여기](https://github.com/ChoDragon9/ChoDragon9.github.io/issues)에 신고해주시면 적극 반영하겠습니다 :)
+:::
+
 ::: warning DragonJs
 [DragonJs](https://chodragon9.github.io/dragonjs/)는 오픈소스 라이브러리를 바닐라 자바스크립트로 구현해보는 프로젝트입니다.
 :::
