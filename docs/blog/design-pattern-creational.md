@@ -1,11 +1,10 @@
 ---
-layout: post
+sidebar: auto
 title:  "GoF 디자인 패턴 | 생성패턴"
 date:   2018-12-09
 description: GoF 디자인 패턴 중 생성패턴을 정리합니다.
 tags: [pattern]
 category: 패턴
-sidebar: auto
 ---
 ## 싱글턴(Singleton)
 오직 한 개의 클래스 인스턴스만을 갖도록 보장하고, 이에 대한 전역적인 접근점을 제공합니다.

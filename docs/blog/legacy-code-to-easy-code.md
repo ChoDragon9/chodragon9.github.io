@@ -1,5 +1,5 @@
 ---
-layout: post
+sidebar: auto
 title:  "레거시 코드에서 이해하기 쉬운코드로 리팩토링"
 date:   2019-05-26
 description: 레거시 코드 리팩토링 과정 정리

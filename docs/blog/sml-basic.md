@@ -1,5 +1,5 @@
 ---
-layout: post
+sidebar: auto
 title:  "SML: Standard Meta Language 기초"
 date:   2019-12-29
 description: Standard Meta Language 개발 환경 세팅 및 기초 정리

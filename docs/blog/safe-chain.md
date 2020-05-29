@@ -1,5 +1,5 @@
 ---
-layout: post
+sidebar: auto
 title:  "안전한 체이닝을 위한 safeChain"
 date:   2019-12-07
 description: 안전한 체이닝을 위한 safeChain 함수를 만들어봄!

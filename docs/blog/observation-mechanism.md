@@ -1,5 +1,5 @@
 ---
-layout: post
+sidebar: auto
 title:  "옵져버 매커니즘"
 date:   2019-05-20
 description: 각 라이브러리 별로 구현된 옵져버 매커니즘을 정리해본 자료이다.

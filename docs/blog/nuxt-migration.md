@@ -1,5 +1,5 @@
 ---
-layout: post
+sidebar: auto
 title:  "Nuxt v2.0에서 v2.11로 마이그레이션"
 date:   2020-02-10
 description: 2.11.0으로 마이그레이션 한 내용에 대한 정리이다.

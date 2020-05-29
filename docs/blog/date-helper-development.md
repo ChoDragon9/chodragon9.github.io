@@ -1,5 +1,5 @@
 ---
-layout: post
+sidebar: auto
 title:  "강제성, 단일화 그리고 날짜 헬퍼 개발"
 date:   2019-07-13
 description: 도구로 해결할 수 없는 강제성을 해결하자

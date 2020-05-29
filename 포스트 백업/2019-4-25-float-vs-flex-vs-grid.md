@@ -1,5 +1,5 @@
 ---
-layout: post
+sidebar: auto
 title:  "Float/Flex/Grid 비교, Grid를 사용해야 하는 이유"
 date:   2019-04-25
 description: Float/Flex/Grid 비교를 비교하고 Grid를 사용해야 하는 이유를 설명합니다.

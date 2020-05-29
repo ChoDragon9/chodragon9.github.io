@@ -1,5 +1,5 @@
 ---
-layout: post
+sidebar: auto
 title:  "SML: Standard ML 고차함수"
 date:   2019-12-29
 description: Standard Meta Language 고차함수 정의 정리

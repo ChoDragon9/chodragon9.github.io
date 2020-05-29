@@ -1,5 +1,5 @@
 ---
-layout: post
+sidebar: auto
 title:  "[Vue] 컴포넌트 상세 정리"
 date:   2018-09-07
 description: Vue 컴포넌트 상세 정리 

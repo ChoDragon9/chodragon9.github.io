@@ -1,5 +1,5 @@
 ---
-layout: post
+sidebar: auto
 title:  "SML: Standard Meta Language 모듈 시스템"
 date:   2019-12-31
 description: Standard Meta Language 모듈 시스템 정리

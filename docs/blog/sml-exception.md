@@ -1,5 +1,5 @@
 ---
-layout: post
+sidebar: auto
 title:  "SML: Standard ML 예외처리"
 date:   2019-12-29
 description: Standard Meta Language 예외처리

@@ -1,5 +1,5 @@
 ---
-layout: post
+sidebar: auto
 title:  "Webpack Concept"
 date:   2018-08-08
 description: Webpack Concept과 용어 정

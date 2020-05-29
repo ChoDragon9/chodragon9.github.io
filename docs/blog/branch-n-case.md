@@ -1,5 +1,5 @@
 ---
-layout: post
+sidebar: auto
 title:  "분기를 작성하는 방법 n가지"
 date:   2019-12-07
 description: 분기를 작성하는 방법과 기준을 정리한 자료이다. 

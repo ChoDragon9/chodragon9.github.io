@@ -1,5 +1,5 @@
 ---
-layout: post
+sidebar: auto
 title:  "경우에 따른 clone 함수"
 date:   2019-12-02
 description: 경우에 따른 clone 함수 정리 

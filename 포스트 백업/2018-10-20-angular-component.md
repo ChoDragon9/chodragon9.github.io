@@ -1,5 +1,5 @@
 ---
-layout: post
+sidebar: auto
 title:  "Angular Host"
 date:   2018-10-20
 description: Angular Host에 대한 정리이다.

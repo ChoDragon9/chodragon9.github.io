@@ -1,5 +1,5 @@
 ---
-layout: post
+sidebar: auto
 title:  "[Vue] 반응형에 대해 깊이 알아보기"
 date:   2018-08-21
 description: Vue 반응형에 대해 깊이 알아보기 

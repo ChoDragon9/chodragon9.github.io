@@ -1,5 +1,5 @@
 ---
-layout: post
+sidebar: auto
 title:  "MVC 정리"
 date:   2019-07-27
 description: MVC 정리

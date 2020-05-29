@@ -1,5 +1,5 @@
 ---
-layout: post
+sidebar: auto
 title:  "CORS와 HTTP Cookie"
 date:   2019-10-22
 description: CORS와 HTTP Cookie를 처리하는 방법에 대한 내용을 정리했다.

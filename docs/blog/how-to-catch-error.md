@@ -1,5 +1,5 @@
 ---
-layout: post
+sidebar: auto
 title:  "에러 처리 정리"
 date:   2019-05-23
 description: 어떠한 과정을 통해서 지금의 에러 처리 방법을 가지게 되었는 지 정리한 포스트이다.

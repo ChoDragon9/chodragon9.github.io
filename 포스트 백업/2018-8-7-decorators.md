@@ -1,5 +1,5 @@
 ---
-layout: post
+sidebar: auto
 title:  "[ECMAScript] Decorators"
 date:   2018-08-07
 description: tc39/proposal-decorators에 대한 내용을 다룬다.

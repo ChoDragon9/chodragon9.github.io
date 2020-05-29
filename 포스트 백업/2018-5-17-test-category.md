@@ -1,5 +1,5 @@
 ---
-layout: post
+sidebar: auto
 title:  "테스트 종류"
 date:   2018-05-17
 description: 테스트 종류에 대한 전반적인 내용을 다룬다.

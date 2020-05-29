@@ -1,5 +1,5 @@
 ---
-layout: post
+sidebar: auto
 title:  "인하우스 서비스 구축하며 사용했던 TypeScript 문법 정리"
 date:   2020-02-11
 description: 인하우스 서비스 구축하며 사용했던 TypeScript의 문법들을 정리한다.

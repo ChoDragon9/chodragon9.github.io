@@ -1,5 +1,5 @@
 ---
-layout: post
+sidebar: auto
 title:  "immer 구현해보기 - OOP 버전"
 date:   2019-12-01
 description: ImmerJs의 produce 함수 내부 로직을 OOP 로직으로 만들어봤다. 

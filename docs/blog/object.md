@@ -1,5 +1,5 @@
 ---
-layout: post
+sidebar: auto
 title:  "객체 정리"
 date:   2019-06-08
 description: 객체에 대한 내용을 문헌에 있는 내용을 엮어 정리했다.

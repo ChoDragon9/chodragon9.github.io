@@ -1,5 +1,5 @@
 ---
-layout: post
+sidebar: auto
 title:  "추상화 정리"
 date:   2019-11-11
 description: 추상화 과정 및 추상화 구현체 정리

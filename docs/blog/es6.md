@@ -1,5 +1,5 @@
 ---
-layout: post
+sidebar: auto
 title:  "[ECMAScript] ES6 Overview"
 date:   2018-03-22
 description: 기존 ES5와 ES6를 비교하여 ES6의 컨셉과 장점을 설명합니다.

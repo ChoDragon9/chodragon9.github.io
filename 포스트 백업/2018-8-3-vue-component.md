@@ -1,5 +1,5 @@
 ---
-layout: post
+sidebar: auto
 title:  "[Vue] 컴포넌트 사용 정리"
 date:   2018-08-03
 description: Vue+Vuex 프로젝트하면서 생긴 문제점들로 정리한 자료이다. 

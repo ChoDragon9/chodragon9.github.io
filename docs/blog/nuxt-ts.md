@@ -1,5 +1,5 @@
 ---
-layout: post
+sidebar: auto
 title:  "Nuxt에서 TypeScript로 개발하기"
 date:   2019-08-11
 description: Nuxt에서 TypeScript로 개발세팅 및 Vue 코드 작성방법 정리

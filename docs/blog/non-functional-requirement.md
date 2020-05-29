@@ -1,5 +1,5 @@
 ---
-layout: post
+sidebar: auto
 title:  "소프트웨어의 핵심 비기능 요구사항"
 date:   2019-05-19
 description: 비기능 요구사항의 관점들이 무엇이 있는 지 정리하기 위해 작성된 포스트다.

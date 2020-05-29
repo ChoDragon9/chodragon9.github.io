@@ -1,5 +1,5 @@
 ---
-layout: post
+sidebar: auto
 title:  "함수형 프로그래밍 정리2"
 date:   2020-02-12
 description: 함수형 언어의 리서치하고 정리한 자료이다.

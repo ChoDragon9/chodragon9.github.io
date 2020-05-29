@@ -1,5 +1,5 @@
 ---
-layout: post
+sidebar: auto
 title:  "SML: Standard ML infix 정의"
 date:   2019-12-29
 description: Standard Meta Language infix 정의

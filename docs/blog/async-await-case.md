@@ -1,5 +1,5 @@
 ---
-layout: post
+sidebar: auto
 title:  "async await 정리"
 date:   2019-05-23
 description: 두서 없이 케이스별로 정리한 async await

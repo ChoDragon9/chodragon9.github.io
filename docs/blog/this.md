@@ -1,5 +1,5 @@
 ---
-layout: post
+sidebar: auto
 title:  "this, this is magic."
 description:  javascript의 this가 무엇인지 다룹니다.
 date:   2019-4-21

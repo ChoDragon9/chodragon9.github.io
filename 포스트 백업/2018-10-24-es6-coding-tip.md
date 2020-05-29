@@ -1,5 +1,5 @@
 ---
-layout: post
+sidebar: auto
 title:  "[ECMAScript] ES6 코딩팁"
 date:   2018-10-24
 description: Pull Request에서 코멘트 받은 ES6 코딩팁을 정리한다. 

@@ -1,5 +1,5 @@
 ---
-layout: post
+sidebar: auto
 title:  "코루틴을 사용한 지연 평가"
 date:   2019-05-19
 description: 코루틴를 통해 지연 평가를 발생시켜 콜스택과 차이를 설명한다.

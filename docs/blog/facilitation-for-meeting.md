@@ -1,5 +1,5 @@
 ---
-layout: post
+sidebar: auto
 title:  "효율적인 회의를 위한 퍼실리테이션"
 date:   2019-07-08
 description: 효율적인 회의를 위한 퍼실리테이션 정리

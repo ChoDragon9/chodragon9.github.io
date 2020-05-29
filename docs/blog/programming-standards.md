@@ -1,5 +1,5 @@
 ---
-layout: post
+sidebar: auto
 title:  "프로그래밍의 정석 도서 정리"
 date:   2018-12-09
 description: 프로그래밍의 정석 도서 정리

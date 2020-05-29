@@ -1,5 +1,5 @@
 ---
-layout: post
+sidebar: auto
 title:  "[Angular Development with TypeScript] 의존성 주입"
 date:   2018-09-30
 description: Angular Development with TypeScript 책 정리

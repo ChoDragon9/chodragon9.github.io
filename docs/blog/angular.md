@@ -1,5 +1,5 @@
 ---
-layout: post
+sidebar: auto
 title:  "Angular의 강력함과 아쉬운점"
 date:   2019-07-21
 description: 지금까지 느꼈던 Angular의 강력함과 아쉬운 점을 정리해봤다.

@@ -1,5 +1,5 @@
 ---
-layout: post
+sidebar: auto
 title:  "[손에 잡히는 정규표현식] 역참조/전방탐색/후방탐색"
 date:   2018-12-06
 description: 역참조/전방탐색/후방탐색 사용방법을 정리합니다.

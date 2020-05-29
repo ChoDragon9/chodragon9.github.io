@@ -1,5 +1,5 @@
 ---
-layout: post
+sidebar: auto
 title:  "위험상황을 대비하는 위험관리"
 date:   2019-06-26
 description: 위험관리란 무엇이고 어떻게 하는 것인지 정리한 포스트이다.

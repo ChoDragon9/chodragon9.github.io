@@ -1,5 +1,5 @@
 ---
-layout: post
+sidebar: auto
 title:  "형상관리 전략정리"
 date:   2019-5-9
 description: 기억속에 파편화되있는 형상관리 전략에 대한 정리

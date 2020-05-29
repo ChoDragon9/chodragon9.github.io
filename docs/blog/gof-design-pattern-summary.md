@@ -1,5 +1,5 @@
 ---
-layout: post
+sidebar: auto
 title:  "GoF 디자인 패턴 정리"
 date:   2018-12-09
 tags: [pattern]

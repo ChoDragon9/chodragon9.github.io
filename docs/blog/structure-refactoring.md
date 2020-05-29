@@ -1,5 +1,5 @@
 ---
-layout: post
+sidebar: auto
 title:  "[리펙토링] 구조 리펙토링 정리"
 date:   2019-05-11
 description: 구조적인 레벨의 리펙토링 방법을 정리하고자 작성한 포스트

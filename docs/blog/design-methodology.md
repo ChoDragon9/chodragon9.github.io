@@ -1,5 +1,5 @@
 ---
-layout: post
+sidebar: auto
 title:  "설계 방법론"
 date:   2018-04-15
 description: OOP의 설계 방법론 3가지를 소개합니다.

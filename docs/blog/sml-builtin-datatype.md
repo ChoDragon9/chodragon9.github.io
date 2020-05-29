@@ -1,5 +1,5 @@
 ---
-layout: post
+sidebar: auto
 title:  "SML: Standard ML 빌트인 자료형"
 date:   2019-12-29
 description: Standard Meta Language 빌트인 자료형 정리

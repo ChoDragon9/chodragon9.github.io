@@ -1,5 +1,5 @@
 ---
-layout: post
+sidebar: auto
 title:  "콜백 사용 시점"
 date:   2019-11-02
 description: 콜백의 적절한 사용시점에 대한 정리이다.

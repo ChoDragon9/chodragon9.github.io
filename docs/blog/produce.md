@@ -1,5 +1,5 @@
 ---
-layout: post
+sidebar: auto
 title:  "immer 구현해보기"
 date:   2019-12-01
 description: ImmerJs의 produce 함수 따라 만들어보는 과정을 정리했다. 

@@ -1,5 +1,5 @@
 ---
-layout: post
+sidebar: auto
 title:  "SML: Standard ML 함수"
 date:   2019-12-29
 description: Standard Meta Language 함수 정의 정리

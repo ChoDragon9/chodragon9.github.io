@@ -1,5 +1,5 @@
 ---
-layout: post
+sidebar: auto
 title:  "함수형 자바스크립트 | 마이클 포거스"
 date:   2018-11-15
 description: 저자 마이클 포거스의 함수형 자바스크립트 책 정리 

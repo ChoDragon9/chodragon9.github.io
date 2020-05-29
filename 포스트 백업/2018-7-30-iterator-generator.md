@@ -1,5 +1,5 @@
 ---
-layout: post
+sidebar: auto
 title:  "[ECMAScript] Iterator&Generator"
 date:   2018-07-30
 description: Iterator 패턴과 Generator 그리고 코루틴을 다룬다.

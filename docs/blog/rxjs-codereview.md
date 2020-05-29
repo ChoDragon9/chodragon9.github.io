@@ -1,5 +1,5 @@
 ---
-layout: post
+sidebar: auto
 title:  "RxJs 코드리뷰 사례"
 date:   2019-07-14
 description: RxJs 코드리뷰에 코멘트를 줬던 사례

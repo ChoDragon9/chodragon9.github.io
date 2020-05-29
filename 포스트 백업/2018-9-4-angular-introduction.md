@@ -1,5 +1,5 @@
 ---
-layout: post
+sidebar: auto
 title:  "[Angular Development with TypeScript] Angular 시작하기"
 date:   2018-09-04
 description: Angular Development with TypeScript 책 정리

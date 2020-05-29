@@ -1,5 +1,5 @@
 ---
-layout: post
+sidebar: auto
 title:  "소프트웨어 설계 방법론"
 date:   2018-12-09
 description: 소프트웨어 설계 방법론 정리합니다.

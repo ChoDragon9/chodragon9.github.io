@@ -1,5 +1,5 @@
 ---
-layout: post
+sidebar: auto
 title:  "Promise 정리"
 date:   2019-05-23
 description: 두서없이 정리한 Promise
