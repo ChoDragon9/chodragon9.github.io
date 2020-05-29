@@ -6,6 +6,7 @@ description: OOP의 설계 방법론 3가지를 소개합니다.
 tags: [design]
 comments: true
 ---
+# 설계 방법론
 #### CRC Card(Class-Responsibility-Collaboration Card)
 OOP 설계에서 사용되는 브레인스토밍툴입니다. 객체-책임-공통작업자의 약자로 일반적인 디자인을 시작할 때
 어떤 객체가 필요하고 그들이 어떻게 상호연계할지 여부를 결정하는 데 사용합니다.

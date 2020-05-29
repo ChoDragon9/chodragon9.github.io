@@ -6,6 +6,7 @@ description: 2.11.0으로 마이그레이션 한 내용에 대한 정리이다.
 tags: [vue]
 category: Vue
 ---
+# Nuxt v2.0에서 v2.11로 마이그레이션
 ### 글의 목적
 트위터에서 Nuxt가 TypeScript를 공식적으로 지원함을 알게 되었었다. [Nuxt v2.9.0](https://github.com/nuxt/nuxt.js/releases/tag/v2.9.0) 부터 TypeScript에 대한 공식적인 가이드와 마이그레이션 가이드를 알렸다.
 

@@ -6,6 +6,7 @@ description: ImmerJs의 produce 함수 따라 만들어보는 과정을 정리�
 tags: [FP]
 category: 함수형
 ---
+# immer 구현해보기
 ### 글의 목적
 [ImmerJs](https://immerjs.github.io/immer/docs/introduction)의 `produce` 함수를 코드리뷰에서 우연히 봤다. 심플한 API로 영속 자료 구조를 구현할 수 있는 게 놀라웠다. 
 

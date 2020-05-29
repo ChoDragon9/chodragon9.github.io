@@ -6,6 +6,7 @@ description: Standard Meta Language 모듈 시스템 정리
 tags: [FP]
 category: SML
 ---
+# SML: Standard Meta Language 모듈 시스템
 ### 모듈 시스템
 SML은 모듈 시스템으로 계층적이고 조직화된 구조를 구축할 수 있다. 논리적으로 관련딘 유형 그리고 값 선언 요소들을 정의할 수 있다. SML의 모듈 시스템은 네임스페이스, 추상 자료형, 구현을 정의할 수 있는 모듈을 제공한다.
 

@@ -2,6 +2,7 @@
 title: Composition API RFC 릴리즈 노트 정리
 sidebar: auto
 ---
+# Composition API RFC 릴리즈 노트 정리
 
 ::: tip
 `@vue/composition-api`의 릴리즈 노트를 통해 어떤 변경 사항이 생길지 예상하기 위해 정리한 포스트입니다.

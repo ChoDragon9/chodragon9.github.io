@@ -6,6 +6,7 @@ description: Standard Meta Language 자료형 정의
 tags: [FP]
 category: SML
 ---
+# SML: Standard ML 자료형 정의
 ### 자료형 정의
 자료형 정의는 `datatype`으로 정의한다. 자료형으로 정의된 형은 네임스페이스 없이 바로 접근 가능하다.
 

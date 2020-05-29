@@ -6,7 +6,7 @@ description: MVC 정리
 tags: [pattern]
 category: 패턴
 ---
-
+# MVC 정리
 ## MVC
 MVC는 역사상으로 두가지가 있다. 첫번째는 초기에 XEROX PARC에서 발표된 것으로 사용자가 도메인 정보를 직접 보고 조작하는 것을 목표로 하는 MVC였다. View가 Model에 직접 데이터를 요청했으며 Controller는 사용자 상호작용을 담당했다. 두번째는 현대의 MVC이다. 현대의 MVC는 View는 Model과 간접적인 관계이다. View는 Controller를 통해 Model의 데이터를 전달 받게 된다. 그리고 Controller는 사용자 상호작용을 View에게 위임받는다.
 

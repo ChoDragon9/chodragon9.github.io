@@ -6,6 +6,7 @@ description: Standard Meta Language 예외처리
 tags: [FP]
 category: SML
 ---
+# SML: Standard ML 예외처리
 ### 예외처리
 예외처리는 `raise`로 정의한다.
 

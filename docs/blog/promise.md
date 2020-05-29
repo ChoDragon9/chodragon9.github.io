@@ -6,6 +6,7 @@ description: 두서없이 정리한 Promise
 tags: [es6]
 category: Javascript
 ---
+# Promise 정리
 > 두서없이 정리한 Promise
 
 ### 목차

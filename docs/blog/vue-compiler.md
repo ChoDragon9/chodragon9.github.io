@@ -2,7 +2,7 @@
 title: Vue Compiler
 sidebar: auto
 ---
-
+# Vue Compiler
 ## Vue3
 ### Virtual DOM Rewrite
 

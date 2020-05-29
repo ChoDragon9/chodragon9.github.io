@@ -6,6 +6,7 @@ description: 객체에 대한 내용을 문헌에 있는 내용을 엮어 정리
 tags: [OOP]
 category: 객체지향
 ---
+# 객체 정리
 ### 글의 목적
 소프트웨어의 구성요소는 객체, 객체간의 관계, 조건문, 반복문이라는 재료가 대부분 구성된다. 이전에는 조건문과 반복문 재료를 다루기 위해서 현실세계에서 유용한 사항들을 <a href="https://chodragon9.github.io/blog/declarative-function/" target="_blank">선언형으로 대체 가능한 문법들 정리</a>에 다뤘다.
 

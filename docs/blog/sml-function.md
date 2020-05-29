@@ -6,6 +6,7 @@ description: Standard Meta Language 함수 정의 정리
 tags: [FP]
 category: SML
 ---
+# SML: Standard ML 함수
 ### 함수 선언
 ##### 예제코드
 ```

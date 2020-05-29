@@ -3,6 +3,8 @@ title: Composition API RFC 요약 및 자료 정리
 sidebar: auto
 ---
 
+# Composition API RFC 요약 및 자료 정리
+
 ::: tip
 [Composition API RFC 번역](/blog/composition-api-rfc/)에 작성된 내용 요약과 [Vue Mastery](https://www.vuemastery.com/)에서 확인할 수 있는 Composition API 관련 영상을 정리한 내용입니다.
 :::

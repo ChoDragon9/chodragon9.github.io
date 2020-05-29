@@ -6,6 +6,7 @@ description: Standard Meta Language 빌트인 자료형 정리
 tags: [FP]
 category: SML
 ---
+# SML: Standard ML 빌트인 자료형
 ### 리스트
 > 리스트는 메모리상에서 연속적으로 값이 할당된 자료형이다.
 

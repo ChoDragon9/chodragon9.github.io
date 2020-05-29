@@ -6,6 +6,7 @@ description: CORS와 HTTP Cookie를 처리하는 방법에 대한 내용을 정�
 tags: [words]
 category: 정리자료
 ---
+# CORS와 HTTP Cookie
 ### 글의 목적
 Cross-Origin Resource Sharing! 앞 글자만 따서 CORS라고 부른다. 내 경험상 CORS는 서로 다른 도메인을 사용하는 클라이언트와 API 서버가 통신할 때 발생하는 첫번째 현상이다.
 

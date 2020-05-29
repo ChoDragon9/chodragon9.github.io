@@ -2,7 +2,7 @@
 title: MVC Its Past and Present
 sidebar: auto
 ---
-
+# MVC Its Past and Present
 > 이 문서는 MVC 마지막 개정 논문인 [The Model-View-Controller (MVC) Its Past and Present](http://heim.ifi.uio.no/~trygver/2003/javazone-jaoo/MVC_pattern.pdf)를 번역한 문서입니다. 
 
 ## 요약

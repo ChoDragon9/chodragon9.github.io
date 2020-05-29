@@ -2,7 +2,7 @@
 title: Vuex
 sidebar: auto
 ---
-
+# Vuex
 ## 소개
 Vuex는 Vue 어플리케이션의 상태 관리 아키텍쳐를 라이브러리로 제공한 것이다.
 Flux, Redux, Elm 아키텍처에서 영감을 받아 Vue의 반응형 시스템을 활용하도록 특별히 고안된 아키텍쳐이다.

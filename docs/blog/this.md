@@ -6,6 +6,7 @@ date:   2019-4-21
 tags: [es6, book]
 category: Javascript
 ---
+# this, this is magic.
 > 출처 : [니콜라스 자카스] 프론트엔드 개발자를 위한 자바스크립트 프로그래밍
 
 ### 글의 목적

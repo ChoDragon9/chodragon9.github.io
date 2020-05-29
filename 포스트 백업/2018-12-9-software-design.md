@@ -6,6 +6,7 @@ description: 소프트웨어 설계 방법론 정리합니다.
 tags: [design]
 comments: true
 ---
+# 소프트웨어 설계 방법론
 ### 설계 방법론
 
 #### CRC Card(Class-Responsibility-Collaboration Card)

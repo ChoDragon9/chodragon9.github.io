@@ -6,6 +6,7 @@ description: Standard Meta Language infix 정의
 tags: [FP]
 category: SML
 ---
+# SML: Standard ML infix 정의
 ### 중위연산자
 `infix`를 사용하여 함수를 중위연산자로 정의할 수 있다.
 

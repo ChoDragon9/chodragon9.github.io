@@ -6,6 +6,7 @@ description: Nuxt에서 TypeScript로 개발세팅 및 Vue 코드 작성방법 �
 tags: [vue]
 category: Vue
 ---
+# Nuxt에서 TypeScript로 개발하기
 ### 글의 목적
 Angular 기반한 프로젝트를 한 경험이 있다. Angular는 TypeScript를 필수로 사용한다. 그 프로젝트에서 TypeScript를 사용하면 생산성이 높아지는 것을 몸소 느끼게 되었다. 그래서 새롭게 프로젝트를 하게되면 TypeScript를 사용하는 것으로 마음(?)먹었다.
 

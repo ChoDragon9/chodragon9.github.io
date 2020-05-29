@@ -5,6 +5,7 @@ date:   2018-12-09
 tags: [pattern]
 category: 패턴
 ---
+# GoF 디자인 패턴 정리
 #### 생성패턴
 - **싱글턴** : 오직 한 개의 인스턴스 보장, 전역적인 접근 제공
   - [Angular Service](https://angular.io/guide/dependency-injection#injector-hierarchy-and-service-instances)

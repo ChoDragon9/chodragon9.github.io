@@ -6,6 +6,7 @@ description: 코드리뷰를 위한 React 무경험자 시각의 React 컨벤션
 tags: [words]
 category: 정리자료
 ---
+# 코드리뷰를 위한 React 컨벤션
 ### 글의 목적
 React로 개발된 서비스의 코드리뷰를 받았는 데, React에 대한 경험이 없었다. Vue, Angular만 실무에 사용해봐서 React의 컨벤션과 개념이 생소했다.
 

@@ -2,7 +2,7 @@
 title: Composition API 경험 정리
 sidebar: auto
 ---
-
+# Composition API 경험 정리
 ## 세팅
 ### 설치
 ```bash

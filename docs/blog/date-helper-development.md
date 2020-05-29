@@ -6,6 +6,8 @@ description: 도구로 해결할 수 없는 강제성을 해결하자
 tags: [code]
 category: 좋은코드
 ---
+# 강제성, 단일화 그리고 날짜 헬퍼 개발
+
 > 현재 진행 중인 프로젝트의 기술 스택은 Angular, TypeScript 사용중이다.
 >
 > 이 글에서 Angular, Typescript의 예제를 사용한다.

@@ -6,6 +6,7 @@ description: Standard Meta Language 개발 환경 세팅 및 기초 정리
 tags: [FP]
 category: SML
 ---
+# SML: Standard Meta Language 기초
 ### 글의 목적
 최근에 [순수 함수형 데이터 구조](http://www.yes24.com/Product/Goods/82591994)라는 도서를 접했다.
 함수형 데이터 구조를 다루는 책으로 [SML](https://en.wikipedia.org/wiki/Standard_ML)이라는 언어로 예제를 설명한다.

@@ -1,6 +1,8 @@
 ---
 title:  "Nuxt v2.11 기반 nuxt/typescript 환경 세팅"
+sidebar: auto
 ---
+# Nuxt v2.11 기반 nuxt/typescript 환경 세팅
 ### 설치
 설치 순서는 다음과 같다.
 ```bash

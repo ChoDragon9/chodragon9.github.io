@@ -6,6 +6,7 @@ description: Standard Meta Language 고차함수 정의 정리
 tags: [FP]
 category: SML
 ---
+# SML: Standard ML 고차함수
 ### 고차 함수
 값 처럼 사용할 수 있는 함수를 고차 함수라고 한다. 익명함수를 정의하여 변수에 할당할 수 있다. 익명함수는 `fn`을 사용한다.
 

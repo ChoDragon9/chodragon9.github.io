@@ -6,6 +6,7 @@ description: ImmerJs의 produce 함수 내부 로직을 OOP 로직으로 만들�
 tags: [OOP]
 category: 객체지향
 ---
+# immer 구현해보기 - OOP 버전
 [immer 구현해보기](https://chodragon9.github.io/blog/produce/)에서 작성된 코드를 OOP 버전으로 리팩토링한 코드이다.
 
 ```js

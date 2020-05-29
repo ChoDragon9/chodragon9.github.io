@@ -6,6 +6,7 @@ description: 콜백의 적절한 사용시점에 대한 정리이다.
 tags: [pattern]
 category: Javascript
 ---
+# 콜백 사용 시점
 ### 글의 목적
 자바스크립트 코드를 작성할 때 콜백을 사용하는 시점은 명확히 구분해서 사용하고 있다. 비동기 코드를 작성할 때는 Promise에만 사용하고, 동기 코드를 작성할 때는 map, filter, reduce와 같은 함수의 인자로 사용한다.
 

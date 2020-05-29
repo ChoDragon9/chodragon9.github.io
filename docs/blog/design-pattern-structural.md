@@ -6,7 +6,7 @@ description: GoF 디자인 패턴 중 구조패턴을 정리합니다.
 tags: [pattern]
 category: 패턴
 ---
-
+# GoF 디자인 패턴 | 구조패턴
 ## 프록시(Proxy)
 다른 객체에 대한 접근을 제어하기 위한 대리자(Surrogate) 또는 자리채움자 역할을 하는 객체를 둡니다.
 

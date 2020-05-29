@@ -6,6 +6,7 @@ description: 지금까지 느꼈던 Angular의 강력함과 아쉬운 점을 정
 tags: [angular]
 category: Angular
 ---
+# Angular의 강력함과 아쉬운점
 ### 글의 목적
 서비스 개발 시 Angular를 사용 중이다. AngularJs를 사용했던 경험이 있어 서비스 일원이 됐을 때 Angular에 대한 반감이 있었다. 하지만 최근 들어 Angular는 Vue 못지않게 강력하다는 것을 느끼고 있다.
 

@@ -2,7 +2,7 @@
 title: 탬플릿 컴파일러 만들기
 sidebar: auto
 ---
-
+# 탬플릿 컴파일러 만들기
 Vue의 탬플릿 바인딩, 디렉티브는 컴파일러를 통해 구현된다. 여기서는 컴파일러와 유사하게 탬플릿 바인딩을 만들어봤다.
 여기에 사용된 컴파일러 이론은 [여기](https://chodragon9.github.io/blog/compiler-theory/)에서 참고 할 수 있다.
 

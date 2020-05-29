@@ -6,6 +6,7 @@ description: Pull Request에서 코멘트 받은 ES6 코딩팁을 정리한다.
 tags: [es6]
 comments: true
 ---
+# [ECMAScript] ES6 코딩팁
 #### javascript style 작성 시
 ```js
 // AS-IS
