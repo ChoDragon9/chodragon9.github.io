@@ -59,6 +59,12 @@ module.exports = {
         text: '패러다임',
         items: [
           {
+            text: '명령형',
+            items: [
+              {text: '명령형 프로그래밍 사고로 전환하기', link: '/blog/back-to-the-imperative/'},
+            ]
+          },
+          {
             text: '객체지향',
             items: [
               {text: '객체 정리', link: '/blog/object/'},

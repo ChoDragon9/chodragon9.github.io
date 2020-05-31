@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>명령형 프로그래밍 사고로 전환하기 | ChoDragon9</title>
+    <meta name="description" content="">
+    <meta name="generator" content="VuePress 1.3.1">
+    <meta name="google-site-verification" content="yX6dHIw5DyDCd9iNbZSo2w8VjnED68OLdw6zu_Rm554">
+    
+    <link rel="preload" href="/assets/css/0.styles.7dc41318.css" as="style"><link rel="preload" href="/assets/js/app.6f531090.js" as="script"><link rel="preload" href="/assets/js/2.554774e4.js" as="script"><link rel="preload" href="/assets/js/22.d20674bc.js" as="script"><link rel="prefetch" href="/assets/js/10.677b0f93.js"><link rel="prefetch" href="/assets/js/11.7fd99458.js"><link rel="prefetch" href="/assets/js/12.005b2b80.js"><link rel="prefetch" href="/assets/js/13.b5c6417d.js"><link rel="prefetch" href="/assets/js/14.ccfa3d65.js"><link rel="prefetch" href="/assets/js/15.4bfd86be.js"><link rel="prefetch" href="/assets/js/16.cf24bf82.js"><link rel="prefetch" href="/assets/js/17.a46d7f0e.js"><link rel="prefetch" href="/assets/js/18.af58248f.js"><link rel="prefetch" href="/assets/js/19.e2c06bd5.js"><link rel="prefetch" href="/assets/js/20.10a34ef1.js"><link rel="prefetch" href="/assets/js/21.1e7ec424.js"><link rel="prefetch" href="/assets/js/23.07dcecc5.js"><link rel="prefetch" href="/assets/js/24.758016df.js"><link rel="prefetch" href="/assets/js/25.42340b01.js"><link rel="prefetch" href="/assets/js/26.1c247dd7.js"><link rel="prefetch" href="/assets/js/27.6845d48b.js"><link rel="prefetch" href="/assets/js/28.9fd32b04.js"><link rel="prefetch" href="/assets/js/29.17de6307.js"><link rel="prefetch" href="/assets/js/3.8c9985a8.js"><link rel="prefetch" href="/assets/js/30.da1f6a0a.js"><link rel="prefetch" href="/assets/js/31.5ebe7b2a.js"><link rel="prefetch" href="/assets/js/32.32860a24.js"><link rel="prefetch" href="/assets/js/33.3959220a.js"><link rel="prefetch" href="/assets/js/34.8c3610e6.js"><link rel="prefetch" href="/assets/js/35.d7b99a6b.js"><link rel="prefetch" href="/assets/js/36.58e502b7.js"><link rel="prefetch" href="/assets/js/37.5c34e73d.js"><link rel="prefetch" href="/assets/js/38.332b1712.js"><link rel="prefetch" href="/assets/js/39.cdaaab33.js"><link rel="prefetch" href="/assets/js/4.b536adf5.js"><link rel="prefetch" href="/assets/js/40.ed55e857.js"><link rel="prefetch" href="/assets/js/41.b8c6d46f.js"><link rel="prefetch" href="/assets/js/42.28c367d8.js"><link rel="prefetch" href="/assets/js/43.eebd3b40.js"><link rel="prefetch" href="/assets/js/44.55467fd6.js"><link rel="prefetch" href="/assets/js/45.001ecb6f.js"><link rel="prefetch" href="/assets/js/46.f52aee97.js"><link rel="prefetch" href="/assets/js/47.9dfa6714.js"><link rel="prefetch" href="/assets/js/48.7ac9acb2.js"><link rel="prefetch" href="/assets/js/49.f4135a53.js"><link rel="prefetch" href="/assets/js/5.d31c7d55.js"><link rel="prefetch" href="/assets/js/50.4270f204.js"><link rel="prefetch" href="/assets/js/51.fe2eb515.js"><link rel="prefetch" href="/assets/js/52.2e1325a6.js"><link rel="prefetch" href="/assets/js/53.b3bf9410.js"><link rel="prefetch" href="/assets/js/54.6840586f.js"><link rel="prefetch" href="/assets/js/55.46fd02fe.js"><link rel="prefetch" href="/assets/js/56.f32211c9.js"><link rel="prefetch" href="/assets/js/57.99665368.js"><link rel="prefetch" href="/assets/js/58.6e5b121c.js"><link rel="prefetch" href="/assets/js/59.a1c53089.js"><link rel="prefetch" href="/assets/js/6.a11a6bbd.js"><link rel="prefetch" href="/assets/js/60.14d7f05f.js"><link rel="prefetch" href="/assets/js/61.50a03f44.js"><link rel="prefetch" href="/assets/js/62.01b694ce.js"><link rel="prefetch" href="/assets/js/63.0757a829.js"><link rel="prefetch" href="/assets/js/64.32250b18.js"><link rel="prefetch" href="/assets/js/65.0d3aad15.js"><link rel="prefetch" href="/assets/js/66.33b733f5.js"><link rel="prefetch" href="/assets/js/67.9b97a5c9.js"><link rel="prefetch" href="/assets/js/68.0e8be21e.js"><link rel="prefetch" href="/assets/js/69.d64bfc91.js"><link rel="prefetch" href="/assets/js/7.0f65c004.js"><link rel="prefetch" href="/assets/js/70.44f923e3.js"><link rel="prefetch" href="/assets/js/71.fcd115e0.js"><link rel="prefetch" href="/assets/js/72.08b1c1c7.js"><link rel="prefetch" href="/assets/js/73.47d64302.js"><link rel="prefetch" href="/assets/js/74.4e295283.js"><link rel="prefetch" href="/assets/js/75.82e1e871.js"><link rel="prefetch" href="/assets/js/76.5c422cab.js"><link rel="prefetch" href="/assets/js/77.81c5cc6f.js"><link rel="prefetch" href="/assets/js/78.d1184bc2.js"><link rel="prefetch" href="/assets/js/79.18a91b58.js"><link rel="prefetch" href="/assets/js/8.85754d7a.js"><link rel="prefetch" href="/assets/js/80.8b90eca9.js"><link rel="prefetch" href="/assets/js/81.31938a41.js"><link rel="prefetch" href="/assets/js/82.eddff3f8.js"><link rel="prefetch" href="/assets/js/9.9627f74e.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.7dc41318.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">ChoDragon9</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="설계" class="dropdown-title"><span class="title">설계</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          좋은코드
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/easy-code/" class="nav-link">
+  이해하기 쉬운 코드 작성방법 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/code-position/" class="nav-link">
+  코드의 위치를 정하는 기준
+</a></li><li class="dropdown-subitem"><a href="/blog/reusable-code/" class="nav-link">
+  재사용 가능한 코드 개발
+</a></li><li class="dropdown-subitem"><a href="/blog/declarative-function/" class="nav-link">
+  선언형으로 대체 가능한 문법들 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/date-helper-development/" class="nav-link">
+  강제성, 단일화 그리고 날짜 헬퍼 개발
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Model-View 패턴
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/mvc-word-1979-12-10/" class="nav-link">
+  MVC 용어정의 1979/12/10
+</a></li><li class="dropdown-subitem"><a href="/blog/mvc-xerox-parc/" class="nav-link">
+  MVC XEROX PARC
+</a></li><li class="dropdown-subitem"><a href="/blog/mvp-the-taligent-programming-model/" class="nav-link">
+  MVP The Taligent Programming Model
+</a></li><li class="dropdown-subitem"><a href="/blog/introduction-to-mvvm-for-wpf/" class="nav-link">
+  Introduction to MVVM for WPF
+</a></li><li class="dropdown-subitem"><a href="/blog/flux/" class="nav-link">
+  Flux
+</a></li><li class="dropdown-subitem"><a href="/blog/vuex/" class="nav-link">
+  Vuex
+</a></li><li class="dropdown-subitem"><a href="/blog/mvc/" class="nav-link">
+  MVC 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/mvvm/" class="nav-link">
+  MVVM 정리
+</a></li></ul></li><li class="dropdown-item"><h4>
+          디자인 패턴
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/gof-design-pattern-summary/" class="nav-link">
+  GoF 디자인 패턴 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/design-pattern-structural/" class="nav-link">
+  GoF 디자인 패턴 | 구조패턴
+</a></li><li class="dropdown-subitem"><a href="/blog/design-pattern-creational/" class="nav-link">
+  GoF 디자인 패턴 | 생성패턴
+</a></li><li class="dropdown-subitem"><a href="/blog/design-pattern-behavioral/" class="nav-link">
+  GoF 디자인 패턴 | 행동패턴
+</a></li></ul></li><li class="dropdown-item"><h4>
+          리팩토링
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/structure-refactoring/" class="nav-link">
+  구조 리펙토링 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/legacy-code-to-easy-code/" class="nav-link">
+  레거시 코드에서 이해하기 쉬운코드로 리팩토링
+</a></li><li class="dropdown-subitem"><a href="/blog/legacy-code-to-easy-code-2/" class="nav-link">
+  레거시 코드에서 이해하기 쉬운코드로 리팩토링 2
+</a></li><li class="dropdown-subitem"><a href="/blog/refactoring-meaning-and-result/" class="nav-link">
+  리펙토링 정의와 결과
+</a></li></ul></li><li class="dropdown-item"><h4>
+          기타
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/design-methodology/" class="nav-link">
+  설계 방법론
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="패러다임" class="dropdown-title"><span class="title">패러다임</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          명령형
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/back-to-the-imperative/" class="nav-link router-link-exact-active router-link-active">
+  명령형 프로그래밍 사고로 전환하기
+</a></li></ul></li><li class="dropdown-item"><h4>
+          객체지향
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/object/" class="nav-link">
+  객체 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/produce-oop/" class="nav-link">
+  immer 구현해보기 - OOP 버전
+</a></li></ul></li><li class="dropdown-item"><h4>
+          함수형
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/functional/" class="nav-link">
+  함수형 프로그래밍 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/functional2/" class="nav-link">
+  함수형 프로그래밍 정리2
+</a></li><li class="dropdown-subitem"><a href="/blog/produce/" class="nav-link">
+  immer 구현해보기
+</a></li><li class="dropdown-subitem"><a href="/blog/produce-immutable/" class="nav-link">
+  immer 구현해보기 - 불변성편
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="언어" class="dropdown-title"><span class="title">언어</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          컴파일러
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/compiler-theory/" class="nav-link">
+  컴파일러 이론 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/template-compiler/" class="nav-link">
+  탬플릿 컴파일러 만들기
+</a></li><li class="dropdown-subitem"><a href="/blog/vue-compiler/" class="nav-link">
+  Vue 컴파일러
+</a></li></ul></li><li class="dropdown-item"><h4>
+          TypeScript
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/typescript-from-inhouse-service/" class="nav-link">
+  인하우스 서비스 구축하며 사용했던 TypeScript 문법 정리
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Javascript
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/es6/" class="nav-link">
+  ES6 Overview
+</a></li><li class="dropdown-subitem"><a href="/blog/this/" class="nav-link">
+  this, this is magic.
+</a></li><li class="dropdown-subitem"><a href="/blog/promise/" class="nav-link">
+  Promise 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/async-await-case/" class="nav-link">
+  async await 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/call-stack-and-coroutine/" class="nav-link">
+  코루틴을 사용한 지연 평가
+</a></li></ul></li><li class="dropdown-item"><h4>
+          SML
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/sml-basic/" class="nav-link">
+  기초
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-builtin-datatype/" class="nav-link">
+  빌트인 자료형
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-datatype/" class="nav-link">
+  자료형 정의
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-exception/" class="nav-link">
+  예외처리
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-function/" class="nav-link">
+  함수
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-higher-order-function/" class="nav-link">
+  고차함수
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-infix/" class="nav-link">
+  infix 정의
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-module/" class="nav-link">
+  모듈 시스템
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="오픈소스" class="dropdown-title"><span class="title">오픈소스</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Vue Composition API
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/composition-api-rfc/" class="nav-link">
+  RFC 번역
+</a></li><li class="dropdown-subitem"><a href="/blog/composition-api-rfc-summary/" class="nav-link">
+  RFC 요약 및 자료 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/composition-api-rfc-release-notes/" class="nav-link">
+  RFC 릴리즈 노트 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/composition-api-rfc-migration/" class="nav-link">
+  Composition API 경험 정리
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Vue
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/vue-eslint/" class="nav-link">
+  Vue ESLint 설정
+</a></li><li class="dropdown-subitem"><a href="/blog/nuxt-2-11-typescript/" class="nav-link">
+  Nuxt v2.11 기반 nuxt/typescript 환경 세팅
+</a></li><li class="dropdown-subitem"><a href="/blog/nuxt-ts/" class="nav-link">
+  Nuxt v2.0에서 TypeScript로 개발하기
+</a></li><li class="dropdown-subitem"><a href="/blog/nuxt-migration/" class="nav-link">
+  Nuxt v2.0에서 v2.11로 마이그레이션
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Angular
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/rxjs-codereview/" class="nav-link">
+  RxJs 코드리뷰 사례
+</a></li><li class="dropdown-subitem"><a href="/blog/angular/" class="nav-link">
+  Angular의 강력함과 아쉬운점
+</a></li></ul></li><li class="dropdown-item"><h4>
+          React
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/react-convention-for-codereview/" class="nav-link">
+  코드리뷰를 위한 React 컨벤션
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="정리" class="dropdown-title"><span class="title">정리</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          경험
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/2019-new-service-building/" class="nav-link">
+  사내 신규 서비스 경험기
+</a></li><li class="dropdown-subitem"><a href="/blog/cors-and-http-cookie/" class="nav-link">
+  CORS와 HTTP Cookie
+</a></li><li class="dropdown-subitem"><a href="/blog/how-to-catch-error/" class="nav-link">
+  에러 처리 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/abstract/" class="nav-link">
+  추상화 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/branch-n-case/" class="nav-link">
+  분기를 작성하는 방법 n가지
+</a></li><li class="dropdown-subitem"><a href="/blog/callback/" class="nav-link">
+  콜백 사용 시점
+</a></li><li class="dropdown-subitem"><a href="/blog/clone-function/" class="nav-link">
+  경우에 따른 clone 함수
+</a></li><li class="dropdown-subitem"><a href="/blog/safe-chain/" class="nav-link">
+  안전한 체이닝을 위한 safeChain
+</a></li><li class="dropdown-subitem"><a href="/blog/observation-mechanism/" class="nav-link">
+  옵져버 매커니즘
+</a></li></ul></li><li class="dropdown-item"><h4>
+          관리
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/estimation/" class="nav-link">
+  개발 일정산정
+</a></li><li class="dropdown-subitem"><a href="/blog/release/" class="nav-link">
+  배포 어디까지 알고 있나요?
+</a></li><li class="dropdown-subitem"><a href="/blog/facilitation-for-meeting/" class="nav-link">
+  효율적인 회의를 위한 퍼실리테이션
+</a></li><li class="dropdown-subitem"><a href="/blog/preventive-maintenance/" class="nav-link">
+  위험상황을 대비하는 위험관리
+</a></li><li class="dropdown-subitem"><a href="/blog/git-scm-experience/" class="nav-link">
+  형상관리 전략정리
+</a></li></ul></li><li class="dropdown-item"><h4>
+          도서
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/programming-standards/" class="nav-link">
+  프로그래밍의 정석 도서 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/non-functional-requirement/" class="nav-link">
+  소프트웨어의 핵심 비기능 요구사항
+</a></li><li class="dropdown-subitem"><a href="/blog/regexp-book-backref/" class="nav-link">
+  [손에 잡히는 정규표현식] 역참조/전방탐색/후방탐색
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/about.html" class="nav-link">
+  About
+</a></div><div class="nav-item"><a href="https://github.com/ChoDragon9" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="설계" class="dropdown-title"><span class="title">설계</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          좋은코드
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/easy-code/" class="nav-link">
+  이해하기 쉬운 코드 작성방법 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/code-position/" class="nav-link">
+  코드의 위치를 정하는 기준
+</a></li><li class="dropdown-subitem"><a href="/blog/reusable-code/" class="nav-link">
+  재사용 가능한 코드 개발
+</a></li><li class="dropdown-subitem"><a href="/blog/declarative-function/" class="nav-link">
+  선언형으로 대체 가능한 문법들 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/date-helper-development/" class="nav-link">
+  강제성, 단일화 그리고 날짜 헬퍼 개발
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Model-View 패턴
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/mvc-word-1979-12-10/" class="nav-link">
+  MVC 용어정의 1979/12/10
+</a></li><li class="dropdown-subitem"><a href="/blog/mvc-xerox-parc/" class="nav-link">
+  MVC XEROX PARC
+</a></li><li class="dropdown-subitem"><a href="/blog/mvp-the-taligent-programming-model/" class="nav-link">
+  MVP The Taligent Programming Model
+</a></li><li class="dropdown-subitem"><a href="/blog/introduction-to-mvvm-for-wpf/" class="nav-link">
+  Introduction to MVVM for WPF
+</a></li><li class="dropdown-subitem"><a href="/blog/flux/" class="nav-link">
+  Flux
+</a></li><li class="dropdown-subitem"><a href="/blog/vuex/" class="nav-link">
+  Vuex
+</a></li><li class="dropdown-subitem"><a href="/blog/mvc/" class="nav-link">
+  MVC 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/mvvm/" class="nav-link">
+  MVVM 정리
+</a></li></ul></li><li class="dropdown-item"><h4>
+          디자인 패턴
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/gof-design-pattern-summary/" class="nav-link">
+  GoF 디자인 패턴 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/design-pattern-structural/" class="nav-link">
+  GoF 디자인 패턴 | 구조패턴
+</a></li><li class="dropdown-subitem"><a href="/blog/design-pattern-creational/" class="nav-link">
+  GoF 디자인 패턴 | 생성패턴
+</a></li><li class="dropdown-subitem"><a href="/blog/design-pattern-behavioral/" class="nav-link">
+  GoF 디자인 패턴 | 행동패턴
+</a></li></ul></li><li class="dropdown-item"><h4>
+          리팩토링
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/structure-refactoring/" class="nav-link">
+  구조 리펙토링 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/legacy-code-to-easy-code/" class="nav-link">
+  레거시 코드에서 이해하기 쉬운코드로 리팩토링
+</a></li><li class="dropdown-subitem"><a href="/blog/legacy-code-to-easy-code-2/" class="nav-link">
+  레거시 코드에서 이해하기 쉬운코드로 리팩토링 2
+</a></li><li class="dropdown-subitem"><a href="/blog/refactoring-meaning-and-result/" class="nav-link">
+  리펙토링 정의와 결과
+</a></li></ul></li><li class="dropdown-item"><h4>
+          기타
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/design-methodology/" class="nav-link">
+  설계 방법론
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="패러다임" class="dropdown-title"><span class="title">패러다임</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          명령형
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/back-to-the-imperative/" class="nav-link router-link-exact-active router-link-active">
+  명령형 프로그래밍 사고로 전환하기
+</a></li></ul></li><li class="dropdown-item"><h4>
+          객체지향
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/object/" class="nav-link">
+  객체 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/produce-oop/" class="nav-link">
+  immer 구현해보기 - OOP 버전
+</a></li></ul></li><li class="dropdown-item"><h4>
+          함수형
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/functional/" class="nav-link">
+  함수형 프로그래밍 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/functional2/" class="nav-link">
+  함수형 프로그래밍 정리2
+</a></li><li class="dropdown-subitem"><a href="/blog/produce/" class="nav-link">
+  immer 구현해보기
+</a></li><li class="dropdown-subitem"><a href="/blog/produce-immutable/" class="nav-link">
+  immer 구현해보기 - 불변성편
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="언어" class="dropdown-title"><span class="title">언어</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          컴파일러
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/compiler-theory/" class="nav-link">
+  컴파일러 이론 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/template-compiler/" class="nav-link">
+  탬플릿 컴파일러 만들기
+</a></li><li class="dropdown-subitem"><a href="/blog/vue-compiler/" class="nav-link">
+  Vue 컴파일러
+</a></li></ul></li><li class="dropdown-item"><h4>
+          TypeScript
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/typescript-from-inhouse-service/" class="nav-link">
+  인하우스 서비스 구축하며 사용했던 TypeScript 문법 정리
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Javascript
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/es6/" class="nav-link">
+  ES6 Overview
+</a></li><li class="dropdown-subitem"><a href="/blog/this/" class="nav-link">
+  this, this is magic.
+</a></li><li class="dropdown-subitem"><a href="/blog/promise/" class="nav-link">
+  Promise 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/async-await-case/" class="nav-link">
+  async await 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/call-stack-and-coroutine/" class="nav-link">
+  코루틴을 사용한 지연 평가
+</a></li></ul></li><li class="dropdown-item"><h4>
+          SML
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/sml-basic/" class="nav-link">
+  기초
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-builtin-datatype/" class="nav-link">
+  빌트인 자료형
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-datatype/" class="nav-link">
+  자료형 정의
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-exception/" class="nav-link">
+  예외처리
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-function/" class="nav-link">
+  함수
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-higher-order-function/" class="nav-link">
+  고차함수
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-infix/" class="nav-link">
+  infix 정의
+</a></li><li class="dropdown-subitem"><a href="/blog/sml-module/" class="nav-link">
+  모듈 시스템
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="오픈소스" class="dropdown-title"><span class="title">오픈소스</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Vue Composition API
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/composition-api-rfc/" class="nav-link">
+  RFC 번역
+</a></li><li class="dropdown-subitem"><a href="/blog/composition-api-rfc-summary/" class="nav-link">
+  RFC 요약 및 자료 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/composition-api-rfc-release-notes/" class="nav-link">
+  RFC 릴리즈 노트 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/composition-api-rfc-migration/" class="nav-link">
+  Composition API 경험 정리
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Vue
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/vue-eslint/" class="nav-link">
+  Vue ESLint 설정
+</a></li><li class="dropdown-subitem"><a href="/blog/nuxt-2-11-typescript/" class="nav-link">
+  Nuxt v2.11 기반 nuxt/typescript 환경 세팅
+</a></li><li class="dropdown-subitem"><a href="/blog/nuxt-ts/" class="nav-link">
+  Nuxt v2.0에서 TypeScript로 개발하기
+</a></li><li class="dropdown-subitem"><a href="/blog/nuxt-migration/" class="nav-link">
+  Nuxt v2.0에서 v2.11로 마이그레이션
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Angular
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/rxjs-codereview/" class="nav-link">
+  RxJs 코드리뷰 사례
+</a></li><li class="dropdown-subitem"><a href="/blog/angular/" class="nav-link">
+  Angular의 강력함과 아쉬운점
+</a></li></ul></li><li class="dropdown-item"><h4>
+          React
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/react-convention-for-codereview/" class="nav-link">
+  코드리뷰를 위한 React 컨벤션
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="정리" class="dropdown-title"><span class="title">정리</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          경험
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/2019-new-service-building/" class="nav-link">
+  사내 신규 서비스 경험기
+</a></li><li class="dropdown-subitem"><a href="/blog/cors-and-http-cookie/" class="nav-link">
+  CORS와 HTTP Cookie
+</a></li><li class="dropdown-subitem"><a href="/blog/how-to-catch-error/" class="nav-link">
+  에러 처리 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/abstract/" class="nav-link">
+  추상화 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/branch-n-case/" class="nav-link">
+  분기를 작성하는 방법 n가지
+</a></li><li class="dropdown-subitem"><a href="/blog/callback/" class="nav-link">
+  콜백 사용 시점
+</a></li><li class="dropdown-subitem"><a href="/blog/clone-function/" class="nav-link">
+  경우에 따른 clone 함수
+</a></li><li class="dropdown-subitem"><a href="/blog/safe-chain/" class="nav-link">
+  안전한 체이닝을 위한 safeChain
+</a></li><li class="dropdown-subitem"><a href="/blog/observation-mechanism/" class="nav-link">
+  옵져버 매커니즘
+</a></li></ul></li><li class="dropdown-item"><h4>
+          관리
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/estimation/" class="nav-link">
+  개발 일정산정
+</a></li><li class="dropdown-subitem"><a href="/blog/release/" class="nav-link">
+  배포 어디까지 알고 있나요?
+</a></li><li class="dropdown-subitem"><a href="/blog/facilitation-for-meeting/" class="nav-link">
+  효율적인 회의를 위한 퍼실리테이션
+</a></li><li class="dropdown-subitem"><a href="/blog/preventive-maintenance/" class="nav-link">
+  위험상황을 대비하는 위험관리
+</a></li><li class="dropdown-subitem"><a href="/blog/git-scm-experience/" class="nav-link">
+  형상관리 전략정리
+</a></li></ul></li><li class="dropdown-item"><h4>
+          도서
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/programming-standards/" class="nav-link">
+  프로그래밍의 정석 도서 정리
+</a></li><li class="dropdown-subitem"><a href="/blog/non-functional-requirement/" class="nav-link">
+  소프트웨어의 핵심 비기능 요구사항
+</a></li><li class="dropdown-subitem"><a href="/blog/regexp-book-backref/" class="nav-link">
+  [손에 잡히는 정규표현식] 역참조/전방탐색/후방탐색
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/about.html" class="nav-link">
+  About
+</a></div><div class="nav-item"><a href="https://github.com/ChoDragon9" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>명령형 프로그래밍 사고로 전환하기</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/back-to-the-imperative/#명령형과-함수형-비교" class="sidebar-link">명령형과 함수형 비교</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/back-to-the-imperative/#두-리스트-연결로-비교" class="sidebar-link">두 리스트 연결로 비교</a></li><li class="sidebar-sub-header"><a href="/blog/back-to-the-imperative/#에러-처리-비교" class="sidebar-link">에러 처리 비교</a></li><li class="sidebar-sub-header"><a href="/blog/back-to-the-imperative/#반복-처리-비교" class="sidebar-link">반복 처리 비교</a></li></ul></li><li><a href="/blog/back-to-the-imperative/#명령형-객체지향-함수형-패러다임-구분하기" class="sidebar-link">명령형/객체지향/함수형 패러다임 구분하기</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/back-to-the-imperative/#명령형-7" class="sidebar-link">명령형</a></li><li class="sidebar-sub-header"><a href="/blog/back-to-the-imperative/#객체지향" class="sidebar-link">객체지향</a></li><li class="sidebar-sub-header"><a href="/blog/back-to-the-imperative/#함수형-7" class="sidebar-link">함수형</a></li></ul></li><li><a href="/blog/back-to-the-imperative/#끝" class="sidebar-link">끝</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="명령형-프로그래밍-사고로-전환하기"><a href="#명령형-프로그래밍-사고로-전환하기" class="header-anchor">#</a> 명령형 프로그래밍 사고로 전환하기</h1> <h2 id="명령형과-함수형-비교"><a href="#명령형과-함수형-비교" class="header-anchor">#</a> 명령형과 함수형 비교</h2> <h3 id="두-리스트-연결로-비교"><a href="#두-리스트-연결로-비교" class="header-anchor">#</a> 두 리스트 연결로 비교</h3> <blockquote><p>순수 함수형 데이터 구조 도서</p></blockquote> <h4 id="명령형"><a href="#명령형" class="header-anchor">#</a> 명령형</h4> <p>명령형 방식에서는 리스트의 첫 셀과 마지막 셀에 대한 포인터를 유지함으로써 O(1)만에 두 리스트를 이어 붙일 수 있다. 첫 번째 리스트의 마지막 셀이 두 번째 리스트의 첫 번째 셀을 가리키도록 변경함으로써 쉽게 구현할 수 있다. 단 두 리스트를 모두 파괴한다는 점에 유의해야 한다. 두 리스트를 이어 붙인 뒤 두 리스트를 재사용할 수 없다.</p> <h4 id="함수형"><a href="#함수형" class="header-anchor">#</a> 함수형</h4> <p>함수형 방식에서는 첫 번째 리스트의 마지막 셀을 이런 식으로 변경할 수 없다. 대신 우리가 마지막 셀을 복사하면서, 복사본에서 다음 셀을 가리키는 포인터가 두 번째 리스트의 첫 셀을 가리키게 만든다. 그런 다음, 끝에서 두 번째 셀을 복사하면서 꼬리 포인터가 방금 생긴 마지막 셀의 복사본을 가리키게 한다. 이런 과정을 첫 번째 리스트를 모두 다 복사할 때까지 반복한다. 이 경우 영속성이 생겨나는 대신 복사에 O(n)이라는 추가 비용이 든다.</p> <h3 id="에러-처리-비교"><a href="#에러-처리-비교" class="header-anchor">#</a> 에러 처리 비교</h3> <h4 id="명령형-2"><a href="#명령형-2" class="header-anchor">#</a> 명령형</h4> <p><strong>명령형</strong> 코드에서 예외를 붙잡아 던지는 방법은 try-catch 에러 처리가 있다. 예외를 던질 가능성이 있는 것들을 try를 감싸고 예외를 발생하면 catch에서 처리하는 것이다. 반환값으로 실패 전달의 단점을 해결하여 원래하고 싶은 것을 기술한 코드와 실패했을 때의 처리를 분리할 수 있다.</p> <h4 id="함수형-2"><a href="#함수형-2" class="header-anchor">#</a> 함수형</h4> <p>함수형 관점에서 try-catch 에러 처리는 다음과 같은 특징을 띈다.</p> <ul><li>다른 함수형 장치처럼 합성이나 체이닝을 할 수 없습니다.</li> <li>예외를 던지는 행위는 함수 호출에서 빠져나갈 구멍을 찾는 것이므로 단일한, 예측 가능한 값을 지향하는 참조 투명성 원리에 위배됩니다.</li> <li>예기치 않게 스택이 풀리면 함수 호출 범위를 벗어나 전체 시스템에 영향을 미치는 부수 효과를 일으킵니다.</li></ul> <p><strong>함수형</strong> 에러 처리는 철저히 다른 방법으로 접근해 소프트웨어 시스템의 난관을 해결합니다. 기본 아이디어는 비슷합니다. 잠재적으로 위험한 코드 주위에 안전망(말하자면 컨테이너)을 설치하는 것입니다.</p> <p>함수형 프로그램에서는 위함한 코드를 감싼다는 개념은 그대로 가져가되 try-catch 블록은 제거할 수 있습니다. 이것이 명령형과 가장 큰 차이점입니다. 함수형 자료형을 사용하여 불순함과의 분리를 일급 시민으로 만드는 것이지요.</p> <h3 id="반복-처리-비교"><a href="#반복-처리-비교" class="header-anchor">#</a> 반복 처리 비교</h3> <p><strong>명령형 프로그래밍</strong>은 작업 수행에 필요한 전 단계를 노출하여 흐름이나 경로를 아주 자세히 서술한다. 보통 작업을 수행하는 단계는 루프와 분기문, 구문마다 값이 바뀌는 변수들로 빼곡히 들어찬다.</p> <p><strong>함수형 프로그래밍</strong>은 독립적인 블랙박스 연산들이 단순하게, 즉 최소한의 제어 구조를 통해 연결되어 추상화 수준이 높다. 실제로 함수형 프로그램은 데이터와 제어 흐름 자체를 고수준 컴포넌트 사이의 단순한 연결로 취급한다.</p> <h4 id="_1-30세-이상인-users를-거른다"><a href="#_1-30세-이상인-users를-거른다" class="header-anchor">#</a> 1. 30세 이상인 users를 거른다.</h4> <h5 id="명령형-3"><a href="#명령형-3" class="header-anchor">#</a> 명령형</h5> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> temp_users <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> users<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>users<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>age <span class="token operator">&gt;=</span> <span class="token number">30</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    temp_users<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>users<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h5 id="함수형-3"><a href="#함수형-3" class="header-anchor">#</a> 함수형</h5> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> over_30 <span class="token operator">=</span> users<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span>age<span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> age <span class="token operator">&gt;=</span> <span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h4 id="_2-30세-이상인-users의-names를-수집한다"><a href="#_2-30세-이상인-users의-names를-수집한다" class="header-anchor">#</a> 2. 30세 이상인 users의 names를 수집한다.</h4> <h5 id="명령형-4"><a href="#명령형-4" class="header-anchor">#</a> 명령형</h5> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> names <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> temp_users<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  names<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>temp_users<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h5 id="함수형-4"><a href="#함수형-4" class="header-anchor">#</a> 함수형</h5> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> names <span class="token operator">=</span> over_30<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span>name<span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h4 id="_3-30세-미만인-users를-거른다"><a href="#_3-30세-미만인-users를-거른다" class="header-anchor">#</a> 3. 30세 미만인 users를 거른다.</h4> <h5 id="명령형-5"><a href="#명령형-5" class="header-anchor">#</a> 명령형</h5> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> temp_users2 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> users<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>users<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>age <span class="token operator">&lt;</span> <span class="token number">30</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    temp_users2<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>users<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h5 id="함수형-5"><a href="#함수형-5" class="header-anchor">#</a> 함수형</h5> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> under_30 <span class="token operator">=</span> users<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span>age<span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> age <span class="token operator">&lt;</span> <span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h4 id="_4-30세-미만인-users의-ages를-수집한다"><a href="#_4-30세-미만인-users의-ages를-수집한다" class="header-anchor">#</a> 4. 30세 미만인 users의 ages를 수집한다.</h4> <h5 id="명령형-6"><a href="#명령형-6" class="header-anchor">#</a> 명령형</h5> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> ages <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> temp_users2<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  ages<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>temp_users2<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>age<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h5 id="함수형-6"><a href="#함수형-6" class="header-anchor">#</a> 함수형</h5> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> ages <span class="token operator">=</span> under_30<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span>age<span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> age<span class="token punctuation">)</span>
+</code></pre></div><h2 id="명령형-객체지향-함수형-패러다임-구분하기"><a href="#명령형-객체지향-함수형-패러다임-구분하기" class="header-anchor">#</a> 명령형/객체지향/함수형 패러다임 구분하기</h2> <h3 id="명령형-7"><a href="#명령형-7" class="header-anchor">#</a> 명령형</h3> <p>먼저 명령형은 작업 수행에 필요한 모든 단계를 노출하여 흐름이나 경로를 아주 자세히 작성합니다. 작업 수행에 필요한 단계의 예로는 루프, 분기, 값이 바뀌는 변수들이 있습니다.</p> <h5 id="예시-2-1-명령형-코드-예시"><a href="#예시-2-1-명령형-코드-예시" class="header-anchor">#</a> [예시 2.1] 명령형 코드 예시</h5> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> todoList <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+
+<span class="token function">addItem</span><span class="token punctuation">(</span>todoList<span class="token punctuation">,</span> <span class="token string">'새해인사'</span><span class="token punctuation">,</span> <span class="token number">20200101</span><span class="token punctuation">)</span>
+<span class="token function">addItem</span><span class="token punctuation">(</span>todoList<span class="token punctuation">,</span> <span class="token string">'화분 물주기'</span><span class="token punctuation">,</span> <span class="token number">20200102</span><span class="token punctuation">)</span>
+<span class="token function">addItem</span><span class="token punctuation">(</span>todoList<span class="token punctuation">,</span> <span class="token string">'분리수거'</span><span class="token punctuation">,</span> <span class="token number">20200103</span><span class="token punctuation">)</span>
+
+<span class="token function">printTodoList</span><span class="token punctuation">(</span>todoList<span class="token punctuation">)</span>
+
+<span class="token comment">/* 실행결과
+[20200101] 새해인사
+[20200102] 화분 물주기
+[20200103] 분리수거
+*/</span>
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> <span class="token function-variable function">addItem</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">todoList<span class="token punctuation">,</span> subject<span class="token punctuation">,</span> date</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> todoItem <span class="token operator">=</span> <span class="token function">toTodoItem</span><span class="token punctuation">(</span>subject<span class="token punctuation">,</span> date<span class="token punctuation">)</span>
+  todoList<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>todoItem<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">const</span> <span class="token function-variable function">printTodoList</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">todoList</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">{</span>length<span class="token punctuation">}</span> <span class="token operator">=</span> todoList
+  <span class="token keyword">let</span> log <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token template-punctuation string">`</span></span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> todoItem <span class="token operator">=</span> todoList<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+    log <span class="token operator">+=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token function">todoItemToString</span><span class="token punctuation">(</span>todoItem<span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">&lt;</span> length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      log <span class="token operator">+=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">\n</span><span class="token template-punctuation string">`</span></span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>log<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">toTodoItem</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">subject<span class="token punctuation">,</span> date</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>subject<span class="token punctuation">,</span> date<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> <span class="token function-variable function">todoItemToString</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span>subject<span class="token punctuation">,</span> date<span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">[</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>date<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">] </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>subject<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span>
+</code></pre></div><h3 id="객체지향"><a href="#객체지향" class="header-anchor">#</a> 객체지향</h3> <p>다음으로 객체지향은 상태와 행동을 지닌 자율적인 객체에 역할과 책임을 부여하고 다른 객체들과 협력하여 시스템을 구성합니다.</p> <h5 id="예시-2-2-객체지향-코드-예시"><a href="#예시-2-2-객체지향-코드-예시" class="header-anchor">#</a> [예시 2.2] 객체지향 코드 예시</h5> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> todoList <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">TodoList</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+todoList<span class="token punctuation">.</span><span class="token function">addItem</span><span class="token punctuation">(</span><span class="token string">'새해인사'</span><span class="token punctuation">,</span> <span class="token number">20200101</span><span class="token punctuation">)</span>
+todoList<span class="token punctuation">.</span><span class="token function">addItem</span><span class="token punctuation">(</span><span class="token string">'화분 물주기'</span><span class="token punctuation">,</span> <span class="token number">20200102</span><span class="token punctuation">)</span>
+todoList<span class="token punctuation">.</span><span class="token function">addItem</span><span class="token punctuation">(</span><span class="token string">'분리수거'</span><span class="token punctuation">,</span> <span class="token number">20200103</span><span class="token punctuation">)</span>
+todoList<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">/* 실행결과
+[20200101] 새해인사
+[20200102] 화분 물주기
+[20200103] 분리수거
+*/</span>
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">class</span> <span class="token class-name">TodoList</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>todoList <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">addItem</span><span class="token punctuation">(</span><span class="token parameter">subject<span class="token punctuation">,</span> date</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> todoItem <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">TodoItem</span><span class="token punctuation">(</span>subject<span class="token punctuation">,</span> date<span class="token punctuation">)</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>todoList<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>todoItem<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> str <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>todoList
+      <span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">todoItem</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> todoItem<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">'\n'</span><span class="token punctuation">)</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">TodoItem</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">subject<span class="token punctuation">,</span> date</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>subject <span class="token operator">=</span> subject
+    <span class="token keyword">this</span><span class="token punctuation">.</span>date <span class="token operator">=</span> date
+  <span class="token punctuation">}</span>
+  <span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">[</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token keyword">this</span><span class="token punctuation">.</span>date<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">] </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token keyword">this</span><span class="token punctuation">.</span>subject<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="함수형-7"><a href="#함수형-7" class="header-anchor">#</a> 함수형</h3> <p>마지막으로 함수형은 가변(可變) 상태를 멀리하고 불변(不變) 상태를 추구합니다. 가변 상태는 조작의 타이밍이나 순서에 따라 예상과 다르게 동작할 위험이 있으므로 불변 상태를 추구합니다.</p> <h5 id="예시-2-3-함수형-코드-예시"><a href="#예시-2-3-함수형-코드-예시" class="header-anchor">#</a> [예시 2.3] 함수형 코드 예시</h5> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> todoList <span class="token operator">=</span> TodoList<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">addItem</span><span class="token punctuation">(</span><span class="token string">'새해인사'</span><span class="token punctuation">,</span> <span class="token number">20200101</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">addItem</span><span class="token punctuation">(</span><span class="token string">'화분 물주기'</span><span class="token punctuation">,</span> <span class="token number">20200102</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> todoList2 <span class="token operator">=</span> todoList
+  <span class="token punctuation">.</span><span class="token function">addItem</span><span class="token punctuation">(</span><span class="token string">'분리수거'</span><span class="token punctuation">,</span> <span class="token number">20200103</span><span class="token punctuation">)</span>
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code>console<span class="token punctuation">.</span><span class="token function">group</span><span class="token punctuation">(</span><span class="token string">'todoList'</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>todoList<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">groupEnd</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+console<span class="token punctuation">.</span><span class="token function">group</span><span class="token punctuation">(</span><span class="token string">'todoList2'</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>todoList2<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">groupEnd</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">/* 실행결과
+todoList
+  [20200101] 새해인사
+  [20200102] 화분 물주기
+todoList2
+  [20200101] 새해인사
+  [20200102] 화분 물주기
+  [20200103] 분리수거
+ */</span>
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">class</span> <span class="token class-name">TodoList</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">todoList</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>todoList <span class="token operator">=</span> todoList
+  <span class="token punctuation">}</span>
+  <span class="token function">addItem</span><span class="token punctuation">(</span><span class="token parameter">subject<span class="token punctuation">,</span> date</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> todoItem <span class="token operator">=</span> TodoItem<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>subject<span class="token punctuation">,</span> date<span class="token punctuation">)</span>
+    <span class="token keyword">const</span> addedTodoList <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>todoList<span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span>todoItem<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> TodoList<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>addedTodoList<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>todoList
+      <span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>TodoItem<span class="token punctuation">.</span>todoItemToString<span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">'\n'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">static</span> <span class="token function">create</span><span class="token punctuation">(</span><span class="token parameter">todoList</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">TodoList</span><span class="token punctuation">(</span>todoList<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">TodoItem</span> <span class="token punctuation">{</span>
+  <span class="token keyword">static</span> <span class="token function">create</span> <span class="token punctuation">(</span><span class="token parameter">subject<span class="token punctuation">,</span> date</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>subject<span class="token punctuation">,</span> date<span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">static</span> <span class="token function">todoItemToString</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span>subject<span class="token punctuation">,</span> date<span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">[</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>date<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">] </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>subject<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="끝"><a href="#끝" class="header-anchor">#</a> 끝</h2></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.6f531090.js" defer></script><script src="/assets/js/2.554774e4.js" defer></script><script src="/assets/js/22.d20674bc.js" defer></script>
+  </body>
+</html>
