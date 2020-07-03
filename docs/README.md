@@ -21,6 +21,6 @@ FE 엔지니어로 업계에 몸담고 있으면서 필요했던 전반적인 �
 :::
 
 ::: warning 설계 정리
-개발에 있어서 가장 중요하다고 생각하는 설계 이론에 관한 내용은 [설계 정리](https://peter-cho.gitbook.io/front-design-book/) 에 정리했습니다.
+개발에 있어서 가장 중요하다고 생각하는 설계 이론에 관한 내용은 [설계 정리](https://peter-cho.gitbook.io/book/front-design-book/home) 에 정리했습니다.
 응집도, 결합도, 추상, 패턴에 관한 내용으로 이뤄집니다.
 :::
