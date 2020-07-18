@@ -18,6 +18,7 @@ module.exports = {
           {
             text: 'Model-View 패턴',
             items: [
+              {text: 'MV*/Flux 정리', link: '/blog/mv_flux/'},
               {text: 'MVC 용어정의 1979/12/10', link: '/blog/mvc-word-1979-12-10/'},
               // {text: 'MVC Its Past and Present', link: '/blog/mvc-its-past-and-present/'},
               {text: 'MVC XEROX PARC', link: '/blog/mvc-xerox-parc/'},
