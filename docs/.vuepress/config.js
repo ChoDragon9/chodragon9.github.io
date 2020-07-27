@@ -141,6 +141,7 @@ module.exports = {
               {text: 'RFC 요약 및 자료 정리', link: '/blog/composition-api-rfc-summary/'},
               {text: 'RFC 릴리즈 노트 정리', link: '/blog/composition-api-rfc-release-notes/'},
               {text: 'Composition API 경험 정리', link: '/blog/composition-api-rfc-migration/'},
+              {text: 'Vuex 적용 경험 정리', link: '/blog/vuex-in-composition-api/'},
             ]
           },
           {
