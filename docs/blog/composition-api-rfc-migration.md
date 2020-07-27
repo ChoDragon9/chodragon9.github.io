@@ -2,6 +2,9 @@
 title: Composition API 경험 정리
 sidebar: auto
 ---
+
+> 초안작성일: 2020.03.02
+
 # Composition API 경험 정리
 ## 세팅
 ### 설치

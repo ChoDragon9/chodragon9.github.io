@@ -2,6 +2,9 @@
 title: Composition API RFC 릴리즈 노트 정리
 sidebar: auto
 ---
+
+> 초안작성일: 2020.02.29
+
 # Composition API RFC 릴리즈 노트 정리
 
 ::: tip

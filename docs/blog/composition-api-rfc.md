@@ -3,6 +3,8 @@ title: Composition API RFC 번역
 sidebar: auto
 ---
 
+> 초안작성일: 2020.02.28
+
 # Composition API RFC 번역
 ::: warning
 Composition API 학습을 위해 [Composition API RFC](https://vue-composition-api-rfc.netlify.com/)을 번역한 포스트입니다. 공식 문서가 아님을 밝힙니다.

@@ -3,6 +3,8 @@ title: Composition API RFC 요약 및 자료 정리
 sidebar: auto
 ---
 
+> 초안작성일: 2020.02.29
+
 # Composition API RFC 요약 및 자료 정리
 
 ::: tip
