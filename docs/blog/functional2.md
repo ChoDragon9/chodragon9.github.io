@@ -213,6 +213,7 @@ function* range(end, start=0, step=1) {
   yield* range(end, start+step, step)
 }
 
+const lazyList = range(4)
 console.log(lazyList) // range {<suspended>}
 console.log(...lazyList) // 0 1 2 3
 ```
