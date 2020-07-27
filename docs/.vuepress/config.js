@@ -132,7 +132,7 @@ module.exports = {
         ]
       },
       {
-        text: '오픈소스',
+        text: '프레임워크',
         items: [
           {
             text: 'Vue Composition API',
@@ -185,7 +185,7 @@ module.exports = {
             ]
           },
           {
-            text: '관리',
+            text: '프로젝트 관리',
             items: [
               {text: '개발 일정산정', link: '/blog/estimation/'},
               {text: '배포 어디까지 알고 있나요?', link: '/blog/release/'},
