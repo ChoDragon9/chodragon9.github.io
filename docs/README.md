@@ -7,7 +7,7 @@
 :::
 
 ::: warning DragonJs
-[DragonJs](https://chodragon9.github.io/dragonjs/)는 오픈소스 라이브러리를 바닐라 자바스크립트로 구현해보는 프로젝트입니다.
+[DragonJs](https://chodragon9.github.io/dragonjs/)는 바닐라 자바스크립트로 구성된 **펫 프로젝트들**로 이루어집니다.
 :::
 
 ::: warning One Piece
