@@ -16,6 +16,26 @@ module.exports = {
             ]
           },
           {
+            text: '리팩토링',
+            items: [
+              {text: '구조 리펙토링 정리', link: '/blog/structure-refactoring/'},
+              {text: '레거시 코드에서 이해하기 쉬운코드로 리팩토링', link: '/blog/legacy-code-to-easy-code/'},
+              {text: '레거시 코드에서 이해하기 쉬운코드로 리팩토링 2', link: '/blog/legacy-code-to-easy-code-2/'},
+              {text: '리펙토링 정의와 결과', link: '/blog/refactoring-meaning-and-result/'},
+            ]
+          },
+          {
+            text: '기타',
+            items: [
+              {text: '설계 방법론', link: '/blog/design-methodology/'},
+            ]
+          },
+        ]
+      },
+      {
+        text: '패턴',
+        items: [
+          {
             text: '패턴 비교',
             items: [
               {text: 'MV*/Flux 정리', link: '/blog/mv_flux/'},
@@ -43,21 +63,6 @@ module.exports = {
               {text: 'GoF 디자인 패턴 | 구조패턴', link: '/blog/design-pattern-structural/'},
               {text: 'GoF 디자인 패턴 | 생성패턴', link: '/blog/design-pattern-creational/'},
               {text: 'GoF 디자인 패턴 | 행동패턴', link: '/blog/design-pattern-behavioral/'},
-            ]
-          },
-          {
-            text: '리팩토링',
-            items: [
-              {text: '구조 리펙토링 정리', link: '/blog/structure-refactoring/'},
-              {text: '레거시 코드에서 이해하기 쉬운코드로 리팩토링', link: '/blog/legacy-code-to-easy-code/'},
-              {text: '레거시 코드에서 이해하기 쉬운코드로 리팩토링 2', link: '/blog/legacy-code-to-easy-code-2/'},
-              {text: '리펙토링 정의와 결과', link: '/blog/refactoring-meaning-and-result/'},
-            ]
-          },
-          {
-            text: '기타',
-            items: [
-              {text: '설계 방법론', link: '/blog/design-methodology/'},
             ]
           },
         ]
