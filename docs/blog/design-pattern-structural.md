@@ -39,8 +39,13 @@ class Adapter extends Adaptee implements Target {
 
 #### 사용자측 코드
 ```ts
-const adapter = new Adapter()
-adapter.request()
+class Main {
+    target: Target
+    constructor () {
+        this.target = new Adapter()
+        this.target.request()
+    }
+}
 ```
 
 #### 객체 적응자
@@ -66,8 +71,13 @@ class Adapter implements Target {
 ```
 #### 사용자측 코드
 ```ts
-const adapter = new Adapter()
-adapter.request()
+class Main {
+    target: Target
+    constructor () {
+        this.target = new Adapter()
+        this.target.request()
+    }
+}
 ```
 
 ## 브릿지(Bridge)
@@ -101,8 +111,13 @@ class Abstraction {
 
 #### 사용자측 코드
 ```ts
-const abstraction = new Abstraction()
-abstraction.operation()
+class Main {
+    abstraction: Abstraction
+    constructor () {
+        this.abstraction = new Abstraction()
+        this.abstraction.operation()
+    }
+}
 ```
 
 ## 컴포지트(Composite)
@@ -140,6 +155,31 @@ class Composite implements Component {
     }
     getChild (num: number) {
         return this.children[num]
+    }
+}
+```
+
+#### 사용자측 코드
+```ts
+class Main {
+    constructor () {
+        const root = new Composite()
+        const parent = new Composite()
+
+        root.add(new Leaf())
+        root.add(new Leaf())
+        root.add(parent)
+
+        parent.add(new Leaf())
+
+        console.log(root)
+        // Composite
+        //     children: Array(3)
+        //         0: Leaf
+        //         1: Leaf
+        //         2: Composite
+        //             children: Array(1)
+        //                 0: Leaf
     }
 }
 ```
@@ -197,14 +237,26 @@ class ConcreteDecorator extends Decorator {
 
 #### 사용자측 코드
 ```ts
-const component = new ConcreteComponent()
-component.operation()
-// ConcreteComponent.operation
+class Main {
+    component: Component
+    constructor() {
+        this.component = new ConcreteComponent()
+        this.component.operation()
+        // ConcreteComponent.operation
+    }
+}
 
-const decorator = new ConcreteDecorator(component)
-decorator.operation()
-// ConcreteComponent.operation
-// ConcreteDecorator.addedBehavior
+// Decorator 사용
+class Main {
+    component: Component
+    constructor() {
+        const concreteComponent = new ConcreteComponent()
+        this.component = new ConcreteDecorator(component)
+        this.component.operation()
+        // ConcreteComponent.operation
+        // ConcreteDecorator.addedBehavior
+    }
+}
 ```
 
 ## 퍼사드(Facade)
@@ -235,6 +287,17 @@ class SubClass1 {
 }
 class SubClass2 {
     request() {}
+}
+```
+
+#### 사용자측 코드
+```ts
+class Main {
+    constructor() {
+        const facade = new Facade()
+        facade.operation()
+        facade.request()
+    }
 }
 ```
 
@@ -292,13 +355,16 @@ class FlyweightFactory {
 
 #### 사용자측 코드
 ```ts
-const flyweightFactory = new FlyweightFactory()
-const unsharedFlyweight = new UnshareConcreteFlyweight()
-const concreteFlyweight1 = flyweightFactory.getFlyweight('something')
-const concreteFlyweight2 = flyweightFactory.getFlyweight('something')
+class Main {
+    constructor() {
+        const flyweightFactory = new FlyweightFactory()
+        const unsharedFlyweight = new UnshareConcreteFlyweight()
+        const concreteFlyweight1 = flyweightFactory.getFlyweight('something')
+        const concreteFlyweight2 = flyweightFactory.getFlyweight('something')
 
-concreteFlyweight1.operation('sharedState')
-console.log(concreteFlyweight1.state === concreteFlyweight2.state) // true
+        console.log(concreteFlyweight1 === concreteFlyweight2) // true
+    }
+}
 ```
 
 #### 협력 방법
@@ -348,7 +414,21 @@ class ProxySubject implements Subject {
 
 #### 사용자측 코드
 ```ts
-const realSubject = new RealSubject()
-const proxySubject = new ProxySubject(realSubject)
-proxySubject.request()
+class Main {
+    subject: Subject
+    constructor() {
+        this.subject = new RealSubject()
+        this.subject.request()
+    }
+}
+
+// Proxy 사용
+class Main {
+    subject: Subject
+    constructor() {
+        const realSubject = new RealSubject()
+        this.subject = new ProxySubject(realSubject)
+        this.subject.request()
+    }
+}
 ```

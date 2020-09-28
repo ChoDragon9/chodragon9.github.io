@@ -63,15 +63,24 @@ class ProductB2 implements AbstractProductB {}
 
 #### 사용자측 코드
 ```ts
-// 제품을 사용할 때
-const factory: AbstractFactory = new ConcreteFactory1()
-factory.createProductA()
-factory.createProductB()
+class Main {
+    factory: AbstractFactory
+    constructor() {
+        this.factory = new ConcreteFactory1()
+        this.factory.createProductA()
+        this.factory.createProductB()
+    }
+}
 
 // 다른 제품을 사용할 때
-const factory: AbstractFactory = new ConcreteFactory2()
-factory.createProductA()
-factory.createProductB()
+class Main {
+    factory: AbstractFactory
+    constructor() {
+        this.factory = new ConcreteFactory2()
+        this.factory.createProductA()
+        this.factory.createProductB()
+    }
+}
 ```
 
 #### 협력 방법
@@ -135,11 +144,15 @@ class Director {
 
 #### 사용자측 코드
 ```ts
-const builder = new ConcreteBuilder()
-const director = new Director(builder)
+class Main {
+    constructor() {
+        const builder = new ConcreteBuilder()
+        const director = new Director(builder)
 
-director.construct()
-builder.getResult()
+        director.construct()
+        builder.getResult()
+    }
+}
 ```
 
 #### 협력 방법
@@ -194,11 +207,22 @@ class ConcreteCreator2 extends Creator {
 }
 ```
 ```ts
-const creator1 = new ConcreteCreator1()
-creator1.anOperation()
+class Main {
+    creator: Creator
+    constructor() {
+        this.creator = new ConcreteCreator1()
+        this.creator.anOperation()
+    }
+}
 
-const creator2 = new ConcreteCreator2()
-creator2.anOperation()
+// 다른 서브 클래스 사용
+class Main {
+    creator: Creator
+    constructor() {
+        this.creator = new ConcreteCreator2()
+        this.creator.anOperation()
+    }
+}
 ```
 
 #### 매개변수
@@ -232,9 +256,15 @@ class ConcreteProduct2 implements Product {
 }
 ```
 ```ts
-const creator = new Creator()
-creator.anOperation(1)
-creator.anOperation(2)
+class Main {
+    creator: Creator
+    constructor() {
+        this.creator = new Creator()
+
+        const product1 = this.creator.anOperation(1)
+        const product2 = this.creator.anOperation(2)
+    }
+}
 ```
 
 ## 원형(Prototype)
@@ -273,16 +303,20 @@ class ConcretePrototype implements Prototype {
 
 #### 사용자측 코드
 ```ts
-const product1 = new ConcretePrototype()
-product1.log() // 0
+class Main {
+    constructor() {
+        const product1 = new ConcretePrototype()
+        product1.log() // 0
 
-const product2 = product1.clone()
-product2.addState(10)
-product2.log() // 10
+        const product2 = product1.clone()
+        product2.addState(10)
+        product2.log() // 10
 
-const product3 = product2.clone()
-product3.addState(10)
-product3.log() // 20
+        const product3 = product2.clone()
+        product3.addState(10)
+        product3.log() // 20
+    }
+}
 ```
 
 ## 싱글턴(Singleton)
@@ -308,8 +342,15 @@ class Singleton {
         return this.uniquInstance
     }
 }
+```
 
-const product1 = Singleton.instance()
-const product2 = Singleton.instance()
-console.log(product1 === product2) // true
+#### 사용자측 코드
+```ts
+class Main {
+    constructor() {
+        const product1 = Singleton.instance()
+        const product2 = Singleton.instance()
+        console.log(product1 === product2) // true
+    }
+}
 ```
