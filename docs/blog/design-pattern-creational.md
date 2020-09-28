@@ -61,11 +61,6 @@ class ProductB2 implements AbstractProductB {}
 
 ```
 
-#### 협력 방법
-- `ConcreteFactory` 클래스의 인스턴스 한 개가 런타임에 만들어진다.
-- `ConcreteFactory`는 어떤 특정 구현을 갖는 제품 객체를 생성한다.
-- 서로 다른 제품을 생성하려면 서로 다른 `ConcreteFactory`를 사용해야 한다.
-
 #### 사용자측 코드
 ```ts
 // 제품을 사용할 때
@@ -78,6 +73,12 @@ const factory: AbstractFactory = new ConcreteFactory2()
 factory.createProductA()
 factory.createProductB()
 ```
+
+#### 협력 방법
+- `ConcreteFactory` 클래스의 인스턴스 한 개가 런타임에 만들어진다.
+- `ConcreteFactory`는 어떤 특정 구현을 갖는 제품 객체를 생성한다.
+- 서로 다른 제품을 생성하려면 서로 다른 `ConcreteFactory`를 사용해야 한다.
+
 ## 빌더(builder)
 ### 의도
 복잡한 객체를 생성하는 방법과 표현하는 방법을 정의하는 클래스를 별도로 분리하여, 서로 다른 표현이라도 이를 생성할 수 있는 동일한 절차를 제공할 수 있도록 합니다.
@@ -132,12 +133,6 @@ class Director {
 }
 ```
 
-#### 협력 방법
-- 사용자는 `Director`객체를 생성하고, 이렇게 생성한 객체를 자신이 원하는 `Builder`객체로 합성해 나간다.
-- 제품의 일부가 구축될 때마다 `Director`는 Builder에 통보한다.
-- `Builder`는 `Director`의 요청을 처리하여 제품에 부품을 추가한다.
-- 사용자는 `Builder`에서 제품을 요청한다.
-
 #### 사용자측 코드
 ```ts
 const builder = new ConcreteBuilder()
@@ -146,6 +141,12 @@ const director = new Director(builder)
 director.construct()
 builder.getResult()
 ```
+
+#### 협력 방법
+- 사용자는 `Director`객체를 생성하고, 이렇게 생성한 객체를 자신이 원하는 `Builder`객체로 합성해 나간다.
+- 제품의 일부가 구축될 때마다 `Director`는 Builder에 통보한다.
+- `Builder`는 `Director`의 요청을 처리하여 제품에 부품을 추가한다.
+- 사용자는 `Builder`에서 제품을 요청한다.
 
 ## 팩토리 메서드(Factory Method)
 ### 의도

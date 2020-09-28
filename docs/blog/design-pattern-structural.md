@@ -290,14 +290,6 @@ class FlyweightFactory {
 }
 ```
 
-#### 협력 방법
-- `Flyweight`객체가 기능을 수행하는 데 필요한 상태가 본질적인 것인지 부가적인것인지를 구분해야 한다.
-  - 본질적인 상태는 `ConcreteFlyweight`에 저장해야 한다.
-  - 부가적인 상태는 사용자가 저장하거나, 연산되어야 하는 다른 상태로 관리 해야 한다.
-  - 사용자는 연산을 호출할 때 자신에게만 필요한 부가적 상태를 `Flyweight` 객체에 매개변수로 전달한다.
-- 사용자는 `ConcreteFlyweight`의 인스턴스를 직접 만들 수 없다.
-  - 사용자는 `ConcreteFlyweight`객체를 `FlyweightFactory`객체에서 언어야 한다. 이렇게 해야 `Flyweight`객체가 공유될 수 있다.
-
 #### 사용자측 코드
 ```ts
 const flyweightFactory = new FlyweightFactory()
@@ -308,6 +300,14 @@ const concreteFlyweight2 = flyweightFactory.getFlyweight('something')
 concreteFlyweight1.operation('sharedState')
 console.log(concreteFlyweight1.state === concreteFlyweight2.state) // true
 ```
+
+#### 협력 방법
+- `Flyweight`객체가 기능을 수행하는 데 필요한 상태가 본질적인 것인지 부가적인것인지를 구분해야 한다.
+  - 본질적인 상태는 `ConcreteFlyweight`에 저장해야 한다.
+  - 부가적인 상태는 사용자가 저장하거나, 연산되어야 하는 다른 상태로 관리 해야 한다.
+  - 사용자는 연산을 호출할 때 자신에게만 필요한 부가적 상태를 `Flyweight` 객체에 매개변수로 전달한다.
+- 사용자는 `ConcreteFlyweight`의 인스턴스를 직접 만들 수 없다.
+  - 사용자는 `ConcreteFlyweight`객체를 `FlyweightFactory`객체에서 언어야 한다. 이렇게 해야 `Flyweight`객체가 공유될 수 있다.
 
 ## 프록시(Proxy)
 ### 의도
