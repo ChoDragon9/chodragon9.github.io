@@ -60,8 +60,8 @@ module.exports = {
             text: '디자인 패턴',
             items: [
               {text: 'GoF 디자인 패턴 정리', link: '/blog/gof-design-pattern-summary/'},
-              {text: 'GoF 디자인 패턴 | 구조패턴', link: '/blog/design-pattern-structural/'},
               {text: 'GoF 디자인 패턴 | 생성패턴', link: '/blog/design-pattern-creational/'},
+              {text: 'GoF 디자인 패턴 | 구조패턴', link: '/blog/design-pattern-structural/'},
               {text: 'GoF 디자인 패턴 | 행동패턴', link: '/blog/design-pattern-behavioral/'},
             ]
           },

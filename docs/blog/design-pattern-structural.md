@@ -1,565 +1,354 @@
 ---
-sidebar: auto
+layout: post
 title:  "GoF 디자인 패턴 | 구조패턴"
-date:   2018-12-09
+date:   2020-09-27
 description: GoF 디자인 패턴 중 구조패턴을 정리합니다.
 tags: [pattern]
 category: 패턴
+sidebar: auto
 ---
+
 # GoF 디자인 패턴 | 구조패턴
-## 프록시(Proxy)
-다른 객체에 대한 접근을 제어하기 위한 대리자(Surrogate) 또는 자리채움자 역할을 하는 객체를 둡니다.
 
-![](../img/design-pattern/38173748-42e1e622-35fe-11e8-926e-86b5e7511c40.jpg)
+## 어뎁터(Adapter)
+### 의도
+클래스의 인터페이스를 사용자가 기대하는 인터페이스 형태로 적응시킵니다. 서로 일치하지 않는 인터페이스를 갖는 클래스들을 함께 동작시킵니다.
 
-프록시 패턴은 단순한 포인터보다는 조금 더 다방면에 활용할 수 있거나 정교한 객체 참조가 필요한 때 적용할 수 있습니다.
-- 원격지 프록시 : 서로 다른 주소 공간에 존재하는 객체를 가리키는 대표 객체로, 로컬 환경에 위치합니다.
-- 가상 프록시 : 요청이 있을 때만 필요한 고비용 객체를 생성합니다.
-- 보호용 프록시 : 원래 객체에 대한 실제 접근을 제어합니다. 이는 객체별로 접근 제어 권한이 다를 때 유용하게 사용할 수 있습니다.
-- 스마트 참조자 : 원시 포인터의 대체용 객체로, 실제 객체에 접근이 일어날 때 추가적인 행동을 수행합니다. 전형적인 사용예는 다음과 같습니다.
-  1) 실제 객체에 대한 참조 횟수를 저장하다가 더는 참조가 없을 때 해당 객체를 자동으로 없앱니다.
-  2) 맨 처음 참조되는 시점에 영속적 저장소의 객체를 메모리로 옮깁니다.
-  3) 실제 객체에 접근하기 전에, 다른 객체가 그것을 변경하지 못하도록 실제 객체에 대해 잠금(lock)을 겁니다.
-  
-### ES6 Class
-```js
-class GeoCoder {
-  getLatLng(address) {
-    switch (address) {
-      case 'Amsterdam' :
-        return '52.3700° N, 4.8900° E';
-      case 'London' :
-        return '51.5171° N, 0.1062° W';
-      case 'Paris' :
-        return '48.8742° N, 2.3470° E';
-      case 'Berlin' :
-        return '52.5233° N, 13.4127° E';
-      default :
-        return ''
+### 활용성
+- 기존 클래스를 사용하고 싶은 데 인터페이스가 맞지 않을 때
+- 이미 만든 것을 재사용하고 싶지만 이 재사용 가능한 라이브러리를 수정할 수 없을 때
+
+### 구조 및 구현
+#### 클래스 적응자
+다중 상속을 활용해서 한 인터페이스를 다른 인터페이스로 적응시킵니다.
+```ts
+interface Target {
+    request(): void
+}
+
+class Adaptee {
+    specificRequest() {}
+}
+
+class Adapter extends Adaptee implements Target {
+    request() {
+        this.specificRequest()
     }
-  }
+}
+```
+
+#### 사용자측 코드
+```ts
+const adapter = new Adapter()
+adapter.request()
+```
+
+#### 객체 적응자
+객체 합성을 써서 이루어져 있습니다.
+```ts
+interface Target {
+    request(): void
 }
 
-class GeoProxy {
-  constructor() {
-    this.geoCoder = new GeoCoder();
-    this.geoCache = new Map();
-  }
+class Adaptee {
+    specificRequest() {}
+}
 
-  getLatLng(address) {
-    if (!this.geoCache.has(address)) {
-      this.geoCache.set(address, this.geoCoder.getLatLng(address));
+class Adapter implements Target {
+    private adaptee!: Adaptee
+    constructor () {
+        this.adaptee = new Adaptee()
     }
-    console.log(`${address}: ${this.geoCache.get(address)}`);
-    return this.geoCache.get(address);
-  }
-
-  getCount() {
-    return this.geoCache.size;
-  }
-}
-```
-```js
-const geo = new GeoProxy();
-
-geo.getLatLng('Paris');
-geo.getLatLng('London');
-geo.getLatLng('London');
-geo.getLatLng('London');
-geo.getLatLng('London');
-geo.getLatLng('Amsterdam');
-geo.getLatLng('Amsterdam');
-geo.getLatLng('Amsterdam');
-geo.getLatLng('Amsterdam');
-geo.getLatLng('London');
-geo.getLatLng('London');
-
-console.log(`Cache size: ${geo.getCount()}`);
-```
-```
-Paris: 48.8742° N, 2.3470° E
-London: 51.5171° N, 0.1062° W
-London: 51.5171° N, 0.1062° W
-London: 51.5171° N, 0.1062° W
-London: 51.5171° N, 0.1062° W
-Amsterdam: 52.3700° N, 4.8900° E
-Amsterdam: 52.3700° N, 4.8900° E
-Amsterdam: 52.3700° N, 4.8900° E
-Amsterdam: 52.3700° N, 4.8900° E
-London: 51.5171° N, 0.1062° W
-London: 51.5171° N, 0.1062° W
-Cache size: 3
-```
-
-### ES6 Function
-```js
-const fetchGeo = (address) => new Promise((resolve) => {
-  setTimeout(() => {
-    switch (address) {
-      case 'Amsterdam' :
-        resolve('52.3700° N, 4.8900° E');
-      break;
-      case 'London' :
-        resolve('51.5171° N, 0.1062° W');
-      break;
-      case 'Paris' :
-        resolve('48.8742° N, 2.3470° E');
-      break;
-      case 'Berlin' :
-        resolve('52.5233° N, 13.4127° E');
-      break;
+    request() {
+        this.adaptee.specificRequest()
     }
-  }, 100);
-});
-
-const fetchGeoProxy = new Proxy(fetchGeo, (() => {
-  const geoCache = new Map();
-
-  return {
-    apply(target, thisArgs, [address]) {
-      return new Promise((resolve) => {
-        if (geoCache.has(address)) {
-          resolve(geoCache.get(address));
-        } else {
-          fetchGeo(address).then((geo) => {
-            geoCache.set(address, geo);
-            resolve(geo);
-          })
-        }
-      })
-    }
-  }
-})());
-```
-```js
-(async () => {
-  console.time('getCoder');
-  await fetchGeo('Paris');
-  await fetchGeo('London');
-  await fetchGeo('London');
-  await fetchGeo('London');
-  await fetchGeo('London');
-  await fetchGeo('Amsterdam');
-  await fetchGeo('Amsterdam');
-  await fetchGeo('Amsterdam');
-  await fetchGeo('Amsterdam');
-  await fetchGeo('London');
-  await fetchGeo('London');
-  console.timeEnd('getCoder')
-})();
-
-(async () => {
-  console.time('fetchGeoProxy');
-  await fetchGeoProxy('Paris');
-  await fetchGeoProxy('London');
-  await fetchGeoProxy('London');
-  await fetchGeoProxy('London');
-  await fetchGeoProxy('London');
-  await fetchGeoProxy('Amsterdam');
-  await fetchGeoProxy('Amsterdam');
-  await fetchGeoProxy('Amsterdam');
-  await fetchGeoProxy('Amsterdam');
-  await fetchGeoProxy('London');
-  await fetchGeoProxy('London');
-  console.timeEnd('fetchGeoProxy')
-})();
-```
-```
-fetchGeoProxy: 304.528ms
-getCoder: 1121.958ms
-```
-  
-## 퍼사드(Facade)
-한 서브시스템 내의 인터페이스 집합에 대한 획일화된 하나의 인터페이스를 제공하는 패턴으로, 서브시스템을 사용하기 쉽도록 상위 수준의 인터페이스를 정의합니다.
-
-![](../img/design-pattern/38358497-5a135164-3900-11e8-9b3e-78a23772642d.jpg)
-
-- 복잡한 서브시스템에 대한 단순한 인터페이스를 제공이 필요할 때, 시스템 범위가 확장되면, 또한 구체적으로 설계되면 서브시스템은 계속 복잡해집니다.
-또한 패턴을 적용하면 확장성을 고려하여 설계하기 때문에, 작은 클래스가 만들어지게 됩니다. 이런 과정은 서브시스템을 재사용 가능한 것으로 만들어주고,
-재정의할 수 있는 단위가 되도록 해 주기도 하지만, 실제 이런 상세한 재설계나 정제의 내용까지 파악할 필요가 없는 개발자들에게 복잡해진 각각의 클래스들을
-다 이해하면서 서브시스템을 사용하기란 어려운 일입니다. 이럴 때 퍼사드 패턴은 서브시스템에 대한 단순하면서도 기본적인 인터페이스를 제공함으로써
-대부분의 개발자들에게 적합한 클래스 형태를 제공합니다.
-- 추상 개념에 대한 구현 클래스와 사용자 사이에 너무 많은 종속성이 존재할 때, 퍼사드의 사용을 통해 사용자와 다른 서브시스템 간의 결합도를 줄일 수 있습니다.
-즉, 서브시스템에 정의된 모든 인터페이스가 공개되면 빈번한 메서드 호출이 있을 수 있으나, 이런 호출은 단순한 형태로 통합하여 제공하고 나머지 부분은 내부적으로
-처리함으로써 사용자와 서브시스템 사이의 호출 횟수는 실질적으로 감소하게 되는 효과를 갖습니다.
-- 서브시스템을 계층화시킬 때, 퍼사드 패턴을 사용하여 각 서브시스템의 계층에 대한 접근점을 제공합니다. 서브시스템이 다른 서브시스템에 종속적이라 하더라도,
-각자가 제공하는 퍼사드를 통해서만 대화를 진행하게 함으로써 서브시스템 간의 종속성을 줄일 수 있습니다. 이로써 서브시스템 내부 설계의 변경이
-다른 서브시스템에 독립적으로 자유롭게 될 수 있는 것입니다.
-
-```js
-class Mortgage {
-  constructor (name) {
-    this.name = name
-  }
-  applyFor (amount) {
-    let result = 'approved';
-    if (!new Bank().verify(this.name, amount)) {
-      result = 'denied'
-    } else if (!new Credit().get(this.name)) {
-      result = 'denied'
-    } else if (!new Background().check(this.name)) {
-      result = 'denied'
-    }
-    return `${this.name} has been ${result} for a ${amount} mortgage`
-  }
-}
-
-class Bank {
-  constructor () {}
-  verify (name, amount) {
-    // complex logic ...
-    return true
-  }
-}
-
-class Credit {
-  constructor () {}
-  get (name) {
-    // complex logic ...
-    return true
-  }
-}
-
-class Background {
-  constructor () {}
-  check (name) {
-    // complex logic ...
-    return true
-  }
 }
 ```
-```js
-const mortgage = new Mortgage('Joan Templeton');
-const result = mortgage.applyFor('$100,000');
-
-console.log(result)
-// Joan Templeton has been approved for a $100,000 mortgage
-```
-
-## 데코레이터(Decorator)
-객체에 동적으로 새로운 책임을 추가할 수 있게 합니다. 기능을 추가하려면, 서브클래스를 생성하는 것보다 융통성 있는 방법을 제공합니다.(Wrapper)
-
-![](../img/design-pattern/38482088-ccf5a1ea-3c08-11e8-9f13-9f9406b58480.jpg)
-
-- 동적으로 또한 투명하게, 다시 말해 다른 객체에 영향을 주지 않고 개개의 객체를 새로운 책임을 추가하기 위해 사용합니다.
-- 제거될 수 있는 책임에 대해 사용합니다.
-- 실제 상속으로 서브클래스를 계속 만드는 방법이 실질적이지 못할 때 사용합니다. 너무 많은 수의 독립된 확장이 가능할 때 모든 조합을 지원하지 위해
-이를 상속으로 해결하면 클래스 수가 폭발적으로 많아지게 됩니다. 아니면, 클래스 정의가 숨겨지든가, 그렇지 않더라도 서브클래싱을 할 수 없게 됩니다.
-
-```js
-class User {
-  constructor (name) {
-    this.name = name
-  }
-  say () {
-    console.log(`User: ${this.name}`)
-  }
-}
-
-class DecoratedUser {
-  constructor (user, street, city) {
-    Object.assign(this, {user, street, city})
-  }
-  say () {
-    const {user: {name}, street, city} = this;
-    console.log(`Decorated User: ${name}, ${street}, ${city}`)
-  }
-}
-```
-```js
-const user = new User('Kelly');
-user.say();
-// User: Kelly
-
-const decorated = new DecoratedUser(user, 'Broadway', 'New York');
-decorated.say();
-// Decorated User: Kelly, Broadway, New York
-```
-
-## 컴포지트(Composite)
-부분과 전체의 계층을 표현하기 위해 객체들을 모아 트리 구조로 구성합니다. 사용자로 하여금 개별 객체와 복합 객체를 모두 동일하게 다룰 수 있도록 하는 패턴입니다.
-기본 클래스와 이들의 컨테이너를 모두 표현할 수 있는 하나의 추상화 클래스를 정의하는 것입니다.
-
-![](../img/design-pattern/38484267-fa18f3b8-3c10-11e8-8375-f4dbb24b024f.jpg)
-
-- 부분~전체의 객체 계통을 표현하고 싶을 때
-- 사용자가 객체의 합성으로 생긴 복합 객체와 개개의 객체 사이의 차이를 알지 않고도 자기 일을 할 수 있도록 만들고 싶을 때, 사용자는 복합 구조의 모든 객체를 똑같이 취급하게 됩니다.
-
-```js
-class Node {
-  constructor (name) {
-    this.children = [];
-    this.name = name
-  }
-  add (child) {
-    this.children.push(child)
-  }
-  remove (child) {
-    const length = this.children.length;
-    for (let i = 0; i < length; i++) {
-      if (this.children[i] === child) {
-        this.children.splice(i, 1);
-        return
-      }
-    }
-  }
-  getChild (i) {
-    return this.children[i]
-  }
-  hasChildren () {
-    return this.children.length > 0
-  }
-}
-
-const traverse = (indent, node) => {
-  console.log(`${'--'.repeat(indent)} ${node.name}`);
-  indent++;
-
-  for (let i = 0, len = node.children.length; i < len; i++) {
-    traverse(indent, node.getChild(i))
-  }
-};
-```
-```js
-const tree = new Node('root');
-
-const left = new Node('left');
-const leftleft = new Node('leftleft');
-const leftright = new Node('leftright');
-
-const right = new Node('right');
-const rightleft = new Node('rightleft');
-const rightright = new Node('rightright');
-
-tree.add(left);
-tree.add(right);
-tree.remove(right);
-tree.add(right);
-
-left.add(leftleft);
-left.add(leftright);
-
-right.add(rightleft);
-right.add(rightright);
-
-traverse(0, tree);
+#### 사용자측 코드
+```ts
+const adapter = new Adapter()
+adapter.request()
 ```
 
 ## 브릿지(Bridge)
-구현에서 추상을 분리하여, 이들이 독립적으로 다양성을 가질 수 있도록 합니다.(Handle/Body)
+### 의도
+구현에서 추상을 분리하여, 이들이 독립적으로 다양성을 가질 수 있도록 합니다.
 
-![](../img/design-pattern/38486883-4a89f43e-3c19-11e8-9025-ec560062fe4e.jpg)
+### 활용성
+- 추상적인 개념과 이에 대한 구현 사이의 지속적인 종속 관계를 피하고 싶을 때. 이를 테면, 런타임에 구현 방법을 선택하거나 구현 내용을 변경하고 싶을 때
+- 추상적 개념과 구현 모두가 독립적으로 서브클래싱을 통해 확장되어야 할 때
 
-- 추상적인 개념과 이에 대한 구현 사이의 지속적인 종속 관계를 피하고 싶을 때, 이를테면 런타임에 구현 방법을 선택하거나 구현 내용을 변경하고 싶을 때가 여기에 해당합니다.
-- 추상적 개념과 구현 모두가 독립적으로 서브클래싱을 통해 확장되어야 할 때. 이때, 가교 패턴은 개발자가 구현을 또 다른 추상적 개념과 연결할 수 있게 할 뿐 아니라, 각각을 독립적으로 확장가능하게 합니다.
+### 구조 및 구현
+```ts
+interface Implementor {
+    operationImp(): void
+}
+
+class ConcreteImplementor implements Implementor {
+    operationImp() {}
+}
+
+class Abstraction {
+    private imp: Implementor
+    constructor() {
+        this.imp = new ConcreteImplementor()
+    }
+    operation() {
+        this.imp.operationImp()
+    }
+}
+```
+
+#### 사용자측 코드
+```ts
+const abstraction = new Abstraction()
+abstraction.operation()
+```
+
+## 컴포지트(Composite)
+### 의도
+부분과 전체의 계층을 표현하기 위해 객체들을 모아 트리 구조로 구성합니다. 사용자로 하여금 개별 객체와 복합 객체를 모두 동일하게 다룰 수 있도록 하는 패턴입니다.
+
+### 활용성
+- 부분-전체의 객체 계통을 표현하고 싶을 때
+- 사용자가 객체의 합성으로 생긴 복합 객체와 개개의 객체 사이의 차이를 알지 않고도 자기 일을 할 수 있도록 만들고 싶을 때, 사용자는 복합 구조의 모든 객체를 똑같이 취급하게 됩니다.
+
+### 구조 및 구현
+```ts
+interface Component {
+    operation(): void
+    add?(component: Component): void
+    remove?(component: Component): void
+    getChild?(num: number): Component
+}
+
+class Leaf implements Component {
+    operation() {}
+}
+
+class Composite implements Component {
+    private children: Component[] = []
+    operation() {}
+    add(component: Component) {
+        this.children.push(component)
+    }
+    remove(component: Component) {
+        const index = this.children.indexOf(component)
+        if (index > -1) {        
+           this.children.splice(index, 1)
+        }
+    }
+    getChild (num: number) {
+        return this.children[num]
+    }
+}
+```
+
+## 데코레이터(Decorator)
+### 의도
+객체에 동적으로 새로운 책임을 추가할 수 있게 합니다. 기능을 추가하려면, 서브클래스를 생성하는 것보다 융통성 있는 방법을 제공합니다.
+
+### 활용성
+- 다른 객체에 영향을 주지 않고 각각의 객체에 새로운 책임을 추가하기 위해 사용합니다.
+- 제거 될 수 있는 책임에 대해 사용합니다.
+- 실제 상속으로 서브클래스를 계속 만드는 방법이 실질적이지 못할 때 사용합니다. 
+  - 너무 많은 수의 독립된 확장이 가능할 때 모든 조합을 지원하기 위해 상속으로 해결하면 클래스 수가 폭발적으로 많아지게 된다.
+
+### 구조 및 구현
+1. 인터페이스 일치 시키기
+   - 반드시 자신을 둘러싼 구성 요소의 인터페이스를 만족해야 한다.
+2. Component 클래스는 가벼운 무게를 유지하기
+   - 가볍게 정의한다는 의미는 연산에 해당하는 인터페이스만을 정의하고 무언가 저장할 수 있는 변수는 정의하지 말라는 의미다.
 
 ```ts
-namespace InputDevices {
-  export class Gestures {
-    output: OutputDevices.OutputInterface;
+interface Component {
+    operation(): void
+}
 
-    constructor (output) {
-      this.output = output
+class ConcreteComponent implements Component {
+    operation() {
+        console.log('ConcreteComponent.operation')
     }
-    tap () { this.output.click() }
-    swipe () { this.output.move() }
-    pan () { this.output.drag() }
-    pinch () { this.output.zoom() }
-  }
+}
 
-  export class Mouse {
-    output: OutputDevices.OutputInterface;
-
-    constructor (output) {
-      this.output = output
+abstract class Decorator implements Component {
+    component: Component
+    constructor (component: Component) {
+        this.component = component
     }
-    click () { this.output.click() }
-    move () { this.output.move() }
-    down () { this.output.drag() }
-    wheel () { this.output.zoom() }
-  }
+    operation() {
+        component.operation()
+    }
 }
 
-namespace OutputDevices {
-  export interface OutputInterface {
-    click: () => void
-    move: () => void
-    drag: () => void
-    zoom: () => void
-  }
-
-  export class Screen implements OutputInterface {
-    click () { console.log('Screen select') }
-    move () { console.log('Screen move') }
-    drag () { console.log('Screen drag') }
-    zoom () { console.log('Screen zoom in') }
-  }
-
-  export class Audio implements OutputInterface {
-    click () { console.log('Sound oink') }
-    move () { console.log('Sound waves') }
-    drag () { console.log('Sound screetch') }
-    zoom () { console.log('Sound volume up') }
-  }
+class ConcreteDecorator extends Decorator {
+    constructor(component: Component) {
+        super(component)
+    }
+    operation() {
+        super.operation()
+        this.addedBehavior()
+    }
+    addedBehavior() {
+        console.log('ConcreteDecorator.addedBehavior')
+    }
 }
 ```
-```js
-const outputScreen = new OutputDevices.Screen();
-const outputAudio = new OutputDevices.Audio();
 
-const hand = new InputDevices.Gestures(outputScreen);
-const mouse = new InputDevices.Mouse(outputAudio);
+#### 사용자측 코드
+```ts
+const component = new ConcreteComponent()
+component.operation()
+// ConcreteComponent.operation
 
-hand.tap();
-hand.swipe();
-hand.pinch();
-hand.pan();
-
-mouse.click();
-mouse.move();
-mouse.wheel();
-mouse.down();
-```
-```
-Screen select
-Screen move
-Screen zoom in
-Screen drag
-Sound oink
-Sound waves
-Sound volume up
-Sound screetch
+const decorator = new ConcreteDecorator(component)
+decorator.operation()
+// ConcreteComponent.operation
+// ConcreteDecorator.addedBehavior
 ```
 
-## 어뎁터(Adapter)
-클래스의 인터페이스를 사용자가 기대하는 인터페이스 형태로 적응시킵니다. 서로 일치하지 않는 인터페이스를 갖는 클래스들을 함께 동작시킵니다.(Wrapper)
+## 퍼사드(Facade)
+### 의도
+한 서브시스템 내의 인터페이스 집합에 대한 획일화된 하나의 인터페이스를 제공하는 패턴으로, 서브시스템을 사용하기 쉽도록 상위 수준의 인터페이스를 정의합니다.
 
-![](../img/design-pattern/38487095-067ecd04-3c1a-11e8-8049-bc8b8fe88fe9.jpg)
+### 활용성
+- 복잡한 서브시스템에 대한 단순한 인터페이스 제공이 필요할 때
+- 추상 개념에 대한 구현 클래스와 사용자 사이에 너무 많은 종속성이 존재할 때
+- 퍼사드의 사용을 통해 사용자와 다른 서브시스템 간의 결합도를 줄일 수 있다
 
-- 기존 클래스를 사용하고 싶은 데 인터페이스가 맞지 않을 때
-- 아직 예측하지 못한 클래스나 실재 관련되지 않는 클래스들이 기존 클래스를 재사용하고자 하지만, 이미 정의된 재사용 가능할 클래스가 지금 요청하는 인터페이스를
-꼭 정의하고 있지 않을 때. 다시 말해, 이미 만든 것을 재사용하고자 하나 이 재사용 가능한 라이브러리를 수정할 수 없을 때
-- [객체 적응자] 이미 존재하는 여러 개의 서브 클래스를 사용해야 하는 데, 이 서브클래스들의 상속을 통해서 이들의 인터페이스를 다 개조 한다는 것이 현실성이 없을 때,
-객체 적응자를 써서 부모 클래스의 인터페이스를 변경하는 것이 더 바람직함
+### 구조 및 구현
+```ts
+class Facade {
+    private subClass1 = new SubClass1()
+    private subClass2 = new SubClass2()
 
-```js
-// old interface
-class Shipping {
-  request (zipStart, zipEnd, weight) {
-    // ...
-    return '$49.75'
-  }
+    operation() {
+        this.subClass1.operation()
+    }
+    request() {
+        this.subClass2.request()
+    }
 }
 
-// new interface
-class AdvancedShipping {
-  login (credentials) { /* ... */ }
-  setStart (start) { /* ... */ }
-  setDestination (destination) { /* ... */ }
-  calculate (weight) { return '$39.50' }
+class SubClass1 {
+    operation() {}
 }
-
-// adapter interface
-class ShippingAdapter {
-  constructor (credentials) {
-    this.shipping = new AdvancedShipping()
-    this.shipping.login(credentials)
-  }
-  request (zipStart, zipEnd, weight) {
-    this.shipping.setStart(zipStart)
-    this.shipping.setDestination(zipEnd)
-    return this.shipping.calculate(weight)
-  }
+class SubClass2 {
+    request() {}
 }
-```
-```js
-const shipping = new Shipping()
-const credentials = {token: '30a8-6ee1'}
-const adapter = new ShippingAdapter(credentials)
-
-// original shipping object and interface
-
-const oldCost = shipping.request('78701', '10010', '2 lbs')
-console.log(`Old cost: ${oldCost}`)
-
-// new shipping object with adapted interface
-
-const newCost = adapter.request('78701', '10010', '2 lbs')
-console.log(`New cost: ${newCost}`)
 ```
 
 ## 플라이웨이트(Flyweight)
-많은 수의 객체를 효율적으로 제공하기 위해 공유개념을 이용한다.
+### 의도
+공유를 통해 많은 수의 소립 객체들을 효과적으로 지원한다.
 
-![](../img/design-pattern/38487672-f008340a-3c1b-11e8-90ce-76d11056dae6.jpg)
+Flyweight 패턴에서 중요한 개념은 본질적 상태와 부가적 상태의 구분이다.
+본질적 상태는 Flyweight객체에 저장되어야 하며, 이것이 적용되는 상황과
+상관없는 본질적 특성 정보들이 객체를 구성한다.
 
-- 어플리케이션이 정말 많은 객체를 사용할 때
-- 객체 개수가 많아서 저장비용이 높을 때
-- 대부분의 객체의 상태가 부대적인 것일 때
-- 부대적인 상태가 제거됐을 때에는 적은 수의 공유 객체로 많은 수의 객체를 대체할 수 있을 때
-- 어플리케이션이 객체의 identity에 의존적이지 않을 때
+본질적이지 않는 부가적 상태는 Flyweight객체가 사용된 상황에 따라 달라질 수 있고,
+그 상황에 종속적이다. 그러므로 공유될 수 없습니다.
 
-```js
-class FlyWeight {
-  constructor (make, model, processor) {
-    this.make = make;
-    this.model = model;
-    this.processor = processor
-  }
+### 활용성
+- 응용프로그램이 대량의 객체를 사용해야 할 때
+- 객체의 수가 너무 많아져 저장 비용이 너무 높아질때
+
+### 구조 및 구현
+```ts
+interface Flyweight {
+    state: string
+    operation(state: string): void
 }
 
-const FlyWeightFactory = {
-  flyweights: new Map(),
-  get (make, model, processor) {
-    const objId = `${make} ${model} ${processor}`;
-    if (!this.flyweights.has(objId)) {
-      this.flyweights.set(objId, new FlyWeight(make, model, processor));
+class ConcreteFlyweight implements Flyweight {
+    state!: string
+    operation(state: string) {
+        this.state = state
     }
-    return this.flyweights.get(objId)
-  },
-  getCount () {
-    return this.flyweights.size
-  }
-};
-
-class ComputerCollection {
-  constructor () {
-    this.computers = new Map();
-  }
-  add (make, model, processor, memory, tag) {
-    this.computers.set(tag, new Computer(make, model, processor, memory, tag));
-  }
-  get (tag) {
-    return this.computers.get(tag)
-  }
-  getCount () {
-    return this.computers.size
-  }
 }
 
-class Computer {
-  constructor (make, model, processor, memory, tag) {
-    this.flyweight = FlyWeightFactory.get(make, model, processor);
-    this.memory = memory;
-    this.tag = tag
-  }
-  getMake () {
-    return this.flyweight.make
-  }
-  // ...
+class UnshareConcreteFlyweight implements Flyweight {
+    state!: string
+    operation(state: string) {
+        this.state = state
+    }
+}
+
+class FlyweightFactory {
+    flyweights: Map<string, Flyweight> = new Map()
+
+    getFlyweight(key: string): Flyweight {
+        const flyweight = this.flyweights.get(key)
+        if (flyweight) {
+            return flyweight
+        } else {
+            const newFlyweight = new ConcreteFlyweight()
+            this.flyweights.set(key, newFlyweight)
+            return newFlyweight
+        }
+    }
 }
 ```
-```js
-const computers = new ComputerCollection();
 
-computers.add('Dell', 'Studio XPS', 'Intel', '5G', 'Y755P');
-computers.add('Dell', 'Studio XPS', 'Intel', '6G', 'X997T');
-computers.add('Dell', 'Studio XPS', 'Intel', '2G', 'U8U80');
-computers.add('Dell', 'Studio XPS', 'Intel', '2G', 'NT777');
-computers.add('Dell', 'Studio XPS', 'Intel', '2G', '0J88A');
-computers.add('HP', 'Envy', 'Intel', '4G', 'CNU883701');
-computers.add('HP', 'Envy', 'Intel', '2G', 'TXU003283');
+#### 협력 방법
+- `Flyweight`객체가 기능을 수행하는 데 필요한 상태가 본질적인 것인지 부가적인것인지를 구분해야 한다.
+  - 본질적인 상태는 `ConcreteFlyweight`에 저장해야 한다.
+  - 부가적인 상태는 사용자가 저장하거나, 연산되어야 하는 다른 상태로 관리 해야 한다.
+  - 사용자는 연산을 호출할 때 자신에게만 필요한 부가적 상태를 `Flyweight` 객체에 매개변수로 전달한다.
+- 사용자는 `ConcreteFlyweight`의 인스턴스를 직접 만들 수 없다.
+  - 사용자는 `ConcreteFlyweight`객체를 `FlyweightFactory`객체에서 언어야 한다. 이렇게 해야 `Flyweight`객체가 공유될 수 있다.
 
-console.log(`Computers: ${computers.getCount()}`);
-console.log(`Flyweights: ${FlyWeightFactory.getCount()}`);
+#### 사용자측 코드
+```ts
+const flyweightFactory = new FlyweightFactory()
+const unsharedFlyweight = new UnshareConcreteFlyweight()
+const concreteFlyweight1 = flyweightFactory.getFlyweight('something')
+const concreteFlyweight2 = flyweightFactory.getFlyweight('something')
+
+concreteFlyweight1.operation('sharedState')
+console.log(concreteFlyweight1.state === concreteFlyweight2.state) // true
+```
+
+## 프록시(Proxy)
+### 의도
+다른 객체에 대한 접근을 제어하기 위한 대리자 또는 자리체움자 역할을 하는 객체를 둔다.
+
+어떤 객체에 대한 접근을 제어하는 한 가지 이유는 실제로 그 객체를 사용할 수 있을 때까지
+객체 생성과 초기화에 들어가는 비용 및 시간을 묻지 않겠다는 것이다.
+
+### 활용성
+- **Remote Proxy**는 서로 다른 주소 공간에 존재하는 객체를 가리키는 대표 객체로, 로컬 환경에 위치한다.
+- **Virtual Proxy**는 요청이 있을 때만 필요한 고비용 객체를 생성한다.
+- **Protection Proxy**는 원래 객체에 대한 실제 접근을 제어한다.
+  - 이는 객체 별로 접근 제어 권한이 다를 때 유용하게 사용할 수 있다.
+- **Smart Reference**는 원시 포인터의 대채용 객체로, 실제 객체에 접근이 일어날 때 추가적인 행동을 수행한다.
+
+### 구조 및 구현
+`Proxy`클래스는 자신이 받을 요청을 `RealSubject`객체에 전달한다.
+
+```ts
+interface Subject {
+    request(): void
+}
+
+class RealSubject implements Subject {
+    request() {}
+}
+
+class ProxySubject implements Subject {
+    realSubject: Subject
+    constructor(subject: Subject) {
+        this.realSubject = subject
+    }
+    request() {
+        this.realSubject.request()
+    }
+}
+```
+
+#### 사용자측 코드
+```ts
+const realSubject = new RealSubject()
+const proxySubject = new ProxySubject(realSubject)
+proxySubject.request()
 ```

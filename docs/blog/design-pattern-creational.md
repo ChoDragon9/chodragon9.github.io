@@ -1,370 +1,314 @@
 ---
-sidebar: auto
+layout: post
 title:  "GoF 디자인 패턴 | 생성패턴"
-date:   2018-12-09
+date:   2020-09-27
 description: GoF 디자인 패턴 중 생성패턴을 정리합니다.
 tags: [pattern]
 category: 패턴
+sidebar: auto
 ---
+
 # GoF 디자인 패턴 | 생성패턴
-## 싱글턴(Singleton)
-오직 한 개의 클래스 인스턴스만을 갖도록 보장하고, 이에 대한 전역적인 접근점을 제공합니다.
+- 인스턴스를 만드는 절차를 추상화하는 패턴이다.
+- 객체를 생성 및 합성하는 방법 또는 객체의 표현 방법을 시스템에서 분리해준다.
 
-* 클래스의 인스턴스가 오직 하나여야 함을 보장하고, 잘 정의된 접근점으로 모든 사용자가 접근 할 수 있도록 해야 할 때
-* 유일한 인스턴스가 서브클래싱으로 확장되어야 하며, 사용자는 코드의 수정없이 확장된 서브클래스의 인스턴스를 사용할 수 있어야 할 때
+#### 활용성
+- 생성패턴은 시스템이 어떤 구체 클래스를 사용하는 지에 대한 정보를 캡슐화한다.
+- 생성패턴은 이들 클래스의 인스턴스들이 어떻게 만들고 서로 맞붙는지에 대한 부분을 완전히 가려준다.
 
-### TypeScript
-```ts
-class Person {
-  private constructor () {}
-  private static instance: Person
-  static create() {
-    if (!this.instance) {
-      this.instance = new Person()
-    }
-    return this.instance;
-  }
-}
-
-const instance1 = Person.create();
-const instance2 = Person.create();
-
-console.log(instance1 === instance2); // true
-```
-
-### ES6 Class
-```js
-class Person {
-  constructor () {}
-}
-
-const Singleton = (() => {
-  let instance = null
-
-  return {
-    getInstance () {
-      if (!instance) {
-        instance = new Person()
-      }
-      return instance
-    }
-  }
-})()
-```
-```js
-const instance1 = Singleton.getInstance()
-const instance2 = Singleton.getInstance()
-
-console.log(instance1 === instance2) // true
-```
-
-### ES6 Module
-```js
-class Person {
-  constructor () {}
-}
-
-export default new Person();
-```
-```js
-import instance1 from './singleton-module'
-import instance2 from './singleton-module'
-
-console.log(instance1 === instance2); // true
-```
-
-## 팩토리 메서드
-객체를 생성하기 위해 인터페이스를 정의하지만, 어떤 클래스의 인스턴스를 생성할지에 대한 결정은 서브클래스가 내리도록 합니다.
-
-(MVC에서 View가 Controller의 인스턴스 생성할 때와 동일함)
-
-![](../img/design-pattern/38173590-b5d92d46-35fb-11e8-9d9f-304821417cd5.jpg)
-
-- 어떤 클래스가 자신이 생성해야 하는 객체의 클래스를 예측할 수 없을 때
-- 생성할 객체를 기술하는 책임을 자신의 서브클래스가 지정했으면 할 때
-- 객체 생성의 책임을 몇 개의 보조 서브클래스 가운데 하나에게 위임하고, 어떤 서브클래서가 위임자인지에 대한 정보를 국소화시키고 싶을 때
-
-### TypeScript
-```ts
-enum EmployeeEnum {
-  FULL_TIME = 'FULL_TIME',
-  PART_TIME = 'PART_TIME',
-  TEMPORARY = 'TEMPORARY',
-}
-
-interface EmployeeInterface {
-  hourly: string
-}
-
-class FullTime implements EmployeeInterface {
-  hourly: string;
-  constructor () {
-    this.hourly = '$12';
-  }
-}
-
-class PartTime implements EmployeeInterface {
-  hourly: string;
-  constructor () {
-    this.hourly = '$11';
-  }
-}
-
-class Temporary implements EmployeeInterface {
-  hourly: string;
-  constructor () {
-    this.hourly = '$10';
-  }
-}
-
-class Employee {
-  static create (type: EmployeeEnum): EmployeeInterface {
-    switch (type) {
-      case EmployeeEnum.FULL_TIME:
-        return new FullTime()
-      case EmployeeEnum.PART_TIME:
-        return new PartTime()
-      case EmployeeEnum.TEMPORARY:
-        return new Temporary()
-    }
-  }
-}
-```
-```ts
-const employees: EmployeeInterface[] = [];
-
-employees.push(Employee.create(EmployeeEnum.FULL_TIME))
-employees.push(Employee.create(EmployeeEnum.PART_TIME))
-employees.push(Employee.create(EmployeeEnum.TEMPORARY))
-
-employees.forEach(employee => console.log(employee.hourly))
-// $12
-// $11
-// $10
-```
-
-### ES6 Class
-```js
-class FullTime {
-  constructor () {
-    this.hourly = "$12";
-  }
-}
-
-class PartTime {
-  constructor () {
-    this.hourly = "$11";
-  }
-}
-
-class Temporary {
-  constructor () {
-    this.hourly = "$10";
-  }
-}
-
-class Employee {
-  static create (type) {
-    switch (type) {
-      case Employee.FULL_TIME:
-        return new FullTime()
-      case Employee.PART_TIME:
-        return new PartTime()
-      case Employee.TEMPORARY:
-        return new Temporary()
-    }
-  }
-  static get FULL_TIME () {
-    return 'FULL_TIME'
-  }
-  static get PART_TIME () {
-    return 'PART_TIME'
-  }
-  static get TEMPORARY () {
-    return 'TEMPORARY'
-  }
-}
-```
-```js
-const employees = []
-
-employees.push(Employee.create(Employee.FULL_TIME))
-employees.push(Employee.create(Employee.PART_TIME))
-employees.push(Employee.create(Employee.TEMPORARY))
-
-employees.forEach(employee => console.log(employee.hourly))
-// $12
-// $11
-// $10
-```
-
-## 추상 팩토리
+## 추상 팩토리(Abstract Factory)
+### 의도
 구체적인 클래스를 지정하지 않고 관련성을 갖는 객체들의 집합을 생성하거나 서로 독립적인 객체들의 집합을 생성할 수 있는 인터페이스를 제공하는 패턴
 
-![](../img/design-pattern/38173856-7c2b4c92-35ff-11e8-813b-fc18ba9f0755.jpg)
-
-- 객체가 생성되거나 구성 또는 표현되는 방식과 무관하게 시스템을 독립적으로 만들고자 할 때
+### 활용성
 - 여러 제품군 중 하나를 선택해서 시스템을 설정해야 하고 한번 구성한 제품을 다른 것으로 대체할 수 있을 때
 - 관련된 제품 객체들이 함께 사용되로록 설계되었고, 이 부분에 대한 제약이 외부에도 지켜지도록 하고 싶을 때
 - 제품에 대한 클래스 라이브러리를 제공하고, 그들의 구현이 아닌 인터페이스를 노출시키고 싶을 때
 
-```js
-class Employee {
-  constructor (name) {
-    this.name = name;
-  }
-  say () {
-    console.log(`I am employee ${this.name}`);
-  }
+### 구조 및 구현
+```ts
+interface AbstractFactory {
+    createProductA(): AbstractProductA
+    createProductB(): AbstractProductB
 }
 
-class EmployeeFactory {
-  constructor () {}
-  create (name) {
-    return new Employee(name);
-  }
+class ConcreteFactory1 implements AbstractFactory {
+    createProductA() {
+        return new ProductA1()
+    }
+    createProductB() {
+        return new ProductB1()
+    }
+}
+
+class ConcreteFactory2 implements AbstractFactory {
+    createProductA() {
+        return new ProductA2()
+    }
+    createProductB() {
+        return new ProductB2()
+    }
+}
+
+interface AbstractProductA { }
+interface AbstractProductB { }
+
+class ProductA1 implements AbstractProductA {}
+class ProductA2 implements AbstractProductA {}
+
+class ProductB1 implements AbstractProductB {}
+class ProductB2 implements AbstractProductB {}
+
+```
+
+#### 협력 방법
+- `ConcreteFactory` 클래스의 인스턴스 한 개가 런타임에 만들어진다.
+- `ConcreteFactory`는 어떤 특정 구현을 갖는 제품 객체를 생성한다.
+- 서로 다른 제품을 생성하려면 서로 다른 `ConcreteFactory`를 사용해야 한다.
+
+#### 사용자측 코드
+```ts
+// 제품을 사용할 때
+const factory: AbstractFactory = new ConcreteFactory1()
+factory.createProductA()
+factory.createProductB()
+
+// 다른 제품을 사용할 때
+const factory: AbstractFactory = new ConcreteFactory2()
+factory.createProductA()
+factory.createProductB()
+```
+## 빌더(builder)
+### 의도
+복잡한 객체를 생성하는 방법과 표현하는 방법을 정의하는 클래스를 별도로 분리하여, 서로 다른 표현이라도 이를 생성할 수 있는 동일한 절차를 제공할 수 있도록 합니다.
+
+### 활용성
+- 합성할 객체들의 표현이 서로 다르더라도 생성 절차에서 이를 지원해야 할 때
+- 복합 객체의 생성 알고리즘이 이를 합성하는 요소 객체들이 무엇인지 이들의 조립 방법에 독립적일 때
+
+### 구조 및 구현
+```ts
+interface Builder {
+    buildPart1(): void
+    buildPart2(): void
+}
+
+class ConcreteBuilder implements Builder {
+    private product = new Product()
+
+    buildPart1() {
+        this.product.setState1(10)
+    }
+    buildPart2() {
+        this.product.setState2(20)
+    }
+    getResult() {
+        return this.product
+    }
+}
+
+class Product {
+    private state1: number = 0
+    private state2: number = 0
+
+    setState1(state1: number) {
+        this.state1 = state1
+    }
+    setState2(state2: number) {
+        this.state2 = state2
+    }
+}
+
+class Director {
+    private builder: Builder
+
+    constructor (builder: Builder) {
+        this.builder = builder
+    }
+    construct() {
+        this.builder.buildPart1()
+        this.builder.buildPart2()
+    }
 }
 ```
-```js
-const persons = [];
-const employeeFactory = new EmployeeFactory();
 
-persons.push(employeeFactory.create('Joan DiSilva'));
-persons.push(employeeFactory.create('Tim O\'Neill'));
+#### 협력 방법
+- 사용자는 `Director`객체를 생성하고, 이렇게 생성한 객체를 자신이 원하는 `Builder`객체로 합성해 나간다.
+- 제품의 일부가 구축될 때마다 `Director`는 Builder에 통보한다.
+- `Builder`는 `Director`의 요청을 처리하여 제품에 부품을 추가한다.
+- 사용자는 `Builder`에서 제품을 요청한다.
 
-persons.forEach(person => person.say())
-// I am employee Joan DiSilva
-// I am employee Tim O'Neill
+#### 사용자측 코드
+```ts
+const builder = new ConcreteBuilder()
+const director = new Director(builder)
+
+director.construct()
+builder.getResult()
+```
+
+## 팩토리 메서드(Factory Method)
+### 의도
+객체를 생성하기 위해 인터페이스를 정의하지만, 어떤 클래스의 인스턴스를 생성할지에 대한 결정은 서브클래스가 내리도록 합니다.
+
+### 활용성
+- 어떤 클래스가 자신이 생성해야 하는 객체의 클래스를 예측할 수 없을 때
+- 생성할 객체를 기술하는 책임을 자신의 서브클래스가 지정했으면 할 때
+
+### 구조 및 구현
+1. 구현 방법은 크게 두가지다. 추상 클래스 또는 구체 클래스.
+2. 팩토리 메서드를 매개변수화 한다.
+   - 매개변수를 받아 어떤 종류의 제품을 생성할 지 식별한다.
+
+#### 추상 클래스
+```ts
+abstract class Creator {
+    private product!: Product
+    anOperation() {
+        this.product = this.factoryMethod()
+        this.product.doSomething()
+    }
+    abstract factoryMethod(): Product
+}
+
+interface Product {
+    doSomething(): void
+}
+class ConcreteProduct1 implements Product {
+    doSomething() {}
+}
+class ConcreteProduct2 implements Product {
+    doSomething() {}
+}
+
+class ConcreteCreator1 extends Creator {
+    factoryMethod() {
+        return new ConcreteProduct1()
+    }
+}
+class ConcreteCreator2 extends Creator {
+    factoryMethod() {
+        return new ConcreteProduct2()
+    }
+}
+```
+```ts
+const creator1 = new ConcreteCreator1()
+creator1.anOperation()
+
+const creator2 = new ConcreteCreator2()
+creator2.anOperation()
+```
+
+#### 매개변수
+```ts
+type CreatorType = 1 | 2
+
+class Creator {
+    private product!: Product
+    anOperation(type: CreatorType) {
+        this.product = this.factoryMethod(type)
+        this.product.doSomething()
+    }
+    factoryMethod(type: CreatorType): Product {
+        switch (type) {
+            case 1:
+                return new ConcreteProduct1()
+            case 2:
+                return new ConcreteProduct2()
+        }
+    }
+}
+
+interface Product {
+    doSomething(): void
+}
+class ConcreteProduct1 implements Product {
+    doSomething() {}
+}
+class ConcreteProduct2 implements Product {
+    doSomething() {}
+}
+```
+```ts
+const creator = new Creator()
+creator.anOperation(1)
+creator.anOperation(2)
 ```
 
 ## 원형(Prototype)
-
+### 의도
 원형이 되는 인스턴스를 사용하여 생성할 객체의 종류를 명시하고, 이렇게 만든 견본을 복사해서 새로운 객체를 생성합니다.
 
-![](../img/design-pattern/38410249-0e4a4f66-39bf-11e8-8cfd-092ce4782562.jpg)
-
-원형 패턴은 제품의 생성, 복합, 표현 방법에 독립적인 제품을 만들고자 할 때 씁니다.
-- 인스턴스화할 클래스를 런타임에 지정할 때
+### 활용성
+- 제품의 생성, 복합, 표현 방법에 독립적인 제품을 만들고자 할 때
 - 제품 클래스 계통과 병렬적으로 만드는 팩토리 클래스를 피하고 싶을 때
-- 클래스의 인스턴스들이 서로 다른 상태 조합 중에 어느 하나일 때 원형 패턴을 씁니다. 이들을 미리 원현으로 초기화해 두고,
-나중에 복제해서 사용하는 것이 매번 필요한 상태 조합의 값들을 수동적으로 초기화하는 것보다 더 편리할 수도 있습니다.
+- 클래스로 꼭 정의 할 필요없는 경우, 클래스의 수를 줄이고 싶을 때
 
-```js
-class CustomerPrototype {
-  constructor (proto) {
-    this.proto = proto
-  }
-  clone () {
-    const {first, last, status} = this.proto
-    return new Customer(first, last, status)
-  }
+### 구조 및 구현
+```ts
+interface Prototype {
+    clone(): Prototype
 }
 
-class Customer {
-  constructor (first, last, status) {
-    Object.assign(this, {first, last, status})
-  }
-  say () {
-    const {first, last, status} = this
-    console.log(`name: ${first} ${last}, status: ${status}`)
-  }
-}
-```
-```js
-const customer = new Customer('n/a', 'n/a', 'pending')
-const prototype = new CustomerPrototype(customer)
-
-const clonedCustomer = prototype.clone()
-clonedCustomer.first = 'Peter'
-clonedCustomer.last = 'Cho'
-clonedCustomer.status = 'closed'
-
-customer.say()
-clonedCustomer.say()
-// name: n/a n/a, status: pending
-// name: Peter Cho, status: closed
-```
-
-## 빌더(builder)
-복잡한 객체를 생성하는 방법과 표현하는 방법을 정의하는 클래스를 별도로 분리하여, 서로 다른 표현이라도 이를 생성할 수 있는 동일한 절차를 제공할 수 있도록 합니다.
-
-![](../img/design-pattern/38411406-ff14c730-39c1-11e8-9af9-c7d101717d88.jpg)
-
-- 복합 객체의 생성 알고리즘이 이를 합성하는 요소 객체들이 무엇인지 이들의 조립 방법에 독립적일 때
-- 합성할 객체들의 표현이 서로 다르더라도 생성 절차에서 이를 지원해야 할 때
-
-```js
-class Car {
-  constructor () {
-    this.doors = 0
-  }
-  addParts () {
-    this.doors = 4
-  }
-  say () {
-    console.log(`I am a ${this.doors}-door car`)
-  }
-}
-class CarBuilder {
-  constructor () {
-    this.car = null
-  }
-  step1 () {
-    this.car = new Car()
-  }
-  step2 () {
-    this.car.addParts()
-  }
-  get () {
-    return this.car
-  }
-}
-
-class Truck {
-  constructor () {
-    this.doors = 0
-  }
-  addParts () {
-    this.doors = 2
-  }
-  say () {
-    console.log(`I am a ${this.doors}-door truck`)
-  }
-}
-class TruckBuilder {
-  constructor () {
-    this.truck = null
-  }
-  step1 () {
-    this.truck = new Truck()
-  }
-  step2 () {
-    this.truck.addParts()
-  }
-  get () {
-    return this.truck
-  }
-}
-
-class Shop {
-  constructor () {}
-  construct (builder) {
-    builder.step1()
-    builder.step2()
-    return builder.get()
-  }
+class ConcretePrototype implements Prototype {
+    private state = 0
+    constructor(origin?: ConcretePrototype) {
+        if (origin) {
+            this.state = origin.state
+        }
+    }
+    clone() {
+        return new ConcretePrototype(this)
+    }
+    addState (state: number) {
+        this.state += state
+    }
+    log() {
+        console.log(this.state)
+    }
 }
 ```
-```js
-const shop = new Shop()
-const carBuilder = new CarBuilder()
-const truckBuilder = new TruckBuilder()
 
-const car = shop.construct(carBuilder)
-const truck = shop.construct(truckBuilder)
+#### 사용자측 코드
+```ts
+const product1 = new ConcretePrototype()
+product1.log() // 0
 
-car.say()
-truck.say()
-// I am a 4-door car
-// I am a 2-door truck
+const product2 = product1.clone()
+product2.addState(10)
+product2.log() // 10
+
+const product3 = product2.clone()
+product3.addState(10)
+product3.log() // 20
+```
+
+## 싱글턴(Singleton)
+### 의도
+오직 한 개의 클래스 인스턴스만을 갖도록 보장하고, 이에 대한 전역적인 접근점을 제공합니다.
+
+### 활용성
+- 클래스의 인스턴스가 오직 하나여야 함을 보장하고, 잘 정의된 접근점으로 모든 사용자가 접근 할 수 있도록 해야 할 때
+- 유일한 인스턴스가 서브 클래싱으로 확장 되어야 하며, 사용자는 코드의 수정없이 확장된 서브클래스의 인스턴스를 사용할 수 있어야 할 때
+- 전역 변수를 사용하여 이름 공간을 망치는 일을 없애주기 때문에 단일체 패턴을 전역변수보다 이름공간을 좁힐 수 있다.
+
+### 구조 및 구현
+```ts
+class Singleton {
+    private static uniquInstance: Singleton
+    
+    private constructor() { }
+
+    static instance(): Singleton {
+        if (!this.uniquInstance) {
+            this.uniquInstance = new Singleton()
+        }
+        return this.uniquInstance
+    }
+}
+
+const product1 = Singleton.instance()
+const product2 = Singleton.instance()
+console.log(product1 === product2) // true
 ```
