@@ -6,6 +6,10 @@
 블로그의 오류나 개선점은 언제든 환영입니다. 이슈 제보는 [여기](https://github.com/ChoDragon9/ChoDragon9.github.io/issues)에 신고해주시면 적극 반영하겠습니다 :)
 :::
 
+::: warning Design Patterns
+[Design Patterns](https://chodragon9.github.io/design-patterns/)는 디자인 패턴을 정리한 문서입니다.
+:::
+
 ::: warning DragonJs
 [DragonJs](https://chodragon9.github.io/dragonjs/)는 바닐라 자바스크립트로 구성된 **펫 프로젝트들**로 이루어집니다.
 :::
