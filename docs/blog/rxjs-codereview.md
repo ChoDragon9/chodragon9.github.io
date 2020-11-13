@@ -30,12 +30,12 @@ $ "observer: 2"
 
 ### 상태 전파 코드 위치
 이 부분이 Subject를 통해 상태 전파하는 코드이다.
-```
+```js
 subject.next(1);
 subject.next(2);
 ```
 이 부분이 Subject에 Observer를 등록하여 구독하는 코드이다.
-```
+```js
 subject.subscribe((v) => console.log(`observer: ${v}`));
 ```
 
@@ -94,11 +94,11 @@ export class MyComponent {
 
 ### 구독 해지 방법
 구독 해지에 대한 사례이다. 이 코드는 Observer를 등록한 코드이다.
-```
+```js
 subject.subscribe((v) => console.log(`observer: ${v}`));
 ```
 이렇게 사용한 코드의 사례를 봤다. pipe를 통해 Component가 삭제됬을 때 Observer가 실행안되게 하는 것이다.
-```
+```js
 ngOnInit () {
   subject
     .pipe(takeWhile(() => this.isSubscribe))
