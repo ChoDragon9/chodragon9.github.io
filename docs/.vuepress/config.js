@@ -3,6 +3,12 @@ module.exports = {
   themeConfig: {
     nav: [
       {
+        text: '성능',
+        items: [
+          {text: 'RAIL 정리', link: '/blog/rail/'},
+        ]
+      },
+      {
         text: '설계',
         items: [
           {
