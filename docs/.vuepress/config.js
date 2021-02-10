@@ -6,6 +6,7 @@ module.exports = {
         text: '성능',
         items: [
           {text: 'RAIL 정리', link: '/blog/rail/'},
+          {text: 'Web Vitals 정리', link: '/blog/web-vitals/'},
           {text: 'Effective Connection Type 정리', link: '/blog/effective-connection-type/'},
         ]
       },
