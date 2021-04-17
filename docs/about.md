@@ -2,8 +2,6 @@
 title: 소개
 ---
 
-![](./img/profile.png)
-
 ### 소개
 조용구 | 프런트 엔지니어
 
@@ -17,32 +15,16 @@ title: 소개
 
 ### 주요 프로젝트
 - 카카오
+    - 사내 플랫폼 개발
     - [카카오 for 비즈니스](https://business.kakao.com/)
-        - 비즈니스 도구들을 관리할 수 있는 통합 비즈니스 플랫폼
-        - Nuxt
     - [카카오톡 비즈니스폼](https://business.kakao.com/talkbizform/)
-        - 카카오톡 사용자가 예약, 설문, 응모 등의 참여 신청을 광고주가 직접 설계할 수 있는 플랫폼
-        - TS, Vue Composition API
     - [kakao i open builder](https://i.kakao.com/)
-        - 카카오 i 설계 플랫폼
-        - 챗봇/보이스봇 동작에 대한 설계 플랫폼 개발
-        - TS, Angular, RxJs
     - 카카오톡 영화예매 서비스
-        - 카카오톡 내에서 영화예매 서비스 제공
-        - 2019.12 서비스 종료 ㅠㅠ
-        - ES6, Vue, Vuex, Vue SSR, Mocha
 - 한화테크윈
     - B2B CCTV 웹뷰어 플랫폼 구축
-        - AngularJs, less
-        - WN5 관련 UI 개편
-        - 셋업/VA 기능 프런트 담당
-        - WebViewer UI 개발 리더
-        - 프런트 엔드 테크니컬 리더
 - 삼성테크윈
     - 전사 웹 프레임워크 개발
-        - AngularJs, nodeJs 기반
     - PnP 2.0 Mobile: 칩마운터 장비 모니터링 하이브리드 앱 개발
-        - Cordova 기반
 
 ### 수상
 - 2019.04 제주도 기능경기대회 심사위원 위촉 | 제주도특별자치도 기능경기위원회
